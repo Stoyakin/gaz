@@ -1,0 +1,9 @@
+mixin publ(data)
+  +b.publ&attributes(attributes)
+    each item in data
+      +e('article').item
+        +e('a').item-cover(href="#" style="background-image: url('"+item.img+"');")
+        +e.item-info
+          +e('a')(href="#").item-title #{item.title}
+          +e('time').item-date #{item.date}
+          +e('p').item-text #{item.text}

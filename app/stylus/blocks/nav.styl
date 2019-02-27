@@ -1,0 +1,48 @@
+.nav
+  position fixed
+  left 0
+  top 110px
+  width 96px
+  height calc(100vh - 110px)
+  min-height 650px
+  background-color white
+  box-shadow -15px 0 56.4px 3.6px rgba(0, 0, 0, 0.08)
+  z-index 10
+
+  &__list
+    display flex
+    flex-direction column
+    justify-content space-between
+    height 100%
+
+    &-item
+      border-top 1px solid #f2f2f2
+
+    &-href
+      display flex
+      flex-direction column
+      justify-content flex-start
+      align-items center
+      padding 35px 10px 20px
+
+      &-overico
+        margin-bottom 10px
+
+        svg
+          fill #a7a7a7
+          transition fill .4s
+
+      &-text
+        color #a7a7a7
+        font-size 12px
+        line-height 14px
+        font-weight 500
+        transition color .4s
+
+      &:hover
+        .nav__list-href
+          &-overico svg
+            fill $blueLight
+
+          &-text
+            color $blueLight

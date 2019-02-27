@@ -1,0 +1,134 @@
+.footer
+  &__top
+    padding 50px 0
+    background-color #f8f8f8
+
+  &__row
+    display flex
+    flex-wrap wrap
+    margin 0 -13.5px
+    width calc(100% + 27.5px)
+
+  &__col
+    width calc(100%/6 - 27.5px)
+    margin 0 13.5px
+
+    &--x2
+      width calc(100%/3 - 27.5px)
+
+      .footer__nav
+        column-count 2
+
+    &-title
+      position relative
+      color $color
+      font-size 18px
+      font-weight 500
+      line-height 22px
+      padding-bottom 20px
+      margin-bottom 30px
+
+      &:after
+        @extend .after
+        left 0
+        bottom 0
+        width 20px
+        height 3px
+        background-color $blueLight
+
+  &__nav
+    &--bottom
+      display inline-flex
+
+      .footer__nav
+        &-item
+          margin-right 20px
+          margin-bottom 0
+
+          &:last-child
+            margin-right 0
+
+        &-href
+          font-size 13px
+          font-weight 400
+          line-height 17px
+          color #737374
+          border none
+          transition color .4s
+          white-space nowrap
+
+          &:hover, &--active
+            color white
+
+    &-item
+      margin-bottom 15px
+      &:last-child
+        margin-bottom 0
+
+    &-href
+      color #797a7a
+      font-size 15px
+      font-weight 400
+      line-height 19px
+      border-bottom 2px solid transparent
+
+      &--active
+        color $color
+        border-color $blueLight
+
+  &__bottom
+    background-color #1d1f20
+    padding 30px 0
+
+    .footer__row
+      width 100%
+      margin 0
+      align-items center
+
+  &__coopy
+    color rgba(#fff, .14)
+    font-size 13px
+    line-height 17px
+    font-weight 400
+    margin-right 60px
+
+  &__dev
+    display inline-flex
+    vertical-align top
+    align-items flex-start
+    text-align left
+    margin-left auto
+    color #6e6e6e
+    font-family Arial
+    font-size 10px
+    line-height 12px
+    font-weight 400
+    text-transform uppercase
+    letter-spacing 0.06em
+    margin-top 3px
+    transition opacity .4s
+
+    &:hover
+      opacity .7
+
+    @media $desktopMax
+      font-size 9px
+      line-height 11px
+
+    span
+      display inline-block
+      vertical-align middle
+      color lightgrey
+      font-family Arial
+      font-size 14px
+      line-height 16px
+      font-weight 700
+      text-transform uppercase
+      margin-right 11px
+      padding 4px 5px 3px
+      background-color #076af2
+      letter-spacing .1em
+
+      @media $desktopMax
+        font-size 12px
+        line-height 14px

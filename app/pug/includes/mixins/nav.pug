@@ -1,0 +1,23 @@
+mixin nav(data)
+  +b('nav').nav&attributes(attributes)
+    +e('ul').list
+      each item in data
+        +e('li').list-item
+          +e('a')(href="#").list-href
+            +e('span').list-href-overico
+              case item.ico
+                when 'menu-ico2'
+                  include ../../../../prod/static/img/svg/menu/menu-ico2.svg
+                when 'menu-ico3'
+                  include ../../../../prod/static/img/svg/menu/menu-ico3.svg
+                when 'menu-ico4'
+                  include ../../../../prod/static/img/svg/menu/menu-ico4.svg
+                when 'menu-ico5'
+                  include ../../../../prod/static/img/svg/menu/menu-ico5.svg
+                when 'menu-ico6'
+                  include ../../../../prod/static/img/svg/menu/menu-ico6.svg
+                when 'menu-ico7'
+                  include ../../../../prod/static/img/svg/menu/menu-ico7.svg
+                default
+                  include ../../../../prod/static/img/svg/menu/menu-ico.svg
+            +e('span').list-href-text #{item.text}
