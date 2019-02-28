@@ -1,7 +1,7 @@
 mixin services(data)
-  +e('ul').list
+  +e.row
     each item in data
-      +e('li').list-item
-        +e.list-item-overico
-          +e('img')(src=item.ico alt="").list-item-ico
-        +e('p').title !{item.title}
+      +e('a')(href="#").item
+        +e('span').item-overico
+          +e('img')(src=item.ico alt="").item-ico
+        +e('span').item-title !{item.title}

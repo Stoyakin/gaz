@@ -1,0 +1,47 @@
+.igall
+  margin-bottom 150px
+
+  //&__title
+  .swiper
+  //-container
+  // .swiper-wrapper
+    &-slide
+      width auto
+
+      &-active
+        .igall__overimg
+          &:before
+            width 0
+
+  &__overimg
+    display inline-block
+    vertical-align top
+    width calc(100vw - 607px)
+    position relative
+    z-index 1
+
+    &:before
+      @extend .before
+      left 0
+      top 0
+      width 100%
+      height 100%
+      background-color rgba($color, .5)
+      transition width .4s
+      z-index 1
+
+  &__img
+    width 100%
+    padding-top 57.731%
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+
+  .swiper-buttons
+    background-color #fff
+    position absolute
+    z-index 1
+    left calc(100vw - 857px)
+    bottom 0
+    //.swiper-button-prev
+    //.swiper-button-next

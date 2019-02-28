@@ -1,3 +1,72 @@
+.title
+  position relative
+  color #1d1f20
+  font-size 36px
+  line-height 40px
+  font-weight 500
+  padding-bottom 30px
+  margin-bottom 35px
+  letter-spacing .02em
+
+  &:after
+    @extend .after
+    left 0
+    bottom 0
+    width 52px
+    height 3px
+    background-color $blueLight
+
+  &--white
+    color #fff
+
+    &:after
+      background-color #fff
+
+.swiper
+  &-buttons
+    background-color #fff
+    display inline-flex
+
+  &-button
+    &-prev, &-next
+      position relative
+      left auto
+      right auto
+      top auto
+      margin 0
+      width 125px
+      height 96px
+      transform none
+      background none
+
+      &:hover
+        &:before
+          border-color $blueLight
+
+      &:before
+        @extend .before
+        left 50%
+        top 50%
+        transform translate(-50%, -50%) rotate(45deg)
+        width 8px
+        height 8px
+        border-left 2px solid $color
+        border-bottom 2px solid $color
+        transition border .4s
+
+    &-next
+      &:before
+        transform translate(-50%, -50%) rotate(45deg) scale(-1, -1)
+      &:after
+        @extend .after
+        left 0
+        top 50%
+        transform translateY(-50%)
+        width 2px
+        height 26px
+        background-color whitesmoke
+
+/*
 .text
   color #1d1f20
 
@@ -261,6 +330,6 @@
   p:not([class]):first-child,
   table:not([class])
     margin-top 0 !important
-
+*/
 .hidden-block
   display none

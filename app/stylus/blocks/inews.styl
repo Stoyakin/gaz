@@ -1,0 +1,33 @@
+.inews
+  margin-bottom 60px
+
+  &__top
+    display flex
+    align-items flex-start
+    margin-bottom 42px
+
+    &-right
+      display flex
+      flex-shrink 0
+      margin-left auto
+
+  &__title
+    margin-top 13px
+    max-width calc(100% - 700px)
+    margin-bottom 0
+
+  &__all-href, &__subscr-href
+    min-width 300px
+    text-align center
+    flex-shrink 0
+    padding 33px 41px 27px
+
+  &__all-href
+    transition color .4s, border .4s
+    border 3px solid #f1f7ff
+
+    &:hover
+      border-color $blueLight
+
+  &__subscr-href
+    margin-left 28px

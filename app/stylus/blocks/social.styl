@@ -1,9 +1,38 @@
 .social
   padding 0
-  /*
+  display inline-flex
+  align-items center
+  margin 0 0 0 auto
+
   &__item
+    flex-shrink 0
+    margin-right 35px
+
+    &:last-child
+      margin-right 0
+
     &-href
+      display inline-block
+      vertical-align top
+      background-repeat no-repeat
+      background-position center
+
+      svg
+        fill #818283
+        transition fill .4s
+
+      &:hover
+        svg
+          fill #076af2
+
       &--vk
+        width 22px
+        height 12px
+
       &--fb
+        width 12px
+        height 22px
+
       &--ok
-  */
+        width 14px
+        height 22px

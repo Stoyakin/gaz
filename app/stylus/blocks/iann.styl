@@ -1,0 +1,121 @@
+.iann
+  height calc(100vh - 110px)
+  min-height 650px
+
+  .swiper
+    &-container
+      height 100%
+    // &-wrapper
+    // &-slide
+    &-ind
+      display flex
+      align-items center
+      position absolute
+      left 50%
+      transform translateX(-50%)
+      bottom 40px
+      user-select none
+      z-index 2
+
+      &-number
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-transform uppercase
+
+        &--prev
+          color #076af2
+
+        &--next
+          color $color
+
+      &-line
+        position relative
+        background-color white
+        width 444px
+        height 2px
+        flex-shrink 0
+        margin 0 20px
+
+        span
+          display block
+          height 2px
+          position absolute
+          left 0
+          top 0
+          background-color $blueLight
+          transition width 7s
+
+    &-nav
+      display flex
+      align-items center
+      background-color white
+      position absolute
+      bottom 0
+      right 0
+      z-index 2
+      user-select none
+      justify-content flex-end
+      width 393px
+
+    &-count
+      display flex
+      align-items flex-start
+
+      &-item
+        color #076af2
+        font-size 60px
+        line-height 52px
+        font-weight 400
+        text-transform uppercase
+
+      &-all
+        position relative
+        color rgba(black, .2)
+        font-size 18px
+        line-height 22px
+        font-weight 400
+        text-transform uppercase
+        margin-left 10px
+        min-width 26px
+
+        &:before
+          content '/'
+          display block
+          position absolute
+          left -10px
+          width 10px
+          height 22px
+          color rgba(black, .2)
+          font-size 18px
+          line-height 22px
+          font-weight 400
+          text-transform uppercase
+
+  &__content
+    display flex
+    height 100%
+    padding-left 105px
+    justify-content center
+    flex-direction column
+    align-items flex-start
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+
+    &-title
+      color #1d1f20
+      font-size 60px
+      font-weight 500
+      line-height 60px
+      margin-bottom 15px
+
+    &-text
+      color #1d1f20
+      font-size 32px
+      font-weight 400
+      line-height 48px
+
+    &-href
+      margin-top 60px
+      padding 33px 72px

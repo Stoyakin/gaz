@@ -5,7 +5,7 @@ doctype html
 html(lang="ru")
   - var title = "Главная"
   include includes/partials/head
-  
+
   body
     .wrapper.wrapper--index
       include includes/partials/header
@@ -25,39 +25,39 @@ html(lang="ru")
           .swiper-container.js-iann-swiper
             .swiper-wrapper
               .swiper-slide
-                +e.content(style="background: url('static/img/iann.jpg');")
-                  +e('h1').content-title
-                  +e('p').content-text
+                +e.content(style="background-image: url('static/img/iann.jpg');")
+                  +e('h1').content-title Новое <br>семейство
+                  +e('p').content-text коммерческих автомобилей ГАЗ
                   +e('a')(href="").content-href.btn Узнать подробнее
 
               .swiper-slide
-                +e.content(style="background: url('static/img/iann2.jpg');")
-                  +e('h1').content-title
-                  +e('p').content-text
+                +e.content(style="background-image: url('static/img/iann.jpg');")
+                  +e('h1').content-title Новое <br>семейство
+                  +e('p').content-text коммерческих автомобилей ГАЗ
                   +e('a')(href="").content-href.btn Узнать подробнее2
 
               .swiper-slide
-                +e.content(style="background: url('static/img/iann.jpg');")
-                  +e('h1').content-title
-                  +e('p').content-text
+                +e.content(style="background-image: url('static/img/iann.jpg');")
+                  +e('h1').content-title Новое <br>семейство
+                  +e('p').content-text коммерческих автомобилей ГАЗ
                   +e('a')(href="").content-href.btn Узнать подробнее3
 
               .swiper-slide
-                +e.content(style="background: url('static/img/iann2.jpg');")
-                  +e('h1').content-title
-                  +e('p').content-text
+                +e.content(style="background-image: url('static/img/iann.jpg');")
+                  +e('h1').content-title Новое <br>семейство
+                  +e('p').content-text коммерческих автомобилей ГАЗ
                   +e('a')(href="").content-href.btn Узнать подробнее4
 
             .swiper-ind
-              .swiper-ind-number.swiper-ind-number--prev
+              .swiper-ind-number.swiper-ind-number--prev 01
               .swiper-ind-line
                 span(style="width: 35%")
-              .swiper-ind-number.swiper-ind-number--next
-              
+              .swiper-ind-number.swiper-ind-number--next 02
+
             .swiper-nav
               .swiper-count
-                p.swiper-count-item
-                p.swiper-count-all
+                p.swiper-count-item 01
+                p.swiper-count-all 04
               .swiper-buttons
                 .swiper-button-prev
                 .swiper-button-next
@@ -79,7 +79,7 @@ html(lang="ru")
               { ico:'static/img/serv-ico/serv-ico11.png', title: 'Записаться <br>на сервис'},
               { ico:'static/img/serv-ico/serv-ico12.png', title: 'Пробная <br>поездка'}
             ])
-            
+
         +b('section').isel
           .container
             +e('h2').title.title Подбор автомобиля
@@ -150,19 +150,19 @@ html(lang="ru")
             .swiper-container.js-idealer-swiper
               .swiper-wrapper
                 .swiper-slide
-                  +e.item-overimg(data-tooltip="Значимость этих проблем настолько очевидна")
+                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна")
                     +e('img')(src="static/img/dealer.png" alt="").item-img
                 .swiper-slide
-                  +e.item-overimg(data-tooltip="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
+                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
                     +e('img')(src="static/img/dealer2.png" alt="").item-img
                 .swiper-slide
-                  +e.item-overimg(data-tooltip="Значимость этих проблем настолько очевидна")
+                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна")
                     +e('img')(src="static/img/dealer3.png" alt="").item-img
                 .swiper-slide
-                  +e.item-overimg(data-tooltip="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
+                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
                     +e('img')(src="static/img/dealer4.png" alt="").item-img
                 .swiper-slide
-                  +e.item-overimg(data-tooltip="Значимость этих проблем настолько очевидна")
+                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна")
                     +e('img')(src="static/img/dealer5.png" alt="").item-img
 
         +b('section').action
@@ -193,79 +193,79 @@ html(lang="ru")
               +e('ul').tabs-list
                 +e('li')(data-tabs="01").tabs-list-item
                   +e.carousel.swiper-container.js-action-swiper
-                      .swiper-wrapper
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                          ])
+                    .swiper-wrapper
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                        ])
 
                 +e('li')(data-tabs="02").tabs-list-item
                   +e.carousel.swiper-container.js-action-swiper
-                      .swiper-wrapper
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                          ])
+                    .swiper-wrapper
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                        ])
 
                 +e('li')(data-tabs="03").tabs-list-item
                   +e.carousel.swiper-container.js-action-swiper
-                      .swiper-wrapper
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                          ])
+                    .swiper-wrapper
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                        ])
 
                 +e('li')(data-tabs="04").tabs-list-item
                   +e.carousel.swiper-container.js-action-swiper
-                      .swiper-wrapper
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                          ])
+                    .swiper-wrapper
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                        ])
 
                 +e('li')(data-tabs="04").tabs-list-item
                   +e.carousel.swiper-container.js-action-swiper
-                      .swiper-wrapper
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                          ])
-                        .swiper-slide
-                          +publ([
-                            { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                          ])
+                    .swiper-wrapper
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                        ])
+                      .swiper-slide
+                        +publ([
+                          { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                        ])
 
         +b('section').inews
           .container
@@ -288,55 +288,61 @@ html(lang="ru")
           .swiper-container.js-igall-swiper
             .swiper-wrapper
               .swiper-slide
-                +e.img(style="background-image: url('static/img/igall.jpg');")
+                +e.overimg
+                  +e.img(style="background-image: url('static/img/igall.jpg');")
               .swiper-slide
-                +e.img(style="background-image: url('static/img/igall2.jpg');")
+                +e.overimg
+                  +e.img(style="background-image: url('static/img/igall2.jpg');")
               .swiper-slide
-                +e.img(style="background-image: url('static/img/igall3.jpg');")
-                
+                +e.overimg
+                  +e.img(style="background-image: url('static/img/igall3.jpg');")
+
             .swiper-buttons
               .swiper-button-prev
               .swiper-button-next
 
         +b('section').irev
           .container
-            +e.decor
-              +e.decor-item(style="background-image: url('static/img/irev-decor.jpg');")
-            +e.top
-              +e('h2').title.title.--white Отзывы наших довольных клиентов
-              +e('a')(href="#").write-href.btn.--lite Оставить отзыв
+            +e.row
+              +e.decor
+                +e.decor-item(style="background-image: url('static/img/irev-decor.jpg');")
 
-            +e.carousel
-              .swiper-container.js-igall-swiper
-                .swiper-ind
-                  .swiper-ind-number.swiper-ind-number--prev 01
-                  .swiper-ind-line
-                    span(style="width: 35%")
-                  .swiper-ind-number.swiper-ind-number--next 02
-                .swiper-wrapper
-                  .swiper-slide
-                    +e.item
-                      +e('p').item-company ООО «Шустрые перевозки»
-                      +e('p').item-author Сергей Петрович Сидоров
-                      +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
-                      +e('a')(href="#").item-read-href.btn.--blue Читать весь отзыв
-                  .swiper-slide
-                    +e.item
-                      +e('p').item-company ООО «Шустрые перевозки»
-                      +e('p').item-author Сергей Петрович Сидоров
-                      +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
-                  .swiper-slide
-                    +e.item
-                      +e('p').item-company ООО «Шустрые перевозки»
-                      +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации.
-                
-                .swiper-buttons
-                  .swiper-button-prev
-                  .swiper-button-next
+              +e.right
+                +e.top
+                  +e('h2').title.title.--white Отзывы наших довольных клиентов
+                  +e('a')(href="#").write-href.btn.--lite Оставить отзыв
+
+                +e.carousel
+                  .swiper-container.js-irev-swiper
+                    .swiper-ind
+                      .swiper-ind-number.swiper-ind-number--prev 01
+                      .swiper-ind-line
+                        span(style="width: 35%")
+                      .swiper-ind-number.swiper-ind-number--next 02
+                    .swiper-wrapper
+                      .swiper-slide
+                        +e.item
+                          +e('p').item-company ООО «Шустрые перевозки»
+                          +e('p').item-author Сергей Петрович Сидоров
+                          +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
+                          +e('a')(href="#").item-read-href.btn.--blue Читать весь отзыв
+                      .swiper-slide
+                        +e.item
+                          +e('p').item-company ООО «Шустрые перевозки»
+                          +e('p').item-author Сергей Петрович Сидоров
+                          +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
+                      .swiper-slide
+                        +e.item
+                          +e('p').item-company ООО «Шустрые перевозки»
+                          +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации.
+
+                  .swiper-buttons
+                    .swiper-button-prev
+                    .swiper-button-next
 
         +b('section').iabout
           .container
-            +e('h2').title.title.--white О компании
+            +e('h2').title.title О компании
 
             +e.row
               +e.left
@@ -344,13 +350,13 @@ html(lang="ru")
                   span лет
                 +e('p').left-text плодотворной работы
 
-              +e('p').descr
+              +e.descr
                 .text
                   p Компания АвтоцентрГАЗ-Лидер является официальным дилером ГАЗ в Саратове и Саратовской области.
                   p На протяжении более чем 25-ти лет плодотворной работы наш Автоцентр занимает лидирующие позиции на рынке коммерческой техники.
                   p Все эти годы добиваясь новых и новых результатов обеспечивает профессиональное сервисное и гарантийное обслуживание марки ГАЗ в Саратове и Саратовской области.
                   p В 2017 году Автоцентр Лидер был признан лучшим дилером марки ГАЗ в России.
-              
+
               +e.right
                 +e('p').task Задача организации, в особенности же консультация с широким активом требуют определения и уточнения существенных финансовых и административных условий. Идейные соображения высшего порядка, а также консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. 
                 +e('a')(href="#").more-href.btn.--lite Подробнее о компании

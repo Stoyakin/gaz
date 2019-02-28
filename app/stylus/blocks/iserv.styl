@@ -1,0 +1,63 @@
+.iserv
+  margin-bottom 60px
+
+  &__title
+    margin-bottom 45px
+
+  &__row
+    display flex
+    flex-wrap wrap
+    width calc(100% + 28px)
+    margin 0 -14px
+
+  &__item
+    display flex
+    flex-direction column
+    align-items flex-start
+    justify-content space-between
+    position relative
+    background-color white
+    border 2px solid whitesmoke
+    border-radius 1px
+    width calc(100%/6 - 28px)
+    padding 30px 60px 30px 30px
+    margin 0 14px 28px
+    transition background .4s, border .4s
+    z-index 1
+
+    &:after
+      @extend .after
+      left 0
+      top 0
+      width 0
+      height 100%
+      background-color $blueLight
+      transition width .4s cubic-bezier(0.645, 0.045, 0.355, 1)
+      z-index -1
+
+    &:hover
+      border-color $blueLight
+
+      &:after
+        width 100%
+
+      .iserv__item
+        &-title
+          color #fff
+
+        &-ico
+          filter brightness(0) invert(1)
+
+    &-overico
+      display inline-flex
+      margin-bottom 25px
+
+    //&-ico
+
+    &-title
+      color $color
+      font-size 15px
+      font-weight 500
+      line-height 21px
+      transition color .4s
+

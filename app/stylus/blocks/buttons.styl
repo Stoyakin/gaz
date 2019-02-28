@@ -2,26 +2,37 @@
   display inline-block
   vertical-align top
   position relative
-  font-family Roboto
-  background-color red
-  border-radius 4px
-  color white
-  font-size 15px
-  font-weight 700
-  line-height 19px
+  background-color white
+  color #076af2
+  font-family GothamPro
+  font-size 13px
+  font-weight 500
+  line-height 20px
+  text-transform uppercase
   white-space nowrap
-  padding 18px 25px 18px
+  padding 33px 60px
+  letter-spacing 0.025em
   outline none
   border none
-  transition background .4s, color .4s
+  transition color .4s
+  user-select none
+  z-index 1
+
+  &:after
+    @extend .after
+    left 0
+    top 0
+    width 0
+    height 100%
+    background-color $blueLight
+    transition width .4s cubic-bezier(0.645, 0.045, 0.355, 1)
+    z-index -1
 
   &:hover
-    background-color #e60202
+    color #fff
 
-  &--gray
-    background-color #eee
-    color #9d9d9d
+    &:after
+      width 100%
 
-    &:hover
-      color grey
-      background-color #e9e8e8
+  &--lite
+    background-color #f1f7ff

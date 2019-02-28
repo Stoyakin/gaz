@@ -1,0 +1,79 @@
+.iabout
+  &__title
+    margin-bottom 50px
+
+  &__row
+    display flex
+    flex-wrap wrap
+
+  &__left
+    width 340px
+    border 14px solid #f1f7ff
+    padding 62px 42px 65px 36px
+    flex-shrink 0
+    margin-right 92px
+
+    &-year
+      position relative
+      color $blueLight
+      font-size 150px
+      line-height 114px
+      font-weight 700
+
+      span
+        display block
+        transform-origin right bottom
+        white-space nowrap
+        transform rotate(-90deg)
+        position absolute
+        right -3px
+        top -47px
+        color $blueLight
+        font-size 60px
+        line-height 52px
+        font-weight 700
+
+    &-text
+      color $color
+      font-size 24px
+      font-weight 500
+      line-height 28px
+      letter-spacing 0.025em
+      margin-top 56px
+
+  &__descr
+    width 32%
+    margin-top 34px
+    margin-right 98px
+
+    .text
+      color $color
+      font-size 16px
+      font-weight 400
+      line-height 24px
+      letter-spacing .02em
+
+      p
+        color $color
+        font-size 16px
+        font-weight 400
+        line-height 24px
+        letter-spacing .02em
+
+        & + p
+          margin-top 24px
+
+  &__right
+    width 34%
+    margin-top 36px
+
+  &__task
+    opacity 0.5
+    color $color
+    font-size 14px
+    font-weight 400
+    line-height 21px
+    letter-spacing 0.02em
+
+    & + .btn
+      margin-top 45px

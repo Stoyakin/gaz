@@ -155,22 +155,85 @@ document.addEventListener("DOMContentLoaded", function (event) {
         tabs = document.querySelector('.js-tabs') || false,
         burger = document.querySelector('.js-burger') || false;
 
-      //check ios
       if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
         $body.classList.add('ios');
       }
 
-      if (yaMap)
-        //this.map();
+      if (document.querySelector('.js-idealer-swiper')) {
+        var idealerSlider = new Swiper('.js-idealer-swiper', {
+          loop: true,
+          speed: 750,
+          slidesPerView: 6,
+          spaceBetween: 28,
+          mousewheel: false,
+          grabCursor: false,
+          keyboard: false,
+          simulateTouch: false,
+          allowSwipeToNext: false,
+          allowSwipeToPrev: false
+        });
+      }
 
-      if (tabs)
-        //this.tabs();
+      if (document.querySelector('.js-iann-swiper')) {
 
-      if (burger)
-        //this.burger();
+        // function changeWidth(selector, duration) {
+        //   let element = document.querySelector(selector),
+        //     duration = duration,
+        //     from = 0,
+        //     to = 100;
+        //     timeStart = new Date().getTime();
+        //   if (element) {
+        //     let timer = setInterval(function() {
+        //       var timePassed = new Date().getTime() - timeStart;
+        //       var progress = timePassed / duration;
+        //       if (progress > 1) {
+        //           progress = 1;
+        //       }
+        //       if (progress == 1) {
+        //           clearInterval(timer);
+        //       }
+        //     }, 10);
+        //   }
+        // }
+
+
+        var idealerSlider = new Swiper('.js-iann-swiper', {
+          loop: true,
+          speed: 750,
+          slidesPerView: 1,
+          spaceBetween: 0,
+          mousewheel: false,
+          grabCursor: false,
+          keyboard: false,
+          simulateTouch: false,
+          allowSwipeToNext: false,
+          allowSwipeToPrev: false,
+          navigation: {
+            nextEl: '.iann .swiper-button-next',
+            prevEl: '.iann .swiper-button-prev',
+          },
+          on: {
+            slideChange: function () {
+              //changeWidth('.iann .swiper-ind-line span', 7000);
+            }
+          }
+        });
+
+        var igallSlider = new Swiper('.js-igall-swiper', {
+          loop: true,
+          speed: 750,
+          slidesPerView: 'auto',
+          spaceBetween: 28,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }
+        });
+      }
 
       return this;
     }
 
   }.init();
+
 });
