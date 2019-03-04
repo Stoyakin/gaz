@@ -192,7 +192,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
           keyboard: false,
           simulateTouch: false,
           allowSwipeToNext: false,
-          allowSwipeToPrev: false
+          allowSwipeToPrev: false,
+          breakpoints: {
+            767: {
+              slidesPerView: 2
+            },
+            992: {
+              slidesPerView: 4
+            }
+          }
         });
       }
 
@@ -209,46 +217,58 @@ document.addEventListener("DOMContentLoaded", function (event) {
           simulateTouch: false,
           allowSwipeToNext: false,
           allowSwipeToPrev: false,
-          autoplay: {
-            delay: 7000
-          },
+          // autoplay: {
+          //   delay: 7000,
+          // },
           navigation: {
             nextEl: '.iann .swiper-button-next',
             prevEl: '.iann .swiper-button-prev'
           }
         });
-        var igallSlider = new Swiper('.js-igall-swiper', {
-          loop: true,
-          speed: 750,
-          slidesPerView: 'auto',
-          spaceBetween: 28,
-          navigation: {
-            nextEl: '.igall .swiper-button-next',
-            prevEl: '.igall .swiper-button-prev'
-          }
-        });
-        var irevSlider = new Swiper('.js-irev-swiper', {
-          loop: true,
-          speed: 750,
-          slidesPerView: 1,
-          spaceBetween: 0,
-          navigation: {
-            nextEl: '.irev .swiper-button-next',
-            prevEl: '.irev .swiper-button-prev'
-          }
-        });
-        var actionSlider = new Swiper('.js-action-swiper', {
-          loop: true,
-          speed: 750,
-          slidesPerView: 3,
-          spaceBetween: 28,
-          navigation: {
-            nextEl: '.action .swiper-button-next',
-            prevEl: '.action .swiper-button-prev'
-          }
-        });
       }
 
+      var igallSlider = new Swiper('.js-igall-swiper', {
+        loop: true,
+        speed: 750,
+        slidesPerView: 'auto',
+        spaceBetween: 28,
+        navigation: {
+          nextEl: '.igall .swiper-button-next',
+          prevEl: '.igall .swiper-button-prev'
+        },
+        992: {
+          slidesPerView: 1,
+          spaceBetween: 0
+        }
+      });
+      var irevSlider = new Swiper('.js-irev-swiper', {
+        loop: true,
+        speed: 750,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+          nextEl: '.irev .swiper-button-next',
+          prevEl: '.irev .swiper-button-prev'
+        }
+      });
+      var actionSlider = new Swiper('.js-action-swiper', {
+        loop: true,
+        speed: 750,
+        slidesPerView: 3,
+        spaceBetween: 28,
+        navigation: {
+          nextEl: '.action .swiper-button-next',
+          prevEl: '.action .swiper-button-prev'
+        },
+        breakpoints: {
+          992: {
+            slidesPerView: 2
+          },
+          1240: {
+            slidesPerView: 4
+          }
+        }
+      });
       return this;
     }
   }.init();

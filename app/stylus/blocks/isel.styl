@@ -1,20 +1,37 @@
 .isel
-  margin-bottom 150px
-  //&__title
+  margin-bottom 145px
+
+  @media $bigDesktopMax
+    margin-bottom 94px
 
   &__row
     display flex
     align-items center
 
+    @media $minDesktopMax
+      flex-wrap wrap
+      justify-content center
+
   &__left
     position relative
-    width 25%
+    width calc(25% + 4px)
     background-color white
     box-shadow 0 0 56.4px 3.6px rgba(0, 0, 0, 0.06)
     z-index 2
 
+    @media $bigDesktopMax
+      width calc(25% + 9px)
+
+    @media $minDesktopMax
+      order 2
+      width auto
+      margin-top -44px
+
   &__list
     counter-reset count
+
+    @media $minDesktopMax
+      display flex
 
     &-item
       position relative
@@ -24,6 +41,9 @@
       &:last-child
         button
           border-bottom none
+
+          @media $minDesktopMax
+            border-right none
 
       &-btn
         display flex
@@ -41,6 +61,17 @@
         transition border .4s, background .4s, color .4s
         z-index 1
 
+        @media $bigDesktopMax
+          min-height 88px
+          padding 18px 30px 13px 62px
+
+        @media $minDesktopMax
+          padding 15px 30px
+
+        @media $mPortraitMax
+          min-height 60px
+          padding 15px 12px
+
         i
           display block
           width 18px
@@ -51,11 +82,18 @@
           opacity 0
           z-index -1
 
+          @media $bigDesktopMax
+            width 14px
+            background-size contain
+
+          @media $minDesktopMax
+            display none
+
         &:before
           @extend .before
           counter-increment count
           content counter(count,  decimal-leading-zero) ". "
-          left 37px
+          left 40px
           top 50%
           transform translateY(-50%)
           color #076af2
@@ -67,6 +105,14 @@
           pointer-events none
           transition color .4s
           z-index -1
+
+          @media $bigDesktopMax
+            font-size 11px
+            line-height 11px
+            left 29px
+
+          @media $minDesktopMax
+            display none
 
         &:after
           @extend .before
@@ -104,7 +150,14 @@
         &-overico
           width 48px
           flex-shrink 0
-          margin-right 30px
+          margin-right 32px
+
+          @media $bigDesktopMax
+            width 35px
+            margin-right 15px
+
+          @media $minDesktopMax
+            margin-right 0
 
         &-ico
           max-width 100%
@@ -117,7 +170,16 @@
           line-height 20px
           text-transform uppercase
           max-width 180px
+          letter-spacing 0.02em
           transition color .4s
+
+          @media $bigDesktopMax
+            font-size 11px
+            line-height 16px
+            letter-spacing normal
+
+          @media $minDesktopMax
+            display none
 
   &__center
     display flex
@@ -130,16 +192,28 @@
     padding 60px
     background-color #f1f7ff
 
+    @media $bigDesktopMax
+      padding 50px 70px 40px
+
+    @media $minDesktopMax
+      order 1
+      width 100%
+      padding-bottom 80px
+
   &__auto
     &-overimg
-      margin-bottom 60px
+      margin-bottom 40px
 
     &-img
       max-width 95%
       max-height 95%
 
     &-href
-      outline none
+      padding 33px 50px
+
+      @media $bigDesktopMax
+        min-width 224px
+        padding 26px 26px 24px
 
   &__rigth
     position relative
@@ -148,13 +222,34 @@
     margin-right calc(((100vw - 194px) - (100vw - 96px))/2)
     z-index 2
 
+    @media $bigDesktopMax
+      width calc(26% + (((100vw - 96px) - (100vw - 194px))/2))
+
+    @media $minDesktopMax
+      order 3
+      width 100%
+      margin 40px 0 0 0
+
   &__stat
     position relative
     background-size cover
     background-position center
     background-repeat no-repeat
-    padding 95px
+    padding 95px 98px
     z-index 1
+
+    @media $bigDesktopMax
+      padding 79px 68px 69px
+
+    @media $minDesktopMax
+      display flex
+
+    @media $minDesktopMax
+      padding 90px 80px
+
+    @media $mPortraitMax
+      flex-direction column
+      align-items center
 
     &:before
       @extend .before
@@ -165,10 +260,36 @@
       border 15px solid rgba(#fff, .15)
       z-index -1
 
+      @media $bigDesktopMax
+        left 35px
+        top 35px
+        width calc(100% - 120px)
+        height calc(100% - 100px)
+
+      @media $minDesktopMax
+        width calc(100% - 100px)
+
     &-item
       display flex
       align-items flex-start
-      margin-bottom 80px
+      margin-bottom 76px
+
+      @media $bigDesktopMax
+        margin-bottom 47px
+
+      @media $minDesktopMax
+        margin-bottom 0
+
+      @media $tPortraitMax
+        align-items flex-start
+        flex-direction column
+        padding-right 20px
+
+      @media $mPortraitMax
+        padding-right 0
+        margin-bottom 35px
+        align-items center
+        text-align center
 
       &:last-child
         margin-bottom 0
@@ -176,18 +297,42 @@
       &-overico
         flex-shrink 0
         width 64px
-        margin-right 25px
+        margin-right 27px
+        text-align center
 
-      //&-ico
+        @media $bigDesktopMax
+          width 47px
+          height 47px
+          margin-right 22px
+
+        @media $tPortraitMax
+          margin-right 0
+
+        @media $mPortraitMax
+          width auto
+          height auto
+
+      &-ico
+        max-height 100%
 
       &-info
         width calc(100% - 90px)
+
+        @media $tPortraitMax
+          width 100%
+          margin-top 20px
 
       &-title
         color #fff
         font-size 30px
         font-weight 500
-        line-height 36px
+        line-height 22px
+        margin-bottom 20px
+
+        @media $bigDesktopMax
+          font-size 22px
+          line-height 14px
+          margin-bottom 16px
 
       &-text
         color rgba(#fff, .86)
@@ -195,4 +340,6 @@
         font-weight 500
         line-height 21px
 
-
+        @media $bigDesktopMax
+          font-size 12px
+          line-height 16px

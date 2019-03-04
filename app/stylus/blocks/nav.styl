@@ -9,6 +9,21 @@
   box-shadow -15px 0 56.4px 3.6px rgba(0, 0, 0, 0.08)
   z-index 10
 
+  @media $bigDesktopMax
+    width 84px
+
+  @media $mLandscapeMax
+    position fixed
+    left 0
+    top 0
+    width 100%
+    height 100vh
+    overflow-x hidden
+    overflow-y auto
+    padding 80px 0
+    opacity 0
+    visibility hidden
+
   &__list
     display flex
     flex-direction column
@@ -24,6 +39,9 @@
         flex-grow 0
         border-top none
 
+        @media $mLandscapeMax
+          display none
+
         .nav__list
           &-href
             position relative
@@ -35,6 +53,9 @@
             background-color $blueLight
             overflow hidden
 
+            @media $bigDesktopMax
+              height 82px
+
             &:before
               @extend .before
               left 74px
@@ -44,6 +65,10 @@
               background $blueLight
               z-index 1
 
+              @media $bigDesktopMax
+                width 173px
+                left 66px
+
           &-img
             max-width none
             position relative
@@ -52,19 +77,36 @@
             height 53px
             flex-shrink 0
 
+            @media $bigDesktopMax
+              left 19px
+              width 173px
+              height 46px
+
     &-href
       display flex
       flex-direction column
-      justify-content flex-start
+      justify-content center
       align-items center
-      padding 35px 10px 20px
+      flex-grow 1
+      height 100%
+      padding 10px
 
       &-overico
-        margin-bottom 10px
+        margin-bottom 14px
+
+        @media $bigDesktopMax
+          display flex
+          justify-content center
+          align-items center
+          max-width 24px
+          max-height 24px
 
         svg
           fill #a7a7a7
           transition fill .4s
+
+          max-width 100%
+          max-height 100%
 
       &-text
         color #a7a7a7
@@ -72,6 +114,10 @@
         line-height 14px
         font-weight 500
         transition color .4s
+
+        @media $bigDesktopMax
+          font-size 10px
+          line-height 12px
 
       &:hover
         .nav__list-href

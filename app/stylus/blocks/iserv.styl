@@ -1,8 +1,8 @@
 .iserv
-  margin-bottom 60px
+  margin-bottom 115px
 
-  &__title
-    margin-bottom 45px
+  @media $bigDesktopMax
+    margin-bottom 73px
 
   &__row
     display flex
@@ -11,26 +11,46 @@
     margin 0 -14px
     counter-reset count-iserv
 
+    @media $mLandscapeMax
+      width calc(100% + 20px)
+      margin 0 -10px
+
   &__item
     display flex
     flex-direction column
     align-items flex-start
     justify-content space-between
     position relative
+    min-height 183px
     background-color white
     border 2px solid whitesmoke
     border-radius 1px
     width calc(100%/6 - 28px)
-    padding 30px 60px 30px 30px
+    padding 34px 75px 26px 33px
     margin 0 14px 28px
     transition background .4s, border .4s
     z-index 1
+
+    @media $bigDesktopMax
+      padding 25px 55px 14px 23px
+      min-height 136px
+      margin-bottom 20px
+
+    @media $desktopMax
+      width calc(25% - 28px)
+
+    @media $tPortraitMax
+      width calc(100%/3 - 28px)
+
+    @media $mLandscapeMax
+      width calc(50% - 20px)
+      margin 0 10px 20px
 
     &:before
       @extend .before
       counter-increment count-iserv
       content counter(count-iserv,  decimal-leading-zero) " "
-      right 32px
+      right 33px
       top 38px
       transform translateY(-50%)
       color #e9eff7
@@ -43,6 +63,12 @@
       transition color .4s
       z-index 1
 
+      @media $bigDesktopMax
+        font-size 14px
+        line-height 14px
+        right 22px
+        top 28px
+
     &:after
       @extend .after
       left 0
@@ -52,6 +78,27 @@
       background-color $blueLight
       transition width .4s cubic-bezier(0.645, 0.045, 0.355, 1)
       z-index -1
+
+    i
+      display block
+      position absolute
+      right 18px
+      bottom 22px
+      width 48px
+      height 48px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJBAMAAADA7xF7AAAAMFBMVEUAAAAAQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58B+wHKAAAAD3RSTlMAZvtW9erjxZlGOikVDd1W25euAAAAKUlEQVQI12OAgusCDDBwTBnO5A6awGAoCAH9Xgz/YeAfsihCLbIJCHMBfCAScro2ulMAAAAASUVORK5CYII=') no-repeat center white
+      margin-right 15px
+      transition opacity .4s, visibility .4s, margin .4s
+      opacity 0
+      visibility hidden
+      z-index 1
+
+      @media $bigDesktopMax
+        right 14px
+        bottom 17px
+        width 35px
+        height 35px
+        background-size 15px
 
     &:hover
       border-color $blueLight
@@ -69,16 +116,30 @@
         &-ico
           filter brightness(0) invert(1)
 
+      i
+        margin-right 0
+        opacity 1
+        visibility visible
+
     &-overico
       display inline-flex
-      margin-bottom 25px
+      margin-bottom 31px
+      align-items flex-start
 
-    //&-ico
+      @media $bigDesktopMax
+        max-width 32px
+        margin-bottom 25px
 
     &-title
       color $color
       font-size 15px
       font-weight 500
       line-height 21px
+      letter-spacing 0.02em
       transition color .4s
+
+      @media $bigDesktopMax
+        font-size 13px
+        line-height 17px
+        margin auto 0
 

@@ -1,40 +1,102 @@
 .action
-  margin-bottom 150px
+  margin-bottom 145px
+
+  @media $bigDesktopMax
+    margin-bottom 96px
 
   &__row
     display flex
     flex-wrap wrap
+    align-items flex-start
 
   &__left
     width 352px
     flex-shrink 0
     background-color #f1f7ff
-    padding 50px
+    padding 42px 50px 47px
     margin-right 78px
     margin-top 127px
 
-    &-title
-      outline none
-
-    &-text
-      color rgba($color, .86)
-      font-size 14px
-      font-weight 400
-      line-height 21px
+    @media $bigDesktopMax
+      width 262px
+      margin-right 59px
+      margin-top 95px
+      padding 30px 37px 33px
 
     .swiper-buttons
-      margin-top 70px
-      // .swiper-button-prev
-      // .swiper-button-next
+      margin-top 66px
+
+      @media $bigDesktopMax
+        margin-top 28px
+
+      @media $minDesktopMax
+        margin-top 0
+
+      @media $minDesktopMax
+        box-shadow inset 0 0 0 3px #f1f7ff
+        position absolute
+        bottom 0
+        right 266px
+
+        .swiper-button-prev, .swiper-button-next
+          height 64px
+
+      @media $tPortraitMax
+        position relative
+        bottom auto
+        right auto
+        margin-top 40px
+
+    @media $minDesktopMax
+      position relative
+      width 100%
+      margin 0
+      padding 0
+      background none
+
+  &__title
+    margin-bottom 45px
+
+    @media $bigDesktopMax
+      margin-bottom 30px
+
+    @media $minDesktopMax
+      margin-bottom 0
+
+  &__text
+    color rgba($color, .86)
+    font-size 14px
+    font-weight 400
+    line-height 21px
+    letter-spacing 0.02em
+
+    @media $bigDesktopMax
+      font-size 13px
+
+    @media $minDesktopMax
+      display none
 
   &__right
     width calc(100% - 440px)
+
+    @media $bigDesktopMax
+      width calc(100% - 321px)
+
+    @media $minDesktopMax
+      width 100%
+      margin-top -64px
+
+    @media $tPortraitMax
+      margin-top -67px
 
   &__top
     display flex
     flex-wrap wrap
     align-items center
     margin-bottom 42px
+
+    @media $bigDesktopMax
+      margin-bottom 31px
 
   &__tabs
     &-nav
@@ -43,9 +105,24 @@
       max-width calc(100% - 355px)
       margin-bottom -20px
 
+      @media $desktopMax
+        max-width calc(100% - 260px)
+        width 100%
+
+      @media $minDesktopMax
+        max-width 100%
+        order 2
+        margin-top 20px
+
       &-item
-        margin-right 54px
+        margin-right 65px
         margin-bottom 20px
+
+        @media $bigDesktopMax
+          margin-right 49px
+
+        @media $desktopMax
+          margin-right 30px
 
         &:last-child
           margin-right 0
@@ -63,6 +140,10 @@
         user-select none
         border none
         transition color .4s
+
+        @media $bigDesktopMax
+          font-size 10px
+          line-height 14px
 
         &:after
           @extend .after
@@ -89,6 +170,11 @@
   &__subscr-href
     margin-left auto
 
+    @media $minDesktopMax
+      order 1
+
+    @media $tPortraitMax
+      margin-left 220px
 
   &__carousel
     .publ
@@ -97,4 +183,3 @@
       &__item
         width 100%
         margin 0
-

@@ -4,9 +4,16 @@
   align-items center
   margin 0 0 0 auto
 
+  @media $mLandscapeMax
+    margin-left 0
+    margin-bottom 20px
+
   &__item
     flex-shrink 0
-    margin-right 35px
+    margin-right 42px
+
+    @media $bigDesktopMax
+      margin-right 30px
 
     &:last-child
       margin-right 0
@@ -29,10 +36,22 @@
         width 22px
         height 12px
 
+        @media $bigDesktopMax
+          width 16px
+          height 9px
+
       &--fb
         width 12px
         height 22px
 
+        @media $bigDesktopMax
+          width 10px
+          height 16px
+
       &--ok
         width 14px
         height 22px
+
+        @media $bigDesktopMax
+          width 10px
+          height 16px

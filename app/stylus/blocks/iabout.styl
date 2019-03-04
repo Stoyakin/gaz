@@ -2,16 +2,29 @@
   &__title
     margin-bottom 50px
 
+    @media $bigDesktopMax
+      margin-bottom 38px
+
   &__row
     display flex
-    flex-wrap wrap
+
+    @media $bigDesktopMax
+      align-items flex-start
+
+    @media $tPortraitMax
+      flex-wrap wrap
 
   &__left
     width 340px
     border 14px solid #f1f7ff
-    padding 62px 42px 65px 36px
+    padding 62px 42px 65px 33px
     flex-shrink 0
-    margin-right 92px
+    margin-right 89px
+
+    @media $bigDesktopMax
+      width 259px
+      margin-right 60px
+      padding 34px 25px 45px
 
     &-year
       position relative
@@ -19,6 +32,9 @@
       font-size 150px
       line-height 114px
       font-weight 700
+
+      @media $bigDesktopMax
+        font-size 114px
 
       span
         display block
@@ -33,6 +49,12 @@
         line-height 52px
         font-weight 700
 
+        @media $bigDesktopMax
+          font-size 44px
+          line-height 42px
+          right 0
+          top -24px
+
     &-text
       color $color
       font-size 24px
@@ -41,10 +63,26 @@
       letter-spacing 0.025em
       margin-top 56px
 
+      @media $bigDesktopMax
+        font-size 18px
+        line-height 22px
+        margin-top 26px
+
   &__descr
     width 32%
     margin-top 34px
     margin-right 98px
+
+    @media $bigDesktopMax
+      margin-top 0
+      width 41%
+      margin-top 3px
+      margin-right 30px
+
+    @media $tPortraitMax
+      width 100%
+      margin-top 35px
+      margin-right 0
 
     .text
       color $color
@@ -63,9 +101,28 @@
         & + p
           margin-top 24px
 
+          @media $bigDesktopMax
+            margin-top 22px
+
+      @media $bigDesktopMax
+        font-size 14px
+        line-height 22px
+
+        p
+          font-size 14px
+          line-height 22px
+
   &__right
     width 34%
     margin-top 36px
+
+    @media $bigDesktopMax
+      margin-top 3px
+      width 32%
+
+    @media $tPortraitMax
+      width 100%
+      margin-top 35px
 
   &__task
     opacity 0.5
@@ -75,5 +132,12 @@
     line-height 21px
     letter-spacing 0.02em
 
+    @media $bigDesktopMax
+        font-size 13px
+        line-height 21px
+
     & + .btn
       margin-top 45px
+
+      @media $bigDesktopMax
+        margin-top 35px

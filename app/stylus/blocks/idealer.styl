@@ -1,10 +1,10 @@
 .idealer
   margin 0 auto 150px
-  //&__title
+
+  @media $bigDesktopMax
+    margin-bottom 82px
 
   .swiper
-    //&-container
-    //&-wrapper
     &-slide
       height auto
       align-items stretch
@@ -16,10 +16,13 @@
     background-color white
     border 2px solid whitesmoke
     border-radius 3px
-    padding 30px
+    padding 38px 30px
     height 100%
     user-select none
     cursor pointer
+
+    @media $bigDesktopMax
+      padding 15px 38px
 
     &-img
       max-width 90%

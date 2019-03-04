@@ -1,10 +1,10 @@
 .igall
   margin-bottom 150px
 
-  //&__title
+  @media $bigDesktopMax
+    margin-bottom 99px
+
   .swiper
-  //-container
-  // .swiper-wrapper
     &-slide
       width auto
 
@@ -19,6 +19,15 @@
     width calc(100vw - 607px)
     position relative
     z-index 1
+
+    @media $bigDesktopMax
+      width calc(100vw - 452px)
+
+    @media $tPortraitMax
+      width calc(100vw - 252px)
+
+    @media $tPortraitMax
+      width 100vw
 
     &:before
       @extend .before
@@ -43,5 +52,13 @@
     z-index 1
     left calc(100vw - 857px)
     bottom 0
-    //.swiper-button-prev
-    //.swiper-button-next
+
+    @media $bigDesktopMax
+      left calc(100vw - 644px)
+
+    @media $tPortraitMax
+      left calc(100vw - 444px)
+
+    @media $tPortraitMax
+      left auto
+      right 0

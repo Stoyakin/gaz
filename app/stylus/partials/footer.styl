@@ -1,9 +1,15 @@
 .footer
   margin-top 150px
 
+  @media $bigDesktopMax
+    margin-top 100px
+
   &__top
-    padding 50px 0
+    padding 55px 0 47px
     background-color #f8f8f8
+
+    @media $bigDesktopMax
+      padding 35px 0 47px
 
   &__row
     display flex
@@ -11,12 +17,25 @@
     margin 0 -13.5px
     width calc(100% + 27.5px)
 
+    @media $tPortraitMax
+      width 100%
+      margin 0
+
   &__col
     width calc(100%/6 - 27.5px)
     margin 0 13.5px
 
+    @media $tPortraitMax
+      width 100%
+      margin 0 0 25px
+      &:last-child
+        margin-bottom 0
+
     &--x2
       width calc(100%/3 - 27.5px)
+
+      @media $tPortraitMax
+        width 100%
 
       .footer__nav
         column-count 2
@@ -27,8 +46,15 @@
       font-size 18px
       font-weight 500
       line-height 22px
-      padding-bottom 20px
-      margin-bottom 30px
+      padding-bottom 21px
+      margin-bottom 29px
+      letter-spacing 0.02em
+
+      @media $bigDesktopMax
+        font-size 13px
+        line-height 21px
+        padding-bottom 13px
+        margin-bottom 19px
 
       &:after
         @extend .after
@@ -38,11 +64,26 @@
         height 3px
         background-color $blueLight
 
+        @media $bigDesktopMax
+          width 15px
+          height 2px
+
   &__nav
+    @media $tPortraitMax
+      display flex
+      flex-wrap wrap
+
     &--bottom
       display inline-flex
-      width calc(100% - 700px)
+      width calc(100% - 755px)
       justify-content space-between
+
+      @media $bigDesktopMax
+        width calc(100% - 558px)
+        margin-top -4px
+
+      @media $tPortraitMax
+        display none
 
       .footer__nav
         &-item
@@ -57,15 +98,36 @@
           font-weight 400
           line-height 17px
           color #737374
+          letter-spacing 0.02em
           border none
-          transition color .4s
+          transition color .4s, border .4s
+          border-bottom 1px solid transparent
           white-space nowrap
+
+          @media $bigDesktopMax
+            font-size 10px
+            line-height 12px
+            letter-spacing normal
 
           &:hover, &--active
             color white
 
+          &:hover
+            border-bottom-color transparent
+
+          &--active
+            border-bottom-color #fff
+
     &-item
-      margin-bottom 15px
+      margin-bottom 19px
+
+      @media $bigDesktopMax
+        margin-bottom 11px
+        padding-right 10px
+
+      @media $tPortraitMax
+        margin 0 20px 15px 0
+
       &:last-child
         margin-bottom 0
 
@@ -77,56 +139,83 @@
       border-bottom 2px solid transparent
       transition border .4s, color .4s
 
+      @media $bigDesktopMax
+        font-size 12px
+        line-height 16px
+
+      @media $tPortraitMax
+        white-space nowrap
+
       &:hover, &--active
         color $color
         border-color $blueLight
 
   &__bottom
     background-color #1d1f20
-    padding 30px 0
+    padding 38px 0
+
+    @media $bigDesktopMax
+      padding 27px 0
 
     .footer__row
       width 100%
       margin 0
       align-items center
 
+      @media $mLandscapeMax
+        flex-direction column
+        justify-content center
+
   &__coopy
     color rgba(#fff, .14)
     font-size 13px
     line-height 17px
     font-weight 400
-    margin-right 60px
+    margin-right 87px
+
+    @media $bigDesktopMax
+      font-size 11px
+      line-height 13px
+      margin-right 56px
+
+    @media $mLandscapeMax
+      margin-right 0
+      margin-bottom 20px
 
   &__dev
     display inline-flex
     vertical-align top
     align-items flex-start
     text-align left
-    margin-left auto
     color #6e6e6e
     font-family Arial
-    font-size 10px
-    line-height 12px
+    font-size 9px
+    line-height 11px
     font-weight 400
     text-transform uppercase
     letter-spacing 0.06em
+    margin-left 80px
     margin-top 3px
     transition opacity .4s
 
     &:hover
       opacity .7
 
-    @media $desktopMax
-      font-size 9px
-      line-height 11px
+    @media $bigDesktopMax
+      font-size 7px
+      line-height 9px
+      margin-left 48px
+
+    @media $mLandscapeMax
+      margin-left 0
 
     span
       display inline-block
       vertical-align middle
       color lightgrey
       font-family Arial
-      font-size 14px
-      line-height 16px
+      font-size 12px
+      line-height 14px
       font-weight 700
       text-transform uppercase
       margin-right 11px
@@ -134,6 +223,6 @@
       background-color #076af2
       letter-spacing .1em
 
-      @media $desktopMax
-        font-size 12px
-        line-height 14px
+      @media $bigDesktopMax
+        font-size 9px
+        line-height 11px
