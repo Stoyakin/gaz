@@ -12,9 +12,10 @@
   white-space nowrap
   padding 33px 60px
   letter-spacing 0.025em
-  outline none
   border none
-  transition color .4s
+  outline none
+  box-shadow: inset 0 0 0 3px transparent;
+  transition color .4s, box-shadow .4s
   user-select none
   z-index 1
 
@@ -36,3 +37,8 @@
 
   &--lite
     background-color #f1f7ff
+
+  &--blue
+    background-color transparent
+    box-shadow: inset 0 0 0 2px $blueLight
+    color #fff

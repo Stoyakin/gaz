@@ -51,7 +51,7 @@ html(lang="ru")
             .swiper-ind
               .swiper-ind-number.swiper-ind-number--prev 01
               .swiper-ind-line
-                span(style="width: 35%")
+                span
               .swiper-ind-number.swiper-ind-number--next 02
 
             .swiper-nav
@@ -83,38 +83,43 @@ html(lang="ru")
         +b('section').isel
           .container
             +e('h2').title.title Подбор автомобиля
-            +e.wrap
+            +e.row
               +e.left
                 +e('ul').list
                   +e('li').list-item
                     +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link" data-nav="01").list-item-btn
                       +e('span').list-item-btn-overico
-                        +e('img')(src="#" alt="").list-item-btn-ico
-                      +e('span')(src="#" alt="").list-item-btn-text Легкие коммерческие автомобitem-или
+                        +e('img')(src="static/img/selc-car-ico.png" alt="").list-item-btn-ico
+                      +e('span').list-item-btn-text Легкие коммерческие автомобitem-или
+                      i
 
                   +e('li').list-item
                     +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link2" data-nav="02").list-item-btn
                       +e('span').list-item-btn-overico
-                        +e('img')(src="#" alt="").list-item-btn-ico
-                      +e('span')(src="#" alt="").list-item-btn-text Среднетоннажные автомобitem-или
+                        +e('img')(src="static/img/selc-car-ico2.png" alt="").list-item-btn-ico
+                      +e('span').list-item-btn-text Среднетоннажные автомобitem-или
+                      i
 
                   +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link3" data-nav="03").list-item-btn
+                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link3" data-nav="03").list-item-btn.--active
                       +e('span').list-item-btn-overico
-                        +e('img')(src="#" alt="").list-item-btn-ico
-                      +e('span')(src="#" alt="").list-item-btn-text Грузовые автомобitem-или
+                        +e('img')(src="static/img/selc-car-ico3.png" alt="").list-item-btn-ico
+                      +e('span').list-item-btn-text Грузовые автомобили
+                      i
 
                   +e('li').list-item
                     +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link4" data-nav="04").list-item-btn
                       +e('span').list-item-btn-overico
-                        +e('img')(src="#" alt="").list-item-btn-ico
-                      +e('span')(src="#" alt="").list-item-btn-text Автобitem-усы
+                        +e('img')(src="static/img/selc-car-ico4.png" alt="").list-item-btn-ico
+                      +e('span').list-item-btn-text Автобitem-усы
+                      i
 
                   +e('li').list-item
                     +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link5" data-nav="05").list-item-btn
                       +e('span').list-item-btn-overico
-                        +e('img')(src="#" alt="").list-item-btn-ico
-                      +e('span')(src="#" alt="").list-item-btn-text Техника с item-ГБО
+                        +e('img')(src="static/img/selc-car-ico5.png" alt="").list-item-btn-ico
+                      +e('span').list-item-btn-text Техника с item-ГБО
+                      i
 
               +e.center
                 +e.auto-overimg
@@ -167,105 +172,106 @@ html(lang="ru")
 
         +b('section').action
           .container
-            +e.left
-              +e('h2').title.title Акции
-              +e('h2').text Будьте в курсе всех свежих акций, проходящих у нас
-              .swiper-buttons
-                .swiper-button-prev
-                .swiper-button-next
+            +e.row
+              +e.left
+                +e('h2').title.title Акции
+                +e('p').text Будьте в курсе всех свежих акций, проходящих у нас
+                .swiper-buttons
+                  .swiper-button-prev
+                  .swiper-button-next
 
-            +e.right
-              +e.top
-                +e('ul').tabs-nav
-                  +e('li').tabs-nav-item
-                    +e('button')(type="button" data-nav="01").tabs-nav-btn.--active Все
-                  +e('li').tabs-nav-item
-                    +e('button')(type="button" data-nav="01").tabs-nav-btn Сервис
-                  +e('li').tabs-nav-item
-                    +e('button')(type="button" data-nav="01").tabs-nav-btn Автомобили
-                  +e('li').tabs-nav-item
-                    +e('button')(type="button" data-nav="01").tabs-nav-btn Запчасти
-                  +e('li').tabs-nav-item
-                    +e('button')(type="button" data-nav="01").tabs-nav-btn Спецтехника
+              +e.right
+                +e.top
+                  +e('ul').tabs-nav
+                    +e('li').tabs-nav-item
+                      +e('button')(type="button" data-nav="01").tabs-nav-btn.--active Все
+                    +e('li').tabs-nav-item
+                      +e('button')(type="button" data-nav="01").tabs-nav-btn Сервис
+                    +e('li').tabs-nav-item
+                      +e('button')(type="button" data-nav="01").tabs-nav-btn Автомобили
+                    +e('li').tabs-nav-item
+                      +e('button')(type="button" data-nav="01").tabs-nav-btn Запчасти
+                    +e('li').tabs-nav-item
+                      +e('button')(type="button" data-nav="01").tabs-nav-btn Спецтехника
 
-                +e('a')(href="#").subscr-href.btn.--lite Подписаться на рассылку
+                  +e('a')(href="#").subscr-href.btn.--lite Подписаться на рассылку
 
-              +e('ul').tabs-list
-                +e('li')(data-tabs="01").tabs-list-item
-                  +e.carousel.swiper-container.js-action-swiper
-                    .swiper-wrapper
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                        ])
+                +e('ul').tabs-list
+                  +e('li')(data-tabs="01").tabs-list-item.--active
+                    +e.carousel.swiper-container.js-action-swiper
+                      .swiper-wrapper
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                          ])
 
-                +e('li')(data-tabs="02").tabs-list-item
-                  +e.carousel.swiper-container.js-action-swiper
-                    .swiper-wrapper
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                        ])
+                  +e('li')(data-tabs="02").tabs-list-item
+                    +e.carousel.swiper-container.js-action-swiper
+                      .swiper-wrapper
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                          ])
 
-                +e('li')(data-tabs="03").tabs-list-item
-                  +e.carousel.swiper-container.js-action-swiper
-                    .swiper-wrapper
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                        ])
+                  +e('li')(data-tabs="03").tabs-list-item
+                    +e.carousel.swiper-container.js-action-swiper
+                      .swiper-wrapper
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                          ])
 
-                +e('li')(data-tabs="04").tabs-list-item
-                  +e.carousel.swiper-container.js-action-swiper
-                    .swiper-wrapper
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                        ])
+                  +e('li')(data-tabs="04").tabs-list-item
+                    +e.carousel.swiper-container.js-action-swiper
+                      .swiper-wrapper
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                          ])
 
-                +e('li')(data-tabs="04").tabs-list-item
-                  +e.carousel.swiper-container.js-action-swiper
-                    .swiper-wrapper
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                        ])
-                      .swiper-slide
-                        +publ([
-                          { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                        ])
+                  +e('li')(data-tabs="04").tabs-list-item
+                    +e.carousel.swiper-container.js-action-swiper
+                      .swiper-wrapper
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                          ])
+                        .swiper-slide
+                          +publ([
+                            { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                          ])
 
         +b('section').inews
           .container

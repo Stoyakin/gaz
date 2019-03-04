@@ -1,9 +1,9 @@
 .nav
   position fixed
   left 0
-  top 110px
+  top 0
   width 96px
-  height calc(100vh - 110px)
+  height 100vh
   min-height 650px
   background-color white
   box-shadow -15px 0 56.4px 3.6px rgba(0, 0, 0, 0.08)
@@ -16,7 +16,41 @@
     height 100%
 
     &-item
+      flex-grow 1
       border-top 1px solid #f2f2f2
+
+      &--logo
+        flex-shrink 0
+        flex-grow 0
+        border-top none
+
+        .nav__list
+          &-href
+            position relative
+            align-items flex-start
+            justify-content center
+            width 100%
+            padding 0
+            height 110px
+            background-color $blueLight
+            overflow hidden
+
+            &:before
+              @extend .before
+              left 74px
+              top 0
+              width 200px
+              height 100%
+              background $blueLight
+              z-index 1
+
+          &-img
+            max-width none
+            position relative
+            left 20px
+            width 200px
+            height 53px
+            flex-shrink 0
 
     &-href
       display flex

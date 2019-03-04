@@ -1,6 +1,9 @@
 mixin nav(data)
   +b('nav').nav&attributes(attributes)
     +e('ul').list
+      +e('li').list-item.--logo
+        +e('a')(href="#").list-href
+          +e('img')(src="../../../static/img/logo-white.png" alt="").list-img
       each item in data
         +e('li').list-item
           +e('a')(href="#").list-href

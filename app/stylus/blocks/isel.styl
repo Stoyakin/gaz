@@ -1,0 +1,198 @@
+.isel
+  margin-bottom 150px
+  //&__title
+
+  &__row
+    display flex
+    align-items center
+
+  &__left
+    position relative
+    width 25%
+    background-color white
+    box-shadow 0 0 56.4px 3.6px rgba(0, 0, 0, 0.06)
+    z-index 2
+
+  &__list
+    counter-reset count
+
+    &-item
+      position relative
+      list-style none
+      z-index 1
+
+      &:last-child
+        button
+          border-bottom none
+
+      &-btn
+        display flex
+        align-items center
+        position relative
+        width 100%
+        min-height 122px
+        padding 15px 40px 15px 88px
+        border none
+        border-bottom 1px solid #f2f2f2
+        text-align left
+        background-color #fff
+        outline none
+        user-select none
+        transition border .4s, background .4s, color .4s
+        z-index 1
+
+        i
+          display block
+          width 18px
+          height 8px
+          margin-left auto
+          background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAICAQAAABeimchAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAwMMJhDeYnyWAAAAVElEQVQY042PsQ1AYBgFD8mfEJPYwgw6A4ixDECtorGSSuGUKl+8a1/e5SGfDG5WIjnfOWlZSIARo7ezReZBGaw1lEyR7s0fXVTpvV1N8buanY4LHoDhVckl0exZAAAAAElFTkSuQmCC') no-repeat center
+          transition opacity .4s cubic-bezier(0.645, 0.045, 0.355, 1), right .4s
+          opacity 0
+          z-index -1
+
+        &:before
+          @extend .before
+          counter-increment count
+          content counter(count,  decimal-leading-zero) ". "
+          left 37px
+          top 50%
+          transform translateY(-50%)
+          color #076af2
+          font-family "GothamPro"
+          font-size 13px
+          font-weight 500
+          line-height 20px
+          text-transform uppercase
+          pointer-events none
+          transition color .4s
+          z-index -1
+
+        &:after
+          @extend .before
+          left 0
+          top 0
+          width 0
+          height 100%
+          transition width 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)
+          z-index -2
+
+        &:hover
+          &:after
+            width 100%
+            background-color #f1f7ff
+
+        &--active, &--active&:hover
+          &:before
+            color #fff
+
+          &:after
+            background-color $blueLight
+            width 100%
+
+          i
+            right 34px
+            opacity 1
+
+          .isel__list-item-btn
+            &-ico
+              filter brightness(0) invert(1)
+
+            &-text
+              color #fff
+
+        &-overico
+          width 48px
+          flex-shrink 0
+          margin-right 30px
+
+        &-ico
+          max-width 100%
+          transition filter .4s
+
+        &-text
+          color $color
+          font-size 13px
+          font-weight 500
+          line-height 20px
+          text-transform uppercase
+          max-width 180px
+          transition color .4s
+
+  &__center
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    position relative
+    width calc(50% + 60px)
+    margin 0 -30px
+    padding 60px
+    background-color #f1f7ff
+
+  &__auto
+    &-overimg
+      margin-bottom 60px
+
+    &-img
+      max-width 95%
+      max-height 95%
+
+    &-href
+      outline none
+
+  &__rigth
+    position relative
+    position: relative;
+    width calc(25% + (((100vw - 96px) - (100vw - 194px))/2))
+    margin-right calc(((100vw - 194px) - (100vw - 96px))/2)
+    z-index 2
+
+  &__stat
+    position relative
+    background-size cover
+    background-position center
+    background-repeat no-repeat
+    padding 95px
+    z-index 1
+
+    &:before
+      @extend .before
+      left 50px
+      top 50px
+      width calc(100% - 130px)
+      height calc(100% - 130px)
+      border 15px solid rgba(#fff, .15)
+      z-index -1
+
+    &-item
+      display flex
+      align-items flex-start
+      margin-bottom 80px
+
+      &:last-child
+        margin-bottom 0
+
+      &-overico
+        flex-shrink 0
+        width 64px
+        margin-right 25px
+
+      //&-ico
+
+      &-info
+        width calc(100% - 90px)
+
+      &-title
+        color #fff
+        font-size 30px
+        font-weight 500
+        line-height 36px
+
+      &-text
+        color rgba(#fff, .86)
+        font-size 16px
+        font-weight 500
+        line-height 21px
+
+

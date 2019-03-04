@@ -1,11 +1,53 @@
 .irev
   margin-bottom 150px
 
-  .swiper-buttons
-    position absolute
-    right 0
-    bottom 0
-    z-index 2
+  .swiper
+    &-ind
+      display flex
+      align-items center
+      margin-bottom 60px
+      user-select none
+
+      &-number
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-transform uppercase
+
+        &--prev
+          font-size 36px
+          font-weight 500
+          line-height 36px
+          color $blueLight
+
+        &--next
+          font-size 14px
+          font-weight 500
+          line-height 21px
+          color rgba(#fff, .14)
+
+      &-line
+        position relative
+        background-color rgba(#fff, .14)
+        width 106px
+        height 3px
+        flex-shrink 0
+        margin 0 20px
+
+        span
+          display block
+          height 2px
+          position absolute
+          left 0
+          top 0
+          background-color $blueLight
+          transition width 7s
+
+    &-buttons
+      position absolute
+      right 0
+      bottom 0
+      z-index 2
 
   &__row
     position relative
@@ -44,5 +86,29 @@
 
   &__carousel
     background-color #19459b
-    padding 100px 20%
+    padding 100px 20% 103px
+
+  &__item
+    &-company
+      color #fff
+      font-size 18px
+      font-weight 500
+      line-height 22px
+      margin-bottom 10px
+
+    &-author
+      color rgba(#fff, .86)
+      font-size 16px
+      line-height 24px
+      font-weight 400
+
+    &-text
+      color rgba(#fff, .5)
+      font-size 14px
+      font-weight 400
+      line-height 21px
+      margin-top 30px
+
+    &-read-href
+      margin-top 78px
 

@@ -9,6 +9,7 @@
     flex-wrap wrap
     width calc(100% + 28px)
     margin 0 -14px
+    counter-reset count-iserv
 
   &__item
     display flex
@@ -25,6 +26,23 @@
     transition background .4s, border .4s
     z-index 1
 
+    &:before
+      @extend .before
+      counter-increment count-iserv
+      content counter(count-iserv,  decimal-leading-zero) " "
+      right 32px
+      top 38px
+      transform translateY(-50%)
+      color #e9eff7
+      font-family "GothamPro"
+      font-size 18px
+      font-weight 500
+      line-height 22px
+      text-transform uppercase
+      pointer-events none
+      transition color .4s
+      z-index 1
+
     &:after
       @extend .after
       left 0
@@ -40,6 +58,9 @@
 
       &:after
         width 100%
+
+      &:before
+        color #19459b
 
       .iserv__item
         &-title
