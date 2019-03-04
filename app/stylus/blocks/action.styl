@@ -162,10 +162,19 @@
             width 27px
 
     &-list
+      min-height 470px
+
       &-item
         display none
+        opacity 0 !important
+        transition opacity .4s
+        visibility hidden
+
         &--active
           display block
+          opacity 1 !important
+          visibility visible
+          max-height none
 
   &__subscr-href
     margin-left auto

@@ -5,7 +5,6 @@
   width 96px
   height 100vh
   min-height 650px
-  background-color white
   box-shadow -15px 0 56.4px 3.6px rgba(0, 0, 0, 0.08)
   z-index 10
 
@@ -28,16 +27,24 @@
     display flex
     flex-direction column
     justify-content space-between
+    position relative
     height 100%
+    z-index 1
 
     &-item
       flex-grow 1
       border-top 1px solid #f2f2f2
+      background-color white
+
+      &:hover
+        .nav__sublist
+          left 96px
 
       &--logo
         flex-shrink 0
         flex-grow 0
         border-top none
+        background-color $blueLight
 
         @media $mLandscapeMax
           display none
@@ -50,36 +57,22 @@
             width 100%
             padding 0
             height 110px
-            background-color $blueLight
             overflow hidden
 
             @media $bigDesktopMax
               height 82px
 
-            &:before
-              @extend .before
-              left 74px
-              top 0
-              width 200px
-              height 100%
-              background $blueLight
-              z-index 1
-
-              @media $bigDesktopMax
-                width 173px
-                left 66px
-
           &-img
             max-width none
             position relative
             left 20px
-            width 200px
+            width 53px
             height 53px
             flex-shrink 0
 
             @media $bigDesktopMax
               left 19px
-              width 173px
+              width 46px
               height 46px
 
     &-href
@@ -126,3 +119,70 @@
 
           &-text
             color $blueLight
+
+  &__sublist
+    position absolute
+    top 0
+    left -304px
+    counter-reset sublist
+    background-color $color
+    padding 156px 49px 56px
+    width 400px
+    height 100vh
+    overflow-x hidden
+    overflow-y auto
+    transition left .4s cubic-bezier(0.645, 0.045, 0.355, 1)
+    z-index -1
+
+  &__subitem
+    margin-bottom 29px
+    padding-left 34px
+
+    &--logo
+      position absolute
+      left 0
+      top 0
+      display flex
+      align-items center
+      justify-content center
+      width 100%
+      height 110px
+      background-color $blueLight
+      padding 0
+
+      a
+        display block
+
+  &__subhref
+    position relative
+    font-size 15px
+    font-weight 500
+    line-height 19px
+    color #dedede
+    border-bottom 2px solid transparent
+    letter-spacing .02em
+    transition color .4s, border .4s
+
+    &:before
+      display inline-block
+      counter-increment sublist
+      content counter(sublist,  decimal-leading-zero) " "
+      position absolute
+      top 0
+      left -34px
+      color #e9eff7
+      font-family "GothamPro"
+      font-size 11px
+      font-weight 500
+      line-height 19px
+      color #2c2f30
+      transition color .4s
+
+    &:hover, &--active
+      color $blueLight
+
+      &:before
+        color #4b4b4b
+
+    &--active
+      border-color $blueLight

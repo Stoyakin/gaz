@@ -12,10 +12,36 @@ html(lang="ru")
 
       main.main
         +nav([
-          {ico:'menu-ico', text: 'Авто'},
+          {
+            ico:'menu-ico', 
+            text: 'Авто',
+            sublist: [
+              {subItem: 'Легкие коммерческие автомобили'},
+              {subItem: 'Среднетоннажные автомобили'},
+              {subItem: 'Грузовые автомобили'},
+              {subItem: 'Автобусы'},
+              {subItem: 'Техника с ГБО'}
+            ]
+          },
           {ico:'menu-ico2', text: 'Сервис'},
           {ico:'menu-ico3', text: 'Запчасти'},
-          {ico:'menu-ico4', text: 'Услуги'},
+          {
+            ico:'menu-ico4', 
+            text: 'Услуги',
+            sublist: [
+              { subItem: 'Подбор нового авто' },
+              {subItem: 'Подбор авто с пробегом'},
+              {subItem: 'Подбор спецтехники'},
+              {subItem: 'Страхование', active: true},
+              {subItem: 'Кредит'},
+              {subItem: 'Лизинг'},
+              {subItem: 'Сервис'},
+              {subItem: 'Покупка запасных частей'},
+              {subItem: 'Trade-in'},
+              {subItem: 'Тест-драйв'},
+              {subItem: 'Test-truck'}
+            ]
+          },
           {ico:'menu-ico5', text: 'Акции'},
           {ico:'menu-ico6', text: 'Контакты'},
           {ico:'menu-ico7', text: 'О компании'}
@@ -87,35 +113,35 @@ html(lang="ru")
               +e.left
                 +e('ul').list
                   +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link" data-nav="01").list-item-btn
+                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link" data-nav="01").list-item-btn.js-sel-auto
                       +e('span').list-item-btn-overico
                         +e('img')(src="static/img/selc-car-ico.png" alt="").list-item-btn-ico
                       +e('span').list-item-btn-text Легкие коммерческие автомобили
                       i
 
                   +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link2" data-nav="02").list-item-btn
+                    +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link2" data-nav="02").list-item-btn.js-sel-auto
                       +e('span').list-item-btn-overico
                         +e('img')(src="static/img/selc-car-ico2.png" alt="").list-item-btn-ico
                       +e('span').list-item-btn-text Среднетоннажные автомобили
                       i
 
                   +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link3" data-nav="03").list-item-btn.--active
+                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link3" data-nav="03").list-item-btn.--active.js-sel-auto
                       +e('span').list-item-btn-overico
                         +e('img')(src="static/img/selc-car-ico3.png" alt="").list-item-btn-ico
                       +e('span').list-item-btn-text Грузовые автомобили
                       i
 
                   +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link4" data-nav="04").list-item-btn
+                    +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link4" data-nav="04").list-item-btn.js-sel-auto
                       +e('span').list-item-btn-overico
                         +e('img')(src="static/img/selc-car-ico4.png" alt="").list-item-btn-ico
                       +e('span').list-item-btn-text Автобусы
                       i
 
                   +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link5" data-nav="05").list-item-btn
+                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link5" data-nav="05").list-item-btn.js-sel-auto
                       +e('span').list-item-btn-overico
                         +e('img')(src="static/img/selc-car-ico5.png" alt="").list-item-btn-ico
                       +e('span').list-item-btn-text Техника с ГБО
@@ -155,19 +181,19 @@ html(lang="ru")
             .swiper-container.js-idealer-swiper
               .swiper-wrapper
                 .swiper-slide
-                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна")
+                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
                     +e('img')(src="static/img/dealer.png" alt="").item-img
                 .swiper-slide
-                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
+                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
                     +e('img')(src="static/img/dealer2.png" alt="").item-img
                 .swiper-slide
-                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна")
+                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна")
                     +e('img')(src="static/img/dealer3.png" alt="").item-img
                 .swiper-slide
-                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
+                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
                     +e('img')(src="static/img/dealer4.png" alt="").item-img
                 .swiper-slide
-                  +e.item(data-tooltip="Значимость этих проблем настолько очевидна")
+                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна")
                     +e('img')(src="static/img/dealer5.png" alt="").item-img
 
         +b('section').action
@@ -184,15 +210,15 @@ html(lang="ru")
                 +e.top
                   +e('ul').tabs-nav
                     +e('li').tabs-nav-item
-                      +e('button')(type="button" data-nav="01").tabs-nav-btn.--active Все
+                      +e('button')(type="button" data-nav="01").tabs-nav-btn.--active.js-tabs-btn Все
                     +e('li').tabs-nav-item
-                      +e('button')(type="button" data-nav="01").tabs-nav-btn Сервис
+                      +e('button')(type="button" data-nav="02").tabs-nav-btn.js-tabs-btn Сервис
                     +e('li').tabs-nav-item
-                      +e('button')(type="button" data-nav="01").tabs-nav-btn Автомобили
+                      +e('button')(type="button" data-nav="03").tabs-nav-btn.js-tabs-btn Автомобили
                     +e('li').tabs-nav-item
-                      +e('button')(type="button" data-nav="01").tabs-nav-btn Запчасти
+                      +e('button')(type="button" data-nav="04").tabs-nav-btn.js-tabs-btn Запчасти
                     +e('li').tabs-nav-item
-                      +e('button')(type="button" data-nav="01").tabs-nav-btn Спецтехника
+                      +e('button')(type="button" data-nav="05").tabs-nav-btn.js-tabs-btn Спецтехника
 
                   +e('a')(href="#").subscr-href.btn.--lite Подписаться на рассылку
 
@@ -253,7 +279,7 @@ html(lang="ru")
                             { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
                           ])
 
-                  +e('li')(data-tabs="04").tabs-list-item
+                  +e('li')(data-tabs="05").tabs-list-item
                     +e.carousel.swiper-container.js-action-swiper
                       .swiper-wrapper
                         .swiper-slide
@@ -368,4 +394,3 @@ html(lang="ru")
                 +e('a')(href="#").more-href.btn.--lite Подробнее о компании
 
         include includes/partials/footer
-

@@ -10,6 +10,7 @@ var fs = require('fs'),
   notify = require('gulp-notify'),
   stylus = require('gulp-stylus'),
   plumber = require('gulp-plumber'),
+  babel = require('gulp-babel'),
   $ = require('gulp-load-plugins')();
 
 // Пути
@@ -97,10 +98,9 @@ function js(src, dst, fileName) {
   return function () {
     return gulp.src(src)
       .pipe($.sourcemaps.init())
-      .pipe($.babel({
-        compact: false,
+      .pipe(babel({
         presets: ["@babel/preset-env"],
-        ignore: ['what-input.js', 'swiper.js']
+        minified: false
       }))
       .pipe($.plumber({
         errorHandler: $.notify.onError({
@@ -144,7 +144,7 @@ function jsVendor(src, dst, fileName) {
       }))
       .pipe(print())
       .pipe($.concat(fileName))
-      //.pipe($.uglify())
+      .pipe($.uglify())
       .pipe($.sourcemaps.write('./'))
       .pipe(gulp.dest(dst))
       .pipe($.notify({
@@ -201,9 +201,10 @@ gulp.task('css', css([
     // тут нужно добавить css-файлы сторонних либ, если они используются
     src.app.css + 'fonts.css',
     src.app.css + 'ext/swiper-cut-svg.css',
+    src.app.css + 'ext/tippy.css',
+    src.app.css + 'styles.css'
     // 'node_modules/jquery-form-styler/dist/jquery.formstyler.css',
     // 'node_modules/jquery-form-styler/dist/jquery.formstyler.theme.css',
-    src.app.css + 'styles.css'
   ],
   src.build.css
 ));
@@ -214,15 +215,14 @@ gulp.task('csspack', csspack([src.build.css + 'styles.css'], src.build.css));
 // Собираем JS
 gulp.task('js-own', js([ src.app.js + 'common.js' ], src.build.js, 'own.js'));
 
-gulp.task('js-vendor', js(
+gulp.task('js-vendor', jsVendor(
   [
+    'node_modules/babel-polyfill/dist/polyfill.js',
     'node_modules/jquery/dist/jquery.js',
-    'node_modules/jquery-ui-dist/jquery-ui.min.js',
     'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
-    //'node_modules/systemjs/dist/system.js',
-    //'node_modules/babel-polyfill/dist/polyfill.js',
     'node_modules/swiper/dist/js/swiper.js',
-    // 'node_modules/jquery-form-styler/dist/jquery.formstyler.min.js',
+    src.app.js + 'ext/tippy.js',
+    //'node_modules/jquery-form-styler/dist/jquery.formstyler.min.js',
     // src.app.js + 'ext/jquery.maskedinput.min.js',
     //подключаем модерниз, если нужен
     //src.app.vendor + "modernizr/modernizr.custom.js"
