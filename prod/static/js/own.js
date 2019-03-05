@@ -162,10 +162,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
           _t.addClass('action__tabs-nav-btn--active');
 
-          tabs.fadeOut(200);
+          tabs.fadeOut(250);
+          tabs.removeClass('action__tabs-list-item--active');
           setTimeout(function () {
-            tabs.removeClass('action__tabs-list-item--active');
-
             _tPar.find('.action__tabs-list-item[data-tabs="' + _tData + '"]').fadeIn(200, function () {
               var _th = $(this);
 
