@@ -26,10 +26,10 @@ mixin nav(data)
             +e('span').list-href-text #{item.text}
 
           if (item.sublist)
-            +e('ul').sublist
-              +e('li').subitem.--logo
-                  +e('a').subitem-overimg
-                    +e('img')(src="../../../static/img/logo-white.png" alt="").subitem-img
-              each item2 in item.sublist
-                +e('li').subitem
-                  +e('a').subhref(href="#" class=item2.active ? '--active' : '') #{item2.subItem}
+            +e.submenu
+              +e('a').submenu-top
+                +e('img')(src="../../../static/img/logo-white.png" alt="").submenu-top-img
+              +e('ul').sublist
+                each item2 in item.sublist
+                  +e('li').subitem
+                    +e('a').subhref(href="#" class=item2.active ? '--active' : '') #{item2.subItem}

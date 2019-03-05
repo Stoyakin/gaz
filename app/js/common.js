@@ -2,7 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
   window.site = {};
+
   window.site.form = {
+
     init: function init() {
       let _th = this,
         form = document.querySelectorAll('form'),
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
       }
     },
+
     checkForm: function checkForm(form) {
       let checkResult = true;
       form.find('.warning').removeClass('warning');
@@ -53,8 +56,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
       return checkResult;
     }
+
   }.init();
+
   window.site.obj = {
+
     fadeOut: function fadeOut(selector, duration) {
       let element = document.querySelector(selector),
         op = 1;
@@ -111,58 +117,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
       return;
     },
 
-    tabs: function tabs() {
-      /*
-      let _this = this,
-        tabsBtn = document.querySelectorAll('.js-tabs-btn'),
-        tabsItem = document.querySelectorAll('.action__tabs-list-item');
+    filter: function filter() {
+      let allowed = true;
 
-      for (let i = 0; i < tabsBtn.length; i++) {
-        tabsBtn[i].addEventListener('click', function () {
-          let btnData = tabsBtn[i].dataset.nav;
-          if (tabsItem.length) {
-            for (let n = 0; n < tabsItem.length; n++) {
-              let tabsData = tabsItem[n].dataset.tabs;
-              if (btnData == tabsData) {
-                let selector = '.'+tabsItem[n].className+'[data-tabs="0'+n+'"]';
-                tabsItem.forEach((item)=> {
-                  item.classList.remove('action__tabs-list-item--active');
-                });
-                _this.fadeIn(selector, 500);
-                //console.log(tabsItem[n]);
-                //console.log(selector);
-              }
-            }
-          }
-        });
-      }
-      */
-      var allowed = true;
+      $('.js-filter-btn').on('click', function () {
+        let _t = $(this),
+          data = _t.data('filter-nav'),
+          parents = _t.parents('.action'),
+          btn = parents.find('.action__filter-nav-btn'),
+          filterSlide = parents.find('.swiper-slide[data-filter-type]'),
+          carousel = parents.find('.action__filter-carousel');
 
-      $('.js-tabs-btn').on('click', function () {
-        var _t = $(this),
-          _tData = _t.data('nav'),
-          _tPar = _t.parents('.action'),
-          tabs = _tPar.find('.action__tabs-list-item'),
-          btn = _tPar.find('.action__tabs-nav-btn');
-
-        if (!_t.hasClass('action__tabs-nav-btn--active') && allowed) {
+        if (!_t.hasClass('action__filter-nav-btn--active') && allowed) {
           allowed = false;
-          btn.removeClass('action__tabs-nav-btn--active');
-          _t.addClass('action__tabs-nav-btn--active');
-          tabs.fadeOut(250);
-          tabs.removeClass('action__tabs-list-item--active');
-          setTimeout(function () {
-            _tPar.find('.action__tabs-list-item[data-tabs="' + _tData + '"]').fadeIn(200, function () {
-              var _th = $(this);
-              _th.find('.js-action-swiper')[0].swiper.update();
-              _th.find('.js-action-swiper')[0].swiper.navigation.update();
-              setTimeout(function () {
-                _th.addClass('action__tabs-list-item--active');
-                allowed = true;
-              }, 400);
-            }).css('display', 'block');
-          }, 200);
+          btn.removeClass('action__filter-nav-btn--active');
+          _t.addClass('action__filter-nav-btn--active');
+          parents.find('.swiper-slide[data-filter-type]').fadeOut(300);
+          setTimeout(()=>{
+            if (data != 'all'){
+              parents.find('.swiper-slide[data-filter-type="'+data+'"]').fadeIn(300);
+            } else {
+              filterSlide.fadeIn(300);
+            }
+            carousel[0].swiper.update();
+            allowed = true;
+          }, 300)
         }
 
         return false;
@@ -171,17 +150,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     burger: function burger() {
       let _th = this,
-        $body = document.querySelector('body');
+        $body = document.querySelector('body'),
+        nav = document.querySelector('.nav');
       document.querySelector('.js-burger').addEventListener('click', function() {
         let _t = this;
         if (!_t.classList.contains('header__burger--active')) {
           _t.classList.add('header__burger--active');
-          _th.fadeIn('.nav');
-          $body.classList.add('open-menu');
+          nav.classList.add('nav--show');
         } else {
           _t.classList.remove('header__burger--active');
-          _th.fadeOut('.nav');
-          $body.classList.remove('open-menu');
+          nav.classList.remove('nav--show');
         }
         return false;
       });
@@ -189,13 +167,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     init: function init() {
       let $body = document.querySelector('body'),
-        tabsBtn = document.querySelectorAll('.js-tabs-btn');
+        filterBtn = document.querySelectorAll('.js-filter-btn'),
+        burger = document.querySelector('.js-burger');
 
       if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
         $body.classList.add('ios');
       }
 
-      if (tabsBtn.length) this.tabs();
+      if (filterBtn.length) this.filter();
+
+      if (burger) this.burger();
 
       if (document.querySelector('.js-idealer-swiper')) {
         let idealerSlider = new Swiper('.js-idealer-swiper', {
@@ -221,7 +202,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }
 
       if (document.querySelector('.js-iann-swiper')) {
-        let indEl = document.querySelector('.iann .swiper-ind-line span');
+        let indEl = document.querySelector('.iann .swiper-ind-line span'),
+          width = 0,
+          timer;
+
+        function animInd(time) {
+          let timeout = time/100;
+          if (width < 101) {
+            width++;
+            indEl.style.width = width + '%'
+            timer = setTimeout(() => {
+              animInd(time);
+            }, timeout);
+          } else {
+            indEl.style.width = '0%'
+          }
+        }
+
         let iannSlider = new Swiper('.js-iann-swiper', {
           loop: true,
           speed: 750,
@@ -233,12 +230,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
           simulateTouch: false,
           allowSwipeToNext: false,
           allowSwipeToPrev: false,
-          // autoplay: {
-          //   delay: 7000,
-          // },
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+          },
           navigation: {
             nextEl: '.iann .swiper-button-next',
             prevEl: '.iann .swiper-button-prev',
+          },
+          on: {
+            init: function () {
+              //animInd(2000);
+            },
+            transitionStart: function () {
+              width = 0;
+              indEl.style.width = '0%'
+              clearTimeout(timer);
+            },
+            transitionEnd: function () {
+              animInd(1625);
+            }
           }
         });
       }
@@ -270,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
 
       let actionSlider = new Swiper('.js-action-swiper', {
-        loop: true,
+        loop: false,
         speed: 750,
         slidesPerView: 3,
         spaceBetween: 28,
