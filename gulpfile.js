@@ -166,6 +166,15 @@ gulp.task('pug', function buildHTML() {
       basedir: 'app/pug/',
       skip: 'node_modules'
     }))
+    .pipe(plumber({
+      errorHandler: function (err) {
+        notify.onError({
+          title: 'Styles compilation error',
+          message: err.messagegulp
+        })(err);
+        this.emit('end');
+      }
+    }))
     .pipe(pug({pretty: '    '}))
     .pipe(gulp.dest(src.build.tmpl))
     .pipe(reload({stream: true}));
