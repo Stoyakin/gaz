@@ -1,7 +1,9 @@
 +b('header').header 
   +e.row
-    +e('a')(href="#").logo
-      +e('img')(src="static/img/logo.png").logo-img
+    +e.logo
+      +e('a')(href="/").logo-href
+        +e('img')(src="static/img/logo.png").logo-img
+      +e('p').logo-title Продажа и обслуживание автомобилей ГАЗ, УРАЛ
     
     +e('ul').contacts
       +e('li').contacts-item
@@ -24,7 +26,7 @@
         +e.contacts-item-overico
           +e('img')(src="static/img/ico.png" alt="").contacts-item-ico
         +e.contacts-item-info
-          +e('p').contacts-item-title Энгельсский филиал АвтоцентрГАЗ-СаратовЮГ
+          +e('p').contacts-item-title Энгельсский филиал СаратовЮГ
           +e('a')(href="tel:").contacts-item-phone +7 (922) 744-80-10
           +e('address').contacts-item-address проспект Победы, 24
 

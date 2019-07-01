@@ -3,362 +3,59 @@ include includes/__mixins
 
 doctype html
 html(lang="ru")
-  - var title = "Главная"
+  - var title = "Разводящая"
   include includes/partials/head
-
+  style(type='text/css').
+    .page-list {
+      display: inline-block;
+      vertical-align: top;
+      width: 48%;
+      margin: 30px 0 0 !important;
+    }
+    .page-list-item {
+      margin: 0 0 10px !important;
+    }
+    .page-list-item:before {
+      display: none;
+      content: none;
+    }
+    .page-list-item a {
+      color: #1c1c1c;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      border-bottom: 1px solid #1c1c1c;
+      transition: color 0.5s, border 0.5s;
+      -webkit-transition: color 0.5s, border 0.5s;
+    }
+    .page-list-item a:hover {
+      border-bottom-color: transparent;
+    }
+    h3 {
+      margin-bottom: 20px; 
+    }
+    
   body
-    .wrapper.wrapper--index
-      include includes/partials/header
-
-      main.main
-        +nav([
-          {
-            ico:'menu-ico', 
-            text: 'Авто',
-            sublist: [
-              {subItem: 'Легкие коммерческие автомобили'},
-              {subItem: 'Среднетоннажные автомобили'},
-              {subItem: 'Грузовые автомобили'},
-              {subItem: 'Автобусы'},
-              {subItem: 'Техника с ГБО'}
-            ]
-          },
-          {ico:'menu-ico2', text: 'Сервис'},
-          {ico:'menu-ico3', text: 'Запчасти'},
-          {
-            ico:'menu-ico4', 
-            text: 'Услуги',
-            sublist: [
-              { subItem: 'Подбор нового авто' },
-              {subItem: 'Подбор авто с пробегом'},
-              {subItem: 'Подбор спецтехники'},
-              {subItem: 'Страхование', active: true},
-              {subItem: 'Кредит'},
-              {subItem: 'Лизинг'},
-              {subItem: 'Сервис'},
-              {subItem: 'Покупка запасных частей'},
-              {subItem: 'Trade-in'},
-              {subItem: 'Тест-драйв'},
-              {subItem: 'Test-truck'}
-            ]
-          },
-          {ico:'menu-ico5', text: 'Акции'},
-          {ico:'menu-ico6', text: 'Контакты'},
-          {ico:'menu-ico7', text: 'О компании'}
-        ])
-
-        +b('section').iann
-          .swiper-container.js-iann-swiper
-            .swiper-wrapper
-              .swiper-slide
-                +e.content(style="background-image: url('static/img/iann.jpg');")
-                  +e('h1').content-title Новое <br>семейство
-                  +e('p').content-text коммерческих автомобилей ГАЗ
-                  +e('a')(href="").content-href.btn Узнать подробнее
-
-              .swiper-slide
-                +e.content(style="background-image: url('static/img/iann.jpg');")
-                  +e('h1').content-title Новое <br>семейство
-                  +e('p').content-text коммерческих автомобилей ГАЗ
-                  +e('a')(href="").content-href.btn Узнать подробнее2
-
-              .swiper-slide
-                +e.content(style="background-image: url('static/img/iann.jpg');")
-                  +e('h1').content-title Новое <br>семейство
-                  +e('p').content-text коммерческих автомобилей ГАЗ
-                  +e('a')(href="").content-href.btn Узнать подробнее3
-
-              .swiper-slide
-                +e.content(style="background-image: url('static/img/iann.jpg');")
-                  +e('h1').content-title Новое <br>семейство
-                  +e('p').content-text коммерческих автомобилей ГАЗ
-                  +e('a')(href="").content-href.btn Узнать подробнее4
-
-            .swiper-ind
-              .swiper-ind-number.swiper-ind-number--prev 01
-              .swiper-ind-line
-                span
-              .swiper-ind-number.swiper-ind-number--next 02
-
-            .swiper-nav
-              .swiper-count
-                p.swiper-count-item 01
-                p.swiper-count-all 04
-              .swiper-buttons
-                .swiper-button-prev
-                .swiper-button-next
-
-        +b('section').iserv
-          .container
-            +e('h2').title.title Наши услуги
-            +services([
-              { ico:'static/img/serv-ico/serv-ico.png', title: 'Лизинг'},
-              { ico:'static/img/serv-ico/serv-ico2.png', title: 'Кредит'},
-              { ico:'static/img/serv-ico/serv-ico3.png', title: 'Аренда'},
-              { ico:'static/img/serv-ico/serv-ico4.png', title: 'Эвакуатор'},
-              { ico:'static/img/serv-ico/serv-ico5.png', title: 'Выездной <br>сервис'},
-              { ico:'static/img/serv-ico/serv-ico6.png', title: 'Trade-in'},
-              { ico:'static/img/serv-ico/serv-ico7.png', title: 'Экспресс <br>сервис'},
-              { ico:'static/img/serv-ico/serv-ico8.png', title: 'Надстройки <br>и доработки'},
-              { ico:'static/img/serv-ico/serv-ico9.png', title: 'Продление <br>гарантии'},
-              { ico:'static/img/serv-ico/serv-ico10.png', title: 'Специальные <br>программы'},
-              { ico:'static/img/serv-ico/serv-ico11.png', title: 'Записаться <br>на сервис'},
-              { ico:'static/img/serv-ico/serv-ico12.png', title: 'Пробная <br>поездка'}
-            ])
-
-        +b('section').isel
-          .container
-            +e('h2').title.title Подбор автомобиля
-            +e.row
-              +e.left
-                +e('ul').list
-                  +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link" data-nav="01").list-item-btn.js-sel-auto
-                      +e('span').list-item-btn-overico
-                        +e('img')(src="static/img/selc-car-ico.png" alt="").list-item-btn-ico
-                      +e('span').list-item-btn-text Легкие коммерческие автомобили
-                      i
-
-                  +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link2" data-nav="02").list-item-btn.js-sel-auto
-                      +e('span').list-item-btn-overico
-                        +e('img')(src="static/img/selc-car-ico2.png" alt="").list-item-btn-ico
-                      +e('span').list-item-btn-text Среднетоннажные автомобили
-                      i
-
-                  +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link3" data-nav="03").list-item-btn.--active.js-sel-auto
-                      +e('span').list-item-btn-overico
-                        +e('img')(src="static/img/selc-car-ico3.png" alt="").list-item-btn-ico
-                      +e('span').list-item-btn-text Грузовые автомобили
-                      i
-
-                  +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img2.jpg" data-href="link4" data-nav="04").list-item-btn.js-sel-auto
-                      +e('span').list-item-btn-overico
-                        +e('img')(src="static/img/selc-car-ico4.png" alt="").list-item-btn-ico
-                      +e('span').list-item-btn-text Автобусы
-                      i
-
-                  +e('li').list-item
-                    +e('button')(data-src-img="static/img/selc-car-img.jpg" data-href="link5" data-nav="05").list-item-btn.js-sel-auto
-                      +e('span').list-item-btn-overico
-                        +e('img')(src="static/img/selc-car-ico5.png" alt="").list-item-btn-ico
-                      +e('span').list-item-btn-text Техника с ГБО
-                      i
-
-              +e.center
-                +e.auto-overimg
-                  +e('img')(src="static/img/selc-car-img.jpg" alt="").auto-img
-                +e('a')(href="link" target="_blank").auto-href.btn Посмотреть автомобиль
-
-              +e.rigth
-                +e('ul').stat(style="background-image: url('static/img/isel-stat-back.jpg')")
-                  +e('li').stat-item
-                    +e.stat-item-overico
-                      +e('img')(src="static/img/stat-ico.png" alt="").stat-item-ico
-                    +e.stat-item-info
-                      +e('p')(data-digits="5673").stat-item-title.js-digits 5673
-                      +e('p').stat-item-text новых автомобиля уже куплено у нас
-
-                  +e('li').stat-item
-                    +e.stat-item-overico
-                      +e('img')(src="static/img/stat-ico2.png" alt="").stat-item-ico
-                    +e.stat-item-info
-                      +e('p')(data-digits="7751").stat-item-title.js-digits 7751
-                      +e('p').stat-item-text автомобилей с пробегом продано нами
-
-                  +e('li').stat-item
-                    +e.stat-item-overico
-                      +e('img')(src="static/img/stat-ico3.png" alt="").stat-item-ico
-                    +e.stat-item-info
-                      +e('p')(data-digits="345").stat-item-title.js-digits 345
-                      +e('p').stat-item-text заявок на ТО выполнено нами
-
-        +b('section').idealer
-          .container
-            +e('h2').title.title Мы — официальный дилер
-            .swiper-container.js-idealer-swiper
-              .swiper-wrapper
-                .swiper-slide
-                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
-                    +e('img')(src="static/img/dealer.png" alt="").item-img
-                .swiper-slide
-                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
-                    +e('img')(src="static/img/dealer2.png" alt="").item-img
-                .swiper-slide
-                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна")
-                    +e('img')(src="static/img/dealer3.png" alt="").item-img
-                .swiper-slide
-                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
-                    +e('img')(src="static/img/dealer4.png" alt="").item-img
-                .swiper-slide
-                  +e.item.js-tippy(title="Значимость этих проблем настолько очевидна")
-                    +e('img')(src="static/img/dealer5.png" alt="").item-img
-
-        +b('section').action
-          .container
-            +e.row
-              +e.left
-                +e('h2').title.title Акции
-                +e('p').text Будьте в курсе всех свежих акций, проходящих у нас
-                .swiper-buttons
-                  .swiper-button-prev
-                  .swiper-button-next
-
-              +e.right
-                +e.top
-                  +e('ul').filter-nav
-                    +e('li').filter-nav-item
-                      +e('button')(type="button" data-filter-nav="all").filter-nav-btn.--active.js-filter-btn Все
-                    +e('li').filter-nav-item
-                      +e('button')(type="button" data-filter-nav="02").filter-nav-btn.js-filter-btn Сервис
-                    +e('li').filter-nav-item
-                      +e('button')(type="button" data-filter-nav="03").filter-nav-btn.js-filter-btn Автомобили
-                    +e('li').filter-nav-item
-                      +e('button')(type="button" data-filter-nav="04").filter-nav-btn.js-filter-btn Запчасти
-                    +e('li').filter-nav-item
-                      +e('button')(type="button" data-filter-nav="05").filter-nav-btn.js-filter-btn Спецтехника
-
-                  +e('a')(href="#").subscr-href.btn.--lite Подписаться на рассылку
-                  
-                +e.filter-carousel.swiper-container.js-action-swiper
-                  .swiper-wrapper
-                    .swiper-slide(data-filter-type="02")
-                      +publ([
-                        { img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
-                      ])
-                    .swiper-slide(data-filter-type="02")
-                      +publ([
-                        { img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '11 декабрь 2018', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
-                      ])
-                    .swiper-slide(data-filter-type="03")
-                      +publ([
-                        { img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-                    .swiper-slide(data-filter-type="02")
-                      +publ([
-                        { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-                    .swiper-slide(data-filter-type="03")
-                      +publ([
-                        { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-                    .swiper-slide(data-filter-type="04")
-                      +publ([
-                        { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-                    .swiper-slide(data-filter-type="05")
-                      +publ([
-                        { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-                    .swiper-slide(data-filter-type="05")
-                      +publ([
-                        { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-                    .swiper-slide(data-filter-type="04")
-                      +publ([
-                        { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-                    .swiper-slide(data-filter-type="05")
-                      +publ([
-                        { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
-                      ])
-
-        +b('section').inews
-          .container
-            +e.top
-              +e('h2').title.title Новости
-              +e.top-right
-                +e('a')(href="#").all-href.btn Читать все новости
-                +e('a')(href="#").subscr-href.btn.--lite Подписаться на рассылку
-            +e.wrap
-              +publ([
-                { img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
-                { img: 'static/img/publ/publ-img5.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
-                { img: 'static/img/publ/publ-img6.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
-                { img: 'static/img/publ/publ-img7.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '11 декабрь 2018', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
-              ])
-
-        +b('section').igall
-          .container
-            +e('h2').title.title Галерея
-          .swiper-container.js-igall-swiper
-            .swiper-wrapper
-              .swiper-slide
-                +e.overimg
-                  +e.img(style="background-image: url('static/img/igall.jpg');")
-              .swiper-slide
-                +e.overimg
-                  +e.img(style="background-image: url('static/img/igall2.jpg');")
-              .swiper-slide
-                +e.overimg
-                  +e.img(style="background-image: url('static/img/igall3.jpg');")
-
-            .swiper-buttons
-              .swiper-button-prev
-              .swiper-button-next
-
-        +b('section').irev
-          .container
-            +e.row
-              +e.decor
-                +e.decor-item(style="background-image: url('static/img/irev-decor.jpg');")
-
-              +e.right
-                +e.top
-                  +e('h2').title.title.--white Отзывы наших довольных клиентов
-                  +e('a')(href="#").write-href.btn.--lite Оставить отзыв
-
-                +e.carousel
-                  .swiper-container.js-irev-swiper
-                    .swiper-ind
-                      .swiper-ind-number.swiper-ind-number--prev 01
-                      .swiper-ind-line
-                        span(style="width: 35%")
-                      .swiper-ind-number.swiper-ind-number--next 02
-                    .swiper-wrapper
-                      .swiper-slide
-                        +e.item
-                          +e('p').item-company ООО «Шустрые перевозки»
-                          +e('p').item-author Сергей Петрович Сидоров
-                          +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
-                          +e('a')(href="#").item-read-href.btn.--blue Читать весь отзыв
-                      .swiper-slide
-                        +e.item
-                          +e('p').item-company ООО «Шустрые перевозки»
-                          +e('p').item-author Сергей Петрович Сидоров
-                          +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
-                      .swiper-slide
-                        +e.item
-                          +e('p').item-company ООО «Шустрые перевозки»
-                          +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации.
-
-                  .swiper-buttons
-                    .swiper-button-prev
-                    .swiper-button-next
-
-        +b('section').iabout
-          .container
-            +e('h2').title.title О компании
-
-            +e.row
-              +e.left
-                +e('p').left-year 25
-                  span лет
-                +e('p').left-text плодотворной работы
-
-              +e.descr
-                .text
-                  p Компания АвтоцентрГАЗ-Лидер является официальным дилером ГАЗ в Саратове и Саратовской области.
-                  p На протяжении более чем 25-ти лет плодотворной работы наш Автоцентр занимает лидирующие позиции на рынке коммерческой техники.
-                  p Все эти годы добиваясь новых и новых результатов обеспечивает профессиональное сервисное и гарантийное обслуживание марки ГАЗ в Саратове и Саратовской области.
-                  p В 2017 году Автоцентр Лидер был признан лучшим дилером марки ГАЗ в России.
-
-              +e.right
-                +e('p').task Задача организации, в особенности же консультация с широким активом требуют определения и уточнения существенных финансовых и административных условий. Идейные соображения высшего порядка, а также консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. 
-                +e('a')(href="#").more-href.btn.--lite Подробнее о компании
-
-        include includes/partials/footer
+    .wrapper(style="overflow-x: hidden; padding-top: 80px;")
+      main.main(style="background: none;")
+        .container
+          .text
+            ul.page-list(style="display:inline-block;vertical-align:top;width:45%;margin-right:35px;")
+              li.page-list-item
+                h3 Страницы
+                a(target="_blank" href="main.html").link Главная
+              li.page-list-item
+                a(target="_blank" href="inner-default.html").link Типовая текстовая
 
 
+            ul.page-list(style="display:inline-block;vertical-align:top;width:45%;margin-right:35px;")
+              li.page-list-item
+                h3 Попапы
+                a(href="") lorem
+                
+      .hidden-block
+        include includes/__popups
+
+      script(src="static/js/vendor.js")
+      script(src="static/js/own.js")
+      

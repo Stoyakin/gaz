@@ -8,7 +8,7 @@
     &-ind
       display flex
       align-items center
-      margin-bottom 56px
+      margin-bottom 33px
       user-select none
 
       @media $bigDesktopMax
@@ -25,6 +25,7 @@
           font-weight 500
           line-height 39px
           color $blueLight
+          min-width 48px
 
           @media $bigDesktopMax
             font-size 26px
@@ -94,7 +95,7 @@
     @media $bigDesktopMax
       width calc(100% - 25% - 7px)
 
-    @media $bigDesktopMax
+    @media $minDesktopMax
       margin-left 0
       width 100%
 
@@ -150,9 +151,40 @@
     @media $tPortraitMax
       margin 0
 
+  &__date
+    position absolute
+    display flex
+    flex-direction column
+    top 0
+    right 0
+    width 108px
+    padding 17px 20px 16px
+    min-height 110px
+    background-color #076af2
+    z-index 1
+
+    &-day, &-moth, &-year
+      color #fff
+
+    &-day
+      font-size 48px
+      line-height 40px
+      font-weight 500
+      margin-bottom 5px
+
+    &-moth, &-year
+      font-size 12px
+      line-height 14px
+      font-weight 500
+      text-transform uppercase
+
+    &-moth
+      margin-bottom 3px
+
   &__carousel
-    background-color #19459b
-    padding 97px 23% 103px
+    position relative
+    background-color $blue
+    padding 97px 23% 104px calc(23% - 6px)
 
     @media $bigDesktopMax
       padding 56px 112px 64px 23%
@@ -161,12 +193,28 @@
       padding 50px 50px 85px
 
   &__item
+    &-top
+      display flex
+      flex-wrap wrap
+      align-items center
+      margin-bottom 35px
+
+      &-right
+        width calc(100% - 129px)
+
+    &-overimg
+      flex-shrink 0
+      width 100px
+      height 100px
+      margin-right 29px
+
+    &-img
+      max-height 100%
+
     &-company
       color #fff
-      font-size 18px
-      font-weight 500
+      font-size 16px
       line-height 22px
-      margin-bottom 6px
       letter-spacing 0.02em
 
       @media $bigDesktopMax
@@ -176,10 +224,10 @@
 
     &-author
       color rgba(#fff, .86)
-      font-size 16px
+      font-size 18px
       line-height 24px
-      font-weight 400
-      letter-spacing 0.02em
+      letter-spacing 0.03em
+      margin-bottom 7px
 
       @media $bigDesktopMax
         font-size 12px
@@ -201,7 +249,7 @@
         margin-top 23px
 
     &-read-href
-      margin-top 94px
+      margin-top 45px
 
       @media $bigDesktopMax
         margin-top 35px
