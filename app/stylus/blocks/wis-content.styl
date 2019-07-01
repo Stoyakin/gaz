@@ -1,0 +1,336 @@
+.wis-content
+  color rgba($color, .86)
+
+  *:first-child
+    margin-top 0
+  *:last-child
+    margin-bottom 0
+
+  h1:not([class]),
+  h2:not([class]),
+  h3:not([class]),
+  h4:not([class]),
+  h5:not([class])
+    position relative
+    color $color
+    font-weight 500
+    letter-spacing -.005em
+    @media $desktopMax1440
+      letter-spacing normal
+    &:after
+      @extend .after
+      left 0
+      bottom 0
+      width 52px
+      height 3px
+      background-color #076af2
+      @media $desktopMax1440
+        width 38px
+        height 3px
+
+  h1:not([class])
+    font-size 40px
+    line-height 48px
+    padding-bottom 34px
+    margin-bottom 42px
+    @media $desktopMax1440
+      font-size 28px
+      line-height 34px
+      padding-bottom 24px
+      margin-bottom 34px
+
+  h2:not([class])
+    font-size 34px
+    line-height 40px
+    padding-bottom 35px
+    margin 136px 0 43px
+    @media $desktopMax1440
+      font-size 24px
+      line-height 29px
+      padding-bottom 24px
+      margin 90px 0 34px
+
+  h3:not([class])
+    font-size 30px
+    line-height 36px
+    padding-bottom 31px
+    margin 86px 0 43px
+    @media $desktopMax1440
+      font-size 20px
+      line-height 26px
+      padding-bottom 26px
+      margin 70px 0 34px
+
+  h4:not([class])
+    font-size 26px
+    line-height 32px
+    padding-bottom 30px
+    margin 70px 0 40px
+    @media $desktopMax1440
+      font-size 18px
+      line-height 24px
+
+  h5:not([class])
+    font-size 22px
+    line-height 26px
+    padding-bottom 30px
+    margin 60px 0 35px
+    @media $desktopMax1440
+      font-size 18px
+      line-height 24px
+
+  figure:not([class])
+    margin 28px 0 22px
+    max-width 100%
+
+  figure:not([class])
+    img:not([class])
+      margin 0
+
+  figcaption:not([class])
+    color rgba($color, .86)
+    font-size 16px
+    line-height 26px
+    margin-top 15px
+    @media $desktopMax1440
+      font-size 14px
+      line-height 22px
+
+  img:not([class])
+    margin 19px 0 17px
+    max-width 100%
+    @media $desktopMax1440
+      margin 19px 0 13px
+
+  * + img:not([class])
+    margin-top 19px
+    @media $desktopMax1440
+      margin-top 14px
+
+  ul:not([class])
+    list-style none
+    margin 26px 0 37px
+    @media $desktopMax1440
+      margin 21px 0 39px
+
+    ul:not([class])
+      margin 15px 0
+
+      ul:not([class])
+        margin 15px 0
+
+  * + ul:not([class])
+    margin-top 26px
+    @media $desktopMax1440
+      margin-top 21px
+
+  ul:not([class]) ul:not([class]),
+  ol:not([class]) ol:not([class]),
+  ol:not([class]) ul:not([class]),
+  ul:not([class]) ol:not([class])
+    margin-top 10px
+
+  ul:not([class]) li
+    padding-left 51px
+    position relative
+    font-size 16px
+    line-height 26px
+    letter-spacing .022em
+    margin-bottom 10px
+    @media $desktopMax1440
+      font-size 14px
+      line-height 22px
+      margin-bottom 8px
+
+    ul:not([class]) li
+      padding-left 30px
+
+      &:before
+        left 0
+
+  ul:not([class]) ol:not([class]),
+  ol:not([class]) ul:not([class]),
+  ul:not([class]) li:not([class]) ol:not([class]),
+  ol:not([class]) li:not([class]) ul:not([class])
+    counter-reset myCounter
+
+  ul:not([class]) ol:not([class]) li:before
+    height 26px
+    background none
+    @media $desktopMax1440
+      height 22px
+
+  ul:not([class]) li:before
+    content ""
+    position absolute
+    display block
+    left 20px
+    top 12px
+    width 15px
+    height 2px
+    background $blueLight
+    @media $desktopMax1440
+      top 10px
+
+  ol:not([class])
+    list-style none
+    margin 27px 0 37px
+    counter-reset myCounter
+
+    ol:not([class])
+      margin 15px 0
+
+      ol:not([class])
+        margin 15px 0
+
+  * + ol:not([class])
+    margin-top 27px
+
+  ol:not([class]) li
+    padding-left 56px
+    position relative
+    font-size 16px
+    line-height 26px
+    letter-spacing .022em
+    margin-bottom 11px
+    @media $desktopMax1440
+      font-size 14px
+      line-height 22px
+      margin-bottom 8px
+
+    ol:not([class]) li
+      &:before
+        left 0
+
+    ul:not([class]) li
+      padding-left 30px
+      &:before
+        content ''
+        left 0
+        top 12px
+        width 15px
+        min-width 15px
+        height 2px
+        background $blueLight
+
+  ol:not([class]) li:before
+    counter-increment myCounter
+    content counters(myCounter,".", decimal-leading-zero)"."
+    position absolute
+    left 20px
+    top 2px
+    min-width 28px
+    text-align left
+    color rgba($blueLight, .86)
+    font-size 12px
+    font-weight 500
+    line-height 26px
+    box-sizing border-box
+    height 26px
+    background-color transparent
+    @media $desktopMax1440
+      height 22px
+      line-height 22px
+
+  table:not([class])
+    margin 42px 0 35px
+    max-width 100%
+    border 1px solid #e8e8e8
+
+    tr
+      &:last-child
+        td
+          border-bottom none
+
+    th,td
+      position relative
+      vertical-align top
+
+    th
+      color #fff
+      font-size 12px
+      line-height 18px
+      font-weight 500
+      padding 38px 38px 30px
+      background-color #076af2
+      border-right 1px solid #fff
+      letter-spacing .01em
+      @media $desktopMax1440
+        font-size 11px
+        line-height 15px
+        padding 28px 29px 21px
+
+      &:last-child
+        border-right none
+
+    td
+      color rgba($color, .86)
+      font-size 14px
+      line-height 24px
+      padding 36px 38px 30px
+      border-right 1px solid #e8e8e8
+      border-bottom 1px solid #e8e8e8
+      letter-spacing .025em
+      @media $desktopMax1440
+        font-size 12px
+        line-height 16px
+        padding 27px 28px 21px
+      &:last-child
+        border-right none
+
+  .table-wrap
+    margin 42px 0 35px
+    padding-bottom 15px
+    overflow-y hidden
+    overflow-x auto
+    table
+      margin 0
+      max-width 100%
+      min-width 788px
+
+  b
+    font-weight bold
+
+  p:not([class])
+    font-size 16px
+    line-height 26px
+    margin 26px 0
+    letter-spacing 0.022em
+    @media $desktopMax1440
+      font-size 14px
+      line-height 22px
+      margin 21px 0
+
+    & + p
+      margin-top 26px
+      @media $desktopMax1440
+        margin-top 21px
+
+  a:not([class])
+    color $blueLight
+    font-size 16px
+    line-height 26px
+    border-bottom 1px solid $blueLight
+    transition .5s border
+    -webkit-transition .5s border
+    @media $desktopMax1440
+      font-size 14px
+      line-height 22px
+
+    &:hover
+      border-color transparent
+
+  iframe
+    margin 20px 0  !important
+    max-width 100% !important
+
+  ul:not([class]):last-child,
+  ol:not([class]):last-child,
+  p:not([class]):last-child,
+  iframe:last-child,
+  table:not([class]):last-child
+    margin-bottom 0 !important
+
+  p:not([class]):first-child,
+  table:not([class]):first-child
+    margin-top 0 !important

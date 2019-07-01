@@ -2,12 +2,11 @@ mixin breads(data)
   +b('nav')(itemscope itemtype="").breadcrumbs&attributes(attributes)
     .container
       +e('ul')(itemscope itemtype="").list
-        each item in data
+        each item, index in data
           +e('li')(itemprop="itemListElement" itemscope itemtype="").item
-            if (!item.last) 
+            if (index < data.length - 1)
               +e('a')(href="#", itemprop="item").link
-                span(itemprop="name") #{item.name}
-
+                span(itemprop="name") #{item}
             else
               +e('span')(itemprop="item").link
-                span(itemprop="name") #{item.name}
+                span(itemprop="name") #{item}

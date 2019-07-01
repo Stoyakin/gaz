@@ -1,8 +1,15 @@
 .main
   padding 0 0 0 96px
+  min-height calc(100vh - 716px)
 
   @media $bigDesktopMax
     padding-left 84px
 
   @media $minDesktopMax
     padding-left 0
+
+  &__center
+    max-width 1120px
+    margin 0 auto
+    @media $desktopMax1440
+      max-width 828px

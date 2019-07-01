@@ -1,13 +1,20 @@
 .breadcrumbs
-  background-color #f6f5f5
-  padding 29px 0 27px
+  background-color #1d1f20
+  padding 39px 0 34px
+  margin-bottom 71px
+  @media $desktopMax1440
+    padding 28px 0 25px
+    margin-bottom 56px
+
+  &__list
+    display flex
+    flex-wrap wrap
 
   &__item
-    display inline-block
-    vertical-align top
     position relative
-    padding-right 7px
-    margin-right 4px
+    margin-right 35px
+    @media $desktopMax1440
+      margin-right 33px
 
     &:last-child
       &:before
@@ -15,29 +22,28 @@
         content none
 
     &:before
-      content '/'
+      content ''
       display block
       position absolute
-      color rgba(#222, .8)
-      font-size 15px
-      font-weight 300
-      line-height 19px
-      right -2px
-      top 0
-      height 24px
+      right -22px
+      top 7px
+      width 12px
+      height 2px
+      background-color $blueLight
 
   &__link
-    display inline-block
-    vertical-align top
-    color rgba(#222, .8)
-    font-size 15px
-    font-weight 300
-    line-height 17px
+    display block
+    color #737374
+    font-size 12px
+    line-height 15px
+    letter-spacing 0.015em
+    @media $desktopMax1440
+      font-size 11px
 
     &[href]
-      border-bottom 1px solid rgba(#222, .8)
-      transition border .4s
+      color #dfdfdf
+      transition color .4s
 
     &:hover
       &[href]
-        border-bottom-color transparent
+        color $blueLight
