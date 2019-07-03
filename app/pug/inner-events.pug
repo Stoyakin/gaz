@@ -1,0 +1,28 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Галерея мероприятий";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'О компании', 'Галерея мероприятий'])
+  
+  .container
+    .main__top
+      h1.main__title #{title}
+
+    +b('section').publications.--event
+      +e.wrap
+        +publ([
+          {min: true, img: 'static/img/publ/publ-img-big.jpg', title: 'Санкт-Петербургский международный автосалон', date: '<span class="date-day">30</span><span>Сентябрь</span>2018<span></span>' },
+          {min: true, img: 'static/img/publ/publ-img-big2.jpg', title: 'Национальная выставка ГАЗ в Москве общественного транспорта', date: '<span class="date-day">29</span><span>Сентябрь</span>2018<span></span>' },
+          {min: true, img: 'static/img/publ/publ-img-big3.jpg', title: 'Открытие нового дилерского центра в Ростове', date: '<span class="date-day">29</span><span>Сентябрь</span>2018<span></span>' },
+          {min: true, img: 'static/img/publ/publ-img-big4.jpg', title: 'Продоложаем расширение партнерской сети в странах СНГ', date: '<span class="date-day">28</span><span>Сентябрь</span>2018<span></span>' },
+          {min: true, img: 'static/img/publ/publ-img-big5.jpg', title: 'Горьковский автозавод на Международном форуме', date: '<span class="date-day">27</span><span>Сентябрь</span>2018<span></span>' },
+          {min: true, img: 'static/img/publ/publ-img-big6.jpg', title: 'Мобильный фестиваль региональной кухни карты России', date: '<span class="date-day">27</span><span>Сентябрь</span>2018<span></span>' },
+          {min: true, img: 'static/img/publ/publ-img-big7.jpg', title: 'Долгожданный фестиваль Moscow Classic Grand Prix', date: '<span class="date-day">26</span><span>Сентябрь</span>2018<span></span>' },
+          {min: true, img: 'static/img/publ/publ-img-big8.jpg', title: 'Национальный форум нового производства ГАЗ', date: '<span class="date-day">25</span><span>Сентябрь</span>2018<span></span>' }
+        ])(class="--min")
+
+    include includes/blocks/pagination

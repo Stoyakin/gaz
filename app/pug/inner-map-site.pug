@@ -1,0 +1,96 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Карта сайта";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Карта сайта'])
+  
+  .container
+    h1.main__title Карта сайта
+
+    +b('section').map-site
+      +e('ul').list
+        +e('li').list-item
+          +e('a')(href="#").list-item-href Авто
+
+          +e('ul').sublist
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Новые
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href С пробегом
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Складская техника
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Спецтехника
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Модельный ряд
+
+              +e('ul').sublist
+                +e('li').sublist-item
+                  +e('a')(href="#").sublist-item-href ГАЗель NEXT ЦМФ
+                +e('li').sublist-item
+                  +e('a')(href="#").sublist-item-href ГАЗель NEXT
+                +e('li').sublist-item
+                  +e('a')(href="#").sublist-item-href ГАЗель Бизнес
+                +e('li').sublist-item
+                  +e('a')(href="#").sublist-item-href Соболь Бизнес
+                +e('li').sublist-item
+                  +e('a')(href="#").sublist-item-href ГАЗ-3308, 3309
+                +e('li').sublist-item
+                  +e('a')(href="#").sublist-item-href ГАЗон NEXT
+                +e('li').sublist-item
+                  +e('a')(href="#").sublist-item-href ГАЗ 4WD
+
+        +e('li').list-item
+          +e('a')(href="#").list-item-href Сервис
+          +e('ul').sublist
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href АвтоцентрГАЗ-Лидер
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href АвтоцентрГАЗ-СаратовЮГ
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Энгельсский филиал АвтоцентрГАЗ-СаратовЮГ
+
+        +e('li').list-item
+          +e('a')(href="#").list-item-href Запчасти
+
+        +e('li').list-item
+          +e('a')(href="#").list-item-href Услуги
+
+          +e('ul').sublist
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Лизинг
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Кредит
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Аренда
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Эвакуатор
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Аренда спецтехники
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Выездной сервис
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Экспресс-сервис
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Надстройки и доработки
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Продление гарантии
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Специальные программы
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Записаться на сервис
+            +e('li').sublist-item
+              +e('a')(href="#").sublist-item-href Пробная поездка
+
+        +e('li').list-item
+          +e('a')(href="#").list-item-href Акции
+
+        +e('li').list-item
+          +e('a')(href="#").list-item-href Контакты
+
+        +e('li').list-item
+          +e('a')(href="#").list-item-href О компании

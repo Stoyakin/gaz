@@ -306,6 +306,12 @@
       @media $desktopMax1440
         margin-top 21px
 
+    &  + .wis-content__row
+      margin-top 73px
+
+      @media $bigDesktopMax
+        margin-top 55px
+
   a:not([class])
     color $blueLight
     font-size 16px
@@ -334,3 +340,36 @@
   p:not([class]):first-child,
   table:not([class]):first-child
     margin-top 0 !important
+
+
+  &__row
+    display flex
+    flex-wrap wrap
+    justify-content center
+    justify-content space-between
+
+    &  + .wis-content__row
+      margin-top 50px
+
+      @media $bigDesktopMax
+        margin-top 38px
+
+    &--mirror
+      flex-direction row-reverse
+
+  &__col
+    display flex
+    align-items center
+    width calc(50% - 14px)
+    @media $mLandscapeMax
+      width 100%
+
+    & + .wis-content__col
+      @media $mLandscapeMax
+        margin-top 25px
+
+    img
+      &:first-child
+        margin-bottom 0
+      &:last-child
+        margin-top 0

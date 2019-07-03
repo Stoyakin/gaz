@@ -1,0 +1,44 @@
+.map-site
+  &__list
+    &-item
+      margin-bottom 28px
+      &:last-child
+        margin-bottom 0
+      &-href
+        color $color
+        font-size 14px
+        font-weight 500
+        line-height 24px
+        letter-spacing 0.015em
+        border-bottom 1px solid $color
+        transition border .4s
+        &:hover
+          border-bottom-color transparent
+  &__sublist
+    margin-left 20px
+    margin-top 12px
+    .map-site__sublist
+      margin-left -11px
+    &-item
+      position relative
+      padding-left 30px
+      margin-bottom 16px
+      &:last-child
+        margin-bottom 0
+      &:before
+        @extend .before
+        left 0
+        top 11px
+        width 15px
+        height 2px
+        background-color $blueLight
+      &-href
+        color $color
+        font-size 14px
+        font-weight 400
+        line-height 24px
+        letter-spacing .015em
+        border-bottom 1px solid #C7C8C8
+        transition border .4s
+        &:hover
+          border-bottom-color transparent

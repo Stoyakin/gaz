@@ -1,0 +1,112 @@
+.section-top
+  width calc(100% - 100px)
+  margin 0 auto 72px
+  @media $bigDesktopMax
+    width calc(100% - 60px)
+    margin-bottom 54px
+  &__content
+    width 100%
+    padding-top 29.516%
+    position relative
+    background-repeat no-repeat
+    background-position 50% 50%
+    background-size cover
+    &__date
+      z-index 1
+  .swiper
+    &-ind
+      display flex
+      align-items center
+      position absolute
+      left 50%
+      transform translateX(-50%)
+      bottom 38px
+      user-select none
+      z-index 2
+      @media $bigDesktopMax
+        bottom 26px
+      @media $minDesktopMax
+        left 30px
+        transform none
+      @media $tPortraitMax
+        display none
+      &-number
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-transform uppercase
+        &--prev
+          color #076af2
+        &--next
+          color $color
+      &-line
+        position relative
+        background-color white
+        width 444px
+        height 2px
+        flex-shrink 0
+        margin 0 20px
+        overflow hidden
+        @media $bigDesktopMax
+          width 332px
+        span
+          display block
+          height 2px
+          position absolute
+          left 0
+          top 0
+          background-color $blueLight
+    &-nav
+      display flex
+      align-items center
+      background-color white
+      position absolute
+      bottom 0
+      right 0
+      z-index 2
+      user-select none
+      justify-content flex-end
+      width 393px
+      @media $bigDesktopMax
+        width 306px
+    &-count
+      display flex
+      align-items flex-start
+      @media $bigDesktopMax
+        margin-top 3px
+      &-item
+        color #076af2
+        font-size 60px
+        line-height 52px
+        font-weight 400
+        text-transform uppercase
+        @media $bigDesktopMax
+          font-size 44px
+          line-height 36px
+      &-all
+        position relative
+        color rgba(black, .2)
+        font-size 18px
+        line-height 22px
+        font-weight 400
+        text-transform uppercase
+        margin-left 14px
+        margin-top 2px
+        min-width 26px
+        @media $bigDesktopMax
+          font-size 14px
+          line-height 14px
+        &:before
+          content '/'
+          display block
+          position absolute
+          left -11px
+          top 2px
+          color rgba(black, .2)
+          font-size 18px
+          line-height 18px
+          font-weight 400
+          text-transform uppercase
+          @media $bigDesktopMax
+            font-size 14px
+            line-height 14px

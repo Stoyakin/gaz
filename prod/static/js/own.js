@@ -1,5 +1,28 @@
 "use strict";
 
+function qs(query) {
+  var root = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+  return root.querySelector(query);
+}
+
+function qsAll(query) {
+  var root = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+  return root.querySelectorAll(query);
+}
+
+function getParent(el, findParent) {
+  while (el && el.parentNode) {
+    el = el.parentNode;
+    if (el.classList && el.classList.contains(findParent)) return el;
+  }
+
+  return false;
+}
+
+window.onload = function () {
+  return qs('body').classList.add('page-loaded');
+};
+
 document.addEventListener("DOMContentLoaded", function (event) {
   window.site = {};
   window.site.form = {
@@ -131,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             parents = _t.parents('.action'),
             btn = parents.find('.action__filter-nav-btn'),
             filterSlide = parents.find('.swiper-slide[data-filter-type]'),
-            carousel = parents.find('.action__filter-carousel');
+            carousel = parents.find('.js-action-swiper');
 
         if (!_t.hasClass('action__filter-nav-btn--active') && allowed) {
           allowed = false;
@@ -176,93 +199,47 @@ document.addEventListener("DOMContentLoaded", function (event) {
         return false;
       });
     },
-    init: function init() {
-      var $body = document.querySelector('body'),
-          filterBtn = document.querySelectorAll('.js-filter-btn'),
-          burger = document.querySelector('.js-burger');
+    actionSlider: function actionSlider() {
+      var countStart = 3,
+          point992 = 2,
+          point1240 = 4;
 
-      if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-        $body.classList.add('ios');
+      if (getParent(qs('.js-action-swiper'), 'action--inner')) {
+        countStart = 2, point992 = 1, point1240 = 2;
       }
 
-      if (filterBtn.length) this.filter();
-      if (burger) this.burger();
-
-      if (document.querySelector('.js-idealer-swiper')) {
-        var idealerSlider = new Swiper('.js-idealer-swiper', {
-          loop: true,
-          speed: 750,
-          slidesPerView: 6,
-          spaceBetween: 28,
-          mousewheel: false,
-          grabCursor: false,
-          keyboard: false,
-          simulateTouch: false,
-          allowSwipeToNext: false,
-          allowSwipeToPrev: false,
-          breakpoints: {
-            767: {
-              slidesPerView: 2
-            },
-            992: {
-              slidesPerView: 4
-            }
+      var actionSlider = new Swiper('.js-action-swiper', {
+        loop: false,
+        speed: 750,
+        slidesPerView: countStart,
+        spaceBetween: 28,
+        navigation: {
+          nextEl: '.action .swiper-button-next',
+          prevEl: '.action .swiper-button-prev'
+        },
+        breakpoints: {
+          992: {
+            slidesPerView: point992
+          },
+          1240: {
+            slidesPerView: point1240
+          }
+        }
+      });
+    },
+    choicesSelect: function choicesSelect() {
+      qsAll('.js-select').forEach(function (item) {
+        new Choices(item, {
+          placeholder: true,
+          searchEnabled: false,
+          itemSelectText: '',
+          classNames: {
+            containerOuter: 'choices choices--custom'
           }
         });
-      }
-
-      if (document.querySelector('.js-iann-swiper')) {
-        var animInd = function animInd(time) {
-          var timeout = time / 100;
-
-          if (width < 101) {
-            width++;
-            indEl.style.width = width + '%';
-            timer = setTimeout(function () {
-              animInd(time);
-            }, timeout);
-          } else {
-            indEl.style.width = '0%';
-          }
-        };
-
-        var indEl = document.querySelector('.iann .swiper-ind-line span'),
-            width = 0,
-            timer;
-        var iannSlider = new Swiper('.js-iann-swiper', {
-          loop: true,
-          speed: 750,
-          slidesPerView: 1,
-          spaceBetween: 0,
-          mousewheel: false,
-          grabCursor: false,
-          keyboard: false,
-          simulateTouch: false,
-          allowSwipeToNext: false,
-          allowSwipeToPrev: false,
-          autoplay: {
-            delay: 2000,
-            disableOnInteraction: false
-          },
-          navigation: {
-            nextEl: '.iann .swiper-button-next',
-            prevEl: '.iann .swiper-button-prev'
-          },
-          on: {
-            init: function init() {//animInd(2000);
-            },
-            transitionStart: function transitionStart() {
-              width = 0;
-              indEl.style.width = '0%';
-              clearTimeout(timer);
-            },
-            transitionEnd: function transitionEnd() {
-              animInd(1625);
-            }
-          }
-        });
-      }
-
+      });
+    },
+    igallSlider: function igallSlider() {
       var igallSlider = new Swiper('.js-igall-swiper', {
         loop: true,
         speed: 750,
@@ -277,6 +254,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
           spaceBetween: 0
         }
       });
+    },
+    irevSlider: function irevSlider() {
       var irevSlider = new Swiper('.js-irev-swiper', {
         loop: true,
         speed: 750,
@@ -287,24 +266,104 @@ document.addEventListener("DOMContentLoaded", function (event) {
           prevEl: '.irev .swiper-button-prev'
         }
       });
-      var actionSlider = new Swiper('.js-action-swiper', {
-        loop: false,
+    },
+    idealerSlider: function idealerSlider() {
+      var idealerSlider = new Swiper('.js-idealer-swiper', {
+        loop: true,
         speed: 750,
-        slidesPerView: 3,
+        slidesPerView: 6,
         spaceBetween: 28,
-        navigation: {
-          nextEl: '.action .swiper-button-next',
-          prevEl: '.action .swiper-button-prev'
-        },
+        mousewheel: false,
+        grabCursor: false,
+        keyboard: false,
+        simulateTouch: false,
+        allowSwipeToNext: false,
+        allowSwipeToPrev: false,
         breakpoints: {
-          992: {
+          767: {
             slidesPerView: 2
           },
-          1240: {
+          992: {
             slidesPerView: 4
           }
         }
       });
+    },
+    topSwiper: function topSwiper() {
+      var topSlider = new Swiper('.js-top-swiper', {
+        loop: true,
+        speed: 750,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        mousewheel: false,
+        grabCursor: false,
+        keyboard: false,
+        simulateTouch: false,
+        allowSwipeToNext: false,
+        allowSwipeToPrev: false,
+        // autoplay: {
+        //   delay: 2000,
+        //   disableOnInteraction: false,
+        // },
+        navigation: {
+          nextEl: '.section-top .swiper-button-next',
+          prevEl: '.section-top .swiper-button-prev'
+        }
+      });
+    },
+    iannSlider: function iannSlider() {
+      var indEl = document.querySelector('.iann .swiper-ind-line span'),
+          width = 0,
+          timer;
+
+      function animInd(time) {
+        var timeout = time / 100;
+
+        if (width < 101) {
+          width++;
+          indEl.style.width = width + '%';
+          timer = setTimeout(function () {
+            animInd(time);
+          }, timeout);
+        } else {
+          indEl.style.width = '0%';
+        }
+      }
+
+      var iannSlider = new Swiper('.js-iann-swiper', {
+        loop: true,
+        speed: 750,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        mousewheel: false,
+        grabCursor: false,
+        keyboard: false,
+        simulateTouch: false,
+        allowSwipeToNext: false,
+        allowSwipeToPrev: false,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false
+        },
+        navigation: {
+          nextEl: '.iann .swiper-button-next',
+          prevEl: '.iann .swiper-button-prev'
+        },
+        on: {
+          init: function init() {//animInd(2000);
+          },
+          transitionStart: function transitionStart() {
+            width = 0;
+            indEl.style.width = '0%';
+            clearTimeout(timer);
+          },
+          transitionEnd: function transitionEnd() {
+            animInd(1625);
+          }
+        }
+      });
+    },
+    selAuto: function selAuto() {
       var selAutoFlag = true;
       $('.js-sel-auto').on('click', function () {
         var _t = $(this),
@@ -332,15 +391,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         return false;
       });
-
-      if ($('.js-tippy').length) {
-        new Tippy('.js-tippy', {
-          position: 'bottom',
-          animation: 'fade',
-          arrow: true
-        });
-      }
-
+    },
+    mainTippy: function mainTippy() {
+      new Tippy('.js-tippy', {
+        position: 'bottom',
+        animation: 'fade',
+        arrow: true
+      });
+    },
+    init: function init() {
+      if (qsAll('.js-filter-btn').length) this.filter();
+      if (qs('.js-action-swiper')) this.actionSlider();
+      if (qs('.js-burger')) this.burger();
+      if (qs('.js-iann-swiper')) this.iannSlider();
+      if (qs('.js-idealer-swiper')) this.idealerSlider();
+      if (qs('.js-igall-swiper')) this.igallSlider();
+      if (qs('.js-irev-swiper')) this.irevSlider();
+      if (qs('.js-top-swiper')) this.topSwiper();
+      if (qs('.js-sel-auto')) this.selAuto();
+      if (qsAll('.js-tippy').length) this.mainTippy();
+      if (qsAll('.js-select').length) this.choicesSelect();
       return this;
     }
   }.init();

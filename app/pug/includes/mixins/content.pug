@@ -1,0 +1,4 @@
+mixin content(data)
+  each item in data
+    +e.content(style="background-image: url('"+item.cover+"');")
+      +e('time').date.date !{item.date}

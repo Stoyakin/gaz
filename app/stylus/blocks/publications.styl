@@ -1,0 +1,25 @@
+.publications
+  &__wrap
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    margin-bottom -28px
+  .publ
+    width calc(50% - 14px)
+    margin 0 0 28px
+    @media $mLandscapeMax
+      width 100%
+  &--event
+    .publ__title
+      position relative
+      padding-bottom 16px
+      @media $desktopMax1440
+        padding-bottom 10px
+      &:after
+        @extend .after
+        left 0
+        bottom 0
+        width 30px
+        height 2px
+        background-color $blueLight
+

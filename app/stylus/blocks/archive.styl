@@ -1,0 +1,37 @@
+.archive
+  &__title
+    margin-bottom 48px
+    @media $desktopMax1440
+      font-size 24px
+      line-height 30px
+      padding-bottom 25px
+      margin-bottom 35px
+
+  &__wrap
+    display flex
+    flex-wrap wrap
+    width calc(100% + 28px)
+    margin 0 -14px
+
+  &__bottom
+    margin-top 23px
+    @media $desktopMax1440
+      margin-top 13px
+
+  &__more-btn
+    min-width 320px
+    @media $desktopMax1440
+      min-width 262px
+
+  .publ
+    width calc(100%/3 - 28px)
+    margin 0 14px 28px
+    @media $minDesktopMax
+      width calc(50% - 28px)
+
+    @media $mLandscapeMax
+      width 100%
+
+    &--min .publ__inf
+      @media $desktopMax1440
+        width calc(100% - 100px)

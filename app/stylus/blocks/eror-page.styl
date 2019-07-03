@@ -1,0 +1,58 @@
+.eror-page
+  display flex
+  flex-wrap wrap
+  &__col
+    width calc(50% - 15px)
+    @media $bigDesktopMax
+      width calc(50% - 35px)
+    @media $minDesktopMax
+      width calc(50% - 15px)
+    @media $tPortraitMax
+      width 100%
+    & + .eror-page__col
+      margin-left 26px
+      @media $minDesktopMax
+        margin-left 30px
+      @media $tPortraitMax
+        margin 0 0 40px
+    &:first-child
+      width calc(50% - 115px)
+      @media $bigDesktopMax
+        width calc(50% - 85px)
+      @media $minDesktopMax
+        width calc(50% - 15px)
+      @media $tPortraitMax
+        width 100%
+  &__btns
+    display flex
+    align-items center
+    margin-top 42px
+    @media $bigDesktopMax
+      margin-top 35px
+    @media $mPortraitMax
+      flex-direction column
+      justify-content center
+  &__back-href
+    margin-right 49px
+    padding 35px 55px 31px
+    @media $bigDesktopMax
+      margin-right 41px
+      padding 25px 36px
+    @media $mPortraitMax
+      margin-right 0
+  &__map-site-href
+    color $blueLight
+    font-size 13px
+    font-weight 500
+    line-height 20px
+    text-transform uppercase
+    transition color .4s
+    @media $bigDesktopMax
+      font-size 11px
+    @media $mPortraitMax
+      font-size 13px
+      margin-top 25px
+    &:hover
+      color $color
+  &__overimg
+    padding-top 49px

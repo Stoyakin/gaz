@@ -1,9 +1,16 @@
 mixin publ(data)
-  +b.publ&attributes(attributes)
-    each item in data
-      +e('article').item
-        +e('a').item-cover(href="#" style="background-image: url('"+item.img+"');")
-        +e.item-info
-          +e('a')(href="#").item-title #{item.title}
-          +e('time').item-date #{item.date}
-          +e('p').item-text #{item.text}
+  each item in data
+    if (item.min)
+      +b('a').publ(href="#")&attributes(attributes)
+        +e('div').cover(style="background-image: url('"+item.img+"');")
+        +e('time').date.date(class=item.darkDate) !{item.date}
+        +e('div').info
+          +e('p')(href="#").title #{item.title}
+          +e('p').text #{item.text}
+    else
+      +b('article').publ&attributes(attributes)
+        +e('a').cover(href="#" style="background-image: url('"+item.img+"');")
+        +e.info
+          +e('a')(href="#").title #{item.title}
+          +e('time').date #{item.date}
+          +e('p').text #{item.text}

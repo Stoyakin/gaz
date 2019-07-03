@@ -1,0 +1,29 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "404 - Страница не найдена";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Страница не найдена'])
+  
+  .container
+    +b('section').eror-page
+        +e.col
+          .wis-content
+            h1 Страница не найдена
+            p
+              b Ошибка могла произойти по нескольким причинам:
+            ul
+              li Вы ввели неправильный адрес.
+              li Страница, на которую вы хотели зайти, устарела и была удалена.
+              li На сервере произошла ошибка. Если так, то мы уже знаем о ней и обязательно исправим.
+          +e.btns
+            +e('a')(href="#").back-href.btn.--light Вернуться на главную страницу
+            +e('a')(href="#").map-site-href Карта сайта
+        +e.col
+          +e.overimg
+            +e('img')(src=tmpsrc+"404.jpg" alt="").img
+
+block footer

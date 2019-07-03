@@ -1,0 +1,29 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Новости группы компаний «Лидер»";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Новости'])
+  
+  .container
+    .main__top
+      h1.main__title #{title}
+      a(href="#").main__href.btn.btn--light Подписаться на рассылку
+
+    +b('section').publications
+      +e.wrap
+        +publ([
+          {min: true, img: 'static/img/publ/publ-img-big.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '<span class="date-day">30</span><span>Сентябрь</span>2018<span></span>', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
+          {min: true, img: 'static/img/publ/publ-img-big2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '<span class="date-day">29</span><span>Сентябрь</span>2018<span></span>', text: 'Не следует, однако забывать, что постоянное информационно пропагандистское' },
+          {min: true, img: 'static/img/publ/publ-img-big3.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '<span class="date-day">29</span><span>Сентябрь</span>2018<span></span>', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
+          {min: true, img: 'static/img/publ/publ-img-big4.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '<span class="date-day">28</span><span>Сентябрь</span>2018<span></span>', text: 'Не следует, однако забывать, что постоянное информационно пропагандистское' },
+          {min: true, img: 'static/img/publ/publ-img-big5.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '<span class="date-day">27</span><span>Сентябрь</span>2018<span></span>', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
+          {min: true, img: 'static/img/publ/publ-img-big6.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '<span class="date-day">27</span><span>Сентябрь</span>2018<span></span>', text: 'Не следует, однако забывать, что постоянное информационно пропагандистское' },
+          {min: true, img: 'static/img/publ/publ-img-big7.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: '<span class="date-day">26</span><span>Сентябрь</span>2018<span></span>', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' },
+          {min: true, img: 'static/img/publ/publ-img-big8.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: '<span class="date-day">25</span><span>Сентябрь</span>2018<span></span>', text: 'Не следует, однако забывать, что постоянное информационно пропагандистское' }
+        ])(class="--min")
+
+    include includes/blocks/pagination

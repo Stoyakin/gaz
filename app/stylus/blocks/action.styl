@@ -64,6 +64,11 @@
     @media $minDesktopMax
       margin-bottom 0
 
+  &__select-wrap
+    margin-left auto
+    & + .action__subscr-href
+      margin-left 8px
+
   &__text
     color rgba($color, .86)
     font-size 14px
@@ -167,10 +172,6 @@
         width 100%
         margin 0
 
-        &__item
-          width 100%
-          margin 0
-
   &__subscr-href
     margin-left auto
 
@@ -180,5 +181,71 @@
     @media $tPortraitMax
       margin-left 220px
 
-  .publ__item-date
-    color $blueLight
+  &--inner
+    margin-bottom 142px
+    @media $desktopMax1440
+      margin-bottom 95px
+
+    .action
+      &__title
+        margin-bottom -38px
+        font-size 40px
+        @media $bigDesktopMax
+          margin-bottom -27px
+          font-size 28px
+        @media $desktopMax
+          margin-bottom 0
+        @media $tPortraitMax
+          margin-bottom 40px
+
+      &__filter-nav
+        @media $desktopMax
+          order 4
+          max-width 100%
+          width 100%
+          margin-top 20px
+
+      &__top
+        width 100%
+        margin-bottom 64px
+        @media $bigDesktopMax
+          margin-bottom 47px
+
+        &-left
+          margin-right auto
+          @media $tPortraitMax
+            width 100%
+
+      &__select-wrap
+        @media $tPortraitMax
+          margin-left 0
+
+      &__filter-carousel
+        position relative
+        width 100%
+        padding 0 143px
+        @media $bigDesktopMax
+          padding 0 107px
+
+    .swiper-button
+      &-prev, &-next
+        width 96px
+        height 96px
+        position absolute
+        top 50%
+        transform translateY(-50%)
+        background-color #f1f7ff
+        z-index 1
+        @media $desktopMax1440
+          width 64px
+          height 64px
+
+      &-prev
+        left 0
+
+      &-next
+        right 0
+
+        &:after
+          content none
+          display none

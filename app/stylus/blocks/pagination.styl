@@ -1,0 +1,124 @@
+.pagination
+  margin-top 81px
+  @media $bigDesktopMax
+    margin-top 60px
+  &__list
+    display flex
+    justify-content center
+    &-item
+      margin 0 14px
+      @media $bigDesktopMax
+        margin 0 15px
+      @media $mLandscapeMax
+        margin 0 3px
+      &--prev, &--next
+        @media $tPortraitMax
+          display none
+        .pagination__list-item-href
+          border 3px solid #f1f7ff
+          width 195px
+          @media $bigDesktopMax
+            width 148px
+          @media $minDesktopMax
+            width 130px
+          &:after
+            @extend .before
+            top 37px
+            width 8px
+            height 14px
+            background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAOBAMAAADgeEClAAAAD1BMVEUAAAAWGRoWGRoWGRoWGRrPjrqrAAAABHRSTlMAHNzVfZuQxgAAAChJREFUCNdjYGBgNAYSQs5AhooikOEkgGAwmAAZIALCBUqgM53BBgAAmMIEZSk3lt0AAAAASUVORK5CYII=') no-repeat center
+            background-size contain
+            z-index -1
+            @media $bigDesktopMax
+              top 23px
+              width 6px
+              height 10px
+        span.pagination__list-item-href
+          pointer-events none
+          opacity .7
+      &--prev
+        margin-left 0
+        margin-right auto
+        .pagination__list-item-href
+          padding-left 51px
+          @media $bigDesktopMax
+            padding-left 33px
+          &:after
+            left 40px
+            @media $bigDesktopMax
+              left 29px
+      &--next
+        margin-right 0
+        margin-left auto
+        .pagination__list-item-href
+          padding-right 51px
+          @media $bigDesktopMax
+            padding-right 33px
+          &:after
+            transform scaleX(-1)
+            right 40px
+            @media $bigDesktopMax
+              right 29px
+      &-href
+        display flex
+        align-items center
+        justify-content center
+        position relative
+        width 96px
+        height 96px
+        color #076af2
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-transform uppercase
+        background-color transparent
+        transition color .4s
+        user-select none
+        z-index 1
+        @media $bigDesktopMax
+          width 64px
+          height 64px
+          font-size 11px
+          line-height 15px
+        @media $mLandscapeMax
+          width 34px
+          height 34px
+        &:hover
+          color $blueLight
+          &:before
+            width 100%
+        &:before
+          @extend .before
+          left 0
+          top 0
+          width 0
+          height 100%
+          background-color #f1f7ff
+          transition width .4s
+          z-index -2
+        &--active
+          color #fff
+          cursor default
+          pointer-events none
+          &:before
+            width 100%
+            background-color #076af2
+      &-delim
+        display flex
+        align-items center
+        justify-content center
+        width 96px
+        height 96px
+        color #a7a7a7
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-transform uppercase
+        @media $bigDesktopMax
+          width 64px
+          height 64px
+          font-size 11px
+          line-height 15px
+        @media $mLandscapeMax
+          width 34px
+          height 34px

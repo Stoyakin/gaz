@@ -1,15 +1,176 @@
 .main
   padding 0 0 0 96px
   min-height calc(100vh - 716px)
-
   @media $bigDesktopMax
     padding-left 84px
-
   @media $minDesktopMax
     padding-left 0
-
   &__center
     max-width 1120px
     margin 0 auto
     @media $desktopMax1440
       max-width 828px
+  &__top
+    display flex
+    margin-bottom 50px
+    align-items flex-start
+    @media $bigDesktopMax
+      margin-bottom 39px
+    .main__title
+      margin-top 17px
+      margin-bottom 0
+      max-width calc(100% - 350px)
+      @media $bigDesktopMax
+        margin-top 14px
+        max-width calc(100% - 280px)
+    .main__href
+      margin-left auto
+  &__title
+    position relative
+    color $color
+    font-size 40px
+    line-height 46px
+    font-weight 500
+    padding-bottom 35px
+    margin-bottom 43px
+    letter-spacing -0.003em
+    @media $bigDesktopMax
+      font-size 28px
+      line-height 32px
+      padding-bottom 27px
+      margin-bottom 33px
+    &:after
+      @extend .after
+      left 0
+      bottom 0
+      width 52px
+      height 3px
+      background-color $blueLight
+      @media $bigDesktopMax
+        width 40px
+    &--center
+      text-align center
+      max-width 1120px
+      margin-left auto
+      margin-right auto
+      &:after
+        left 50%
+        transform translateX(-50%)
+  &__bottom
+    display flex
+    justify-content center
+    align-items center
+    margin-top 75px
+    @media $bigDesktopMax
+      margin-top 55px
+    @media $minDesktopMax
+      flex-wrap wrap
+      max-width 600px
+      margin 55px auto 0
+    @media (max-width: 612px)
+      max-width 300px
+    .main__href
+      margin 0 4px
+      padding-left 48px
+      padding-right 48px
+      @media $bigDesktopMax
+        padding-left 32px
+        padding-right 32px
+      @media $minDesktopMax
+        order 1
+        width 268px
+        margin 4px
+  &__page-nav
+    position relative
+    /*width 319px*/
+    width 354px
+    z-index 1
+    color #076af2
+    font-size 13px
+    font-weight 500
+    line-height 20px
+    text-align center
+    text-transform uppercase
+    white-space nowrap
+    padding 35px 20px
+    letter-spacing 0.025em
+    border 3px solid #f1f7ff
+    transition color .4s
+    outline none
+    user-select none
+    z-index 1
+    @media $bigDesktopMax
+      width 252px
+      padding 21px 20px 22px
+      font-size 11px
+      line-height 15px
+    @media $minDesktopMax
+      width 268px
+    @media (max-width: 612px)
+      width 130px
+      font-size 0
+    &:hover
+      color #fff
+      &:before
+        width 100%
+      &:after
+        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAOBAMAAADgeEClAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAHNzVfZuQxgAAAChJREFUCNdjYGBgNAYSQs5AhooikOEkgGAwmAAZIALCBUqgM53BBgAAmMIEZSk3lt0AAAAASUVORK5CYII=')
+    &:before
+      @extend .before
+      left 0
+      top 0
+      width 0
+      height 100%
+      background-color $blueLight
+      transition width .4s cubic-bezier(0.645, 0.045, 0.355, 1)
+      z-index -2
+    &:after
+      @extend .after
+      top 37px
+      width 8px
+      height 14px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAOBAMAAADgeEClAAAAD1BMVEUAAAAWGRoWGRoWGRoWGRrPjrqrAAAABHRSTlMAHNzVfZuQxgAAAChJREFUCNdjYGBgNAYSQs5AhooikOEkgGAwmAAZIALCBUqgM53BBgAAmMIEZSk3lt0AAAAASUVORK5CYII=') no-repeat center
+      background-size contain
+      transition background .4s
+      z-index -1
+      @media $bigDesktopMax
+        top 22px
+        width 6px
+        height 10px
+      @media (max-width: 612px)
+        left 50%
+        transform translateX(-50%)
+        right auto
+    &--prev
+      text-align right
+      margin-right auto
+      padding-left 60px
+      padding-right 42px
+      @media $bigDesktopMax
+        padding-left 37px
+        padding-right 27px
+      @media $minDesktopMax
+        margin 4px
+        order 2
+      &:after
+        left 40px
+        @media $bigDesktopMax
+          left 29px
+        @media (max-width: 612px)
+          left 50%
+    &--next
+      text-align left
+      margin-left auto
+      padding-right 60px
+      padding-left 42px
+      @media $bigDesktopMax
+        padding-right 37px
+        padding-left 27px
+      @media $minDesktopMax
+        margin 4px
+        order 3
+      &:after
+        transform scaleX(-1)
+        right 40px
+        @media $bigDesktopMax
+          right 29px

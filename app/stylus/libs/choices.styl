@@ -1,0 +1,368 @@
+.choices
+  position relative
+  margin-bottom 24px
+  font-size 14px
+
+  &:focus
+    outline none
+
+  &:last-child
+    margin-bottom 0
+
+  &.is-disabled
+    .choices__inner, .choices__input
+    background-color #EAEAEA
+    cursor not-allowed
+    user-select none
+
+    &.choices__item
+      cursor not-allowed
+
+  &[data-type*="select-one"]
+    cursor pointer
+
+    .choices__input
+      display block
+      width 100%
+      padding 10px
+      border-bottom 1px solid #DDDDDD
+      background-color #FFFFFF
+      margin 0
+
+    .choices__button
+      background-image url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==')
+      padding 0
+      background-size 8px
+      position absolute
+      top 50%
+      right 0
+      margin-top -10px
+      margin-right 25px
+      height 20px
+      width 20px
+      border-radius 10em
+      opacity .5
+
+      &:hover, &:focus
+        opacity 1
+
+      &:focus
+        box-shadow 0px 0px 0px 2px #00BCD4
+
+    &:after
+      content ""
+      height 0
+      width 0
+      border-style solid
+      border-color #086af3 transparent transparent transparent
+      border-width 4px
+      position absolute
+      right 40px
+      top 50%
+      margin-top -1px
+      pointer-events none
+      @media $bigDesktopMax
+        right 26px
+        margin-top 0
+
+    &.is-open:after
+      border-color transparent transparent #076af2 transparent
+      margin-top -7.5px
+
+    &[dir="rtl"]:after
+      left 11.5px
+      right auto
+
+      .choices__button
+        right auto
+        left 0
+        margin-left 25px
+        margin-right 0
+
+  &[data-type*="select-multiple"], &[data-type*="text"]
+    .choices__inner
+      cursor text
+
+    .choices__button
+      position relative
+      display inline-block
+      margin-top 0
+      margin-right -4px
+      margin-bottom 0
+      margin-left 8px
+      padding-left 16px
+      border-left 1px solid #008fa1
+      background-image url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==')
+      background-size 8px
+      width 8px
+      line-height 1
+      opacity .75
+      border-radius 0
+
+      &:hover, &:focus
+        opacity 1
+
+  &[data-type*="select-one"], &[data-type*="select-multiple"]
+    .choices__input.is-hidden
+      display: none
+
+  &__inner
+    display inline-block
+    vertical-align top
+    width 100%
+    background-color #f1f7ff
+    padding 29px 50px 28px 32px
+    border 3px solid transparent
+    font-size 13px
+    font-weight 500
+    letter-spacing .025em
+    min-width 260px
+    max-width 360px
+    text-transform uppercase
+    overflow hidden
+    @media $bigDesktopMax
+      font-size 11px
+      max-width 260px
+      min-width 193px
+      padding 20px 35px 18px 22px
+
+    .choices__item
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+
+  &__list
+    margin 0
+    padding-left 0
+    list-style none
+
+    .choices__item
+      width 100%
+
+    &--single
+      display inline-block
+      padding 4px 16px 4px 4px
+      width 100%
+
+    &--multiple
+      display inline
+
+      .choices__item
+        display inline-block
+        vertical-align middle
+        border-radius 20px
+        padding 4px 10px
+        font-size 12px
+        font-weight 500
+        margin-right 3.75px
+        margin-bottom 3.75px
+        background-color #00BCD4
+        border 1px solid #00a5bb
+        color #FFFFFF
+        word-break break-all
+
+        &[data-deletable]
+          padding-right 5px
+
+    &--dropdown
+      display none
+      position absolute
+      width 100%
+      background-color #FFFFFF
+      border 3px solid #f0f7ff
+      top 100%
+      margin-top -3px
+      border-bottom-left-radius 2.5px
+      border-bottom-right-radius 2.5px
+      overflow hidden
+      word-break break-all
+      z-index 10
+
+      &.is-active
+        display block
+
+      .choices__list
+        position relative
+        max-height 300px
+        overflow auto
+        -webkit-overflow-scrolling touch
+        will-change scroll-position
+
+      .choices__item
+        position relative
+        padding 25px 36px 24px
+        border-bottom 1px solid #f0f7ff
+        color #1d1f20
+        font-size 13px
+        line-height 19px
+        font-weight 400
+        letter-spacing .03em
+
+        &:last-child
+          border-bottom none
+
+        &--selectable.is-highlighted
+          background-color #f0f7ff
+
+          &:after
+            opacity .5
+
+  &__item
+    cursor default
+
+    &--selectable
+      cursor pointer
+
+    &--disabled
+      cursor not-allowed
+      user-select none
+      opacity .5
+
+  &__heading
+    font-weight 600
+    font-size 12px
+    padding 10px
+    border-bottom 1px solid #f7f7f7
+    color gray
+
+  &__button
+    text-indent -9999px
+    -webkit-appearance none
+    appearance none
+    border 0
+    background-color transparent
+    background-repeat no-repeat
+    background-position center
+    cursor pointer
+
+    &:focus
+      outline none
+
+  &__input
+    display inline-block
+    vertical-align baseline
+    background-color #f9f9f9
+    font-size 14px
+    margin-bottom 5px
+    border 0
+    border-radius 0
+    max-width 100%
+    padding 4px 0 4px 2px
+
+    &:focus
+      outline 0
+
+    &.is-hidden
+      display: none
+
+  &__placeholder
+    color #a7a7a7
+
+/*.is-focused, .is-open*/
+.is-open
+  .choices__inner
+    background-color #fff
+    border-color #f0f7ff
+  .choices__placeholder
+    color#076af2
+
+.is-open
+  //.choices__inner
+
+  .choices__list--dropdown
+    border-color #f0f7ff
+
+.is-flipped
+  &.is-open
+    //.choices__inner
+
+  .choices__list--dropdown
+    top auto
+    bottom 100%
+    margin-top 0
+    margin-bottom -1px
+    border-radius .25rem .25rem 0 0
+
+[dir="rtl"]
+  .choices__list
+    &--single
+      padding-right 4px
+      padding-left 16px
+
+    &--multiple
+      .choices__item
+        margin-right 0
+        margin-left 3.75px
+
+        &.is-highlighted
+          background-color #00a5bb
+          border 1px solid #008fa1
+
+    &--dropdown
+      .choices__item
+        text-align right
+
+  .choices__input
+    padding-right 2px
+    padding-left 0
+
+.is-disabled
+  .choices__list--multiple
+    .choices__item
+      background-color #aaaaaa
+      border 1px solid #919191
+
+
+@media (min-width: 640px)
+  .choices__list--dropdown  .choices__item--selectable
+    &:after
+      content attr(data-select-text)
+      font-size 12px
+      opacity 0
+      position absolute
+      right 10px
+      top: 50%
+      transform translateY(-50%)
+
+  [dir="rtl"] .choices__list--dropdown .choices__item--selectable
+    text-align right
+    padding-left 100px
+    padding-right 10px
+
+    &:after
+      right auto
+      left 10px
+
+/*=====  End of Choices  ======*/
+
+.form-control
+  display block
+  width 100%
+  background-color #f9f9f9
+  padding 12px
+  border 1px solid #ddd
+  border-radius 2.5px
+  font-size 14px
+  appearance none
+  margin-bottom 24px
+
+.visible-ie
+  display none
+
+.push-bottom
+  margin-bottom 24px
+
+.zero-bottom
+  margin-bottom 0
+
+.zero-top
+  margin-top 0
+
+.text-center
+  text-align center
+
+.is-hidden
+  display none
+
+[data-test-hook]
+  margin-bottom 24px
