@@ -27,6 +27,10 @@
       @media $desktopMax1440
         width 38px
         height 3px
+    &:first-child
+      margin-top 0
+    &:last-child
+      margin-bottom 0
 
   h1:not([class])
     font-size 40px
@@ -341,6 +345,8 @@
   table:not([class]):first-child
     margin-top 0 !important
 
+  .btn
+    margin-top 40px
 
   &__row
     display flex

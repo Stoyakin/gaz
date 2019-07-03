@@ -1,0 +1,57 @@
+.brands
+  margin 60px 0
+  &:last-child
+    margin-bottom 0
+  &__list
+    display flex
+    flex-wrap wrap
+    position relative
+    &:before
+      @extend .before
+      left -4px
+      top -2px
+      width calc(100% - 2px)
+      height calc(100% - 2px)
+      pointer-events none
+      border 4px solid #fff
+      z-index 1
+    &-item
+      width calc(20% + 2px)
+      margin-left -2px
+      margin-bottom -2px
+      border 2px solid whitesmoke
+  &__item
+    &-href
+      display flex
+      flex-direction column
+      align-items center
+      justify-content center
+      width 100%
+      height 166px
+      padding 25px
+      &:hover
+        .brands__item
+          &-logo-img
+            filter grayscale(0%)
+            opacity 1
+          &-title
+            border-color $blueLight
+    &-logo
+      display flex
+      justify-content center
+      align-items center
+      height 75px
+      margin-bottom 20px
+      &-img
+        max-height 100%
+        filter grayscale(100%)
+        opacity .7
+        transition filter .4s, opacity .4s
+    &-title
+      color $color
+      font-size 14px
+      font-weight 400
+      line-height 18px
+      align-self center
+      border-bottom 2px solid transparent
+      transition border .4s
