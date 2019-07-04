@@ -1,0 +1,153 @@
+.filials
+  &__map
+    width 100%
+    height 500px
+    background-color #ebebeb
+    margin-bottom 28px
+    @media $bigDesktopMax
+      height 370px
+  &__items
+    display flex
+    flex-wrap wrap
+    width calc(100% + 28px)
+    margin 0 -14px
+    @media $tPortraitMax
+      width 100%
+      margin 0
+  &__item
+    display flex
+    flex-wrap wrap
+    width calc(100%/3 - 28px)
+    margin 0 14px
+    background-color #f1f7ff
+    min-height 179px
+    @media $bigDesktopMax
+      min-height 130px
+    @media $tPortraitMax
+      width 100%
+      margin 0 0 3px
+    &-left
+      width calc(100% - 84px)
+      padding 35px 30px 25px 75px
+      @media $bigDesktopMax
+        width calc(100% - 64px)
+        padding 26px 30px 12px 53px
+    &-title
+      position relative
+      color $color
+      font-size 16px
+      font-weight 500
+      line-height 21px
+      min-height 42px
+      margin-bottom 6px
+      @media $bigDesktopMax
+        font-size 13px
+        line-height 18px
+        min-height 35px
+      &:before
+        @extend .before
+        left -44px
+        top -6px
+        width 23px
+        height 31px
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAfCAMAAAA7p6b/AAAAflBMVEUAAAAAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavbD3vyFAAAAKXRSTlMA8NgNA8OdiyP59F9PShnr6OHQybWRbGNEPSwUCLuoln5zVkI03oeCfa3NWVAAAADlSURBVCjPbZBZFoIwDEUfUKAgk4qI4jx3/xvUNLSW6v1Jcs9pmgSMKJMwU1mY9HDpQ2VYbKwVqXI5GZ+oKSnrs/KZkZYZF2136VpOg8F2md9A3O6mU5RTUkswVaMfCJSKWMMw0/UVLwr5zvqdfn/GisISX5YkVjj6Pmb/HP8xiJrEAxdFFNaX42aDjmEEJuILSmCvk7ji8WM+KoBi3D3tt9c04KLDh4XyafQ6mz/31Bw9HZsZ5hOdS9Z+pzUsJ0cf8EXw2HZDS1WPOttiQmGbeyR+c3fYZsAPJZ/7l1bt8Q8ZOLO8AbgRNm7euB8nAAAAAElFTkSuQmCC') no-repeat center
+        background-size contain
+        @media $bigDesktopMax
+          left -31px
+          top -4px
+          width 17px
+          height 24px
+    &-address
+      display block
+      color rgba($color, .86)
+      font-size 13px
+      line-height 19px
+      margin-bottom 26px
+      letter-spacing 0.02em
+      @media $bigDesktopMax
+        font-size 12px
+        line-height 17px
+        margin-bottom 8px
+    &-data
+      display flex
+      flex-direction column
+      color $color
+      font-size 16px
+      font-weight 500
+      line-height 22px
+      @media $bigDesktopMax
+        font-size 14px
+        line-height 20px
+      a
+        color $color
+        align-self flex-start
+        &[href^="tel"]
+          transition opacity .4s
+          &:hover
+            opacity .7
+    &-right
+      display flex
+      flex-direction column
+      flex-shrink 0
+      width 84px
+      border-left 3px solid #fff
+      @media $bigDesktopMax
+        width 64px
+    &-btn
+      display block
+      position relative
+      width 100%
+      height 50%
+      border-bottom 3px solid #ffffff
+      transition background .4s
+      &:hover
+        background-color $blueLight
+      &:nth-child(2)
+        border-bottom none
+      &:before
+        @extend .before
+        top 50%
+        transform translateY(-50%)
+        background-repeat no-repeat
+        background-position 50% 50%
+        transition background .4s
+        background-size contain
+        z-index 1
+      &--feedback
+        &:before
+          width 37px
+          height 24px
+          left 22px
+          background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAYCAMAAABKpMRCAAAAUVBMVEUAAAAAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavaDfBFTAAAAGnRSTlMA8OD7XRbhi0Z/CsvErqUrBtuDZ2U/PSYC8qrInsUAAADMSURBVCjPjZNZDoMwDETHpNCGtuzr3P+gVcJiCRLKfL/IemMHmfxPBiHn5CozKY6SF+J5iafE0rRRqDW04ig8DJ9TkJmeNA8sFAbhNw9A+ZcyYKMw1nynJyh9sx6hFNIPs/IAlRk/7qlSqIpdVeWKCkot2VVVDjhRu6rKBahNVeXCVC90ql6O0gOxiU7Vy8UmNjSdV7VerjNsAESasCTtsQltNSnXwfM6qky01fOG8siG+ui2vapeDsLRy/FykXhVuX3RpCRXccC9n/YDbzoNzUGvSCEAAAAASUVORK5CYII=')
+          @media $bigDesktopMax
+            width 26px
+            height 18px
+            left 17px
+        &:hover
+          &:before
+            background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAYCAMAAABKpMRCAAAAV1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////+ORg7oAAAAHHRSTlMA8OD7Xe7hi0Z/CsvErqUrFwbbg2dlPz0mEwLyCnEQ+QAAAM9JREFUKM+Nk1kOgzAMRCek0IYudGFn7n/OKmZxBQllvp9kvbGNzPxPBkMOyV4G0njKXBDPxQhlHG0ZhUpLZzyFk+W5DzL9mfaEkUKT8p4HoPzOtMFMoX3z+txAzyvfLZRCd2NWrKAi463DL4XXY1FVuccLSo1ZVFUO2FCLqsoFqFlV5cJUndKrihzTGohN9KoiF5v4oa1E1YlcZfkBEGnCkXTrJrTVpJgGD9OoItFWtxvKIxuqo9sWVb0chKOXI3KRiKo5eNFCJXvxwLFP+wLaCA8pR7kOrgAAAABJRU5ErkJggg==')
+      &--record
+        &:before
+          width 34px
+          height 34px
+          left 24px
+          background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAAXVBMVEUAAAAAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAava+Cn9lAAAAHnRSTlMApXjkJOtbLQq++rWiUAbbOCrvycSjjoh+Zz8YdnJur1MYAAAAq0lEQVQ4y+3USQ6DMBBE0QoQAjY285zU/Y8ZoyB5QzcXyF+2ntS7glCV46YHmd+KaCSxlMGoIkERjSAQjSSikUQ0ssjiL0mkjEYSzxdCC1npIiEff6GI8VbsZO1VAUfSek1gYh1Mqwj0/OSkUURh2CAYNpLARuNxmLIQRLgOwGmuBSxnnKa+FujoAPjmnVIQLZm5eTA8GnHVyl+mn9wuDAnJziZbATFbrS3UvgJlGEz+7Q8sAAAAAElFTkSuQmCC')
+          @media $bigDesktopMax
+            width 24px
+            height 34px
+            left 19px
+        &:hover
+          &:before
+            background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAeKUk6+RbLb8KovoGyLc4Ku/f2bKOiH5nU00/GHK74coAAAAAqklEQVQ4y+3NWQ6DMBRDUae0lAzMZabe/zIbFCR+kscGej+tIxmJTI6bHmR+K4KRxFR4IwoFHYwgEIwkJBPEZdIiu75S4sXLpMTzDd9EGlko8vEXgjC3Yid7JwosJD9OEhjYedMIAiW/OWkFoS1reMM6JbDROhym0Anh1wI4TVyg4ojT9HGBlisAV6uOCdGQ2TqWlkcGsWaGbDksO6IZkm2lNo1klZkbiP0A+gQYTNE1ODUAAAAASUVORK5CYII=')
+  &__bottom
+    margin-top 47px
+    margin-bottom -8px
+    @media $bigDesktopMax
+      margin-top 26px
+      margin-bottom -8px
+    .btn
+      width 100%
+      max-width 354px
+      margin 0 4px 8px
+      @media $bigDesktopMax
+        max-width 260px

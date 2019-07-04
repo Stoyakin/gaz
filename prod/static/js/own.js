@@ -1,5 +1,7 @@
 "use strict";
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function qs(query) {
   var root = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
   return root.querySelector(query);
@@ -24,8 +26,10 @@ window.onload = function () {
 };
 
 document.addEventListener("DOMContentLoaded", function (event) {
+  var _fadeOut$fadeIn$map$f;
+
   window.site = {};
-  window.site.obj = {
+  window.site.obj = (_fadeOut$fadeIn$map$f = {
     fadeOut: function fadeOut(selector, duration) {
       var element = document.querySelector(selector),
           op = 1;
@@ -331,21 +335,54 @@ document.addEventListener("DOMContentLoaded", function (event) {
         animation: 'fade',
         arrow: true
       });
-    },
-    init: function init() {
-      if (qsAll('.js-filter-btn').length) this.filter();
-      if (qs('.js-action-swiper')) this.actionSlider();
-      if (qs('.js-burger')) this.burger();
-      if (qs('.js-iann-swiper')) this.iannSlider();
-      if (qs('.js-idealer-swiper')) this.idealerSlider();
-      if (qs('.js-igall-swiper')) this.igallSlider();
-      if (qs('.js-irev-swiper')) this.irevSlider();
-      if (qs('.js-top-swiper')) this.topSwiper();
-      if (qs('.js-sel-auto')) this.selAuto();
-      if (qsAll('.js-tippy').length) this.mainTippy();
-      if (qsAll('.js-select').length) this.choicesSelect();
-      return this;
     }
-  }.init();
+  }, _defineProperty(_fadeOut$fadeIn$map$f, "map", function map() {
+    var pin = '/static/img/pin.png',
+        coordsCenter = qs('.js-map').dataset.center.split(',');
+    ymaps.ready(function () {
+      function yaMapInit() {
+        var myMap = new ymaps.Map("yaMap", {
+          center: [coordsCenter[0], coordsCenter[1]],
+          zoom: 11,
+          controls: [],
+          behaviors: ["drag"]
+        });
+        myMap.controls.add('zoomControl', {
+          size: 'small',
+          float: 'right',
+          position: {
+            top: '198px',
+            right: '20px'
+          }
+        });
+
+        if (qsAll('.js-filials .filials__item').length) {
+          $.each(qsAll('.js-filials .filials__item'), function (index, currentElement) {
+            myMap.geoObjects.add(new ymaps.Placemark(currentElement.dataset.coords.split(','), {}, {
+              iconLayout: 'default#image',
+              iconImageHref: pin,
+              iconImageSize: [23, 31]
+            }));
+          });
+        }
+      }
+
+      yaMapInit();
+    });
+  }), _defineProperty(_fadeOut$fadeIn$map$f, "init", function init() {
+    if (qsAll('.js-filter-btn').length) this.filter();
+    if (qs('.js-action-swiper')) this.actionSlider();
+    if (qs('.js-burger')) this.burger();
+    if (qs('.js-iann-swiper')) this.iannSlider();
+    if (qs('.js-idealer-swiper')) this.idealerSlider();
+    if (qs('.js-igall-swiper')) this.igallSlider();
+    if (qs('.js-irev-swiper')) this.irevSlider();
+    if (qs('.js-top-swiper')) this.topSwiper();
+    if (qs('.js-sel-auto')) this.selAuto();
+    if (qsAll('.js-tippy').length) this.mainTippy();
+    if (qsAll('.js-select').length) this.choicesSelect();
+    if (qsAll('.js-map').length) this.map();
+    return this;
+  }), _fadeOut$fadeIn$map$f).init();
 });
 //# sourceMappingURL=own.js.map

@@ -135,8 +135,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       if (getParent(qs('.js-action-swiper'), 'action--inner')) {
         countStart = 2,
-        point992 = 1,
-        point1240 = 2;
+          point992 = 1,
+          point1240 = 2;
       }
 
       let actionSlider = new Swiper('.js-action-swiper', {
@@ -345,6 +345,47 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
+    map: function () {
+
+      const pin = '/static/img/pin.png',
+        coordsCenter = qs('.js-map').dataset.center.split(',');
+
+      ymaps.ready(function () {
+
+        function yaMapInit() {
+          const myMap = new ymaps.Map("yaMap", {
+            center: [coordsCenter[0], coordsCenter[1]],
+            zoom: 11,
+            controls: [],
+            behaviors: ["drag"]
+          });
+
+          myMap.controls.add('zoomControl', {
+            size: 'small',
+            float: 'right',
+            position: {
+                top: '198px',
+                right: '20px'
+            }
+          });
+
+          if (qsAll('.js-filials .filials__item').length) {
+            $.each(qsAll('.js-filials .filials__item'), function (index, currentElement) {
+              myMap.geoObjects.add(new ymaps.Placemark((currentElement.dataset.coords).split(','), {}, {
+                iconLayout: 'default#image',
+                iconImageHref: pin,
+                iconImageSize: [23, 31]
+              }));
+            });
+          }
+
+        }
+
+        yaMapInit();
+
+      });
+    },
+
     init: function init() {
 
       if (qsAll('.js-filter-btn').length) this.filter();
@@ -369,10 +410,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       if (qsAll('.js-select').length) this.choicesSelect();
 
+      if (qsAll('.js-map').length) this.map();
+
       return this;
     }
 
   }.init();
 
 });
-

@@ -334,6 +334,8 @@
                             </li>
                             <li class="brands__list-item"><a class="brands__item-href" href="#"><span class="brands__item-logo"><img class="brands__item-logo-img" src="static/img/brands/brands-logo5.png" alt="" role="presentation"/></span><span class="brands__item-title">Cummins</span></a>
                             </li>
+                            <li class="brands__list-item"><a class="brands__item-href" href="#"><span class="brands__item-logo"><img class="brands__item-logo-img" src="static/img/brands/brands-logo12.png" alt="" role="presentation"/></span><span class="brands__item-title">Bosch</span></a>
+                            </li>
                             <li class="brands__list-item"><a class="brands__item-href" href="#"><span class="brands__item-logo"><img class="brands__item-logo-img" src="static/img/brands/brands-logo6.png" alt="" role="presentation"/></span><span class="brands__item-title">Continental</span></a>
                             </li>
                             <li class="brands__list-item"><a class="brands__item-href" href="#"><span class="brands__item-logo"><img class="brands__item-logo-img" src="static/img/brands/brands-logo7.png" alt="" role="presentation"/></span><span class="brands__item-title">PEKAR</span></a>
@@ -344,93 +346,97 @@
                             </li>
                             <li class="brands__list-item"><a class="brands__item-href" href="#"><span class="brands__item-logo"><img class="brands__item-logo-img" src="static/img/brands/brands-logo10.png" alt="" role="presentation"/></span><span class="brands__item-title">ЗМЗ</span></a>
                             </li>
+                            <li class="brands__list-item"><a class="brands__item-href" href="#"><span class="brands__item-logo"><img class="brands__item-logo-img" src="static/img/brands/brands-logo13.png" alt="" role="presentation"/></span><span class="brands__item-title">Sachs</span></a>
+                            </li>
                             <li class="brands__list-item"><a class="brands__item-href" href="#"><span class="brands__item-logo"><img class="brands__item-logo-img" src="static/img/brands/brands-logo11.png" alt="" role="presentation"/></span><span class="brands__item-title">Buzuluk</span></a>
                             </li>
                         </ul>
                     </section>
+                    <section class="filials js-filials">
+                        <div class="filials__map js-map" id="yaMap" data-center="51.533103, 46.034158">
+                        </div>
+                        <div class="filials__items">
+                            <div class="filials__item" data-coords="51.542906, 45.995009">
+                                <div class="filials__item-left">
+                                    <p class="filials__item-title">АвтоцентрГАЗ-Лидер
+                                    </p>
+                                    <address class="filials__item-address">Саратов, проспект Ленина, 186
+                                    </address>
+                                    <div class="filials__item-data"><a href="tel:+79083741220">+7 (908) 374-12-20</a>
+                                    </div>
+                                </div>
+                                <div class="filials__item-right"><a class="filials__item-btn filials__item-btn--feedback" href="#"></a><a class="filials__item-btn filials__item-btn--record" href="#"></a>
+                                </div>
+                            </div>
+                            <div class="filials__item" data-coords="51.590566, 45.991362">
+                                <div class="filials__item-left">
+                                    <p class="filials__item-title">АвтоцентрГАЗ-СаратовЮГ
+                                    </p>
+                                    <address class="filials__item-address">ул. Куйбышева, 13
+                                    </address>
+                                    <div class="filials__item-data"><a href="tel:+79045000880">+7 (904) 500-08-80</a>
+                                    </div>
+                                </div>
+                                <div class="filials__item-right"><a class="filials__item-btn filials__item-btn--feedback" href="#"></a><a class="filials__item-btn filials__item-btn--record" href="#"></a>
+                                </div>
+                            </div>
+                            <div class="filials__item" data-coords="51.514610, 45.988703">
+                                <div class="filials__item-left">
+                                    <p class="filials__item-title">Энгельский филиал АвтоцентрГАЗ-СаратовЮГ
+                                    </p>
+                                    <address class="filials__item-address">Проспект победы, 24
+                                    </address>
+                                    <div class="filials__item-data"><a href="tel:+79083741220">+7 (908) 374-12-20</a>
+                                    </div>
+                                </div>
+                                <div class="filials__item-right"><a class="filials__item-btn filials__item-btn--feedback" href="#"></a><a class="filials__item-btn filials__item-btn--record" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filials__bottom bottom-row"><a class="filials__btn btn btn btn--light" href="#">Отправить заявку</a><a class="filials__btn btn btn btn--blue" href="#">Записаться в сервис</a>
+                        </div>
+                    </section>
+                    <section class="feedback">
+                        <h2 class="feedback__title title title--center">Рассчитать стоимость запчастей
+                        </h2>
+                        <form class="form">
+                            <div class="form__row">
+                                <div class="form__field form__field--min"><input class="form__field-input" type="text" id="inp01" data-req="req"/>
+                                    <label class="form__field-label" for="inp01">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field form__field--min">
+                                    <select class="form__field-select form__field-select--validate select js-select" data-req="req" data-type="select">
+                                        <option placeholder>Выберите модель</option>
+                                        <option>Модель 1</option>
+                                        <option>Модель 2</option>
+                                        <option>Модель 3</option>
+                                    </select>
+                                </div>
+                                <div class="form__field form__field--min"><input class="form__field-input js-phone" type="text" id="inp02" data-req="req"/>
+                                    <label class="form__field-label" for="inp02">Номер телефона<span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><textarea class="form__field-textarea" id="text"></textarea>
+                                    <label class="form__field-label" for="text">Ваш комментарий
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--min form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit"> Отправить заявку
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
                 </div>
-                <section class="feedback">
-                    <h2 class="feedback__title title title--center">Рассчитать стоимость запчастей
-                    </h2>
-                    <form class="form">
-                        <div class="form__row">
-                            <div class="form__field form__field--min"><input class="form__field-input" type="text" id="inp01" data-req="req"/>
-                                <label class="form__field-label" for="inp01">ФИО <span class="red">*</span>
-                                </label>
-                            </div>
-                            <div class="form__field form__field--min">
-                                <select class="form__field-select form__field-select--validate select js-select" data-req="req" data-type="select">
-                                    <option placeholder>Выберите модель</option>
-                                    <option>Модель 1</option>
-                                    <option>Модель 2</option>
-                                    <option>Модель 3</option>
-                                </select>
-                            </div>
-                            <div class="form__field form__field--min"><input class="form__field-input js-phone" type="text" id="inp02" data-req="req"/>
-                                <label class="form__field-label" for="inp02">Номер телефона<span class="red">*</span>
-                                </label>
-                            </div>
-                            <div class="form__field"><textarea class="form__field-textarea" id="text"></textarea>
-                                <label class="form__field-label" for="text">Ваш комментарий
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form__row">
-                            <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
-                            </p>
-                            <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
-                            </p>
-                        </div>
-                        <div class="form__row">
-                            <div class="form__field form__field--min form__field--center">
-                                <button class="form__field-submit btn btn--blue" type="submit"> Отправить заявку
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-                <section class="filials">
-                    <div class="filials__map js-map" data-center="51.533103, 46.034158">
-                    </div>
-                    <div class="filials__items">
-                        <div class="filials__item">
-                            <div class="filials__item-left">
-                                <p class="filials__item-title">АвтоцентрГАЗ-Лидер
-                                </p>
-                                <address class="filials__item-address">Саратов, проспект Ленина, 186
-                                </address>
-                                <div class="filials__item-data"><a href="tel:+79083741220">+7 (908) 374-12-20</a>
-                                </div>
-                            </div>
-                            <div class="filials__item-right">
-                            </div>
-                        </div>
-                        <div class="filials__item">
-                            <div class="filials__item-left">
-                                <p class="filials__item-title">АвтоцентрГАЗ-СаратовЮГ
-                                </p>
-                                <address class="filials__item-address">ул. Куйбышева, 13
-                                </address>
-                                <div class="filials__item-data"><a href="tel:+79045000880">+7 (904) 500-08-80</a>
-                                </div>
-                            </div>
-                            <div class="filials__item-right">
-                            </div>
-                        </div>
-                        <div class="filials__item">
-                            <div class="filials__item-left">
-                                <p class="filials__item-title">Энгельский филиал АвтоцентрГАЗ-СаратовЮГ
-                                </p>
-                                <address class="filials__item-address">Проспект победы, 24
-                                </address>
-                                <div class="filials__item-data"><a href="tel:+79083741220">+7 (908) 374-12-20</a>
-                                </div>
-                            </div>
-                            <div class="filials__item-right">
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </main>
             <footer class="footer">
                 <div class="footer__top">
@@ -565,6 +571,7 @@
             <!--include popups/popups-mixin-->
         </div>
         <script type="text/javascript" src="static/js/vendor.js"></script>
+        <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
         <script type="text/javascript" src="static/js/own.js"></script>
     </body>
 </html>
