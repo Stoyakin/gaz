@@ -23,60 +23,109 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   window.site.obj = {
 
-    fadeOut: function fadeOut(selector, duration) {
-      let element = document.querySelector(selector),
-        op = 1;
-      if (!element)
+    slideDown: function slideDown(selector, duration, cb = null) {
+      if (!selector)
         return;
+      let element;
+      (typeof selector === 'string' || selector instanceof String) ? element = qs(selector): element = selector;
+      let display = getComputedStyle(element).display;
+      element.style.removeProperty('display');
+      if (display === 'none') display = 'block';
+      element.style.display = display;
+      let height = element.offsetHeight;
+      element.style.overflow = 'hidden';
+      element.style.height = 0;
+      element.style.paddingTop = 0;
+      element.style.paddingBottom = 0;
+      element.style.marginTop = 0;
+      element.style.marginBottom = 0;
+      element.offsetHeight;
+      element.style.transitionProperty = 'height, margin, padding';
+      element.style.transitionDuration = duration + 'ms';
+      element.style.height = height + 'px';
+      element.style.removeProperty('padding-top');
+      element.style.removeProperty('padding-bottom');
+      element.style.removeProperty('margin-top');
+      element.style.removeProperty('margin-bottom');
+      setTimeout(() => {
+        element.style.removeProperty('height');
+        element.style.removeProperty('overflow');
+        element.style.removeProperty('transition-property');
+        element.style.removeProperty('transition-duration');
+      }, duration);
+    },
+
+    slideUp: function slideUp(selector, duration, cb = null) {
+      if (!selector)
+        return;
+      let element;
+      (typeof selector === 'string' || selector instanceof String) ? element = qs(selector): element = selector;
+      element.style.height = element.offsetHeight + 'px';
+      element.style.transitionProperty = 'height, margin, padding';
+      element.style.transitionDuration = duration + 'ms';
+      element.offsetHeight;
+      element.style.overflow = 'hidden';
+      element.style.height = 0;
+      element.style.paddingTop = 0;
+      element.style.paddingBottom = 0;
+      element.style.marginTop = 0;
+      element.style.marginBottom = 0;
+      setTimeout(() => {
+        element.style.display = 'none';
+        element.style.removeProperty('height');
+        element.style.removeProperty('padding-top');
+        element.style.removeProperty('padding-bottom');
+        element.style.removeProperty('margin-top');
+        element.style.removeProperty('margin-bottom');
+        element.style.removeProperty('overflow');
+        element.style.removeProperty('transition-property');
+        element.style.removeProperty('transition-duration');
+      }, duration);
+    },
+
+    slideToggle: function slideToggle(selector, duration, cb = null) {
+      let element;
+      (typeof selector === 'string' || selector instanceof String) ? element = qs(selector): element = selector;
+      let display = getComputedStyle(element).display;
+      if (display === 'none') this.slideDown(element, duration, cb)
+      else this.slideUp(element, duration, cb)
+    },
+
+    fadeOut: function fadeOut(selector, duration, cb = null) {
+      if (!selector) return;
+      let element,
+        op = 1;
+      (typeof selector === 'string' || selector instanceof String) ? element = qs(selector): element = selector;
       let timer = setInterval(function () {
         if (op <= 0.1) {
           clearInterval(timer);
           element.style.display = 'none';
+          if (cb) cb();
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op -= op * 0.1;
-      }, duration / 10 || 20);
+      }, duration / 50 || 20);
     },
 
-    fadeIn: function fadeIn(selector, duration) {
-      let element = document.querySelector(selector),
-        op = 0.1;
-      if (!element)
+    fadeIn: function fadeIn(selector, duration, cb = null) {
+      if (!selector)
         return;
+      let element,
+        op = 0.1,
+        typeBlock = 'block';
+      (typeof selector === 'string' || selector instanceof String) ? element = qs(selector): element = selector;
       element.style.opacity = 0;
-      element.style.display = 'block';
+      element.style.display = typeBlock;
       let timer = setInterval(function () {
         if (op >= 1) {
           clearInterval(timer);
+          if (cb) cb();
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
-      }, duration / 10 || 20);
-    },
-
-    map: function map() {
-      let $map = document.querySelector('.js-map'),
-        coords = $map.data('coords').split(',');
-      ymaps.ready(function () {
-        let myMap = new ymaps.Map("yaMap", {
-          center: [coords[0], coords[1]],
-          zoom: $map.data('zoom') || 14,
-          controls: ['largeMapDefaultSet']
-        });
-        myMap.controls.add('zoomControl', {
-          size: 'small'
-        });
-        myMap.behaviors.disable('scrollZoom');
-        let myPlacemark = new ymaps.Placemark(coords, {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'static/img/pin.png',
-          iconImageSize: [50, 66]
-        });
-        myMap.geoObjects.add(myPlacemark);
-      });
-      return;
+      }, duration / 50 || 20);
     },
 
     filter: function filter() {
@@ -114,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       let _th = this,
         $body = document.querySelector('body'),
         nav = document.querySelector('.nav');
-      document.querySelector('.js-burger').addEventListener('click', function () {
+      qs('.js-burger').addEventListener('click', function () {
         let _t = this;
         if (!_t.classList.contains('header__burger--active')) {
           _t.classList.add('header__burger--active');
@@ -364,8 +413,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             size: 'small',
             float: 'right',
             position: {
-                top: '198px',
-                right: '20px'
+              top: '198px',
+              right: '20px'
             }
           });
 
@@ -384,6 +433,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
         yaMapInit();
 
       });
+    },
+
+    departmentToggle: function departmentToggle() {
+
+      const _self = this;
+
+      qsAll('.js-department-toggle').forEach((item) => {
+        item.addEventListener('click', function (e) {
+          this.classList.toggle('active');
+          _self.slideToggle(this.nextElementSibling, 300);
+          e.preventDefault();
+        });
+      });
+
     },
 
     init: function init() {
@@ -411,6 +474,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (qsAll('.js-select').length) this.choicesSelect();
 
       if (qsAll('.js-map').length) this.map();
+
+      if (qsAll('.js-department-toggle').length) this.departmentToggle();
 
       return this;
     }

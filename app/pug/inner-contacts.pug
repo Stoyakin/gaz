@@ -1,0 +1,53 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Контакты";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Запчасти'])
+  
+  .container
+    h1.main__title #{title}
+
+    +b('section').filials.js-filials
+      +e.map.js-map#yaMap(data-center="51.533103, 46.034158")
+      +e.items
+        +e.item(data-coords="51.542906, 45.995009")
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-Лидер
+              +e('address').item-address Саратов, проспект Ленина, 186
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+          include includes/blocks/filials-departaments
+        +e.item(data-coords="51.590566, 45.991362")
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address ул. Куйбышева, 13
+              +e.item-data
+                a(href="tel:+79045000880") +7 (904) 500-08-80
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+          include includes/blocks/filials-departaments
+        +e.item(data-coords="51.514610, 45.988703")
+          +e.item-top
+            +e.item-left
+              +e('p').item-title Энгельский филиал АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address Проспект победы, 24
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+          include includes/blocks/filials-departaments
+      +e.bottom.bottom-row
+        +e('a')(href="#").btn.btn.btn--light Отправить заявку
+        +e('a')(href="#").btn.btn.btn--blue Записаться в сервис
+

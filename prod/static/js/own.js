@@ -1,7 +1,5 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function qs(query) {
   var root = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
   return root.querySelector(query);
@@ -26,62 +24,110 @@ window.onload = function () {
 };
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  var _fadeOut$fadeIn$map$f;
-
   window.site = {};
-  window.site.obj = (_fadeOut$fadeIn$map$f = {
+  window.site.obj = {
+    slideDown: function slideDown(selector, duration) {
+      var cb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      if (!selector) return;
+      var element;
+      typeof selector === 'string' || selector instanceof String ? element = qs(selector) : element = selector;
+      var display = getComputedStyle(element).display;
+      element.style.removeProperty('display');
+      if (display === 'none') display = 'block';
+      element.style.display = display;
+      var height = element.offsetHeight;
+      element.style.overflow = 'hidden';
+      element.style.height = 0;
+      element.style.paddingTop = 0;
+      element.style.paddingBottom = 0;
+      element.style.marginTop = 0;
+      element.style.marginBottom = 0;
+      element.offsetHeight;
+      element.style.transitionProperty = 'height, margin, padding';
+      element.style.transitionDuration = duration + 'ms';
+      element.style.height = height + 'px';
+      element.style.removeProperty('padding-top');
+      element.style.removeProperty('padding-bottom');
+      element.style.removeProperty('margin-top');
+      element.style.removeProperty('margin-bottom');
+      setTimeout(function () {
+        element.style.removeProperty('height');
+        element.style.removeProperty('overflow');
+        element.style.removeProperty('transition-property');
+        element.style.removeProperty('transition-duration');
+      }, duration);
+    },
+    slideUp: function slideUp(selector, duration) {
+      var cb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      if (!selector) return;
+      var element;
+      typeof selector === 'string' || selector instanceof String ? element = qs(selector) : element = selector;
+      element.style.height = element.offsetHeight + 'px';
+      element.style.transitionProperty = 'height, margin, padding';
+      element.style.transitionDuration = duration + 'ms';
+      element.offsetHeight;
+      element.style.overflow = 'hidden';
+      element.style.height = 0;
+      element.style.paddingTop = 0;
+      element.style.paddingBottom = 0;
+      element.style.marginTop = 0;
+      element.style.marginBottom = 0;
+      setTimeout(function () {
+        element.style.display = 'none';
+        element.style.removeProperty('height');
+        element.style.removeProperty('padding-top');
+        element.style.removeProperty('padding-bottom');
+        element.style.removeProperty('margin-top');
+        element.style.removeProperty('margin-bottom');
+        element.style.removeProperty('overflow');
+        element.style.removeProperty('transition-property');
+        element.style.removeProperty('transition-duration');
+      }, duration);
+    },
+    slideToggle: function slideToggle(selector, duration) {
+      var cb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      var element;
+      typeof selector === 'string' || selector instanceof String ? element = qs(selector) : element = selector;
+      var display = getComputedStyle(element).display;
+      if (display === 'none') this.slideDown(element, duration, cb);else this.slideUp(element, duration, cb);
+    },
     fadeOut: function fadeOut(selector, duration) {
-      var element = document.querySelector(selector),
+      var cb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      if (!selector) return;
+      var element,
           op = 1;
-      if (!element) return;
+      typeof selector === 'string' || selector instanceof String ? element = qs(selector) : element = selector;
       var timer = setInterval(function () {
         if (op <= 0.1) {
           clearInterval(timer);
           element.style.display = 'none';
+          if (cb) cb();
         }
 
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op -= op * 0.1;
-      }, duration / 10 || 20);
+      }, duration / 50 || 20);
     },
     fadeIn: function fadeIn(selector, duration) {
-      var element = document.querySelector(selector),
-          op = 0.1;
-      if (!element) return;
+      var cb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      if (!selector) return;
+      var element,
+          op = 0.1,
+          typeBlock = 'block';
+      typeof selector === 'string' || selector instanceof String ? element = qs(selector) : element = selector;
       element.style.opacity = 0;
-      element.style.display = 'block';
+      element.style.display = typeBlock;
       var timer = setInterval(function () {
         if (op >= 1) {
           clearInterval(timer);
+          if (cb) cb();
         }
 
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
-      }, duration / 10 || 20);
-    },
-    map: function map() {
-      var $map = document.querySelector('.js-map'),
-          coords = $map.data('coords').split(',');
-      ymaps.ready(function () {
-        var myMap = new ymaps.Map("yaMap", {
-          center: [coords[0], coords[1]],
-          zoom: $map.data('zoom') || 14,
-          controls: ['largeMapDefaultSet']
-        });
-        myMap.controls.add('zoomControl', {
-          size: 'small'
-        });
-        myMap.behaviors.disable('scrollZoom');
-        var myPlacemark = new ymaps.Placemark(coords, {}, {
-          iconLayout: 'default#image',
-          iconImageHref: 'static/img/pin.png',
-          iconImageSize: [50, 66]
-        });
-        myMap.geoObjects.add(myPlacemark);
-      });
-      return;
+      }, duration / 50 || 20);
     },
     filter: function filter() {
       var allowed = true;
@@ -120,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           $body = document.querySelector('body'),
           nav = document.querySelector('.nav');
 
-      document.querySelector('.js-burger').addEventListener('click', function () {
+      qs('.js-burger').addEventListener('click', function () {
         var _t = this;
 
         if (!_t.classList.contains('header__burger--active')) {
@@ -335,54 +381,70 @@ document.addEventListener("DOMContentLoaded", function (event) {
         animation: 'fade',
         arrow: true
       });
-    }
-  }, _defineProperty(_fadeOut$fadeIn$map$f, "map", function map() {
-    var pin = '/static/img/pin.png',
-        coordsCenter = qs('.js-map').dataset.center.split(',');
-    ymaps.ready(function () {
-      function yaMapInit() {
-        var myMap = new ymaps.Map("yaMap", {
-          center: [coordsCenter[0], coordsCenter[1]],
-          zoom: 11,
-          controls: [],
-          behaviors: ["drag"]
-        });
-        myMap.controls.add('zoomControl', {
-          size: 'small',
-          float: 'right',
-          position: {
-            top: '198px',
-            right: '20px'
-          }
-        });
-
-        if (qsAll('.js-filials .filials__item').length) {
-          $.each(qsAll('.js-filials .filials__item'), function (index, currentElement) {
-            myMap.geoObjects.add(new ymaps.Placemark(currentElement.dataset.coords.split(','), {}, {
-              iconLayout: 'default#image',
-              iconImageHref: pin,
-              iconImageSize: [23, 31]
-            }));
+    },
+    map: function map() {
+      var pin = '/static/img/pin.png',
+          coordsCenter = qs('.js-map').dataset.center.split(',');
+      ymaps.ready(function () {
+        function yaMapInit() {
+          var myMap = new ymaps.Map("yaMap", {
+            center: [coordsCenter[0], coordsCenter[1]],
+            zoom: 11,
+            controls: [],
+            behaviors: ["drag"]
           });
-        }
-      }
+          myMap.controls.add('zoomControl', {
+            size: 'small',
+            float: 'right',
+            position: {
+              top: '198px',
+              right: '20px'
+            }
+          });
 
-      yaMapInit();
-    });
-  }), _defineProperty(_fadeOut$fadeIn$map$f, "init", function init() {
-    if (qsAll('.js-filter-btn').length) this.filter();
-    if (qs('.js-action-swiper')) this.actionSlider();
-    if (qs('.js-burger')) this.burger();
-    if (qs('.js-iann-swiper')) this.iannSlider();
-    if (qs('.js-idealer-swiper')) this.idealerSlider();
-    if (qs('.js-igall-swiper')) this.igallSlider();
-    if (qs('.js-irev-swiper')) this.irevSlider();
-    if (qs('.js-top-swiper')) this.topSwiper();
-    if (qs('.js-sel-auto')) this.selAuto();
-    if (qsAll('.js-tippy').length) this.mainTippy();
-    if (qsAll('.js-select').length) this.choicesSelect();
-    if (qsAll('.js-map').length) this.map();
-    return this;
-  }), _fadeOut$fadeIn$map$f).init();
+          if (qsAll('.js-filials .filials__item').length) {
+            $.each(qsAll('.js-filials .filials__item'), function (index, currentElement) {
+              myMap.geoObjects.add(new ymaps.Placemark(currentElement.dataset.coords.split(','), {}, {
+                iconLayout: 'default#image',
+                iconImageHref: pin,
+                iconImageSize: [23, 31]
+              }));
+            });
+          }
+        }
+
+        yaMapInit();
+      });
+    },
+    departmentToggle: function departmentToggle() {
+      var _self = this;
+
+      qsAll('.js-department-toggle').forEach(function (item) {
+        item.addEventListener('click', function (e) {
+          this.classList.toggle('active');
+
+          _self.slideToggle(this.nextElementSibling, 300);
+
+          e.preventDefault();
+        });
+      });
+    },
+    init: function init() {
+      if (qsAll('.js-filter-btn').length) this.filter();
+      if (qs('.js-action-swiper')) this.actionSlider();
+      if (qs('.js-burger')) this.burger();
+      if (qs('.js-iann-swiper')) this.iannSlider();
+      if (qs('.js-idealer-swiper')) this.idealerSlider();
+      if (qs('.js-igall-swiper')) this.igallSlider();
+      if (qs('.js-irev-swiper')) this.irevSlider();
+      if (qs('.js-top-swiper')) this.topSwiper();
+      if (qs('.js-sel-auto')) this.selAuto();
+      if (qsAll('.js-tippy').length) this.mainTippy();
+      if (qsAll('.js-select').length) this.choicesSelect();
+      if (qsAll('.js-map').length) this.map();
+      if (qsAll('.js-department-toggle').length) this.departmentToggle();
+      return this;
+    }
+  }.init();
 });
 //# sourceMappingURL=own.js.map
