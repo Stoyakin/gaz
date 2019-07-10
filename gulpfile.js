@@ -211,6 +211,7 @@ gulp.task('css', css([
     src.app.css + 'fonts.css',
     src.app.css + 'ext/swiper-cut-svg.css',
     src.app.css + 'ext/tippy.css',
+    src.app.css + 'ext/ion.rangeSlider.css',
     src.app.css + 'styles.css'
     // 'node_modules/jquery-form-styler/dist/jquery.formstyler.css',
     // 'node_modules/jquery-form-styler/dist/jquery.formstyler.theme.css',
@@ -231,6 +232,7 @@ gulp.task('js-vendor', jsVendor(
     'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
     'node_modules/swiper/dist/js/swiper.js',
     'node_modules/choices.js/public/assets/scripts/choices.min.js',
+    'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
     src.app.js + 'ext/tippy.js',
     //'node_modules/jquery-form-styler/dist/jquery.formstyler.min.js',
     // src.app.js + 'ext/jquery.maskedinput.min.js',

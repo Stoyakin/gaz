@@ -19,9 +19,110 @@ function getParent(el, findParent) {
 window.onload = () => qs('body').classList.add('page-loaded');
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  window.site = {};
 
-  window.site.obj = {
+  window.gaz = {};
+
+  window.gaz.form = ({
+
+    init: function () {
+
+      const _th = this,
+        inputs = qsAll('.form__field-input, .form__field-textarea'),
+        forms = qsAll('form'),
+        digitsInput = qsAll('.js-digits');
+
+      function emptyCheck(event) {
+        event.target.value.trim() === '' ?
+          event.target.classList.remove('not-empty') :
+          event.target.classList.add('not-empty')
+      }
+
+      for (let item of inputs) {
+        item.addEventListener('keyup', emptyCheck)
+        item.addEventListener('blur', emptyCheck)
+      }
+
+      for (let form of forms) {
+        form.addEventListener('submit', (e) => {
+          //return !_th.checkForm(form) && e.preventDefault()
+        })
+      }
+
+      for (let digitInput of digitsInput) {
+        digitInput.addEventListener('keydown', (e) => {
+          let validArr = [46, 8, 9, 27, 13, 110, 190]
+          if (validArr.indexOf(e.keyCode) !== -1 ||
+            (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+            (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+            (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            return;
+          }
+          if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault()
+          }
+        });
+      }
+
+      return this
+    },
+
+    checkForm: function (form) {
+      let checkResult = true;
+      const warningElems = form.querySelectorAll('.error');
+
+      if (warningElems.length) {
+        for (let warningElem of warningElems) {
+          warningElem.classList.remove('error')
+        }
+      }
+
+      for (let elem of form.querySelectorAll('input, textarea, select')) {
+        if (elem.getAttribute('data-req')) {
+          switch (elem.getAttribute('data-type')) {
+            case 'tel':
+              var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+              if (!re.test(elem.value)) {
+                elem.parentNode.classList.add('error')
+                checkResult = false
+              }
+              break;
+            case 'email':
+              var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+              if (!re.test(elem.value)) {
+                elem.parentNode.classList.add('error')
+                checkResult = false
+              }
+              break;
+            case 'file':
+              if (elem.value.trim() === '') {
+                elem.parentNode.classList.add('error')
+                checkResult = false
+              }
+              break;
+            default:
+              if (elem.value.trim() === '') {
+                elem.parentNode.classList.add('error')
+                checkResult = false
+              }
+              break;
+          }
+        }
+      }
+
+      for (let item of form.querySelectorAll('input[data-req^=agreement]')) {
+        if (!item.checked) {
+          item.classList.add('error')
+          checkResult = false
+        }
+      }
+
+      return checkResult
+    }
+
+  }).init()
+
+  window.gaz.obj = {
 
     slideDown: function slideDown(selector, duration, cb = null) {
       if (!selector)
@@ -223,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
-    igallSlider: function () {
+    igallSlider: function igallSlider() {
       let igallSlider = new Swiper('.js-igall-swiper', {
         loop: true,
         speed: 750,
@@ -240,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
     },
 
-    irevSlider: function () {
+    irevSlider: function irevSlider() {
       let irevSlider = new Swiper('.js-irev-swiper', {
         loop: true,
         speed: 750,
@@ -253,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
     },
 
-    idealerSlider: function () {
+    idealerSlider: function idealerSlider() {
       let idealerSlider = new Swiper('.js-idealer-swiper', {
         loop: true,
         speed: 750,
@@ -276,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
     },
 
-    topSwiper: function () {
+    topSwiper: function topSwiper() {
 
       let topSlider = new Swiper('.js-top-swiper', {
         loop: true,
@@ -300,7 +401,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
     },
 
-    iannSlider: function () {
+    iannSlider: function iannSlider() {
       let indEl = document.querySelector('.iann .swiper-ind-line span'),
         width = 0,
         timer;
@@ -353,7 +454,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
     },
 
-    selAuto: function () {
+    gallerySwiper: function gallerySwiper() {
+
+      var galleryThumbs = new Swiper('.js-gallery-thumbs', {
+        spaceBetween: 7,
+        slidesPerView: 4,
+        loop: true,
+        freeMode: true,
+        loopedSlides: 5, //looped slides should be the same
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+      });
+
+      var galleryTop = new Swiper('.js-gallery-top', {
+        spaceBetween: 7,
+        loop: true,
+        loopedSlides: 5, //looped slides should be the same
+        navigation: {
+          nextEl: '.gallery .swiper-button-next',
+          prevEl: '.gallery .swiper-button-prev',
+        },
+        thumbs: {
+          swiper: galleryThumbs,
+        },
+      });
+
+    },
+
+    selAuto: function selAuto() {
       var selAutoFlag = true;
 
       $('.js-sel-auto').on('click', function () {
@@ -384,7 +512,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
-    mainTippy: function () {
+    mainTippy: function mainTippy() {
 
       new Tippy('.js-tippy', {
         position: 'bottom',
@@ -394,7 +522,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
-    map: function () {
+    map: function map() {
 
       const pin = '/static/img/pin.png',
         coordsCenter = qs('.js-map').dataset.center.split(',');
@@ -449,6 +577,132 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
+    range: function range() {
+
+      function getValidFormMinAndMax(value, min, max) {
+        if (value >= min && value <= max) {
+          return value;
+        }
+        return value <= min ? min : max;
+      }
+
+      var rangeInp = qsAll('.js-range');
+
+      if (rangeInp.length) {
+        rangeInp.forEach((item)=> {
+          let _th = item,
+            _thPar = getParent(_th, 'range'),
+            _thMax = parseInt(_th.dataset.max),
+            _thMin = parseInt(_th.dataset.min),
+            inpTo = qs('.range__digits--to', _thPar),
+            inpFrom = qs('.range__digits--from', _thPar);
+
+          let timeout = null;
+
+          let slider = $(_th).ionRangeSlider({
+            type: "double",
+            min: _thMin,
+            max: _thMax,
+            keyboard: true,
+            onChange: function (data) {
+              inpTo.value = data.to_pretty
+              inpFrom.value = data.from_pretty
+            },
+          }).data("ionRangeSlider");
+
+          inpFrom.addEventListener('input', ()=> {
+            let validFrom = getValidFormMinAndMax(inpFrom.value, _thMin, _thMax),
+              validTo = getValidFormMinAndMax(inpTo.value, _thMin, _thMax);
+            console.log(validFrom)
+            console.log(validTo)
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+              inpFrom.value = validFrom;
+              slider.update({
+                from: validFrom,
+                to: validTo
+              });
+            }, 500);
+          });
+
+          inpTo.addEventListener('input', ()=> {
+            let validFrom = getValidFormMinAndMax(inpFrom.value, _thMin, _thMax),
+              validTo = getValidFormMinAndMax(inpTo.value, _thMin, _thMax);
+            clearTimeout(timeout);
+            console.log(validFrom)
+            console.log(validTo)
+            timeout = setTimeout(function () {
+              inpTo.value = validTo;
+              slider.update({
+                from: validFrom,
+                to: validTo
+              });
+            }, 500);
+          });
+
+        });
+
+      }
+      /*
+      var $rangeOne = $(".js-range-one");
+      if ($rangeOne.length) {
+        $rangeOne.each(function () {
+          var _th = $(this),
+            _thMax = parseInt(_th.data('max')),
+            _thMin = parseInt(_th.data('min')),
+            inpFrom = _th.parents('.range').find('.range__input--from');
+
+          var singleSlider = _th.ionRangeSlider({
+            type: "single",
+            min: _thMin,
+            max: _thMax,
+            keyboard: true
+          }).data("ionRangeSlider");
+
+          _th.on("change", function () {
+            var $this = $(this),
+              from = $this.data("from");
+            inpFrom.val(from);
+          });
+          var timeout = null;
+          inpFrom.on('change input', function () {
+            var valid_value = getValidFormMinAndMax(inpFrom.val(), _thMin, _thMax);
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+              inpFrom.val(valid_value);
+              singleSlider.update({
+                from: valid_value
+              });
+            }, 500);
+          })
+
+        });
+      }
+      */
+    },
+
+    tabs: function tabs() {
+
+      const _self = this;
+
+      qsAll('.card__tabs-nav-button').forEach((item)=> {
+        item.addEventListener('click', function (e) {
+          let _th = this;
+          if (!_th.classList.contains('card__tabs-nav-button--active')) {
+            qs('.card__tabs-nav-button.card__tabs-nav-button--active').classList.remove('card__tabs-nav-button--active');
+            _th.classList.add('card__tabs-nav-button--active');
+            if (_th.dataset.tabsNav && _th.dataset.tabsNav != '' && qs('.card__tabs-item[data-tabs-item="'+_th.dataset.tabsNav+'"]', getParent(this, 'card__tabs'))) {
+              _self.fadeOut( qs('.card__tabs-item[data-tabs-item]', getParent(_th, 'card__tabs')), 300, function () {
+                _self.fadeIn(qs('.card__tabs-item[data-tabs-item="'+_th.dataset.tabsNav+'"]', getParent(_th, 'card__tabs')), 300);
+              });
+            }
+          }
+          e.preventDefault();
+        });
+      });
+
+    },
+
     init: function init() {
 
       if (qsAll('.js-filter-btn').length) this.filter();
@@ -467,6 +721,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       if (qs('.js-top-swiper')) this.topSwiper();
 
+      if (qs('.js-gallery-top') && qs('.js-gallery-thumbs')) this.gallerySwiper();
+
       if (qs('.js-sel-auto')) this.selAuto();
 
       if (qsAll('.js-tippy').length) this.mainTippy();
@@ -477,9 +733,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       if (qsAll('.js-department-toggle').length) this.departmentToggle();
 
+      if (qsAll('.js-range').length) this.range();
+
+      if (qsAll('.js-tabs').length) this.tabs();
+
       return this;
     }
 
   }.init();
 
 });
+

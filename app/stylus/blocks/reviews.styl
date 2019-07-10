@@ -1,0 +1,72 @@
+.reviews
+  background-color #f1f7ff
+  padding-bottom 40px
+  text-align center
+  &__top
+    display flex
+    align-items center
+    justify-content space-between
+    padding-left 40px
+    margin-bottom 40px
+  &__title
+    color $color
+    font-size 24px
+    line-height 30px
+    font-weight 500
+    max-width calc(100% - 380px)
+    span
+      color rgba($color, .5)
+      font-size 20px
+      font-weight 400
+  &__write-btn
+    min-width 354px
+  &__items
+    padding 0 40px
+    margin-bottom 40px
+  &__item
+    display flex
+    flex-wrap wrap
+    padding 25px 0
+    border-top 2px solid #fff
+    text-align left
+    &:first-child
+      padding-top 0
+      border-top none
+    &:last-child
+      padding-bottom 0
+    &-left
+      width 164px
+      margin-right 28px
+    &-right
+      width calc(100% - 192px)
+    &-author, &-date
+      line-height 22px
+    &-author
+      color $color
+      margin-bottom 5px
+    &-date
+      color #a8a8a8
+    //&-text
+    &-overimg
+      display block
+      position relative
+      width 80px
+      margin-top 20px
+      overflow hidden
+      z-index 1
+      &:before
+        @extend .before
+        left 0
+        top 0
+        width 100%
+        height 100%
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAY1BMVEUAAAAAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavaJR4m5AAAAIHRSTlMAaNEFvoqm5NvYwLOXWlZOSkQ+Oi8MyJ6AfXRuYSwoF/yuBfAAAACrSURBVCjPtY/bEoMgDEQBAQEtCIj3Wv//KzutcYRMX5uXZHImuxvyrcq2hvG2q0hZW93QuIfVKJevKzn0MAYtMiDlrZD4TbYhV07KX0J1X/h1DAbboCQsnr2lCEzz2U1EwEq43BHwoM0DAo8RPFYExALxDAL6CX+oUCrxa3I6ZftX9q/g6d6zg2Z2qrt06uPIiWdssv4hNO9pSUicZTMunzxAcP2DOPKbOPIGSEIIgrZiJJsAAAAASUVORK5CYII=') no-repeat center rgba(#fff, .7)
+        opacity 0
+        transition opacity .4s
+        z-index 1
+      &:hover
+        &:before
+          opacity 1
+    &-img
+      max-width 100%
+      max-height 100%

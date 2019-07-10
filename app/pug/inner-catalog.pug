@@ -1,0 +1,120 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Каталог";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Каталог'])
+  
+  .container
+    h1.main__title #{title}
+
+    +b('section').catalog
+      +e.row
+        +e('aside').aside
+          +e.sticky-over
+            +b.filter
+              +e.item.--range
+                +e('p').item-title Цена
+                +b.range
+                  +e('input')(type="text" data-min="0" data-max="3000000" value="300000;1500000").input.js-range
+                  +e.row
+                    +e('input')(type="text" name="pr_01" id="pr_01" value="30000" placeholder="От").digits.--from.js-digits
+                    +e('input')(type="text" name="pr_02" id="pr_02" value="1500000" placeholder="До").digits.--to.js-digits
+              +e.item
+                +e('select').item-select.select.js-select
+                  option(placeholder) Марка
+                  option ГАЗель
+                  option ГАЗель-NEXT
+              +e.item
+                +e('select').item-select.select.js-select
+                  option(placeholder) Модель
+                  option Модель
+                  option Модель Модель
+                  option Модель Модель Модель
+              +e.item
+                +e('select').item-select.select.js-select
+                  option(placeholder) Надстройки
+                  option Надстройка
+                  option Надстройка2
+                  option Надстройка2 Модель
+              +e.item.--color
+                +e('p').item-title Цвет
+                +e.item-colors
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color01").item-color-input
+                    +e('label')(label="ch_color01" style="background-color: #FFFFFF;").item-color-label
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color02").item-color-input
+                    +e('label')(label="ch_color02" style="background-color: #006AF6;").item-color-label
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color03").item-color-input
+                    +e('label')(label="ch_color03" style="background-color: #FFAE20;").item-color-label
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color04").item-color-input
+                    +e('label')(label="ch_color04" style="background-color: #FF3D3D;").item-color-label
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color05").item-color-input
+                    +e('label')(label="ch_color05" style="background-color: #1F1F1F;").item-color-label
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color06").item-color-input
+                    +e('label')(label="ch_color06" style="background-color: #FFE100;").item-color-label
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color07").item-color-input
+                    +e('label')(label="ch_color07" style="background-color: #16A9FF;").item-color-label
+                  +e.item-color
+                    +e('input')(type="checkbox" id="ch_color08").item-color-input
+                    +e('label')(label="ch_color08" style="background-color: #CDCDCD;").item-color-label
+              +e.item
+                +e('select').item-select.select.js-select
+                  option(placeholder) Пробег
+                  option 0
+                  option до 50000 км
+                  option до 100000 км
+              +e.item
+                +e('select').item-select.select.js-select
+                  option(placeholder) Наличие
+                  option В наличие
+                  option На заказ
+        +e.content
+          +e.cards
+            +card([
+              {
+                state: 'Новый',
+                avail: 412,
+                img: tmpsrc + 'card-auto.jpg',
+                title: 'Бортовой автомобиль с двухрядной кабиной ГАЗель-NEXT',
+                price: '<span>1 195 000</span> руб.'
+              },
+              {
+                state: 'Новый',
+                avail: 112,
+                img: tmpsrc + 'card-auto2.jpg',
+                title: 'Бортовой автомобиль ГАЗель-NEXT',
+                price: '<span>1 080 000</span> руб.'
+              },
+              {
+                state: 'С пробегом',
+                avail: 412,
+                img: tmpsrc + 'card-auto3.jpg',
+                title: 'Изотермические фургоны на базе ГАЗель-NEXT',
+                price: '<span>1 400 000</span> руб.'
+              },
+              {
+                state: 'Новый',
+                avail: 412,
+                img: tmpsrc + 'card-auto4.jpg',
+                title: 'Европлатформы на базе ГАЗель-NEXT',
+                price: '<span>1 600 000</span> руб.'
+              },
+              {
+                state: 'Новый',
+                avail: 112,
+                img: tmpsrc + 'card-auto5.jpg',
+                title: 'Автобус ГАЗель NEXT Citiline',
+                price: '<span>1 630 000</span> руб.'
+              }
+            ])
+

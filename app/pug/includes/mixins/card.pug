@@ -1,0 +1,25 @@
+mixin card(data)
+  each item in data
+    +e.card
+      +e.card-top
+        +e('p').card-state #{item.state}
+        +e('p').card-avail
+          span #{item.avail}
+          |  в наличии
+      +e.card-img
+        +e.card-img-over
+          +e('img')(src=item.img alt="").card-img-item
+      +e.card-info
+        +e('a')(href="#").card-title
+          span #{item.title}
+        +e('ul').card-list
+          +e('li').card-list-item
+            +e('p').card-list-item-title Двигатель
+            +e('p').card-list-item-text бензин, полный привод
+          +e('li').card-list-item
+            +e('p').card-list-item-title Число мест
+            +e('p').card-list-item-text 7
+        +e('p').card-price !{item.price}
+      +e.card-bottom
+        +e('a')(href="#").card-btn.btn.--blue Подробнее
+        +e('a')(href="#").card-btn.btn.--light Купить

@@ -1,0 +1,382 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Бортовой автомобиль с двухрядной кабиной ГАЗель-NEXT";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Каталог', 'Бортовой автомобиль с двухрядной кабиной ГАЗель-NEXT'])
+  
+  .container
+    h1.main__title #{title}
+
+    +b('section').card
+      +e.tabs.js-tabs
+        +e('ul').tabs-nav
+          +e('li').tabs-nav-item
+            +e('button')(data-tabs-nav="01").tabs-nav-button.--active Описание
+          +e('li').tabs-nav-item
+            +e('button')(data-tabs-nav="02").tabs-nav-button Технические характеристики
+        +e('ul').tabs-list
+          +e('li')(data-tabs-item="01").tabs-item.--active 
+            +e.row
+              +e.left
+                +b.gallery
+                  +e.top
+                    .swiper-container.js-gallery-top
+                      .swiper-wrapper
+                        .swiper-slide
+                          +e.top-content
+                            +e.top-overimg
+                              +e('img')(src=tmpsrc+"gallery-top.jpg" alt="").top-img
+                            +b('ul').tooltips
+                              +e('li').item.--bottom(style="left: 34%; top: 24%;")
+                                +e.item-pin
+                                +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
+                              +e('li').item.--right(style="top: 54%; left: 11%;")
+                                +e.item-pin
+                                +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
+                              +e('li').item.--left(style="right: 18%;top: 42%;")
+                                +e.item-pin
+                                +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
+                        .swiper-slide
+                          +e.top-content
+                            +e.top-overimg
+                              +e('img')(src=tmpsrc+"gallery-top2.jpg" alt="").top-img
+                        .swiper-slide
+                          +e.top-content
+                            +e.top-overimg
+                              +e('img')(src=tmpsrc+"gallery-top3.jpg" alt="").top-img
+                        .swiper-slide
+                          +e.top-content
+                            +e.top-overimg
+                              +e('img')(src=tmpsrc+"gallery-top4.jpg" alt="").top-img
+                        .swiper-slide
+                          +e.top-content
+                            +e.top-overimg
+                              +e('img')(src=tmpsrc+"gallery-top5.jpg" alt="").top-img
+                        .swiper-slide
+                          +e.top-content
+                            +e.top-overimg
+                              +e('img')(src=tmpsrc+"gallery-top6.jpg" alt="").top-img
+                  +e.thumbs
+                    .swiper-container.js-gallery-thumbs
+                      .swiper-wrapper
+                        .swiper-slide
+                          +e.thumbs-overimg
+                            +e('img')(src=tmpsrc+"gallery-thumbs.jpg" alt="").thumbs-img
+                        .swiper-slide
+                          +e.thumbs-overimg
+                            +e('img')(src=tmpsrc+"gallery-thumbs2.jpg" alt="").thumbs-img
+                        .swiper-slide
+                          +e.thumbs-overimg
+                            +e('img')(src=tmpsrc+"gallery-thumbs3.jpg" alt="").thumbs-img
+                        .swiper-slide
+                          +e.thumbs-overimg
+                            +e('img')(src=tmpsrc+"gallery-thumbs4.jpg" alt="").thumbs-img
+                        .swiper-slide
+                          +e.thumbs-overimg
+                            +e('img')(src=tmpsrc+"gallery-thumbs5.jpg" alt="").thumbs-img
+                        .swiper-slide
+                          +e.thumbs-overimg
+                            +e('img')(src=tmpsrc+"gallery-thumbs6.jpg" alt="").thumbs-img
+
+                    button(type="button").swiper-button-prev.swiper-button--min
+                    button(type="button").swiper-button-next.swiper-button--min
+
+              +e.right
+                +e('p').price от 1 195 000 
+                  span руб.
+
+                +e('ul').programms
+                  +e('li').programms-item Цена в месяц 
+                    span 3000 руб. 
+                    a(href="#") по программе лизинга 
+                      span от 3,5%
+                  +e('li').programms-item Цена в месяц 
+                    span 2400 руб. 
+                    a(href="#") по кредитной программе 
+                      span от 12,2%
+                
+                +e('ul').btns
+                  +e('li').btns-item
+                    +e('a')(href="#").btns-item-btn.btn.--blue Получить предложение
+                  +e('li').btns-item
+                    +e('a')(href="#").btns-item-btn.btn.--light.--tradein Купить с Trade-IN
+                  +e('li').btns-item
+                    +e('a')(href="#").btns-item-btn.btn.--light.--leasing Рассчитать лизинг
+                  +e('li').btns-item
+                    +e('a')(href="#").btns-item-btn.btn.--light.--credit Рассчитать кредит
+                  +e('li').btns-item
+                    +e('a')(href="#").btns-item-btn.btn.--light.--compare Добавить к сравнению
+                
+                +e('ul').specifications
+                  +e('li').specifications-item
+                    +e('p').specifications-item-title Год выпуска
+                    +e('p').specifications-item-text 2017
+                  +e('li').specifications-item
+                    +e('p').specifications-item-title Привод
+                    +e('p').specifications-item-text 4х4
+                  +e('li').specifications-item
+                    +e('p').specifications-item-title Двигатель
+                    +e('p').specifications-item-text Бензин
+                  +e('li').specifications-item
+                    +e('p').specifications-item-title Кол-во пассажиров
+                    +e('p').specifications-item-text 6
+
+                +e.descr
+                  .wis-content
+                    table
+                      tbody
+                        tr
+                          td Комплектация
+                          td Базовое исполнение(АКП)
+                        tr
+                          td Грузоподъемность
+                          td 2.428 тонн
+                        tr
+                          td Аудио- и информационные системы
+                          td Магнитола 2 DIN с кнопками на руле USB и навигацией
+                        tr
+                          td Приборы освещения
+                          td Ксеноновые + противотуманные
+                        tr
+                          td Комфорт
+                          td Круиз-контроль
+                        tr
+                          td Охранные системы
+                          td Есть
+                        tr
+                          td Интерьер
+                          td Сиденье “Люкс” отопитель, электророзетка
+                          
+                +b('section').reviews
+                  +e.top
+                    +e('p').title Отзывы 
+                      span 18
+                    +e('a')(href="#").write-btn.btn Оставить отзыв
+                  +e.items
+                    +e.item
+                      +e.item-left
+                        +e('p').item-author Глухов А.В.
+                        +e('time').item-date 20 апрель 2019
+                      +e.item-right
+                        +e.item-text
+                          .wis-content
+                            p Значимость этих проблем настолько очевидна, что консультация с широким активом представляет собой интересный эксперимент проверки новых предложений. Идейные соображения высшего порядка, а также рамки и место обучения.
+                        +e('a')(href=tmpsrc+"review.jpg").item-overimg
+                          +e('img')(src=tmpsrc+"review.jpg" alt="").item-img
+                    +e.item
+                      +e.item-left
+                        +e('p').item-author Сидоров Г.И.
+                        +e('time').item-date 19 апрель 2019
+                      +e.item-right
+                        +e.item-text
+                          .wis-content
+                            p Повседневная практика показывает, что консультация с широким активом в значительной степени.
+                    +e.item
+                      +e.item-left
+                        +e('p').item-author Федотов Д.С.
+                        +e('time').item-date 15 апрель 2019
+                      +e.item-right
+                        +e('a')(href=tmpsrc+"review2.jpg").item-overimg
+                          +e('img')(src=tmpsrc+"review2.jpg" alt="").item-img
+                    +e.item
+                      +e.item-left
+                        +e('p').item-author Киселёв А.Р.
+                        +e('time').item-date 10 апрель 2019
+                      +e.item-right
+                        +e.item-text
+                          .wis-content
+                            p Равным образом консультация с широким активом позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. Таким образом новая модель организационной деятельности представляет собой интересный эксперимент проверки позиций.
+                        +e('a')(href=tmpsrc+"review3.jpg").item-overimg
+                          +e('img')(src=tmpsrc+"review3.jpg" alt="").item-img
+                  
+                  +e('a')(href="#").more-btn.btn.--blue Смотреть все отзывы
+
+          +e('li')(data-tabs-item="02").tabs-item
+            .main__center
+              .wis-content
+                table
+                  tbody
+                    tr
+                      td Комплектация
+                      td Базовое исполнение(АКП)
+                    tr
+                      td Грузоподъемность
+                      td 2.428 тонн
+                    tr
+                      td Аудио- и информационные системы
+                      td Магнитола 2 DIN с кнопками на руле USB и навигацией
+                    tr
+                      td Приборы освещения
+                      td Ксеноновые + противотуманные
+                    tr
+                      td Комфорт
+                      td Круиз-контроль
+                    tr
+                      td Охранные системы
+                      td Есть
+                    tr
+                      td Интерьер
+                      td Сиденье “Люкс” отопитель, электророзетка
+
+    +b('section').feedback.--test-drive
+      +e('h2').title.title.--center Пройти test-truck
+      +b('form').form
+        +e.row
+          +e.field
+            +e('input')(type="text" id="inp03" data-req="req").field-input
+            +e('label')(for="inp03").field-label ФИО 
+              span.red *
+          +e.field
+            +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+              option(placeholder) Город
+              option Москва
+              option Санкт-Петербург
+              option Екатеринбург
+              option Челябинск
+          +e.field
+            +e('input')(type="text" id="inp04" data-req="req").field-input.js-phone
+            +e('label')(for="inp04").field-label Номер телефона
+              span.red *
+          +e.field
+            +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+              option(placeholder) Выберите модель
+              option Модель 1
+              option Модель 2
+              option Модель 3
+          +e.field.--date
+            +e('input')(type="text" id="inp05" data-req="req").field-input.js-datepicker
+            +e('label')(for="inp05").field-label Дата
+              span.red *
+          +e.field
+            +e('textarea')(id="text2").field-textarea
+            +e('label')(for="text2").field-label Ваш комментарий
+        +e.row
+          +e('p').agreement Обратите внимание, отправляя данную форму, вы даёте согласие на 
+            a(href="#") обработку персональных данных
+          +e('p').warning 
+            span.red *
+            |  - поля обязательны для заполнения
+        +e.row
+          +e.field.--center
+            +e('button')(type="submit").field-submit.btn.--blue  Отправить заявку
+
+    +b('section').action.--inner
+      +e.row
+        +e.top
+          +e.top-left
+            +e('h2').title.title Акции
+          +e('ul').filter-nav
+            +e('li').filter-nav-item
+              +e('button')(type="button" data-filter-nav="all").filter-nav-btn.--active.js-filter-btn Все
+            +e('li').filter-nav-item
+              +e('button')(type="button" data-filter-nav="02").filter-nav-btn.js-filter-btn Сервис
+            +e('li').filter-nav-item
+              +e('button')(type="button" data-filter-nav="03").filter-nav-btn.js-filter-btn Автомобили
+            +e('li').filter-nav-item
+              +e('button')(type="button" data-filter-nav="04").filter-nav-btn.js-filter-btn Запчасти
+            +e('li').filter-nav-item
+              +e('button')(type="button" data-filter-nav="05").filter-nav-btn.js-filter-btn Спецтехника
+
+          +e.select-wrap
+            select.select.js-select
+              option(placeholder) Все бренды
+              option Все бренды
+              option Какой то бренд
+              option Какой то бренд 2
+
+          +e('a')(href="#").subscr-href.btn.--light Подписаться на рассылку
+          
+        +e.filter-carousel
+          .swiper-container.js-action-swiper
+            .swiper-wrapper
+              .swiper-slide(data-filter-type="02")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">12</span><span>Сентября</span><span>2019</span>', text: 'С другой стороны начало повседневной работы по формированию позиции способствует' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="02")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img2.jpg', title: 'Специальные предложения на ГАЗель БИЗНЕС', date: 'до <span class="date-day">13</span><span>Сентября</span><span>2019</span>', text: 'Не следует, однако забывать, что постоянное информационно-пропагандистское' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="03")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img3.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">13</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="02")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">13</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="03")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">13</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="04")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">15</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="05")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">17</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="05")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">18</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="04")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">28</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+              .swiper-slide(data-filter-type="05")
+                +publ([
+                  {min: true, img: 'static/img/publ/publ-img4.jpg', title: 'Финальные цены на ГАЗель Next в наличии!', date: 'до <span class="date-day">29</span><span>Сентября</span><span>2019</span>', text: 'Таким образом консультация с широким активом влечет за собой процесс' }
+                ])(class="--min")
+          .swiper-button-prev
+          .swiper-button-next
+
+    +b('section').filials.js-filials
+      +e('h2').title.title По вопросам приобритения
+      +e.map.js-map#yaMap(data-center="51.533103, 46.034158")
+      +e.items
+        +e.item(data-coords="51.542906, 45.995009")
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-Лидер
+              +e('address').item-address Саратов, проспект Ленина, 186
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+        +e.item(data-coords="51.590566, 45.991362")
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address ул. Куйбышева, 13
+              +e.item-data
+                a(href="tel:+79045000880") +7 (904) 500-08-80
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+        +e.item(data-coords="51.514610, 45.988703")
+          +e.item-top
+            +e.item-left
+              +e('p').item-title Энгельский филиал АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address Проспект победы, 24
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+    
+      +e.bottom.bottom-row
+        +e('a')(href="#").btn.btn.btn--light Отправить заявку
+        +e('a')(href="#").btn.btn.btn--blue Записаться в сервис
+    
+    .main__center
+      .wis-content
+        p Идейные соображения высшего порядка, а также консультация с широким активом в значительной степени обуславливает создание дальнейших направлений развития. Значимость этих проблем настолько очевидна, что консультация с широким активом требуют от нас анализа модели развития. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции способствует подготовки и реализации форм развития.
+        p С другой стороны реализация намеченных плановых заданий требуют от нас анализа систем массового участия. Задача организации, в особенности же сложившаяся структура организации требуют определения и уточнения новых предложений. Задача организации, в особенности же постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке соответствующий условий активизации.
+        
