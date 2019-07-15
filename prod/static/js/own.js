@@ -506,7 +506,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
         // autoplay: {
-        //   delay: 2000,
+        //   delay: 2,
         //   disableOnInteraction: false,
         // },
         navigation: {
@@ -546,7 +546,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
         autoplay: {
-          delay: 2000,
+          delay: 2,
           disableOnInteraction: false
         },
         navigation: {
@@ -554,7 +554,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           prevEl: '.iann .swiper-button-prev'
         },
         on: {
-          init: function init() {//animInd(2000);
+          init: function init() {//animInd(2);
           },
           transitionStart: function transitionStart() {
             width = 0;
@@ -589,6 +589,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
         thumbs: {
           swiper: galleryThumbs
+        }
+      });
+    },
+    galleryMinSwiper: function galleryMinSwiper() {
+      var galleryMinSwiper = new Swiper('.js-gallery-min-swiper', {
+        spaceBetween: 7,
+        loop: false,
+        slidesPerView: 'auto',
+        navigation: {
+          nextEl: '.gallery-min .swiper-button-next',
+          prevEl: '.gallery-min .swiper-button-prev'
+        }
+      });
+    },
+    historySwiper: function historySwiper() {
+      var historySwiper = new Swiper('.js-history-swiper', {
+        loop: true,
+        speed: 750,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+          nextEl: '.history .swiper-button-next',
+          prevEl: '.history .swiper-button-prev'
         }
       });
     },
@@ -648,9 +671,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
           });
 
-          if (qsAll('.js-filials .filials__item').length) {
-            $.each(qsAll('.js-filials .filials__item'), function (index, currentElement) {
-              myMap.geoObjects.add(new ymaps.Placemark(currentElement.dataset.coords.split(','), {}, {
+          if (window.dataMap != undefined) {
+            $.each(window.dataMap, function (index, currentElement) {
+              myMap.geoObjects.add(new ymaps.Placemark(currentElement.split(','), {}, {
                 iconLayout: 'default#image',
                 iconImageHref: pin,
                 iconImageSize: [23, 31]
@@ -784,8 +807,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             _th.classList.add('card__tabs-nav-button--active');
 
             if (_th.dataset.tabsNav && _th.dataset.tabsNav != '' && qs('.card__tabs-item[data-tabs-item="' + _th.dataset.tabsNav + '"]', getParent(this, 'card__tabs'))) {
-              _self.fadeOut(qs('.card__tabs-item[data-tabs-item]', getParent(_th, 'card__tabs')), 300, function () {
-                _self.fadeIn(qs('.card__tabs-item[data-tabs-item="' + _th.dataset.tabsNav + '"]', getParent(_th, 'card__tabs')), 300);
+              var tabsItem = qs('.card__tabs-item--active[data-tabs-item]', getParent(_th, 'card__tabs'));
+              var tabsNext = qs('.card__tabs-item[data-tabs-item="' + _th.dataset.tabsNav + '"]', getParent(this, 'card__tabs'));
+
+              _self.fadeOut(tabsItem, 300, function () {
+                tabsItem.classList.remove('card__tabs-item--active');
+
+                _self.fadeIn(tabsNext, 300, function () {
+                  tabsNext.classList.add('card__tabs-item--active');
+                });
               });
             }
           }
@@ -794,8 +824,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
       });
     },
+    servicesCompareToggle: function servicesCompareToggle() {
+      var _self = this;
+
+      qsAll('.js-compare').forEach(function (item) {
+        item.addEventListener('click', function (e) {
+          var parents = getParent(this, 'filials__items');
+          this.classList.toggle('active');
+          qsAll('.filials__item-services-wrap', parents).forEach(function (item) {
+            return _self.slideToggle(item, 300);
+          });
+          e.preventDefault();
+        });
+      });
+    },
+    mainLightgallery: function mainLightgallery() {
+      var lg = qsAll('.js-lightgallery');
+      lg.forEach(function (item) {
+        lightGallery(item, {
+          selector: 'a[href]',
+          download: false,
+          hideBarsDelay: 10000
+        });
+      });
+    },
     init: function init() {
       if (qsAll('.js-filter-btn').length) this.filter();
+      if (qsAll('.js-lightgallery').length) this.mainLightgallery();
       if (qs('.js-action-swiper')) this.actionSlider();
       if (qs('.js-burger')) this.burger();
       if (qs('.js-iann-swiper')) this.iannSlider();
@@ -803,7 +858,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (qs('.js-igall-swiper')) this.igallSlider();
       if (qs('.js-irev-swiper')) this.irevSlider();
       if (qs('.js-top-swiper')) this.topSwiper();
+      if (qs('.js-history-swiper')) this.historySwiper();
       if (qs('.js-gallery-top') && qs('.js-gallery-thumbs')) this.gallerySwiper();
+      if (qs('.js-gallery-min-swiper')) this.galleryMinSwiper();
       if (qs('.js-sel-auto')) this.selAuto();
       if (qsAll('.js-tippy').length) this.mainTippy();
       if (qsAll('.js-select').length) this.choicesSelect();
@@ -811,6 +868,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (qsAll('.js-department-toggle').length) this.departmentToggle();
       if (qsAll('.js-range').length) this.range();
       if (qsAll('.js-tabs').length) this.tabs();
+      if (qsAll('.js-compare').length) this.servicesCompareToggle();
       return this;
     }
   }.init();

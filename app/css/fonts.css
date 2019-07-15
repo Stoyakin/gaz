@@ -98,3 +98,13 @@
 	font-style: italic;
 }
 
+@font-face {
+  font-family: 'lg';
+  src: url("../../../../static/fonts/lg/lg.eot");
+  src: url("../../../../static/fonts/lg/lg.eot?#iefix") format("embedded-opentype"),
+  url("../../../../static/fonts/lg/lg.woff") format("woff"),
+  url("../../../../static/fonts/lg/lg.ttf") format("truetype"),
+  url("../../../../static/fonts/lg/lg.svg?#lg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

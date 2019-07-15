@@ -233,6 +233,7 @@ gulp.task('js-vendor', jsVendor(
     'node_modules/swiper/dist/js/swiper.js',
     'node_modules/choices.js/public/assets/scripts/choices.min.js',
     'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
+    'node_modules/lightgallery.js/dist/js/lightgallery.js',
     src.app.js + 'ext/tippy.js',
     //'node_modules/jquery-form-styler/dist/jquery.formstyler.min.js',
     // src.app.js + 'ext/jquery.maskedinput.min.js',

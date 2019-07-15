@@ -1,0 +1,57 @@
+.about
+  margin-bottom 150px
+  padding-top 7px
+  &:last-child
+    margin-bottom 0
+  &__row
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    align-items center
+  &__col
+    width calc(50% - 15px)
+    &:first-child
+      padding-right 115px
+  &__blockqoute
+    display flex
+    align-items center
+    position relative
+    min-height 80px
+    padding-left 34px
+    color #076af2
+    font-size 18px
+    font-weight 500
+    line-height 24px
+    font-style italic
+    margin-top -85px
+    margin-bottom 44px
+    letter-spacing .025em
+    z-index 1
+    @media $bigDesktopMax
+      font-size 14px
+    &:before
+      @extend .before
+      left 0
+      top 0
+      width 110px
+      height 83px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABTCAMAAABJYcK6AAAAeFBMVEUAAADv9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//xlGVOAAAAJ3RSTlMAoFAwQLBggJAf6oT3uQNSqcm1YxuWDisu23XYxZLfenI+iWtHEjsJfmzEAAABgklEQVRo3u2a3U6DQBBGhy20AsXKT0XFQi20vv8bekFMNjLLzERKsc53uenkJCend0DuyRaCtVB4nIP3KdvKxq2Ex57iFCfENYZa6sal5HHzA+cDtcCNC8hjv//hg+IUpzjFKU5xilOc4hSnuKvjynlxoeL+Oc7bILswcRV23Dpw7hka514gxhW/wW2kuAjsZUJcB9Y6Bi4DezWG46pp+rfTGC62D8792/YRwdFqnvrH9RjOIPbfYYATqCnhsh5ui+h4698OYO+MHCeEmsHCUR3UEkRNZ6kZbIfpeP3WQS1yl3JAD06IjmdMxzRqEmYpfDX1mJqIWQpfzbyl+LOVQquJF1NKijNoNXQpIaJjT+LiKUvJr1ZKgul4uZdSdjcs5fj3Skn5pVR0KfSfaN5ScnYpH4gO+Z/oXkrhqzGTl3JcUCnZ5KVUyymluEkplbFXC0tp7eM9WQo+upQCvSNLwUeXYtA7opThiFLEauQ6plFjuJ8D8NUsqJTWcy4GaiXjG54v47fEeaORTywAAAAASUVORK5CYII=') no-repeat center
+      z-index -1
+    &:last-child
+      margin-bottom 0
+  //&__text
+  &__right-over
+    position relative
+  &__cover
+    width calc(100% + 50px)
+    padding-top 67.724%
+    background-size cover
+    background-position 50% 50%
+    background-repeat no-repeat
+    @media $bigDesktopMax
+      padding-top 67.857%
+  &__gallery-href
+    position absolute
+    right -50px
+    bottom 0
+    z-index 1

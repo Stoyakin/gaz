@@ -1,0 +1,9 @@
+mixin services-page(data)
+  +e.row
+    each item in data
+      +e('a')(href="#").item
+        +e('span').item-top
+          +e('span').item-overico
+            +e('img')(src=item.ico alt="").item-ico
+          +e('span').item-title !{item.title}
+        +e('span').item-text #{item.text}

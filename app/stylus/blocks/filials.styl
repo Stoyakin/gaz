@@ -1,4 +1,8 @@
 .filials
+  &--team
+    margin-bottom 143px
+    &:last-child
+      margin-bottom 0
   &__map
     width 100%
     height 500px
@@ -86,6 +90,68 @@
           transition opacity .4s
           &:hover
             opacity .7
+    &-services
+      margin-top 9px
+      border 2px solid #f1f7ff
+      &-btns
+        display flex
+        .filials__item-btn
+          height auto
+          width 50%
+          min-width 50%
+          border none
+          &--record.btn--blue
+            border 3px solid $blueLight
+            &:before
+              width 34px
+              height 34px
+              left 24px
+              background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAeKUk6+RbLb8KovoGyLc4Ku/f2bKOiH5nU00/GHK74coAAAAAqklEQVQ4y+3NWQ6DMBRDUae0lAzMZabe/zIbFCR+kscGej+tIxmJTI6bHmR+K4KRxFR4IwoFHYwgEIwkJBPEZdIiu75S4sXLpMTzDd9EGlko8vEXgjC3Yid7JwosJD9OEhjYedMIAiW/OWkFoS1reMM6JbDROhym0Anh1wI4TVyg4ojT9HGBlisAV6uOCdGQ2TqWlkcGsWaGbDksO6IZkm2lNo1klZkbiP0A+gQYTNE1ODUAAAAASUVORK5CYII=')
+              background-repeat no-repeat
+              @media $bigDesktopMax
+                width 24px
+                height 34px
+                left 19px
+            &:hover
+              border-color #f1f7ff
+              color $blueLight
+              &:before
+                background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAAXVBMVEUAAAAAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAava+Cn9lAAAAHnRSTlMApXjkJOtbLQq++rWiUAbbOCrvycSjjoh+Zz8YdnJur1MYAAAAq0lEQVQ4y+3USQ6DMBBE0QoQAjY285zU/Y8ZoyB5QzcXyF+2ntS7glCV46YHmd+KaCSxlMGoIkERjSAQjSSikUQ0ssjiL0mkjEYSzxdCC1npIiEff6GI8VbsZO1VAUfSek1gYh1Mqwj0/OSkUURh2CAYNpLARuNxmLIQRLgOwGmuBSxnnKa+FujoAPjmnVIQLZm5eTA8GnHVyl+mn9wuDAnJziZbATFbrS3UvgJlGEz+7Q8sAAAAAElFTkSuQmCC')
+      &-wrap
+        display none
+      &-row
+        display flex
+        &:last-child
+          .filials__item-services-left, .filials__item-services-right
+            border-bottom none
+      &-left
+        width 70%
+      &-right
+        position relative
+        width 30%
+        &:after
+          @extend .after
+          left 50%
+          top 50%
+          width 20px
+          height 5px
+          transform translate(-50%,-50%)
+          background-color #a7a7a7
+        &--avail
+          &:after
+            width 18px
+            height 10px
+            border-left 4px solid $blueLight
+            border-bottom 4px solid $blueLight
+            background none
+            transform translate(-50%, -50%) rotate(-45deg)
+      &-left, &-right
+        padding 35px
+        border-right 2px solid #f1f7ff
+        border-bottom 2px solid #f1f7ff
+        color rgba(#1d1f20, .86)
+        &:last-child
+          border-right none
     &-right
       display flex
       flex-direction column
@@ -114,6 +180,21 @@
         transition background .4s
         background-size contain
         z-index 1
+      &--compare
+        &:before
+          width 36px
+          height 36px
+          left 22px
+          background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAh1BMVEUAAAAAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavbzSQWqAAAALHRSTlMAD8HhoDBgblDwPn3695kE5xoKxNIkIGZEJxby283IiXNcEru0sKmRWUw1LPy4pdoAAAGRSURBVDjLlZOJbqswEEVtCKsxSyBJSbN37zv//30PHLssSdX2SMgz1sHiDrKYIjFIMePvkpASpBQ/AeI+D+HKlWc4u3oVPoykF0JbKQBlm5AX4dgsfOrFFY1SaNvU+At31oIRuig0IyIrpW+gwyslT0+UkeGUQR4ISw7YY+MMstjGAXLnLB/xeHWJwCV9xeNx+RWiacm28zldMv41X7FrIvPMpIjaPIYWLcWZZi71p0hNa5oji+67Ej6n0ifJsh/PsW+KkrRb3sinUm42UsqiD81OdAQuCLjIZkQ7+oE8czK7e8KxFLI364lnISoXfoM3ljw2Zt1mVEJRB4Y0YzVIK7I0MHgosWPgOEhHBnYiofSvJOSDlJPY7ZJEeG7UtrJSZL7QVRvKyjTv6GqQKs27MEXZJSj2+HEhLipDjdMpMnURReyzLzq1Ae3D7cTB19BUZraqVw4f8x8cH3pNLYVl28p790622z9cTsdHbIHUcSMl3JDckQ7ehMNdaT3dWM+lQsqEQE4ISKQsJm99w/r30n9nYUB1WsROGQAAAABJRU5ErkJggg==')
+          @media $bigDesktopMax
+            width 26px
+            height 18px
+            left 17px
+        &:hover
+          background-color #F1F7FF
+          color #fff
+          &:before
+            background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAkFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+WABnwAAAAL3RSTlMAEMHhoDDwYD5Q9yb9+eh7cATEmGwK0iEbZlxE8tvNyLKJf0wYFJtzLA27qZFZNfCL41YAAAGdSURBVDjLlZOJcoIwEEATQY5wCQoe9ahHq/Z6//93jTHIoZ22b4ZJdnlm3c0gukgMspf+v6QtqRXt/AL88OLJj+rtAhb1PvKfWtIzvt1laDIb+DzflLnrULhXFLsdygYFjluf5dJC5bmixchKwQco/0rK2xvpyHBM4HUoLK+APXavXyShbQct1c55yYD3uiOoO33X6WV5a6KKSF76c3pJOFW3tgsm+hn1pQmFeWwBJfUMq750OUUqW3yLK0Tp8dWVvvDKy3i2lyBPCfTywbgrjU0iIM31ErISmqFtpJbKJWZEK0Jzb0eTXbNoSwvWZj1e7m8W2+bnDNrSgLkdRDwTGcXQECREjRQRB9f8gEzXbNg20paGlfBInSse40Ya49l0iqdrT4TB7qw0Mf+w3s1JZyb4RB0a6aD4NOlZqjvI1zhhLuQuJmt3lxHvpMhDh3Wu1QqUE3M/cWJHQWUKlZmj482+f8H7TQxOVgrLITo/+u7O0eG/H6dmH1ogqLmTPO7wHkibQYfNQ2naTUzvJCk9TrLDCU/K7q9+YPp36RuWS0Uu0dmMSQAAAABJRU5ErkJggg==')
       &--feedback
         &:before
           width 37px

@@ -230,9 +230,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     },
 
     filter: function filter() {
+
       let allowed = true;
 
       $('.js-filter-btn').on('click', function () {
+
         let _t = $(this),
           data = _t.data('filter-nav'),
           parents = _t.parents('.action'),
@@ -258,9 +260,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         return false;
       });
+
     },
 
     burger: function burger() {
+
       let _th = this,
         $body = document.querySelector('body'),
         nav = document.querySelector('.nav');
@@ -275,6 +279,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
         return false;
       });
+
     },
 
     actionSlider: function actionSlider() {
@@ -296,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         spaceBetween: 28,
         navigation: {
           nextEl: '.action .swiper-button-next',
-          prevEl: '.action .swiper-button-prev',
+          prevEl: '.action .swiper-button-prev'
         },
         breakpoints: {
           992: {
@@ -307,6 +312,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           }
         }
       });
+
     },
 
     choicesSelect: function choicesSelect() {
@@ -317,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           searchEnabled: false,
           itemSelectText: '',
           classNames: {
-            containerOuter: 'choices choices--custom',
+            containerOuter: 'choices choices--custom'
           }
         });
       });
@@ -325,6 +331,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     },
 
     igallSlider: function igallSlider() {
+
       let igallSlider = new Swiper('.js-igall-swiper', {
         loop: true,
         speed: 750,
@@ -332,16 +339,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         spaceBetween: 28,
         navigation: {
           nextEl: '.igall .swiper-button-next',
-          prevEl: '.igall .swiper-button-prev',
+          prevEl: '.igall .swiper-button-prev'
         },
         992: {
           slidesPerView: 1,
           spaceBetween: 0
-        },
+        }
       });
+
     },
 
     irevSlider: function irevSlider() {
+
       let irevSlider = new Swiper('.js-irev-swiper', {
         loop: true,
         speed: 750,
@@ -352,9 +361,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
           prevEl: '.irev .swiper-button-prev',
         }
       });
+
     },
 
     idealerSlider: function idealerSlider() {
+
       let idealerSlider = new Swiper('.js-idealer-swiper', {
         loop: true,
         speed: 750,
@@ -375,6 +386,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           }
         }
       });
+
     },
 
     topSwiper: function topSwiper() {
@@ -391,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
         // autoplay: {
-        //   delay: 2000,
+        //   delay: 2,
         //   disableOnInteraction: false,
         // },
         navigation: {
@@ -399,6 +411,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           prevEl: '.section-top .swiper-button-prev',
         }
       });
+
     },
 
     iannSlider: function iannSlider() {
@@ -431,7 +444,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
         autoplay: {
-          delay: 2000,
+          delay: 2,
           disableOnInteraction: false,
         },
         navigation: {
@@ -440,7 +453,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
         on: {
           init: function () {
-            //animInd(2000);
+            //animInd(2);
           },
           transitionStart: function () {
             width = 0;
@@ -452,6 +465,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           }
         }
       });
+
     },
 
     gallerySwiper: function gallerySwiper() {
@@ -481,7 +495,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
+    galleryMinSwiper: function galleryMinSwiper() {
+
+      const galleryMinSwiper = new Swiper('.js-gallery-min-swiper', {
+        spaceBetween: 7,
+        loop: false,
+        slidesPerView: 'auto',
+        navigation: {
+          nextEl: '.gallery-min .swiper-button-next',
+          prevEl: '.gallery-min .swiper-button-prev',
+        },
+      });
+
+    },
+
+    historySwiper: function historySwiper() {
+
+      let historySwiper = new Swiper('.js-history-swiper', {
+        loop: true,
+        speed: 750,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+          nextEl: '.history .swiper-button-next',
+          prevEl: '.history .swiper-button-prev',
+        }
+      });
+
+    },
+
     selAuto: function selAuto() {
+
       var selAutoFlag = true;
 
       $('.js-sel-auto').on('click', function () {
@@ -507,7 +551,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
           }, 300);
           hrefAuto.attr('href', dataHref);
         }
+
         return false;
+
       });
 
     },
@@ -546,9 +592,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
           });
 
-          if (qsAll('.js-filials .filials__item').length) {
-            $.each(qsAll('.js-filials .filials__item'), function (index, currentElement) {
-              myMap.geoObjects.add(new ymaps.Placemark((currentElement.dataset.coords).split(','), {}, {
+          if (window.dataMap != undefined) {
+            $.each(window.dataMap, function (index, currentElement) {
+              myMap.geoObjects.add(new ymaps.Placemark((currentElement).split(','), {}, {
                 iconLayout: 'default#image',
                 iconImageHref: pin,
                 iconImageSize: [23, 31]
@@ -692,8 +738,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
             qs('.card__tabs-nav-button.card__tabs-nav-button--active').classList.remove('card__tabs-nav-button--active');
             _th.classList.add('card__tabs-nav-button--active');
             if (_th.dataset.tabsNav && _th.dataset.tabsNav != '' && qs('.card__tabs-item[data-tabs-item="'+_th.dataset.tabsNav+'"]', getParent(this, 'card__tabs'))) {
-              _self.fadeOut( qs('.card__tabs-item[data-tabs-item]', getParent(_th, 'card__tabs')), 300, function () {
-                _self.fadeIn(qs('.card__tabs-item[data-tabs-item="'+_th.dataset.tabsNav+'"]', getParent(_th, 'card__tabs')), 300);
+              let tabsItem = qs('.card__tabs-item--active[data-tabs-item]', getParent(_th, 'card__tabs'));
+              let tabsNext = qs('.card__tabs-item[data-tabs-item="'+_th.dataset.tabsNav+'"]', getParent(this, 'card__tabs'));
+              _self.fadeOut(tabsItem, 300, function () {
+                tabsItem.classList.remove('card__tabs-item--active');
+                _self.fadeIn(tabsNext, 300, function () {
+                  tabsNext.classList.add('card__tabs-item--active');
+                });
               });
             }
           }
@@ -703,9 +754,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
+    servicesCompareToggle: function servicesCompareToggle() {
+
+      const _self = this;
+
+      qsAll('.js-compare').forEach((item)=> {
+        item.addEventListener('click', function (e) {
+          let parents = getParent(this, 'filials__items');
+          this.classList.toggle('active');
+          qsAll('.filials__item-services-wrap', parents).forEach((item)=> _self.slideToggle(item, 300));
+          e.preventDefault();
+        });
+      });
+
+    },
+
+    mainLightgallery: function mainLightgallery() {
+
+      const lg = qsAll('.js-lightgallery');
+
+      lg.forEach((item)=> {
+        lightGallery(item, {
+          selector: 'a[href]',
+          download: false,
+          hideBarsDelay: 10000
+        });
+      });
+
+    },
+
     init: function init() {
 
       if (qsAll('.js-filter-btn').length) this.filter();
+
+      if (qsAll('.js-lightgallery').length) this.mainLightgallery();
 
       if (qs('.js-action-swiper')) this.actionSlider();
 
@@ -721,7 +803,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       if (qs('.js-top-swiper')) this.topSwiper();
 
+      if (qs('.js-history-swiper')) this.historySwiper();
+
       if (qs('.js-gallery-top') && qs('.js-gallery-thumbs')) this.gallerySwiper();
+
+      if (qs('.js-gallery-min-swiper')) this.galleryMinSwiper();
 
       if (qs('.js-sel-auto')) this.selAuto();
 
@@ -737,10 +823,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       if (qsAll('.js-tabs').length) this.tabs();
 
+      if (qsAll('.js-compare').length) this.servicesCompareToggle();
+
       return this;
     }
 
   }.init();
 
 });
-

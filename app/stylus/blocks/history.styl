@@ -1,0 +1,161 @@
+.history
+  margin-bottom 142px
+  &:last-child
+    margin-bottom 0
+  &__title
+    margin-bottom 50px
+  &__row
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content space-between
+  &__col
+    width calc(50% - 15px)
+    &:nth-child(2)
+      padding-left 115px
+  &__gallery
+    width calc(100% + 50px)
+    margin-left -50px
+    &-img
+      display block
+      width 100%
+      padding-top 67.724%
+      background-size cover
+      background-position 50% 50%
+      background-repeat no-repeat
+  //&__text
+  &__raiting
+    position relative
+    margin-top 44px
+    max-width 249px
+    background-color #076af2
+    padding 17px 32px 20px
+    overflow hidden
+    z-index 1
+    &:after
+      @extend .after
+      width 96px
+      height 91px
+      top 6px
+      right -49px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABbCAMAAAC7+3BkAAAAq1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Nr6iZAAAAOHRSTlMA/AO2RxPew5oJ9fjr5axwYCny7tDIp4dkOy0g2tKRjHtYNBgPBn+hdmlUUUtBOCQM1nMcvJeA4BrAs78AAAPISURBVGjetNXpVuJAEAXgm5CERZawiRDcCCibKCqe+/5PNqTSB2Xq5IxMd76/yY/uqrrVuFAQoFT+fu+jTB2ygxKFfbIfojwHHh1QmonHI2+CsnxSfKIkGxoblKIe0YjqKMMDTx5QgrTBk0YK9575wzOc21FUqxQ7uDakmM0ohnAspqgBNYoYTr21mOmlQNpjpvUGl0YUSxwtKUZwKLliZrrA0WLKzFUCd9oUW4gtRRvOvFBUYFQoXuCIf8uM14XR9Zi59eHGiuIOJ3cUKzgxbzLTD8+ezkxzDiv6uPpSdnTBdVus6JHRg2VHD72Ohh0dWx3u/1cfd64jilHheoquO+M6LuZPbmoDj4ZZnXrBGt6gdjPx8VvJ+r7a4JkY0GKeaVTv1wn+IQyeKk0qw6JHTmlWnoKwqODvpuDaruiZVkxb3sf14oLr32MUiPWRdFs2quDqwhcUVbVlg7VX9O0xwS8lj0Wn9NbAquB2NoNtmA35xW9TiY1VNKf89gVxYC4KQjgQBhFzB+T8NnNLOLFkru3DWFRVYi3EzFUXOJkPKLwtrG09isEcP6QRRWMHS7sGRZTizKtJS78LK92+yegr/jLrUbQ+YOGjRdGbQQmuKPahxYT+Kc1MdxMGYiDshCNJKRCgHOEMV5BAUApS8fs/WaV1pOw2Teuh3++cY3t27f1gQ6tOP7BmIYierrOAhXXVpEOo+fQUfo2FbnUXIBz+1yaO4UtckM/Df9IFFzgaFmHCWLMwjIBEAyiSHCgVgKJMoWJXgRtNUtiVAscqE9Bw96RiD5t9nN/gKyvYg5erVCJGStrwlKouKY1NYpDEnsiijQ0CJqQnkx4S60Mz0hPKLgbbp4RIZ4n50RruON+wYcdZyob0SOW/q51CvIXURGyI4OuxLxqQmgH2x5TIdILUyOQiITAr8KwD8xqvG6wyP6nMNAynQOWj3lKvGenqgHcB7hhNFpyzmES4+5b93dGikb06HXTWcJQr1g9ghbIe0Qtb/I1W2LNeD62AtJUn2NKXcYMh79+Sjo20zGTYxwu2GAzYYhHvySDN8QY6zgrMv6dttmh2r9duky3aqVFSGoMTNOkdlaQPTkZk/xSUgjGCJsFj2cKfHem90cYSceQ5wTjnt0CNxAtb9Fd3criv+ixYFx+gI0tXeirhBAM75JyzQ3D0K+rlGLDDnHTY4nidC/3CpePZQpGKnS39jP5gZgdjRxp6nPO4qW7Y3R6c0wM2pjwU6TX4xyED29PYSJ8QRGKCESv37v3ljGBmyz6nuhdUSK8IRkolvgADjmeucEBs0wAAAABJRU5ErkJggg==') no-repeat center
+      opacity .1
+      z-index -1
+    &:first-child
+      margin-top 0
+    &-title
+      color #fff
+      font-family GothamPro
+      font-size 16px
+      font-weight 500
+      line-height 24px
+      margin-bottom 10px
+    &-source
+      color rgba(#fff, .7)
+      font-size 14px
+      font-weight 400
+      line-height 20px
+      letter-spacing 0.015em
+      a
+        color rgba(#fff, .7)
+        border-bottom 1px solid rgba(#fff, .7)
+        transition border .4s
+        &:hover
+          border-bottom-color transparent
+  .swiper
+    &-ind
+      display flex
+      align-items center
+      position absolute
+      left 50%
+      transform translateX(-50%)
+      bottom 38px
+      user-select none
+      z-index 2
+      @media $bigDesktopMax
+        bottom 26px
+      @media $minDesktopMax
+        left 30px
+        transform none
+      @media $tPortraitMax
+        display none
+      &-number
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-transform uppercase
+        &--prev
+          color #076af2
+        &--next
+          color $color
+      &-line
+        position relative
+        background-color white
+        width 444px
+        height 2px
+        flex-shrink 0
+        margin 0 20px
+        overflow hidden
+        @media $bigDesktopMax
+          width 332px
+        span
+          display block
+          height 2px
+          position absolute
+          left 0
+          top 0
+          background-color $blueLight
+    &-nav
+      display flex
+      align-items center
+      background-color white
+      position absolute
+      bottom 0
+      right 0
+      z-index 2
+      user-select none
+      justify-content flex-end
+      width 393px
+      @media $bigDesktopMax
+        width 306px
+    &-count
+      display flex
+      align-items flex-start
+      @media $bigDesktopMax
+        margin-top 3px
+      &-item
+        color #076af2
+        font-size 60px
+        line-height 52px
+        font-weight 400
+        text-transform uppercase
+        @media $bigDesktopMax
+          font-size 44px
+          line-height 36px
+      &-all
+        position relative
+        color rgba(black, .2)
+        font-size 18px
+        line-height 22px
+        font-weight 400
+        text-transform uppercase
+        margin-left 14px
+        margin-top 2px
+        min-width 26px
+        @media $bigDesktopMax
+          font-size 14px
+          line-height 14px
+        &:before
+          content '/'
+          display block
+          position absolute
+          left -11px
+          top 2px
+          color rgba(black, .2)
+          font-size 18px
+          line-height 18px
+          font-weight 400
+          text-transform uppercase
+          @media $bigDesktopMax
+            font-size 14px
+            line-height 14px

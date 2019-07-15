@@ -1,0 +1,183 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "О компании";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'О компании'])
+  
+  +b('section').section-top
+    .swiper-container.js-top-swiper
+      .swiper-wrapper
+        .swiper-slide
+          +content([
+            {cover: tmpsrc+'top-cover.jpg', date: 'до <span class="date-day">28</span><span>Сентябрь</span><span>2018</span>'}
+          ])
+        .swiper-slide
+          +content([
+            {cover: tmpsrc+'top-cover2.jpg', date: 'до <span class="date-day">29</span><span>Сентябрь</span><span>2018</span>'}
+          ])
+        .swiper-slide
+          +content([
+            {cover: tmpsrc+'top-cover3.jpg', date: 'до <span class="date-day">30</span><span>Сентябрь</span><span>2018</span>'}
+          ])
+      .swiper-nav
+        .swiper-count
+          p.swiper-count-item 01
+          p.swiper-count-all 03
+        .swiper-buttons
+          .swiper-button-prev
+          .swiper-button-next
+
+  .container
+    h1.main__title #{title}
+
+    +b('section').about
+      +e.row
+        +e.col
+          +e('blockqoute').blockqoute Мы любим, что делаем, и делаем то, что любим!
+          +e.text
+            .wis-content
+              p Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям. С другой стороны постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Товарищи! реализация намеченных плановых заданий способствует подготовки и реализации систем массового участия.
+        +e.col
+          +e.right-over
+            +e.cover(style="background-image: url('"+tmpsrc+"about-cover.jpg');")
+            +e('a')(href="#").gallery-href.btn.--light Перейти в галерею
+
+    +b('section').history
+      +e('h2').title.title История компании
+      +e.row
+        +e.col
+          +e.gallery
+            .swiper-container.js-history-swiper
+              .swiper-wrapper
+                - for (var i = 1; i < 5; i++) {
+                  .swiper-slide
+                    +e.gallery-img(style="background-image: url('"+tmpsrc+"history-img"+i+".jpg')")
+                - }
+              .swiper-nav
+                .swiper-count
+                  p.swiper-count-item 01
+                  p.swiper-count-all 04
+                .swiper-buttons
+                  .swiper-button-prev
+                  .swiper-button-next
+        +e.col
+          +e.text
+            .wis-content
+              p 
+                b Возможный заголовок истории
+              p Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям. С другой стороны постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. 
+
+              p Равным образом реализация намеченных плановых заданий способствует подготовки и реализации системы обучения кадров, соответствует насущным потребностям. Товарищи! постоянный количественный рост и сфера нашей активности обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач.
+          +e.raiting
+            +e('p').raiting-title Дилер ГАЗ №1
+            +e('p').raiting-source По мнению сайта 
+              a(href="https://goodcompanies.ru" target="_blank") https://goodcompanies.ru
+
+    +b('section').filials.--team.js-filials
+      +e('h2').title.title Наша команда
+      +e.items
+        +e.item
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-Лидер
+              +e('address').item-address Саратов, проспект Ленина, 186
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+          include includes/blocks/filials-departaments
+        +e.item
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address ул. Куйбышева, 13
+              +e.item-data
+                a(href="tel:+79045000880") +7 (904) 500-08-80
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+          include includes/blocks/filials-departaments
+        +e.item
+          +e.item-top
+            +e.item-left
+              +e('p').item-title Энгельский филиал АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address Проспект победы, 24
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+            +e.item-right
+              +e('a')(href="#").item-btn.--feedback
+              +e('a')(href="#").item-btn.--record
+          include includes/blocks/filials-departaments
+
+    +b('section').idealer
+      +e('h2').title.title Мы — официальный дилер
+      .swiper-container.js-idealer-swiper
+        .swiper-wrapper
+          .swiper-slide
+            +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
+              +e('img')(src="static/img/dealer.png" alt="").item-img
+          .swiper-slide
+            +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
+              +e('img')(src="static/img/dealer2.png" alt="").item-img
+          .swiper-slide
+            +e.item.js-tippy(title="Значимость этих проблем настолько очевидна")
+              +e('img')(src="static/img/dealer3.png" alt="").item-img
+          .swiper-slide
+            +e.item.js-tippy(title="Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития. С другой стороны укрепление и развитие структуры в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что укрепление и развитие структуры.")
+              +e('img')(src="static/img/dealer4.png" alt="").item-img
+          .swiper-slide
+            +e.item.js-tippy(title="Значимость этих проблем настолько очевидна")
+              +e('img')(src="static/img/dealer5.png" alt="").item-img
+
+    +b('section').irev
+      +e.row
+        +e.decor
+          +e.decor-item(style="background-image: url('static/img/irev-decor.jpg');")
+        +e.right
+          +e.top
+            +e('h2').title.title.--white Отзывы наших довольных клиентов
+            +e('a')(href="#").write-href.btn.--light Оставить отзыв
+          +e.carousel
+            +e('time').date
+              +e('span').date-day 28
+              +e('span').date-moth сентябрь
+              +e('span').date-year 2018
+
+            .swiper-container.js-irev-swiper
+              .swiper-ind
+                .swiper-ind-number.swiper-ind-number--prev 01
+                .swiper-ind-line
+                  span(style="width: 35%")
+                .swiper-ind-number.swiper-ind-number--next 02
+              .swiper-wrapper
+                .swiper-slide
+                  +e.item
+                    +e.item-top
+                      +e.item-overimg
+                        +e('img')(src="static/img/rev-img.jpg" alt="").item-img
+                      +e.item-top-right
+                        +e('p').item-author Сергей Петрович Сидоров
+                        +e('p').item-company ООО «Шустрые перевозки»
+                    +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
+                    +e('a')(href="#").item-read-href.btn.--blue-border Читать весь отзыв
+                .swiper-slide
+                  +e.item
+                    +e.item-top
+                      +e.item-overimg
+                        +e('img')(src="static/img/rev-img.jpg" alt="").item-img
+                      +e.item-top-right
+                        +e('p').item-author Сергей Петрович Сидоров
+                        +e('p').item-company ООО «Шустрые перевозки»
+                    +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации. С другой стороны укрепление и развитие структуры позволяет оценить значение новых предложений. Задача организации, в особенности же консультация с широким активом способствует подготовки и реализации форм развития. Товарищи! постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации форм развития.
+                .swiper-slide
+                  +e.item
+                    +e('p').item-company ООО «Шустрые перевозки»
+                    +e('p').item-text Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации.
+            .swiper-buttons
+              .swiper-button-prev
+              .swiper-button-next
