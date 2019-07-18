@@ -1,0 +1,266 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Страхование";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Услуги', 'Страхование'])
+
+  .container
+    h1.main__title.main__title--center #{title}
+
+    +b('section').insurance
+      form
+        .swiper-container.js-insurance-swiper
+          .swiper-wrapper
+            .swiper-slide
+              +e.step.--info.--active
+                +e.step-top
+                  +e.step-number
+                  +e('p').step-title Информация об автомобиле
+                +e.step-content
+                  +e.auto-wrap
+                    +e.auto-overimg
+                      +e('img')(src=tmpsrc+"auto-insurance.jpg" alt="").auto-img
+                  +b.form.--gray
+                    script.
+                      window.carsDataArr = [
+                        {
+                          brandId: 01,
+                          brandModel: [
+                            {
+                              idModel: 01,
+                              nameModel: 'Цельнометаллический фургон',
+                              coverModel: 'static/img/next-van.png',
+                              priceModel: [
+                                {
+                                  value: '1500000',
+                                  text: 'Новая модель 4,6Т (7 мест) - 1 500 000 руб',
+                                },
+                                {
+                                  value: '1700000',
+                                  text: 'Новая модель 4,6Т (3 места) - 1 700 000 руб',
+                                },
+                                {
+                                  value: '1900000',
+                                  text: '3,5Т (3 места) - 1 900 000 руб',
+                                }
+                              ]
+                            },
+                            {
+                              idModel: 02,
+                              nameModel: 'Автобус ГАЗель NEXT',
+                              coverModel: 'static/img/next-bus.png',
+                              priceModel: [
+                                {
+                                  value: '1500000',
+                                  text: 'До 14 мест - 1 500 000 руб',
+                                },
+                                {
+                                  value: '1700000',
+                                  text: 'До 17 мест - 1 700 000 руб',
+                                },
+                                {
+                                  value: '1900000',
+                                  text: 'До 22 мест  - 1 900 000 руб',
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          brandId: 02,
+                          brandModel: [
+                            {
+                              idModel: 01,
+                              nameModel: 'Новая модель 10Т',
+                              coverModel: 'static/img/gazon-10t.png',
+                              priceModel: [
+                                {
+                                  value: '2000000',
+                                  text: 'Новая модель 10Т - 2 000 000 руб',
+                                },
+                                {
+                                  value: '2700000',
+                                  text: 'Новая модель 15Т - 2 700 000 руб',
+                                }
+                              ]
+                            },
+                            {
+                              idModel: 02,
+                              nameModel: 'Городской CITY 8,7Т',
+                              coverModel: 'static/img/gazon-city.png',
+                              priceModel: [
+                                {
+                                  value: '1700000',
+                                  text: 'Однорядная кабина - 1 700 000 руб',
+                                },
+                                {
+                                  value: '1900000',
+                                  text: 'Двухрядная кабина - 1 900 000 руб',
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                      ]
+                    +e.row
+                      +e.field
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select.js-car-brand
+                          option(placeholder value="0") Марка
+                          option(value="01") ГАЗель NEXT
+                          option(value="02") Газон
+                    +e.row
+                      +e.field
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select.js-car-model
+                          option(placeholder value="0") Модель
+                    +e.row
+                      +e.field
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select.js-car-cost
+                          option(placeholder value="0") Стоимость комплектации  
+                  +e('button')(type="button").step-btn.btn.--blue.js-next-step Следующий шаг
+                    i.ico-arrow
+            .swiper-slide
+              +e.step.--char
+                +e.step-top
+                  +e.step-number
+                  +e('p').step-title Особенности страхования
+                +e.step-content
+                  +e.step-text
+                    .wis-content
+                      p Укажите все сведения о том, какие виды страхования Вам необходмы
+                  +b.form.--gray
+                    +e.row
+                      +e.field
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+                          option(placeholder value="0") КАСКО
+                          option КАСКО 1
+                          option КАСКО 2
+                          option КАСКО 3
+                    +e.row
+                      +e.field
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+                          option(placeholder value="0") ОСАГО
+                          option ОСАГО 1
+                          option ОСАГО 2
+                          option ОСАГО 3
+                    +e.row
+                      +e('p').row-title Есть ли на машину кредит?
+                      +e.radio-group
+                        +b.radio
+                          +e('input')(type="radio" name="credit" id="rd_01" data-req="req" data-type="radio" data-name-radio="credit").input
+                          +e('label')(for="rd_01").label Да
+                        +b.radio
+                          +e('input')(type="radio" name="credit" id="rd_02" data-req="req" data-type="radio" data-name-radio="credit").input
+                          +e('label')(for="rd_02").label Нет
+                  +e('button')(type="button").step-btn.btn.--blue.js-next-step Следующий шаг
+                    i.ico-arrow
+            .swiper-slide
+              +e.step.--data
+                +e.step-top
+                  +e.step-number
+                  +e('p').step-title Ваши данные
+                +e.step-content
+                  +b.form.--gray
+                    +e.row
+                      +e.field
+                        +e('input')(type="text" id="inp30" data-req="req").field-input
+                        +e('label')(for="inp30").field-label ФИО 
+                          span.red *
+                    +e.row
+                      +e.field
+                        +e('input')(type="text" id="inp31" data-req="req").field-input.js-phone
+                        +e('label')(for="inp31").field-label Номер телефона 
+                          span.red *
+                    +e.row
+                      +e.field
+                        +e('input')(type="email" id="inp32" data-req="req" data-type="email").field-input
+                        +e('label')(for="inp32").field-label Электронная почта 
+                          span.red *
+                    +e.row
+                      +e.field
+                        +e('input')(type="text" id="inp33" data-req="req").field-input
+                        +e('label')(for="inp33").field-label Город 
+                          span.red *
+                    +e.row
+                      +e.field.--half
+                        +e('input')(type="text" id="inp34" data-req="req").field-input.js-digits
+                        +e('label')(for="inp34").field-label Возраст 
+                          span.red *
+                      +e.field.--half
+                        +e('input')(type="text" id="inp35" data-req="req").field-input.js-digits
+                        +e('label')(for="inp35").field-label Стаж 
+                          span.red *
+                    +e.row
+                      +e.field
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+                          option(placeholder value="0") Семейное положение
+                          option Не замужем/не женат
+                          option Разведен/разведена
+                          option Замужем/женат
+                          option Состою в гражданском браке
+                    +e.row
+                      +e.field.--half
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+                          option(placeholder value="0") Дети
+                          option Есть
+                          option Нет
+                      +e.field.--half
+                        +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+                          option(placeholder value="0") Пол
+                          option Мужской
+                          option Женский
+                  +e('button')(type="button").step-btn.btn.--blue.js-next-step Следующий шаг
+                    i.ico-arrow
+            .swiper-slide
+              +e.step.--calc
+                +e.step-top
+                  +e.step-number
+                  +e('p').step-title Расчет цены
+                +e.step-content
+                  +e.step-text 
+                    .wis-content
+                      p Для получения информации о стоимости выбранных Вами услуг нажмите, пожалуйста, кнопку “Получить предложение”.
+                      p Наши специалисты по страхованию в кратчайшие сроки подыщут наиболее привлекательный вариант и свяжутся с Вами.
+                  +b.form.--gray
+                    +e('p').agreement Обратите внимание, отправляя данную форму, вы даёте согласие на 
+                      a(href="#") обработку персональных данных
+                  +e('button')(type="submit").step-btn.--submit.btn.--blue Получить предложение
+
+    .main__center
+      .wis-content
+        p Значимость этих проблем настолько очевидна, что консультация с широким активом представляет собой интересный эксперимент проверки новых предложений. Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют от нас анализа модели развития. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации новых предложений.
+        p Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также постоянный количественный рост и сфера нашей активности позволяет оценить значение соответствующий условий активизации. Задача организации, в особенности же дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации новых предложений.
+    
+    +b('section').feedback
+      +e('h2').title.title.--center Отправьте нам заявку
+      +b('form').form
+        +e.row
+          +e.field.--min
+            +e('input')(type="text" id="inp01" data-req="req").field-input
+            +e('label')(for="inp01").field-label ФИО 
+              span.red *
+          +e.field.--min
+            +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+              option(placeholder value="0") Дилерский-центр
+              option Дилерский-центр 1
+              option Дилерский-центр 2
+              option Дилерский-центр 3
+          +e.field.--min
+            +e('input')(type="text" id="inp02" data-req="req").field-input.js-phone
+            +e('label')(for="inp02").field-label Номер телефона
+              span.red *
+          +e.field
+            +e('textarea')(id="text").field-textarea
+            +e('label')(for="text").field-label Ваш комментарий
+        +e.row
+          +e('p').agreement Обратите внимание, отправляя данную форму, вы даёте согласие на 
+            a(href="#") обработку персональных данных
+          +e('p').warning 
+            span.red *
+            |  - поля обязательны для заполнения
+        +e.row
+          +e.field.--min.--center
+            +e('button')(type="submit").field-submit.btn.--blue  Отправить заявку

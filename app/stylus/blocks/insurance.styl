@@ -1,0 +1,140 @@
+.insurance
+  margin-bottom 143px
+  .swiper
+    &-container
+      overflow visible
+    &-wrapper
+      counter-reset myCounter2
+      .insurance__step-top:before
+        content counters(myCounter2, ".", decimal-leading-zero)
+        counter-increment myCounter2
+  &__step
+    position relative
+    user-select none
+    opacity .6
+    transition opacity .4s
+    &:before
+      @extend .before
+      position absolute
+      left 0
+      top 0
+      width 100%
+      height 100%
+      z-index 10000
+    &--active
+      user-select auto
+      opacity 1
+      &:before
+        display none
+        content none
+      .insurance__step
+        &-top
+          background-color $blueLight
+          &:before
+            opacity 0.08
+            color #fff
+          &:after
+            left auto
+            right -51px
+            background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAABWCAMAAABVRl7xAAABUFBMVEUAAAD///////////////8Abfb////+///9/v////////////////////////////////8Acvf////u9v7///////////////////////8Aa/YAbvYAd/f+/v////8AgvgAdPf6/f/+/v/3+/8AjPkAgfj2+v/4+//s9f4AjPk5pvrf7/81pvrO5v663P2Dwfxhs/uezv3b7f6Fw/xntfz///////////////////////////////////////////8AdPcAevcAefcAf/gAi/kAePcAl/kAl/n////0+f4Ag/jN5v5mtfv////o8/6g0P0cnvkAlvnr9P4AkPn////j8P+32/1Tr/vB3/3P5/4+qPojn/qn0v2bzf17vvu52/3H4/2u1v2Px/z///////////////////////////////////////////8Aavb////+3qJEAAAAbnRSTlMA+/n3Cfvz8ePcz76gfGsQBPXp0LGMOyodAfzz8O7r6+vp5ODg393Z19PQz8nIyMjHw8HAvpmQdV5YVUczJRoV+fTo5uLf2tbV1dXOzczLyMjIxsbFxMPBwL++vr27u7q4t7azrKmEZk9KRTgpB/5eBLAAAAHaSURBVFjDtdhnTxtREIVhwDYmFYdUA0lIAiSQQBq99957770M//8b0j07skSR9pXgfn800mrP2bmbZ/ec11fhvMu7fe41v2TeEFNaLfQeGGuQeU5MqiiYgg/A2H8NekvMq3QwhcXA2IYGvSCmLxFMSRIYW9Ggl8RU5QfzJAOM/dOgNmJqZJ4SY1NCZ8TMyDwjxkaFOohZljkkJvUtmPxOYGxLgxqJKSsJJtENjG1q0BExFYXBpJPA2LYGNRNTVRDM10tgbFWDWoipkRnJAmOLQifEzMosAJMrb2LWZPaJKf0elTcwufIGpszLGxjb06AmYio+RuUNjO16eQMzqPL+lATGdry8gRnz8gbGy7uVmHkvb2BsTqidmHUvb2AqZSaJGZdpA+Zz9LCzwNRrzDF4br0J1VwSmGmv0/imJ63aLgbmt29M8U3qi8LdBcyEf+6A8c8qMLUac0C66odMBzBD/kYD8zNKDjADnlBg6qImcANCkAGm3pstvin39ReYv97UNw1a50kI/MQOATB//EsKTLVCcAFM7V3XunghOAdmmO/kHoJTYCqjEGSBqfMNMb7pVwiKMsAs8btZua8RwHgIyJ02Wou6+d256XHv6LkQAONr60P92+D/UK4BdajGWqkgsGwAAAAASUVORK5CYII=')
+        &-title
+          color #fff
+    &-top
+      display flex
+      align-items center
+      justify-content center
+      position relative
+      padding-left 30px
+      width 100%
+      height 86px
+      background-color #f1f7ff
+      margin-bottom 20px
+      transition background .4s
+      &:before
+        position absolute
+        left -8px
+        top 50%
+        display block
+        transform translateY(-50%)
+        color #076af2
+        font-size 72px
+        font-weight 700
+        text-transform uppercase
+        opacity 0.05
+        transition opacity .4s, color .4s
+      &:after
+        content ''
+        display block
+        position absolute
+        top 0
+        left -28px
+        width 51px
+        height 100%
+        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAABWCAMAAABVRl7xAAAA0lBMVEUAAAD////////////3+//+/v/////////////////z+f/4/P/////////////////////x+f/////4/P/5/P/////////////////////v9//w9//w+P/w+P/x+P/x+P/////////////////////+///6/f/7/f/////////////////////x+P/y+f/////2+//9/v/2+v/////////////////////////0+f/9/v/+/v/y+f/////////////////////////////v9/////+SRe9OAAAARHRSTlMA+/fcx8UJ8/Dp1L++fBEE7N/OybuyoI5pKvv59vLu6ubi3tXRzcK3WVM7HRnm4tnOyr6Zh3BHMyXa0MvGwKypYEpFOLrVXbIAAAG8SURBVFjDtdhnT8NADIDh0JEOukP3nhRoSxml7Hn8/7+EFNtCoqqUF6n5/shSzvbZ57k93+Q7/M693W+vSYipEuPigprEHIupEdMehOboAhgLVCemmw5NqgCMBcoTs4yFJuMD42YSqEFM+Sg08SIwLimBzojJiqkQ454EfQJjmZojxo0FbYGxc30jpj2STL0Hxp1IoBtiupnQxBbAWKBbYvqp0KR9YCzQBhjL1GERGJeTQO/AWKaOgfktCWAsU5PEuIo2b2KuxVSJaV0KagJj51ojpjvU5g2MO9XmTUy/pM1bDAqUJ6Yszbvki0GBGsRkrXkDYyUxJ+ZZTIUYK4k7NSRTc8SsxEyJmWq5AtPTn+0Bc6WHCkxHkmfgAxNYkkY37bS07QIwgV0PwGSkuBfArO26A2ao1yow2uZfPWC0J26BebCMBuZRKweY1Z/xCmTnHJi+dRxgklYE0U3Pxl9gElYE0U1nd5yPGqYOZqSWFQEwgd2kwOhs2QRmbZMBn5W/gNFae/GAmYr5AKYsZPKPXWYOzFKKYFTku9kG7GY9GyOAmfFds2Nj0WF35xbf0a3Wagd+cwgivG2AN5QfBUaTcjjwfQ0AAAAASUVORK5CYII=')
+        background-repeat no-repeat
+        background-position 50% 50%
+        background-size 100% 100%
+        transition background .4s
+        z-index 2
+    &-title
+      color #076af2
+      font-size 13px
+      font-weight 500
+      line-height 20px
+      text-transform uppercase
+    &-text
+      margin-bottom 31px
+      padding-top 15px
+      &:last-child
+        margin-bottom 0
+      .wis-content
+        p, ul li, ol li, a
+          font-size 14px
+          line-height 24px
+    &-btn
+      width 100%
+      margin-top 7px
+      .ico-arrow
+        display inline-block
+        vertical-align middle
+        position relative
+        top -1px
+        margin-left 10px
+        width 35px
+        height 12px
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAMBAMAAAAaDRmJAAAAG1BMVEUAAAD////////////////////////////////rTT7CAAAACHRSTlMAW/E3+FBBLkEgIrUAAAAsSURBVAjXY0ABrI4M6IBdQwBDzKgRQ4gZh7IOdJCARQhTIwHjEYownYrpIQAy9hcdgVHp0QAAAABJRU5ErkJggg==') no-repeat center
+        transition background .4s
+      &:hover
+        .ico-arrow
+          background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAMBAMAAAAaDRmJAAAAG1BMVEUAAAAAavYAavYAavYAavYAavYAavYAavYAavaIxLrYAAAACHRSTlMAW/E3+FBBLkEgIrUAAAAsSURBVAjXY0ABrI4M6IBdQwBDzKgRQ4gZh7IOdJCARQhTIwHjEYownYrpIQAy9hcdgVHp0QAAAABJRU5ErkJggg==')
+      &--submit
+        margin-top 29px
+  &__auto
+    &-wrap
+      position relative
+      width 100%
+      padding-top 74.627%
+      border 3px solid #f1f7ff
+      background-color #fff
+      margin-bottom 7px
+    &-overimg
+      position absolute
+      left 0
+      top 0
+      width 100%
+      height 100%
+      display flex
+      justify-content center
+      align-items center
+    &-img
+      max-height 100%
+      height auto
+  .form
+    &__row
+      margin-bottom 7px
+      &:last-child
+        margin-bottom 0
+      &-title
+        margin-top 15px
+    &__radio-group
+      margin-bottom 25px

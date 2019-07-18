@@ -76,11 +76,8 @@
       bottom 22px
       width 48px
       height 48px
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJBAMAAADA7xF7AAAAMFBMVEUAAAAAQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58B+wHKAAAAD3RSTlMAZvtW9erjxZlGOikVDd1W25euAAAAKUlEQVQI12OAgusCDDBwTBnO5A6awGAoCAH9Xgz/YeAfsihCLbIJCHMBfCAScro2ulMAAAAASUVORK5CYII=') no-repeat center white
-      margin-right 15px
-      transition opacity .4s, visibility .4s, margin .4s
-      opacity 0
-      visibility hidden
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAMAAAAFH/x6AAAAM1BMVEUAAADn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/jn7/h9sHmbAAAAEHRSTlMAZvXq48ZZU0Y6KRUN3ZmYPXPLlAAAADRJREFUCNdjQAU8rIwMGICbRYAdU5SLmYmDgYGNERXwCTBxMghgAl4MlfxAldjMJGg7wp0A2LMCWazNc+AAAAAASUVORK5CYII=') no-repeat center #fff
+      transition background .4s
       z-index 1
       @media $bigDesktopMax
         right 14px
@@ -93,7 +90,7 @@
       &:after
         width 100%
       &:before
-        color #19459b
+        color $blue
       .services__item
         &-title
           color #fff
@@ -102,9 +99,7 @@
         &-text
           color rgba(#fff, .86)
       i
-        margin-right 0
-        opacity 1
-        visibility visible
+        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJBAMAAADA7xF7AAAAMFBMVEUAAAAAQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58AQ58B+wHKAAAAD3RSTlMAZvtW9erjxZlGOikVDd1W25euAAAAKUlEQVQI12OAgusCDDBwTBnO5A6awGAoCAH9Xgz/YeAfsihCLbIJCHMBfCAScro2ulMAAAAASUVORK5CYII=')
     &-top
       display flex
       align-items center
@@ -129,11 +124,40 @@
         line-height 17px
         margin auto 0
     &-text
-      color rgba(#1d1f20, .86)
+      color rgba($color, .86)
       font-size 15px
       font-weight 400
       line-height 21px
       transition color .4s
+  //&__groups
+  &__group
+    margin-bottom 17px
+    &:last-child
+      margin-bottom 0
+    &-title
+      position relative
+      padding-bottom 14px
+      margin-bottom 30px
+      color $color
+      font-size 18px
+      font-weight 500
+      line-height 24px
+      letter-spacing .02em
+      @media $bigDesktopMax
+        font-size 14px
+        line-height 18px
+        padding-bottom 12px
+        margin-bottom 20px
+        letter-spacing 0.015em
+      &:after
+        @extend .after
+        left 0
+        bottom 0
+        width 20px
+        height 2px
+        background-color $blueLight
+        @media $bigDesktopMax
+          width 18px
   &--page
     .services__item
       justify-content flex-start

@@ -1,91 +1,84 @@
 .popup
   position relative
   width 100%
-  max-width 474px
+  max-width 670px
+  background-color white
+  padding 50px 70px 70px
   margin 35px auto
-  background-color #fefefe
-  border-radius 4px
-  padding 80px 42px 40px
-  overflow hidden
   z-index 1
-
-  @media $mPortraitMax
-    padding 65px 20px 30px
-
-  &:before
-    @extend .before
-    left 0
-    top 0
-    width 100%
-    height 32px
-    background-color #222
-    z-index -1
-
-  .form
-    &__row
-      margin-bottom 35px
-
-      &:last-child
-        margin-bottom 0
-
-    &__field
-      width 100%
-
-      &-submit
-        width 100%
-
+  &--buy-car
+    max-width 855px
+    .form__field--half
+      margin-bottom 7px
+    .form__row
+      &:first-child
+        margin-bottom 20px
   &__title
-    color #161515
+    position relative
+    color #1d1f20
+    font-family GothamPro
     font-size 30px
     line-height 36px
     font-weight 500
+    letter-spacing 0.025em
+    text-align center
+    padding-bottom 30px
+    margin-bottom 50px
+    &:after
+      @extend .after
+      left 50%
+      transform translateX(-50)
+      bottom 0
+      width 52px
+      height 3px
+      background-color #086af3
+  .form
+    &__field
+      &--center
+        text-align center
+      &-submit
+        max-width 354px
 
-    @media $mPortraitMax
-      font-size 22px
-      line-height 26px
-
-  &__text
-    color #161515
-    font-size 16px
-    line-height 20px
-    font-weight 300
-    margin-top 25px
-
-    @media $mPortraitMax
-      font-size 14px
-      line-height 18px
-
-    b
+  &__car
+    display flex
+    flex-direction column
+    background-color white
+    &-top
+      width 100%
+      border 2px solid #f1f7ff
+      margin-bottom 15px
+    &-char
+      margin-bottom 25px
+    &-overimg
+      display flex
+      align-items center
+      justify-content center
+      width 100%
+      height 203px
+    &-img
+      max-width 95%
+      max-height 95%
+    &-title
+      color #1d1f20
+      font-size 16px
       font-weight 500
-
-  &__content
-    margin-top 40px
-
-    @media $mPortraitMax
-      margin-top 20px
-
-button.mfp-close
-  right 0
-  top 0
-  width 32px
-  height 32px
-  background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALBAMAAABbgmoVAAAAElBMVEUAAACDg4ODg4ODg4ODg4ODg4OEexv6AAAABnRSTlMA/nZzbqylX2kOAAAAOklEQVQI12NwYWBgYHFgUDRgYDBUYGAWYmASZmAAcg0VgBSzKJADBIEBDFAeWE4RKAdRCdYH5EJMAQC6ggTEQPs8pQAAAABJRU5ErkJggg==') no-repeat center
-  cursor pointer
-  font-size 0
-  color transparent
-  opacity 1
-  transition background .4s
-  cursor pointer
-  z-index 1
-
-  &:hover
-    background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALBAMAAABbgmoVAAAAFVBMVEUAAAD///////////////////////9Iz20EAAAABnRSTlMAdnNu+qwSxB1SAAAAOklEQVQI12MwZmBgYDZgEFNgYFATYGBKZGBMYmAActUEgBSTqxMDCIQFMEB5YDkxoBxEJVgfkAsxBQDbzQWhcafI6gAAAABJRU5ErkJggg==')
-
-.mfp
-  &-wrap
-    overflow-x hidden
-    overflow-y auto
-
-  &-bg
-    background #000
-    opacity: .5
+      line-height 21px
+      margin-bottom 20px
+    &-info
+      display flex
+      flex-wrap wrap
+      &-item
+        margin-bottom 20px
+        margin-right 45px
+      &-title, &-data
+        font-size 14px
+        font-weight 400
+        line-height 24px
+      &-title, &-data
+        color rgba(#1d1f20, .5)
+      &-data
+        color #1d1f20
+      &-color
+        display block
+        width 24px
+        height 24px

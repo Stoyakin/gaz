@@ -1,0 +1,122 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Сервис";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Запчасти'])
+  
+  .container
+
+    +b('section').section-top
+      .swiper-container.js-top-swiper
+        .swiper-wrapper
+          .swiper-slide
+            +content([
+              {cover: tmpsrc+'top-cover4.jpg'}
+            ])
+          .swiper-slide
+            +content([
+              {cover: tmpsrc+'top-cover2.jpg'}
+            ])
+          .swiper-slide
+            +content([
+              {cover: tmpsrc+'top-cover3.jpg'}
+            ])
+        .swiper-nav
+          .swiper-count
+            p.swiper-count-item 01
+            p.swiper-count-all 03
+          .swiper-buttons
+            .swiper-button-prev
+            .swiper-button-next
+    
+    .main__center
+      h1.main__title.main__title--center #{title}
+      .wis-content
+        p Значимость этих проблем настолько очевидна, что консультация с широким активом представляет собой интересный эксперимент проверки новых предложений. Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют от нас анализа модели развития.
+        p Повседневная практика показывает, что дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации новых предложений.
+    
+    +b('section').services.--page
+      +services-page([
+        { ico:'static/img/serv-ico/serv-ico13.png', title: 'Развал-схождение', text: 'Компьютерный стенд регулировки развал-схождения колёс с возможностью обслуживания длиннобразных а/м марки ГАЗ-3302, 33106, 3309'},
+        { ico:'static/img/serv-ico/serv-ico14.png', title: 'Диагностика двигателей', text: 'Компьютерная диагностика всех бензиновых и дизельных двигателей автомобилей марки ГАЗ'},
+        { ico:'static/img/serv-ico/serv-ico15.png', title: 'Кузовной участок, покраска', text: 'Участок оборудован специализированным стапелем для восстановления геометрии рам а/м и покрасочной камерой с высотой въездных ворот 3.5 м и длиной 10 м'},
+        { ico:'static/img/serv-ico/serv-ico16.png', title: 'Автофургоны и спецавтомобили', text: 'Изготовление автофургонов, еврофургонов, эвакуаторов и других специализированных надстроек на базе а/м марки ГАЗ'},
+        { ico:'static/img/serv-ico/serv-ico17.png', title: 'Тенты', text: 'Изготовление и ремонт тентов на любые марки а/м и прицепы к ним'},
+        { ico:'static/img/serv-ico/serv-ico18.png', title: 'Эвакуатор на базе ГАЗ-33106 (Валдай)', text: 'Собственный эвакуатор на базе автомобиля ГАЗ-33106 (Валдай) для перевозки ваших автомобилей'},
+        { ico:'static/img/serv-ico/serv-ico19.png', title: 'Удлинение базы, изменение типа ТС', text: 'Удлинение рамы автомобилей марки ГАЗ, изменение типа транспортного средства'},
+        { ico:'static/img/serv-ico/serv-ico20.png', title: 'Рефрижераторное оборудование', text: 'Установка и ремонт рефрижераторного оборудования'}
+      ])
+
+    +b('section').filials.js-filials
+      script.
+        window.dataMap = [ "51.542906, 45.995009", "51.590566, 45.991362", "51.514610, 45.988703" ];
+      +e.map.js-map#yaMap(data-center="51.533103, 46.034158")
+      +e.items
+        +e.item
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-Лидер
+              +e('address').item-address Саратов, проспект Ленина, 186
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+          +e.item-services
+            +e.item-services-btns
+              +e('a')(href="#").item-btn.--compare.btn.--light.js-compare Cравнить
+              +e('a')(href="#").item-btn.--record.btn.--blue Записаться
+            +e.item-services-wrap
+              +e.item-services-row
+                +e('p').item-services-left Замена масла
+                +e('p').item-services-right.--avail
+              +e.item-services-row
+                +e('p').item-services-left Диагностика
+                +e('p').item-services-right
+              +e.item-services-row
+                +e('p').item-services-left Проверка ТО
+                +e('p').item-services-right.--avail
+        +e.item
+          +e.item-top
+            +e.item-left
+              +e('p').item-title АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address ул. Куйбышева, 13
+              +e.item-data
+                a(href="tel:+79045000880") +7 (904) 500-08-80
+          +e.item-services
+            +e.item-services-btns
+              +e('a')(href="#").item-btn.--compare.btn.--light.js-compare Cравнить
+              +e('a')(href="#").item-btn.--record.btn.--blue Записаться
+            +e.item-services-wrap
+              +e.item-services-row
+                +e('p').item-services-left Замена масла
+                +e('p').item-services-right
+              +e.item-services-row
+                +e('p').item-services-left Диагностика
+                +e('p').item-services-right.--avail
+              +e.item-services-row
+                +e('p').item-services-left Проверка ТО
+                +e('p').item-services-right.--avail
+        +e.item
+          +e.item-top
+            +e.item-left
+              +e('p').item-title Энгельский филиал АвтоцентрГАЗ-СаратовЮГ
+              +e('address').item-address Проспект победы, 24
+              +e.item-data
+                a(href="tel:+79083741220") +7 (908) 374-12-20
+          +e.item-services
+            +e.item-services-btns
+              +e('a')(href="#").item-btn.--compare.btn.--light.js-compare Cравнить
+              +e('a')(href="#").item-btn.--record.btn.--blue Записаться
+            +e.item-services-wrap
+              +e.item-services-row
+                +e('p').item-services-left Замена масла
+                +e('p').item-services-right.--avail
+              +e.item-services-row
+                +e('p').item-services-left Диагностика
+                +e('p').item-services-right
+              +e.item-services-row
+                +e('p').item-services-left Проверка ТО
+                +e('p').item-services-right
+

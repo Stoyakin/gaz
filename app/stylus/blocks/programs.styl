@@ -1,0 +1,58 @@
+.programs
+  &__title
+    color #1d1f20
+    font-size 30px
+    line-height 36px
+    font-weight 500
+    margin-bottom 45px
+    letter-spacing 0.025em
+  //&__content
+  &__list
+    display flex
+    flex-wrap wrap
+    position relative
+    width 100%
+    margin-top 35px
+    &:first-child
+      margin-top 0
+    &:before
+      @extend .before
+      left -4px
+      top -2px
+      width calc(100% - 2px)
+      height calc(100% - 2px)
+      pointer-events none
+      border 4px solid #fff
+      z-index 1
+    &-item
+      width calc(25% + 2px)
+      border 2px solid whitesmoke
+      margin-left -2px
+      margin-bottom -2px
+      &-href
+        display block
+        padding 25px 20px 20px
+        &:hover
+          .programs__list-item
+            &-title
+              border-bottom-color #076af2
+            &-img
+              filter grayscale(0%)
+              opacity 1
+      &-overimg
+        display flex
+        align-items center
+        height 60px
+        margin-bottom 20px
+      &-img
+        max-height 100%
+        filter grayscale(100%)
+        opacity .7
+        transition filter .4s, opacity .4s
+      &-title
+        color #1d1f20
+        font-size 14px
+        font-weight 400
+        line-height 18px
+        border 2px solid transparent
+        transition border .4s

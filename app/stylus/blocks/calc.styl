@@ -1,0 +1,193 @@
+.calc
+  width 100%
+  max-width 833px
+  margin 80px auto 100px
+  background-color #f1f7ff
+  &:first-child
+    margin-top 0
+  &:last-child
+    margin-bottom 0
+  &__tabs
+    &-nav
+      display flex
+      &-item
+        width 50%
+      &-btn
+        display block
+        width 100%
+        background-color #f1f7ff
+        text-align center
+        color $blueLight
+        font-family GothamPro
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-align center
+        text-transform uppercase
+        white-space nowrap
+        padding 34px 60px 32px
+        letter-spacing 0.025em
+        background-color #fff
+        border none
+        outline none
+        transition background .4s, color .4s
+        user-select none
+        z-index 1
+        &--active
+          color #fff
+          background-color $blueLight
+          pointer-events none
+    &-list
+      position relative
+    &-item
+      display none
+      &--active
+        display block
+  &__content
+    padding 30px 30px 0
+  &__car
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    margin-bottom 33px
+    &-letf, &-right
+      width calc(50% - 3.5px)
+    &-overimg
+      display flex
+      align-items center
+      width 100%
+      height 100%
+      justify-content center
+      background-color #fff
+    &-img
+      max-height 100%
+      height auto
+    &-price
+      width 100%
+      margin-top 38px
+      &-title
+        width 100%
+        color rgba($color, .86)
+        font-size 14px
+        font-weight 400
+        margin-bottom 4px
+      &-field
+        display inline-block
+        vertical-align top
+        position relative
+      &-input
+        display inline-block
+        vertical-align top
+        width 245px
+        height 35px
+        color $blueLight
+        font-family GothamPro
+        font-size 30px
+        line-height 33px
+        font-weight 500
+        padding 0 45px 0 0
+        border none
+        border-bottom 3px dashed $blueLight
+        background none
+        outline none
+  &__item
+    &-row
+      display flex
+      flex-wrap wrap
+      width 100%
+      margin-bottom 37px
+      &:last-child
+        margin-bottom 0
+      &-left, &-right
+        display flex
+        flex-wrap wrap
+        width calc(50% - 3.5px)
+      &-right
+        padding-left 40px
+        .calc__item-calculated
+          width 100%
+          margin-right 0
+      &-title
+        width 100%
+        color rgba($color, .86)
+        font-size 14px
+        font-weight 400
+        margin-bottom 10px
+    &-radiobnts
+      display flex
+      width 100%
+      justify-content space-between
+      flex-wrap wrap
+    &-radio
+      position relative
+      width calc(50% - 3.5px)
+      &-input
+        position absolute
+        left 0
+        top 0
+        opacity 0
+        visibility hidden
+        &:checked ~ label
+          border-color $blueLight
+          color $blueLight
+          &:hover
+            background-color #fff
+            color $blueLight
+      &-label
+        width 100%
+        display flex
+        align-items center
+        justify-content center
+        height 80px
+        background-color #fff
+        border 3px dashed transparent
+        color rgba($color, .8)
+        font-family GothamPro
+        font-size 13px
+        font-weight 500
+        line-height 20px
+        text-transform uppercase
+        transition background .4s, border .4s, color .4s
+        cursor pointer
+        &:hover
+          background-color $blueLight
+          color #fff
+    &-calculated
+      min-width 70px
+      margin-right 70px
+      margin-bottom 40px
+      &-title
+        opacity 0.86
+        color $color
+        font-family GothamPro
+        font-size 14px
+        font-weight 400
+        margin-bottom 5px
+      &-data
+        color $color
+        font-weight 500
+        font-size 18px
+        &--blue
+          color $blueLight
+        span
+          font-size 30px
+
+  .form
+    &__row
+      margin-bottom 7px
+      &:last-child
+        margin-bottom 0
+
+  .range
+    margin-top 30px
+
+  .rub
+    position absolute
+    right 0
+    top 9px
+    color $blueLight
+    font-weight 500
+    font-size 18px
+    line-height 24px
+    pointer-events none
+    z-index 1

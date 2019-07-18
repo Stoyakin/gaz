@@ -1,4 +1,5 @@
 .filials
+  position relative
   &--team
     margin-bottom 143px
     &:last-child
@@ -27,6 +28,25 @@
     @media $tPortraitMax
       width 100%
       margin 0 0 3px
+    &--inside-map
+      position absolute
+      top 50%
+      transform translateY(-50%)
+      right 143px
+      width 546px
+      min-height 275px
+      background-color white
+      box-shadow 0 7px 32px rgba(0, 0, 0, 0.06)
+      z-index 1
+      .filials__item
+        &-top
+          background-color #fff
+        &-left
+          width 100%
+          padding 40px 30px 42px 73px
+        &-services
+          margin-top 0
+          border none
     &-top
       display flex
       flex-wrap wrap

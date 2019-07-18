@@ -1,0 +1,56 @@
++b.popup.--buy-car#buy-car.mfp-hide
+  +e.container
+    +e('h2').title.title Приобрести автомобиль
+    +e.content
+      +e.car
+        +e.car-top
+          +e.car-overimg
+            +e('img')(src="static/img/car-blue.png" alt="").car-img
+        +e.car-char
+          +e('p').car-title Бортовой автомобиль с двухрядной кабиной ГАЗель-NEXT
+          +e('ul').car-info
+            +e('li').car-info-item
+              +e('p').car-info-title Двигатель
+              +e('p').car-info-data бензин, полный привод
+            +e('li').car-info-item
+              +e('p').car-info-title Число мест
+              +e('p').car-info-data 7
+            +e('li').car-info-item
+              +e('p').car-info-title Тип
+              +e('p').car-info-data Микроавтобус
+            +e('li').car-info-item
+              +e('p').car-info-title Цвет
+              +e('p').car-info-data 
+                +e('span').car-info-color(style="background-color: #3ca1e4;")
+      +b('form').form.--gray
+        +e.row
+          +e.field.--half
+            +e('input')(type="text" id="inp-pp14" data-req="req").field-input
+            +e('label')(for="inp-pp14").field-label ФИО 
+              span.red *
+          +e.field.--half
+            +e('input')(type="text" id="inp-pp15" data-req="req").field-input.js-phone
+            +e('label')(for="inp-pp15").field-label Номер телефона 
+              span.red *
+          +e.field.--half
+            +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+              option(placeholder value="0") Выберите город
+              option город 1
+              option город 2
+              option город 3
+          +e.field.--half
+            +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+              option(placeholder value="0") Выберите сервис-центр
+              option сервис-центр 1
+              option сервис-центр 2
+              option сервис-центр 3
+        +e.row
+          +e('p').agreement Обратите внимание, отправляя данную форму, вы даёте согласие на 
+            a(href="#") обработку персональных данных
+          +e('p').warning 
+            span.red *
+            |  - поля обязательны для заполнения
+        +e.row
+          +e.field.--center
+            +e('button')(type="submit").field-submit.btn.--blue Рассчитать кредит / лизинг
+

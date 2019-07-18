@@ -1,0 +1,261 @@
+extends includes/template/base.pug
+
+block variables
+  - var title = "Кредит";
+  - var tmpsrc = 'static/img/';
+
+block main
+
+  +breads(['Главная', 'Услуги', 'Кредит'])
+
+  .container
+    h1.main__title.main__title--center #{title}
+    .main__center
+      .wis-content
+        p Значимость этих проблем настолько очевидна, что консультация с широким активом представляет собой интересный эксперимент проверки новых предложений. Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют от нас анализа модели развития. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации новых предложений.
+        p Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также постоянный количественный рост и сфера нашей активности позволяет оценить значение соответствующий условий активизации. Задача организации, в особенности же дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации новых предложений.
+
+      +b('section').calc.js-calc
+        script.
+          window.calcCarsDataArr = [
+            {
+              idModel: 01,
+              equipments: [
+                {
+                  idEquipment: 01,
+                  nameModel: 'ГАЗель NEXT - Фургон',
+                  coverModel: 'static/img/next-van.png',
+                  priceModel: '1900000',
+                  programm: 'Стандартная'
+                },
+                {  
+                  idEquipment: 02,
+                  nameModel: 'ГАЗель NEXT - Автобус',
+                  coverModel: 'static/img/next-bus.png',
+                  priceModel: '1500000',
+                  programm: 'Стандартная'
+                }
+              ]
+            },
+            {
+              idModel: 02,
+              equipments: [
+                {
+                  idEquipment: 01,
+                  nameModel: 'ГАЗОН - Новая модель 10Т',
+                  coverModel: 'static/img/gazon-10t.png',
+                  priceModel: '2700000',
+                  programm: 'Стандартная'
+                },
+                {
+                  idEquipment: 02,
+                  nameModel: 'ГАЗОН - Городской CITY 8,7Т',
+                  coverModel: 'static/img/gazon-city.png',
+                  priceModel: '1700000',
+                  programm: 'Стандартная'
+                }
+              ]
+            }
+          ]
+
+        +e('ul').tabs-nav
+          +e('li').tabs-nav-item
+            +e('button')(type="button" data-tabs-nav="01").tabs-nav-btn.--active.btn Стандартный кредит
+          +e('li').tabs-nav-item
+            +e('button')(type="button" data-tabs-nav="02").tabs-nav-btn.btn Кредит по программе «Гарант»
+        +e.content
+          +e.car
+            +e.car-letf
+              +e.car-overimg
+                +e('img')(src=tmpsrc+"card-auto.jpg" alt="").car-img
+            +e.car-right
+              +b.form
+                +e.row
+                  +e.field
+                    +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select.js-calc-car-model
+                      option(placeholder value="0") Модель автомобиля
+                      option(value="01") ГАЗель
+                      option(value="02") Газон
+                +e.row
+                  +e.field
+                    +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select.js-calc-car-cost
+                      option(placeholder value="0") Комплектация
+                      option Комплектация 1
+                      option Комплектация 2
+                      option Комплектация 3
+                +e.row
+                  +e.field
+                    +e('input')(type="text" id="calc-inp01" data-req="req" readonly).field-input.js-calc-car-programm
+                    +e('label')(for="calc-inp01").field-label Программа
+            +e.car-price
+              +e('p').car-price-title Стоимость автомобиля
+              +e.car-price-field
+                +e('input')(type="text" value="1 119 000").car-price-input.js-digits.js-calc-car-price
+                span.rub руб.
+          +e('ul').tabs-list
+            +e('li')(data-tabs-item="01").tabs-item.--active
+              +e.item
+                +e.item-row
+                  +e('p').item-row-title Выберите число документов
+                  +e.item-radiobnts
+                    +e.item-radio
+                      +e('input')(type="radio" name="type-doc" id="rd-doc01").item-radio-input
+                      +e('label')(for="rd-doc01").item-radio-label Полный пакет
+                    +e.item-radio
+                      +e('input')(type="radio" name="type-doc" id="rd-doc02").item-radio-input
+                      +e('label')(for="rd-doc02").item-radio-label по 2-м документам
+                +e.item-row
+                  +e('p').item-row-title Первоначальный взнос
+                  +b.range.--have-info
+                    +e('input')(type="text" id="rng_01" data-min="0" data-max="80" value="20" data-postfix="%" data-step="20").input.js-range-single
+                +e.item-row
+                  +e('p').item-row-title Срок кредитования, мес.
+                  +b.range.--have-info
+                    +e('input')(type="text" id="rng_02" value="18" data-value="[12,15,18,24,36,48,60,72]").input.js-range-single
+                +e.item-row
+                  +e.item-row-left
+                    +e.item-calculated
+                      +e('p').item-calculated-title Ставка
+                      +e('p').item-calculated-data.js-calc-percents
+                        span 11
+                        | %
+                    +e.item-calculated
+                      +e('p').item-calculated-title Ежемесячный плятеж
+                      +e('p').item-calculated-data.js-calc-month-pay
+                        span 21 000
+                        |  руб.
+                  +e.item-row-right
+                    +e.item-calculated
+                      +e('p').item-calculated-title Стоимость кредита
+                      +e('p').item-calculated-data.--blue.js-calc-cost
+                        span 1 540 000
+                        |  руб.
+            +e('li')(data-tabs-item="02").tabs-item
+              +e.item
+                +e.item-row
+                  +e('p').item-row-title Первоначальный взнос
+                  +b.range
+                    +e('input')(type="text" id="rng_03" data-min="0" data-max="80" value="20" data-postfix="%" data-step="20").input.js-range-single
+                +e.item-row
+                  +e('p').item-row-title Срок кредитования, мес.
+                  +b.range
+                    +e('input')(type="text" id="rng_04" value="18" data-value="[12,15,18,24,36,48,60,72]").input.js-range-single
+                +e.item-row
+                  +e('p').item-row-title Остаточный платеж
+                  +b.range
+                    +e('input')(type="text" id="rng_05" data-min="10" data-max="50" value="20" data-postfix="%" data-step="10").input.js-range-single
+                +e.item-row
+                  +e.item-row-left
+                    +e.item-calculated
+                      +e('p').item-calculated-title Ставка
+                      +e('p').item-calculated-data.js-calc-percents
+                        span 11
+                        | %
+                    +e.item-calculated
+                      +e('p').item-calculated-title Ежемесячный плятеж
+                      +e('p').item-calculated-data.js-calc-month-pay
+                        span 21 000
+                        |  руб.
+                    +e.item-calculated
+                      +e('p').item-calculated-title Выкупная стоимость автомобиля
+                      +e('p').item-calculated-data.js-calc-month-pay
+                        span 1 610 000
+                        |  руб.
+                  +e.item-row-right
+                    +e.item-calculated
+                      +e('p').item-calculated-title Стоимость кредита
+                      +e('p').item-calculated-data.--blue.js-calc-cost-programm
+                        span 1 320 000
+                        |  руб.
+                    +e.item-calculated
+                      +e('p').item-calculated-title Сумма по стандартной программе
+                      +e('p').item-calculated-data.js-calc-cost
+                        span 1 540 000
+                        |  руб.
+    
+    +b('section').feedback
+      +e('h2').title.title.--center Получите консультацию
+      +b('form').form
+        +e.row
+          +e.field.--min
+            +e('input')(type="text" id="inp01" data-req="req").field-input
+            +e('label')(for="inp01").field-label ФИО 
+              span.red *
+          +e.field.--min
+            +e('select')(data-req="req" data-type="select").field-select.--validate.select.js-select
+              option(placeholder value="0") Выберите дилерский-центр
+              option Дилерский-центр 1
+              option Дилерский-центр 2
+              option Дилерский-центр 3
+          +e.field.--min
+            +e('input')(type="text" id="inp02" data-req="req").field-input.js-phone
+            +e('label')(for="inp02").field-label Номер телефона
+              span.red *
+          +e.field
+            +e('textarea')(id="text").field-textarea
+            +e('label')(for="text").field-label Ваши пожелания
+        +e.row
+          +e('p').agreement Обратите внимание, отправляя данную форму, вы даёте согласие на 
+            a(href="#") обработку персональных данных
+          +e('p').warning 
+            span.red *
+            |  - поля обязательны для заполнения
+        +e.row
+          +e.field.--min.--center
+            +e('button')(type="submit").field-submit.btn.--blue  Отправить заявку
+    
+    .main__center
+    
+      +b('section').programs
+        +e('h2').title.title Вы решили купить автомобиль ГАЗ? Отлично! <br>Посмотрите внимательнее на программы автокредитования.
+        +e.content
+          .wis-content
+            p Наша компания предлагает покупателям приобретение коммерческих автомобилей «ГАЗ» на специальных условиях, цель которых - сделать покупку автомобилей «ГАЗ» еще более доступной и выгодной.
+            p Выгодные и прозрачные условия, квалифицированный и опытный персонал, простая и удобная процедура оформления сделки помогут Вам приобрести автомобиль для бизнеса на приемлемых для Вас условиях и в кратчайший срок непосредственно в Дилерском центре.
+          +e('ul').list
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “Русфинанс Банк”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank2.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “Кредит Европа Банк”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank3.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “Банк ВТБ”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank4.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “Банк Союз”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank5.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “Сетелем Банк”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank6.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “ЮниКредит Банк”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank7.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “Банк Уралсиб”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank8.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “ЛокоБанк”
+            +e('li').list-item
+              +e('a')(href="#").list-item-href
+                +e('span').list-item-overimg
+                  +e('img')(src=tmpsrc+"bank9.png" atl="").list-item-img
+                +e('span').list-item-title Фирменная кредитная программа “СовкомБанк”
+

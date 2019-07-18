@@ -3,6 +3,10 @@
   margin-bottom 24px
   font-size 14px
 
+  &.error
+    .choices__inner
+      border-color #f56767
+
   &:focus
     outline none
 
@@ -120,6 +124,7 @@
     max-width 360px
     text-transform uppercase
     overflow hidden
+    transition border .4s
     @media $bigDesktopMax
       font-size 11px
       max-width 260px
@@ -188,6 +193,9 @@
         overflow auto
         -webkit-overflow-scrolling touch
         will-change scroll-position
+
+        .choices__placeholder
+          display none
 
       .choices__item
         position relative

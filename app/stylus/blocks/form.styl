@@ -8,14 +8,27 @@
       margin-bottom 17px
     &:last-child
       margin-bottom 0
+    &-title
+      color #1d1f20
+      font-size 14px
+      font-weight 400
+      line-height 24px
+      margin-bottom 10px
   &__field
     position relative
     width 100%
     margin 0 3.5px 7px
+    &.error
+      .form__field
+        &-input, &-textarea
+          box-shadow: inset 0 0 0px 3px#f56767;
     &:last-child
       margin-bottom 0
     &--min
       width calc(100%/3 - 7px)
+    &--half
+      width calc(50% - 7px)
+      margin-bottom 0
     &--center, &--min&--center
       margin 0 auto
     &--date
@@ -42,11 +55,15 @@
       background #fff
       outline none
       border none
+      transition box-shadow .4s
+      &[readonly]
+        pointer-events none
+        opacity .7
       @media $bigDesktopMax
         font-size 14px
         line-height 18px
         padding 20px 30px 10px
-      &:focus, &.no-empty
+      &:focus, &.not-empty
         & + .form__field-label
           top 15px
     &-input
@@ -61,7 +78,8 @@
     &-label
       position absolute
       left 40px
-      top 36px
+      /*top 36px*/
+      top 34px
       display inline-block
       max-width calc(100% - 80px)
       font-family GothamPro
@@ -101,6 +119,10 @@
             color #f56767
             font-size 13px
             font-weight 700
+  &__radio-group
+    display flex
+    flex-wrap wrap
+    width 100%
   &__agreement, &__warning
     margin-left 3.5px
   &__agreement
@@ -138,3 +160,10 @@
     background-color #fff
     max-width 100%
     min-width 100%
+
+  &--gray
+    .form__field-input, .form__field-textarea, .choices__inner
+      background-color #f0f7ff
+    .choices.is-open
+      .choices__inner
+        background-color #fff

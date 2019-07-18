@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       for (let form of forms) {
         form.addEventListener('submit', (e) => {
-          //return !_th.checkForm(form) && e.preventDefault()
+          return !_th.checkForm(form) && e.preventDefault()
         })
       }
 
@@ -67,9 +67,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
       return this
     },
 
-    checkForm: function (form) {
+    checkForm: function (form, overSelector) {
       let checkResult = true;
       const warningElems = form.querySelectorAll('.error');
+      const parentElem = overSelector && overSelector != undefined ? overSelector + ' ' : '';
 
       if (warningElems.length) {
         for (let warningElem of warningElems) {
@@ -77,7 +78,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
       }
 
-      for (let elem of form.querySelectorAll('input, textarea, select')) {
+      //for (let elem of form.querySelectorAll('input', 'textarea', 'select')) {
+      for (let elem of form.querySelectorAll(parentElem+'input ,' + parentElem + 'textarea ,' + parentElem + 'select')) {
         if (elem.getAttribute('data-req')) {
           switch (elem.getAttribute('data-type')) {
             case 'tel':
@@ -98,6 +100,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
               if (elem.value.trim() === '') {
                 elem.parentNode.classList.add('error')
                 checkResult = false
+              }
+              break;
+            case 'select':
+              if (elem.value.trim() === '' || elem.value.trim() === '0') {
+                getParent(elem, 'choices').classList.add('error')
+                checkResult = false
+              }
+              break;
+            case 'radio':
+              let countCheckedRadio = 0;
+              qsAll(' [type="radio"][name="' + elem.dataset.nameRadio + '"]').forEach((item)=> { if (item.checked) countCheckedRadio+=1 });
+              if (countCheckedRadio === 0) {
+                checkResult = false
+                qsAll(' [type="radio"][name="' + elem.dataset.nameRadio + '"]').forEach((item)=> item.parentNode.classList.add('error'));
               }
               break;
             default:
@@ -315,21 +331,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
-    choicesSelect: function choicesSelect() {
-
-      qsAll('.js-select').forEach((item) => {
-        new Choices(item, {
-          placeholder: true,
-          searchEnabled: false,
-          itemSelectText: '',
-          classNames: {
-            containerOuter: 'choices choices--custom'
-          }
-        });
-      });
-
-    },
-
     igallSlider: function igallSlider() {
 
       let igallSlider = new Swiper('.js-igall-swiper', {
@@ -356,10 +357,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
         speed: 750,
         slidesPerView: 1,
         spaceBetween: 0,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
         navigation: {
           nextEl: '.irev .swiper-button-next',
           prevEl: '.irev .swiper-button-prev',
-        }
+        },
+        on: {
+          transitionStart: function () {
+            if (this.$el[0].previousElementSibling && qs('.swiper-slide-active', this.$el[0]).dataset.date && qs('.swiper-slide-active', this.$el[0]).dataset.date != '') {
+              this.$el[0].previousElementSibling.innerHTML = qs('.swiper-slide-active', this.$el[0]).dataset.date;
+            }
+          }
+        },
       });
 
     },
@@ -632,7 +644,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         return value <= min ? min : max;
       }
 
-      var rangeInp = qsAll('.js-range');
+      const rangeInp = qsAll('.js-range');
 
       if (rangeInp.length) {
         rangeInp.forEach((item)=> {
@@ -689,42 +701,45 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
 
       }
-      /*
-      var $rangeOne = $(".js-range-one");
-      if ($rangeOne.length) {
-        $rangeOne.each(function () {
-          var _th = $(this),
-            _thMax = parseInt(_th.data('max')),
-            _thMin = parseInt(_th.data('min')),
-            inpFrom = _th.parents('.range').find('.range__input--from');
 
-          var singleSlider = _th.ionRangeSlider({
+    },
+
+    rangeSingle: function rangeSingle() {
+
+      const rangeOne = qsAll('.js-range-single');
+
+      if (rangeOne.length) {
+        rangeOne.forEach((item)=> {
+          let _th = item,
+            _thPar = getParent(_th, 'range'),
+            _thMax = _th.dataset.max ? parseInt(_th.dataset.max) : 100,
+            _thMin = _th.dataset.min ? parseInt(_th.dataset.min) : 0,
+            _thDataValue = _th.dataset.value ? JSON.parse(_th.dataset.value) : [],
+            _thSteps = _th.dataset.step ? parseInt(_th.dataset.step) : 1,
+            _thPostfix = _th.dataset.postfix ? _th.dataset.postfix : '';
+
+          if ( _th.dataset.value ) {
+            _thMax = JSON.parse(_th.dataset.value).indexOf(12);
+            _thMin = JSON.parse(_th.dataset.value).indexOf(72);
+          }
+
+          let singleSlider = $(_th).ionRangeSlider({
             type: "single",
             min: _thMin,
             max: _thMax,
-            keyboard: true
+            grid: true,
+            values: _thDataValue,
+            step: _thSteps,
+            postfix: _thPostfix,
+            onChange: function (data) {
+              console.log(data.from_pretty)
+              console.log(data.from_value)
+            },
           }).data("ionRangeSlider");
-
-          _th.on("change", function () {
-            var $this = $(this),
-              from = $this.data("from");
-            inpFrom.val(from);
-          });
-          var timeout = null;
-          inpFrom.on('change input', function () {
-            var valid_value = getValidFormMinAndMax(inpFrom.val(), _thMin, _thMax);
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-              inpFrom.val(valid_value);
-              singleSlider.update({
-                from: valid_value
-              });
-            }, 500);
-          })
-
         });
+
       }
-      */
+
     },
 
     tabs: function tabs() {
@@ -783,6 +798,201 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     },
 
+    choicesSelect: function choicesSelect() {
+
+      window.choicesArray = [];
+
+      qsAll('.js-select').forEach((item, index) => {
+        item.setAttribute('data-id', index);
+        choicesArray[index] = new Choices(item, {
+          searchEnabled: false,
+          itemSelectText: '',
+          classNames: {
+            containerOuter: 'choices choices--custom'
+          }
+        });
+      });
+
+    },
+
+    insurance: function insurance() {
+
+      const _self = this;
+
+      let insuranceSwiper = new Swiper('.js-insurance-swiper', {
+        loop: false,
+        speed: 750,
+        slidesPerView: 4,
+        spaceBetween: 28,
+        mousewheel: false,
+        grabCursor: false,
+        keyboard: false,
+        simulateTouch: false,
+        allowSwipeToNext: false,
+        allowSwipeToPrev: false,
+        //breakpoints: {}
+      });
+
+      const carModel = qs('.js-car-model'),
+        carCost = qs('.js-car-cost'),
+        imgAuto = qs('.insurance__auto-img');
+
+      if (window.carsDataArr && carModel && carCost) {
+
+        qs('.js-car-brand').addEventListener('change', function (event) {
+
+          let newOPtionsModelHtml = '',
+            carModelId = carModel.dataset.id;
+
+          let idOption = parseInt(event.target.value);
+
+          window.carsDataArr.forEach((item)=> {
+            if (idOption === item.brandId) {
+              let _seflBrandId = item.brandId;
+              newOPtionsModelHtml = '<option placeholder value="0">Модель</option>';
+              item.brandModel.forEach((model, index)=> {
+                newOPtionsModelHtml += '<option value="' + model.idModel + '">'+model.nameModel+'</option>';
+              });
+              window.choicesArray[carModelId].destroy();
+              carModel.innerHTML = newOPtionsModelHtml;
+            }
+          });
+          window.choicesArray[carModelId].presetChoices = [];
+          window.choicesArray[carModelId].init();
+
+        });
+
+        carModel.addEventListener('change', function (event) {
+
+          let newOPtionsPriceHtml = '',
+            carCostId = carCost.dataset.id;
+
+          let valueOption = parseInt(event.target.value);
+
+          window.carsDataArr.forEach((item)=> {
+            if (item.brandId === parseInt(qs('.js-car-brand').value)) {
+              item.brandModel.forEach((itemModel)=> {
+                if (itemModel.idModel === valueOption) {
+                  imgAuto.setAttribute('src', itemModel.coverModel);
+                  newOPtionsPriceHtml = '<option placeholder value="0">Стоимость комплектации</option>';
+                  itemModel.priceModel.forEach((price)=> {
+                    newOPtionsPriceHtml += '<option value="' + price.value + '">'+price.text+'</option>';
+                  });
+                }
+              })
+              window.choicesArray[carCostId].destroy();
+              carCost.innerHTML = newOPtionsPriceHtml;
+            }
+          })
+          window.choicesArray[carCostId].presetChoices = [];
+          window.choicesArray[carCostId].init();
+        });
+
+      }
+
+      qsAll('.js-next-step').forEach((item)=> {
+        item.addEventListener('click', function(e) {
+          const headOver = getParent(this, 'insurance');
+          if (window.gaz.form.checkForm(qs('form', headOver), '.insurance__step--active')) {
+
+            console.log(this);
+            console.log(getParent(this, 'insurance__step--info'));
+
+            if (getParent(this, 'insurance__step--info')) {
+              qs('.insurance__step--char').classList.add('insurance__step--active');
+            }
+
+            if (getParent(this, 'insurance__step--char')) {
+              qs('.insurance__step--data').classList.add('insurance__step--active');
+            }
+
+            if (getParent(this, 'insurance__step--data')) {
+              qs('.insurance__step--calc').classList.add('insurance__step--active');
+            }
+
+            console.log('норм все');
+            insuranceSwiper.slideNext(750);
+          } else {
+            console.log('бага');
+          }
+          e.preventDefault();
+        });
+      });
+
+    },
+
+    calc: function calc() {
+
+      const _self = this;
+
+      if (qsAll('.js-calc .calc__tabs-nav-btn').length) {
+        qsAll('.js-calc .calc__tabs-nav-btn').forEach((item)=> {
+          item.addEventListener('click', function (e) {
+            let _th = this;
+            if (!_th.classList.contains('.calc__tabs-nav-btn--active')) {
+              qs('.calc__tabs-nav-btn.calc__tabs-nav-btn--active').classList.remove('calc__tabs-nav-btn--active');
+              _th.classList.add('calc__tabs-nav-btn--active');
+              if (_th.dataset.tabsNav && _th.dataset.tabsNav != '' && qs('.calc__tabs-item[data-tabs-item="' + _th.dataset.tabsNav + '"]', getParent(this, 'calc'))) {
+                let tabsItem = qs('.calc__tabs-item[data-tabs-item]', getParent(this, 'calc'));
+                let tabsNext = qs('.calc__tabs-item[data-tabs-item="' + _th.dataset.tabsNav + '"]', getParent(this, 'calc'));
+                _self.fadeOut(tabsItem, 300, function () {
+                  tabsItem.classList.remove('calc__tabs-item--active');
+                  _self.fadeIn(tabsNext, 300, function () {
+                    tabsNext.classList.add('calc__tabs-item--active');
+                  });
+                });
+              }
+            }
+            e.preventDefault();
+          });
+        });
+      }
+
+      const selectModel = qs('.js-calc-car-model'),
+        selectCost = qs('.js-calc-car-cost'),
+        programmInput = qs('.js-calc-car-programm'),
+        priceInput = qs('.js-calc-car-price'),
+        carImg = qs('.calc__car-img');
+
+      if (window.calcCarsDataArr && selectModel && selectCost) {
+        selectModel.addEventListener('change', function (event) {
+          let newOPtionsModelHtml = '',
+            selectCostlId = selectCost.dataset.id,
+            valueOption = parseInt(event.target.value);
+          window.calcCarsDataArr.forEach((item)=> {
+            if (valueOption === item.idModel) {
+              newOPtionsModelHtml = '<option placeholder value="0">Модель</option>';
+              item.equipments.forEach((model)=> {
+                newOPtionsModelHtml += '<option value="' + model.idEquipment + '">'+model.nameModel+'</option>';
+              });
+              window.choicesArray[selectCostlId].destroy();
+              selectCost.innerHTML = newOPtionsModelHtml;
+            }
+          });
+          window.choicesArray[selectCostlId].presetChoices = [];
+          window.choicesArray[selectCostlId].init();
+        });
+
+      }
+
+      selectCost.addEventListener('change', function (event) {
+        let valueOption = parseInt(event.target.value);
+        window.calcCarsDataArr.forEach((item)=> {
+          if (item.idModel === parseInt(qs('.js-calc-car-model').value)) {
+            item.equipments.forEach((itemEquipment)=> {
+              if (itemEquipment.idEquipment === valueOption) {
+                programmInput.value = itemEquipment.programm;
+                programmInput.classList.add('not-empty');
+                priceInput.value = itemEquipment.priceModel;
+                carImg.setAttribute('src', itemEquipment.coverModel)
+              }
+            });
+          }
+        })
+      });
+
+    },
+
     init: function init() {
 
       if (qsAll('.js-filter-btn').length) this.filter();
@@ -821,11 +1031,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       if (qsAll('.js-range').length) this.range();
 
+      if (qsAll('.js-range-single').length) this.rangeSingle();
+
       if (qsAll('.js-tabs').length) this.tabs();
 
       if (qsAll('.js-compare').length) this.servicesCompareToggle();
 
+      if (qs('.js-insurance-swiper')) this.insurance();
+
+      if (qs('.js-calc')) this.calc();
+
+      if ($('.js-mfp').length) {
+        $('.js-mfp').magnificPopup({
+          type: 'inline',
+          midClick: true,
+          callbacks: {
+            open: function () {}
+          }
+        });
+      }
+
+      $('.js-close-popup').on('click', function () {
+        $.magnificPopup.close();
+        return false;
+      });
+
       return this;
+
     }
 
   }.init();
