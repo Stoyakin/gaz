@@ -2,6 +2,9 @@
   position relative
   margin 77px 0 100px
   padding-bottom 146px
+  @media $desktopMax1440
+    margin 57px 0 100px
+    padding-bottom 93px
   &:first-child
     margin-top 0
   &:last-child
@@ -15,6 +18,8 @@
       transform translateX(-50%)
       bottom 0
       width 190px
+      @media $desktopMax1440
+        width 126px
     &-button
       &-prev, &-next
         flex-shrink 0
@@ -22,6 +27,9 @@
         width 96px
         height 96px
         border 3px solid #f1f7ff
+        @media $desktopMax1440
+          width 64px
+          height 64px
         &:after
           display none
           content none
@@ -32,6 +40,8 @@
         margin-left -2px
     &-slide
       width 494px
+      @media $desktopMax1440
+        width 360px
       @media (max-width: 555px)
         width calc(100vw - 60px)
       @media $mPortraitMax
@@ -46,8 +56,8 @@
     background-repeat no-repeat
     background-position 50% 50%
     background-size cover
-    opacity .8
+    opacity 1
     transition opacity .4s
     &:hover
-      opacity 1
+      opacity .8
 

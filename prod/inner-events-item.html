@@ -59,7 +59,7 @@
             <main class="main">
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li class="nav__list-item nav__list-item--logo"><a class="nav__list-href" href="#"><img class="nav__list-img" src="../../../static/img/logo-white-min.png" alt="" role="presentation"/></a>
+                        <li class="nav__list-item nav__list-item--logo"><a class="nav__list-href" href="#"><img class="nav__list-img" src="./static/img/logo-white-min.png" alt="" role="presentation"/></a>
                         </li>
                         <li class="nav__list-item"><a class="nav__list-href" href="#"><span class="nav__list-href-overico"><svg version="1.1" id="menu-ico" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 12.5" width="30px" height="18px">
 <g>
@@ -80,7 +80,7 @@
 </g>
 </svg>
 </span><span class="nav__list-href-text">Авто</span></a>
-                            <div class="nav__submenu"><a class="nav__submenu-top"><img class="nav__submenu-top-img" src="../../../static/img/logo-white.png" alt="" role="presentation"/></a>
+                            <div class="nav__submenu"><a class="nav__submenu-top"><img class="nav__submenu-top-img" src="./static/img/logo-white.png" alt="" role="presentation"/></a>
                                 <ul class="nav__sublist">
                                     <li class="nav__subitem"><a class="nav__subhref" href="#">Легкие коммерческие автомобили</a>
                                     </li>
@@ -196,7 +196,7 @@
   </g>
 </svg>
 </span><span class="nav__list-href-text">Услуги</span></a>
-                            <div class="nav__submenu"><a class="nav__submenu-top"><img class="nav__submenu-top-img" src="../../../static/img/logo-white.png" alt="" role="presentation"/></a>
+                            <div class="nav__submenu"><a class="nav__submenu-top"><img class="nav__submenu-top-img" src="./static/img/logo-white.png" alt="" role="presentation"/></a>
                                 <ul class="nav__sublist">
                                     <li class="nav__subitem"><a class="nav__subhref" href="#">Подбор нового авто</a>
                                     </li>
@@ -287,7 +287,7 @@
                     </div>
                 </nav>
                 <section class="section-top">
-                    <div class="section-top__content" style="background-image: url('static/img/top-cover.jpg');"><time class="section-top__date date">до <span class="date-day">26</span><span>Март</span><span>2018</span></time>
+                    <div class="section-top__content" style="background-image: url('static/img/top-cover.jpg');"><time class="section-top__date date"><span class="date-day">26</span><span>Март</span><span>2018</span></time>
                     </div>
                 </section>
                 <div class="container">
@@ -442,9 +442,333 @@
             </footer>
         </div>
         <div class="hidden-block">
-            <!--include popups/popups-mixin-->
+            <div class="popup popup--service-record mfp-hide" id="service-record">
+                <div class="popup__container">
+                    <h2 class="popup__title title">Записаться на сервис
+                    </h2>
+                    <div class="popup__content">
+                        <form class="form form--gray">
+                            <div class="form__row">
+                                <div class="form__field">
+                                    <select class="form__field-select form__field-select--validate select js-select" data-req="req" data-type="select">
+                                        <option placeholder value="0">Выберите сервис-центр</option>
+                                        <option>сервис-центр 1</option>
+                                        <option>сервис-центр 2</option>
+                                        <option>сервис-центр 3</option>
+                                    </select>
+                                </div>
+                                <div class="form__field"><input class="form__field-input" type="text" id="inp-pp01" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp01">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><input class="form__field-input js-phone" type="text" id="inp-pp02" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp02">Номер телефона <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><textarea class="form__field-textarea" id="pp-text"></textarea>
+                                    <label class="form__field-label" for="pp-text">Ваш комментарий 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit">Записаться
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup--leave-feedback mfp-hide" id="leave-feedback">
+                <div class="popup__container">
+                    <h2 class="popup__title title">Оставить отзыв
+                    </h2>
+                    <div class="popup__content">
+                        <form class="form form--gray">
+                            <div class="form__row">
+                                <div class="form__field"><input class="form__field-input" type="text" id="inp-pp03" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp03">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><input class="form__field-input" type="text" id="inp-pp04" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp04">Ваша должность <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><input class="form__field-input js-phone" type="text" id="inp-pp05" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp05">Номер телефона <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><textarea class="form__field-textarea" id="pp-text02"></textarea>
+                                    <label class="form__field-label" for="pp-text02">Ваш комментарий 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit">Оставить отзыв
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup--subscribe mfp-hide" id="subscribe">
+                <div class="popup__container">
+                    <h2 class="popup__title title">Подписаться на рассылку
+                    </h2>
+                    <div class="popup__content">
+                        <form class="form form--gray">
+                            <div class="form__row">
+                                <div class="form__field"><input class="form__field-input" type="text" id="inp-pp06" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp06">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><input class="form__field-input js-phone" type="text" id="inp-pp07" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp07">Номер телефона <span class="red">*</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit">Оформить подписку
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup--feedback mfp-hide" id="feedback">
+                <div class="popup__container">
+                    <h2 class="popup__title title">Обратная связь
+                    </h2>
+                    <div class="popup__content">
+                        <form class="form form--gray">
+                            <div class="form__row">
+                                <div class="form__field"><input class="form__field-input" type="text" id="inp-pp08" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp08">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><input class="form__field-input js-phone" type="text" id="inp-pp09" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp09">Номер телефона <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><textarea class="form__field-textarea" id="pp-text03"></textarea>
+                                    <label class="form__field-label" for="pp-text03">Ваш комментарий 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit">Получить консультацию
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup--order-spare mfp-hide" id="order-spare">
+                <div class="popup__container">
+                    <h2 class="popup__title title">Заказ запасных частей
+                    </h2>
+                    <div class="popup__content">
+                        <form class="form form--gray">
+                            <div class="form__row">
+                                <div class="form__field"><input class="form__field-input" type="text" id="inp-pp10" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp10">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><input class="form__field-input js-phone" type="text" id="inp-pp11" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp11">Номер телефона <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field">
+                                    <select class="form__field-select form__field-select--validate select js-select" data-req="req" data-type="select">
+                                        <option placeholder value="0">Выберите модель</option>
+                                        <option>модель 1</option>
+                                        <option>модель 2</option>
+                                        <option>модель 3</option>
+                                    </select>
+                                </div>
+                                <div class="form__field"><textarea class="form__field-textarea" id="pp-text04"></textarea>
+                                    <label class="form__field-label" for="pp-text04">Ваш комментарий 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit">Рассчитать стоимость
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup--promotion mfp-hide" id="promotion">
+                <div class="popup__container">
+                    <h2 class="popup__title title">Участвовать в акции
+                    </h2>
+                    <div class="popup__content">
+                        <form class="form form--gray">
+                            <div class="form__row">
+                                <div class="form__field"><input class="form__field-input" type="text" id="inp-pp12" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp12">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field"><input class="form__field-input js-phone" type="text" id="inp-pp13" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp13">Номер телефона <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field">
+                                    <select class="form__field-select form__field-select--validate select js-select" data-req="req" data-type="select">
+                                        <option placeholder value="0">Выберите сервис-центр</option>
+                                        <option>сервис-центр 1</option>
+                                        <option>сервис-центр 2</option>
+                                        <option>сервис-центр 3</option>
+                                    </select>
+                                </div>
+                                <div class="form__field"><textarea class="form__field-textarea" id="pp-text04"></textarea>
+                                    <label class="form__field-label" for="pp-text04">Ваш комментарий 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit">Получить предложение
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup--buy-car mfp-hide" id="buy-car">
+                <div class="popup__container">
+                    <h2 class="popup__title title">Приобрести автомобиль
+                    </h2>
+                    <div class="popup__content">
+                        <div class="popup__car">
+                            <div class="popup__car-top">
+                                <div class="popup__car-overimg"><img class="popup__car-img" src="static/img/car-blue.png" alt="" role="presentation"/>
+                                </div>
+                            </div>
+                            <div class="popup__car-char">
+                                <p class="popup__car-title">Бортовой автомобиль с двухрядной кабиной ГАЗель-NEXT
+                                </p>
+                                <ul class="popup__car-info">
+                                    <li class="popup__car-info-item">
+                                        <p class="popup__car-info-title">Двигатель
+                                        </p>
+                                        <p class="popup__car-info-data">бензин, полный привод
+                                        </p>
+                                    </li>
+                                    <li class="popup__car-info-item">
+                                        <p class="popup__car-info-title">Число мест
+                                        </p>
+                                        <p class="popup__car-info-data">7
+                                        </p>
+                                    </li>
+                                    <li class="popup__car-info-item">
+                                        <p class="popup__car-info-title">Тип
+                                        </p>
+                                        <p class="popup__car-info-data">Микроавтобус
+                                        </p>
+                                    </li>
+                                    <li class="popup__car-info-item">
+                                        <p class="popup__car-info-title">Цвет
+                                        </p>
+                                        <p class="popup__car-info-data"> <span class="popup__car-info-color" style="background-color: #3ca1e4;"></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <form class="form form--gray">
+                            <div class="form__row">
+                                <div class="form__field form__field--half"><input class="form__field-input" type="text" id="inp-pp14" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp14">ФИО <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field form__field--half"><input class="form__field-input js-phone" type="text" id="inp-pp15" data-req="req"/>
+                                    <label class="form__field-label" for="inp-pp15">Номер телефона <span class="red">*</span>
+                                    </label>
+                                </div>
+                                <div class="form__field form__field--half">
+                                    <select class="form__field-select form__field-select--validate select js-select" data-req="req" data-type="select">
+                                        <option placeholder value="0">Выберите город</option>
+                                        <option>город 1</option>
+                                        <option>город 2</option>
+                                        <option>город 3</option>
+                                    </select>
+                                </div>
+                                <div class="form__field form__field--half">
+                                    <select class="form__field-select form__field-select--validate select js-select" data-req="req" data-type="select">
+                                        <option placeholder value="0">Выберите сервис-центр</option>
+                                        <option>сервис-центр 1</option>
+                                        <option>сервис-центр 2</option>
+                                        <option>сервис-центр 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <p class="form__agreement">Обратите внимание, отправляя данную форму, вы даёте согласие на <a href="#">обработку персональных данных</a>
+                                </p>
+                                <p class="form__warning"> <span class="red">*</span> - поля обязательны для заполнения
+                                </p>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__field form__field--center">
+                                    <button class="form__field-submit btn btn--blue" type="submit">Рассчитать кредит / лизинг
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <script type="text/javascript" src="static/js/vendor.js"></script>
+        <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
         <script type="text/javascript" src="static/js/own.js"></script>
     </body>
 </html>

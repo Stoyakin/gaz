@@ -31,6 +31,9 @@
             font-size 26px
             line-height 30px
 
+          @media $mPortraitMax
+            min-width 37px
+
         &--next
           font-size 14px
           font-weight 500
@@ -52,6 +55,9 @@
         @media $bigDesktopMax
           width 78px
 
+        @media $mPortraitMax
+          margin 0 10px
+
         span
           display block
           height 2px
@@ -59,7 +65,7 @@
           left 0
           top 0
           background-color $blueLight
-          transition width 7s
+          // transition width 7s
 
     &-buttons
       position absolute
@@ -190,6 +196,9 @@
 
     @media $minDesktopMax
       padding 50px 50px 85px
+
+    @media $mPortraitMax
+      padding 50px 20px 90px
 
   &__item
     &-top

@@ -70,7 +70,7 @@
 
         @media $mPortraitMax
           min-height 60px
-          padding 15px 12px
+          padding 15px 8px
 
         i
           display block
@@ -220,12 +220,13 @@
   &__rigth
     position relative
     position: relative;
-    width calc(25% + (((100vw - 96px) - (100vw - 194px))/2))
-    margin-right calc(((100vw - 194px) - (100vw - 96px))/2)
+    width calc(25% + 49px)
+    margin-right -49px
     z-index 2
 
     @media $bigDesktopMax
-      width calc(26% + (((100vw - 96px) - (100vw - 194px))/2))
+      width calc(26% + 49px)
+      margin-right -30px
 
     @media $minDesktopMax
       order 3

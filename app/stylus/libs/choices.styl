@@ -130,6 +130,9 @@
       max-width 260px
       min-width 193px
       padding 20px 35px 18px 22px
+    @media $mPortraitMax
+      padding-left 20px
+      padding-right 30px
 
     .choices__item
       white-space nowrap
@@ -148,6 +151,10 @@
       display inline-block
       padding 4px 16px 4px 4px
       width 100%
+      @media $mPortraitMax
+        padding 4px 16px 4px 0
+      @media $mPortraitMax
+        width calc(100% - 10px)
 
     &--multiple
       display inline

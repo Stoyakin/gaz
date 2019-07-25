@@ -5,6 +5,8 @@
     padding-left 84px
   @media $minDesktopMax
     padding-left 0
+  @media $mPortraitMax
+    padding-top 40px
   &__center
     max-width 1120px
     margin 0 auto
@@ -13,12 +15,19 @@
     & + .services
       margin-top 100px
       margin-bottom 93px
+      &--page
+        margin-top 76px
+        @media $desktopMax1440
+          margin-top 54px
+          margin-bottom 71px
   &__top
     display flex
     margin-bottom 50px
     align-items flex-start
     @media $bigDesktopMax
       margin-bottom 39px
+    @media $mPortraitMax
+      flex-direction column
     .main__title
       margin-top 17px
       margin-bottom 0
@@ -26,8 +35,14 @@
       @media $bigDesktopMax
         margin-top 14px
         max-width calc(100% - 280px)
+      @media $mPortraitMax
+        max-width inherit
+        margin-top 0
     .main__href
       margin-left auto
+      @media $mPortraitMax
+        margin-left 0
+        margin-top 30px
   &__title
     position relative
     color $color

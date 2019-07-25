@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         _iteratorError = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
+          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+            _iterator["return"]();
           }
         } finally {
           if (_didIteratorError) {
@@ -81,8 +81,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         _iteratorError2 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-            _iterator2.return();
+          if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+            _iterator2["return"]();
           }
         } finally {
           if (_didIteratorError2) {
@@ -115,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         _iteratorError3 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-            _iterator3.return();
+          if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+            _iterator3["return"]();
           }
         } finally {
           if (_didIteratorError3) {
@@ -147,8 +147,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
           _iteratorError4 = err;
         } finally {
           try {
-            if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
-              _iterator4.return();
+            if (!_iteratorNormalCompletion4 && _iterator4["return"] != null) {
+              _iterator4["return"]();
             }
           } finally {
             if (_didIteratorError4) {
@@ -235,8 +235,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         _iteratorError5 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
-            _iterator5.return();
+          if (!_iteratorNormalCompletion5 && _iterator5["return"] != null) {
+            _iterator5["return"]();
           }
         } finally {
           if (_didIteratorError5) {
@@ -263,8 +263,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         _iteratorError6 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
-            _iterator6.return();
+          if (!_iteratorNormalCompletion6 && _iterator6["return"] != null) {
+            _iterator6["return"]();
           }
         } finally {
           if (_didIteratorError6) {
@@ -452,6 +452,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
           prevEl: '.action .swiper-button-prev'
         },
         breakpoints: {
+          480: {
+            slidesPerView: 1
+          },
           992: {
             slidesPerView: point992
           },
@@ -478,6 +481,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
     },
     irevSlider: function irevSlider() {
+      var indEl = document.querySelector('.js-irev-swiper .swiper-ind-line span'),
+          width = 0,
+          timer;
+
+      function animInd(time) {
+        var timeout = time / 100;
+
+        if (width < 101) {
+          width++;
+          indEl.style.width = width + '%';
+          timer = setTimeout(function () {
+            animInd(time);
+          }, timeout);
+        } else {
+          indEl.style.width = '0%';
+        }
+      }
+
       var irevSlider = new Swiper('.js-irev-swiper', {
         loop: true,
         speed: 750,
@@ -486,6 +507,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         effect: 'fade',
         fadeEffect: {
           crossFade: true
+        },
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false
         },
         navigation: {
           nextEl: '.irev .swiper-button-next',
@@ -496,6 +521,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (this.$el[0].previousElementSibling && qs('.swiper-slide-active', this.$el[0]).dataset.date && qs('.swiper-slide-active', this.$el[0]).dataset.date != '') {
               this.$el[0].previousElementSibling.innerHTML = qs('.swiper-slide-active', this.$el[0]).dataset.date;
             }
+
+            width = 0;
+            indEl.style.width = '0%';
+            clearTimeout(timer);
+          },
+          transitionEnd: function transitionEnd() {
+            animInd(6000);
+          },
+          slideChange: function slideChange() {
+            var index = this.realIndex + 1;
+            var nextIndex = index + 1 > this.slides.length - this.loopedSlides * 2 ? 1 : index + 1;
+            qs('.js-irev-swiper .swiper-ind-number--prev').textContent = "0".concat(index).slice(-2);
+            qs('.js-irev-swiper .swiper-ind-number--next').textContent = "0".concat(nextIndex).slice(-2);
+          }
+        },
+        breakpoints: {
+          479: {
+            autoHeight: true
           }
         }
       });
@@ -541,6 +584,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         navigation: {
           nextEl: '.section-top .swiper-button-next',
           prevEl: '.section-top .swiper-button-prev'
+        },
+        on: {
+          slideChange: function slideChange() {
+            qs('.js-top-swiper .swiper-count-item').textContent = "0".concat(this.realIndex + 1).slice(-2);
+          }
         }
       });
     },
@@ -575,7 +623,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
         autoplay: {
-          delay: 2,
+          delay: 6000,
           disableOnInteraction: false
         },
         navigation: {
@@ -591,7 +639,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
             clearTimeout(timer);
           },
           transitionEnd: function transitionEnd() {
-            animInd(1625);
+            animInd(6000);
+          },
+          slideChange: function slideChange() {
+            var index = this.realIndex + 1;
+            var nextIndex = index + 1 > this.slides.length - this.loopedSlides * 2 ? 1 : index + 1;
+            qs('.js-iann-swiper .swiper-count-item').textContent = "0".concat(index).slice(-2);
+            qs('.js-iann-swiper .swiper-ind-number--prev').textContent = "0".concat(index).slice(-2);
+            qs('.js-iann-swiper .swiper-ind-number--next').textContent = "0".concat(nextIndex).slice(-2);
           }
         }
       });
@@ -605,7 +660,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         loopedSlides: 5,
         //looped slides should be the same
         watchSlidesVisibility: true,
-        watchSlidesProgress: true
+        watchSlidesProgress: true,
+        breakpoints: {
+          479: {
+            slidesPerView: 3
+          }
+        }
       });
       var galleryTop = new Swiper('.js-gallery-top', {
         spaceBetween: 7,
@@ -641,6 +701,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         navigation: {
           nextEl: '.history .swiper-button-next',
           prevEl: '.history .swiper-button-prev'
+        },
+        on: {
+          slideChange: function slideChange() {
+            qs('.js-history-swiper .swiper-count-item').textContent = "0".concat(this.realIndex + 1).slice(-2);
+          }
         }
       });
     },
@@ -693,7 +758,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           });
           myMap.controls.add('zoomControl', {
             size: 'small',
-            float: 'right',
+            "float": 'right',
             position: {
               top: '198px',
               right: '20px'
@@ -903,8 +968,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
         keyboard: false,
         simulateTouch: false,
         allowSwipeToNext: false,
-        allowSwipeToPrev: false //breakpoints: {}
-
+        allowSwipeToPrev: false,
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            autoHeight: true
+          },
+          992: {
+            slidesPerView: 2,
+            autoHeight: true
+          },
+          1240: {
+            slidesPerView: 3,
+            autoHeight: true
+          }
+        }
       });
       var carModel = qs('.js-car-model'),
           carCost = qs('.js-car-cost'),

@@ -2,8 +2,16 @@
   position relative
   &--team
     margin-bottom 143px
+    @media $bigDesktopMax
+      margin-bottom 92px
     &:last-child
       margin-bottom 0
+  &__title
+    font-size 34px
+    letter-spacing 0
+    @media $bigDesktopMax
+      font-size 24px
+      margin-bottom 34px
   &__map
     width 100%
     height 500px
@@ -38,12 +46,43 @@
       background-color white
       box-shadow 0 7px 32px rgba(0, 0, 0, 0.06)
       z-index 1
+      @media $bigDesktopMax
+        right 91px
+        width 398px
+        min-height 200px
+      @media $tPortraitMax
+        position static
+        top 0
+        transform none
+        right auto
+        width 100%
       .filials__item
         &-top
           background-color #fff
+        &-title
+          @media $bigDesktopMax
+            font-size 10px
+            min-height 29px
+          @media $tPortraitMax
+            font-size 14px
+        &-address
+          @media $bigDesktopMax
+            font-size 10px
+            margin-bottom 17px
+          @media $tPortraitMax
+            font-size 14px
+        &-data
+          @media $bigDesktopMax
+            font-size 12px
+          @media $tPortraitMax
+            font-size 16px
         &-left
           width 100%
           padding 40px 30px 42px 73px
+          @media $bigDesktopMax
+            padding 28px 30px 22px 53px
+          @media $tPortraitMax
+            padding-bottom 42px
         &-services
           margin-top 0
           border none
@@ -60,7 +99,7 @@
     &-title
       position relative
       color $color
-      font-size 16px
+      font-size 14px
       font-weight 500
       line-height 21px
       min-height 42px
@@ -111,15 +150,23 @@
           &:hover
             opacity .7
     &-services
-      margin-top 9px
+      // margin-top 9px
+      margin-top 3px
       border 2px solid #f1f7ff
       &-btns
         display flex
+        @media $mPortraitMax
+          flex-direction column
         .filials__item-btn
           height auto
           width 50%
           min-width 50%
           border none
+          margin-right 3px
+          @media $mPortraitMax
+            width 100%
+          &:last-child
+            margin-right 0
           &--record.btn--blue
             border 3px solid $blueLight
             &:before
@@ -185,7 +232,7 @@
       position relative
       width 100%
       height 50%
-      border-bottom 3px solid #ffffff
+      // border-bottom 3px solid #ffffff
       transition background .4s
       &:hover
         background-color $blueLight
@@ -247,17 +294,25 @@
     @media $bigDesktopMax
       margin-top 26px
       margin-bottom -8px
+    @media $mPortraitMax
+      flex-direction column
+      align-items center
     .btn
       width 100%
       max-width 354px
       margin 0 4px 8px
       @media $bigDesktopMax
         max-width 260px
+      @media $mPortraitMax
+        max-width none
+        width 100%
   &__departments
     margin-top 4px
   &__department
     background-color #f1f7ff
     margin-bottom 4px
+    @media $bigDesktopMax
+      margin-bottom 3px
     &:last-child
       margin-bottom 0
     &-toggle
@@ -276,6 +331,9 @@
       outline none
       user-select none
       transition color .4s
+      @media $bigDesktopMax
+        padding 18px 30px 21px 53px
+        font-size 13px
       span
         position absolute
         left 29px
@@ -284,6 +342,11 @@
         height 22px
         background-color #076af2
         cursor pointer
+        @media $bigDesktopMax
+          left 23px
+          top 19px
+          width 18px
+          height 18px
         &:before, &:after
           content ''
           display block
@@ -294,6 +357,9 @@
           height 2px
           background-color #fff
           transition transform .4s
+          @media $bigDesktopMax
+            left 4px
+            top 8px
         &:after
           transform rotate(90deg)
       &:hover, &.active
@@ -307,9 +373,14 @@
       position relative
       padding 0 30px 19px 71px
       top -9px
+      @media $bigDesktopMax
+        padding 0 30px 14px 53px
     &-shedule
       margin-bottom 18px
       margin-top -5px
+      @media $bigDesktopMax
+        margin-top 0
+        margin-bottom 15px
       &-title
         color $color
         font-size 14px
@@ -317,11 +388,17 @@
         line-height 21px
         margin-bottom 8px
         letter-spacing 0.02em
+        @media $bigDesktopMax
+          letter-spacing 0
+          font-size 13px
+          margin-bottom 4px
       //&-list
       &-item
         display flex
         flex-wrap wrap
         margin-bottom 7px
+        @media $bigDesktopMax
+          margin-bottom 3px
       &-left, &-right
         font-size 13px
         font-weight 400
@@ -331,6 +408,9 @@
         color rgba(#1d1f20, .86)
         width calc(100% - 190px)
         z-index 1
+        @media $bigDesktopMax
+          width calc(100% - 130px)
+          font-size 12px
         span
           display inline-block
           vertical-align top
@@ -352,8 +432,12 @@
         max-width 190px
         padding-left 13px
         color #1d1f20
+        @media $bigDesktopMax
+          max-width 130px
     &-worker
       margin-bottom 35px
+      @media $bigDesktopMax
+        margin-bottom 25px
       &:last-child
         margin-bottom 0
       &-pos
@@ -364,32 +448,52 @@
         font-weight 500
         line-height 21px
         letter-spacing 0.02em
+        @media $bigDesktopMax
+          font-size 13px
+          line-height 16px
+          letter-spacing 0
       &-row
         display flex
         flex-wrap wrap
         align-items center
+        @media $bigDesktopMax
+          align-items flex-start
       &-overimg
         width 110px
         margin-right 29px
         flex-shrink 0
+        @media $bigDesktopMax
+          width 80px
+          margin-right 19px
       //&-img
       &-info
         display flex
         flex-direction column
-        width calc(100% - 140px)
+        width calc(100% - 100px)
+        @media $bigDesktopMax
+          padding-top 9px
         a
           align-self flex-start
       &-name, &-phone, &-email
         font-size 14px
         line-height 20px
+        @media $bigDesktopMax
+          font-size 12px
+          line-height 16px
       &-name, &-phone
         color $color
         letter-spacing .015em
+        @media $bigDesktopMax
+          letter-spacing 0
       &-name
         margin-bottom 10px
+        @media $bigDesktopMax
+          margin-bottom 5px
       &-phone
         margin-bottom 9px
         transition opacity .4s
+        @media $bigDesktopMax
+          margin-bottom 6px
         &:hover
           opacity .7
       &-email
@@ -400,3 +504,8 @@
           border-bottom-color transparent
   & + .main__center
     margin-top 129px
+  &--sevices-item
+    & + .main__center
+      margin-top 72px
+      @media $desktopMax1440
+        margin-top 53px

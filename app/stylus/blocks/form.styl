@@ -14,6 +14,9 @@
       font-weight 400
       line-height 24px
       margin-bottom 10px
+      @media $desktopMax1440
+        font-size 12px
+        line-height 18px
   &__field
     position relative
     width 100%
@@ -26,9 +29,13 @@
       margin-bottom 0
     &--min
       width calc(100%/3 - 7px)
+      @media $mLandscapeMax
+        width calc(100% - 7px)
     &--half
       width calc(50% - 7px)
       margin-bottom 0
+      @media $mLandscapeMax
+        width 100%
     &--center, &--min&--center
       margin 0 auto
     &--date
@@ -63,6 +70,8 @@
         font-size 14px
         line-height 18px
         padding 20px 30px 10px
+      @media $mPortraitMax
+        padding 20px 20px 10px
       &:focus, &.not-empty
         & + .form__field-label
           top 15px
@@ -96,6 +105,9 @@
         max-width calc(100% - 60px)
         font-size 11px
         line-height 15px
+      @media $mPortraitMax
+        left 20px
+        width calc(100% - 40px)
       span
         font-weight 700
     &-submit

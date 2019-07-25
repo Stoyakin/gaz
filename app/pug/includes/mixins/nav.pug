@@ -3,7 +3,7 @@ mixin nav(data)
     +e('ul').list
       +e('li').list-item.--logo
         +e('a')(href="#").list-href
-          +e('img')(src="../../../static/img/logo-white-min.png" alt="").list-img
+          +e('img')(src="./static/img/logo-white-min.png" alt="").list-img
       each item in data
         +e('li').list-item
           +e('a')(href="#").list-href
@@ -28,7 +28,7 @@ mixin nav(data)
           if (item.sublist)
             +e.submenu
               +e('a').submenu-top
-                +e('img')(src="../../../static/img/logo-white.png" alt="").submenu-top-img
+                +e('img')(src="./static/img/logo-white.png" alt="").submenu-top-img
               +e('ul').sublist
                 each item2 in item.sublist
                   +e('li').subitem

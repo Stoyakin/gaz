@@ -3,6 +3,11 @@
   max-width 833px
   margin 80px auto 100px
   background-color #f1f7ff
+  @media $desktopMax1440
+    max-width 614px
+    margin-top 55px
+  @media $mLandscapeMax
+    max-width 100%
   &:first-child
     margin-top 0
   &:last-child
@@ -10,8 +15,11 @@
   &__tabs
     &-nav
       display flex
+      flex-wrap wrap
       &-item
         width 50%
+        @media $mPortraitMax
+          width 100%
       &-btn
         display block
         width 100%
@@ -33,6 +41,11 @@
         transition background .4s, color .4s
         user-select none
         z-index 1
+        @media $desktopMax1440
+          padding 22px 30px
+          font-size 11px
+        @media $mLandscapeMax
+          padding 22px 0
         &--active
           color #fff
           background-color $blueLight
@@ -45,13 +58,22 @@
         display block
   &__content
     padding 30px 30px 0
+    @media $desktopMax1440
+      padding 20px 20px 0
   &__car
     display flex
     flex-wrap wrap
     justify-content space-between
     margin-bottom 33px
+    @media $desktopMax1440
+      margin-bottom 23px
     &-letf, &-right
       width calc(50% - 3.5px)
+      @media $mLandscapeMax
+        width 100%
+    &-right
+      @media $mLandscapeMax
+        margin-top 7px
     &-overimg
       display flex
       align-items center
@@ -65,12 +87,17 @@
     &-price
       width 100%
       margin-top 38px
+      @media $desktopMax1440
+        margin-top 19px
       &-title
         width 100%
         color rgba($color, .86)
         font-size 14px
         font-weight 400
         margin-bottom 4px
+        @media $desktopMax1440
+          font-size 12px
+          margin-bottom 7px
       &-field
         display inline-block
         vertical-align top
@@ -78,32 +105,43 @@
       &-input
         display inline-block
         vertical-align top
-        width 245px
+        width 200px
         height 35px
         color $blueLight
         font-family GothamPro
         font-size 30px
-        line-height 33px
         font-weight 500
         padding 0 45px 0 0
         border none
         border-bottom 3px dashed $blueLight
         background none
         outline none
+        @media $desktopMax1440
+          font-size 22px
+          height 25px
+          border-width 1px
+          width 148px
+          padding-right 35px
   &__item
     &-row
       display flex
       flex-wrap wrap
       width 100%
-      margin-bottom 37px
+      margin-bottom 34px
+      @media $desktopMax1440
+        margin-bottom 25px
       &:last-child
         margin-bottom 0
       &-left, &-right
         display flex
         flex-wrap wrap
         width calc(50% - 3.5px)
+        @media $mLandscapeMax
+          width 100%
       &-right
         padding-left 40px
+        @media $mLandscapeMax
+          padding-left 0
         .calc__item-calculated
           width 100%
           margin-right 0
@@ -112,15 +150,23 @@
         color rgba($color, .86)
         font-size 14px
         font-weight 400
-        margin-bottom 10px
+        margin-bottom 20px
+        @media $desktopMax1440
+          font-size 12px
+          margin-bottom 14px
     &-radiobnts
       display flex
       width 100%
       justify-content space-between
       flex-wrap wrap
+      @media $mPortraitMax
+        flex-direction column
     &-radio
       position relative
       width calc(50% - 3.5px)
+      @media $mPortraitMax
+        width 100%
+        margin-bottom 7px
       &-input
         position absolute
         left 0
@@ -138,7 +184,7 @@
         display flex
         align-items center
         justify-content center
-        height 80px
+        height 86px
         background-color #fff
         border 3px dashed transparent
         color rgba($color, .8)
@@ -147,15 +193,22 @@
         font-weight 500
         line-height 20px
         text-transform uppercase
+        letter-spacing .025em
         transition background .4s, border .4s, color .4s
         cursor pointer
+        @media $desktopMax1440
+          font-size 11px
+          height 64px
         &:hover
           background-color $blueLight
           color #fff
     &-calculated
       min-width 70px
       margin-right 70px
-      margin-bottom 40px
+      margin-bottom 27px
+      @media $mLandscapeMax
+        width 100%
+        margin-right 0
       &-title
         opacity 0.86
         color $color
@@ -167,10 +220,14 @@
         color $color
         font-weight 500
         font-size 18px
+        @media $desktopMax1440
+          font-size 14px
         &--blue
           color $blueLight
         span
           font-size 30px
+          @media $desktopMax1440
+            font-size 22px
 
   .form
     &__row
@@ -180,6 +237,8 @@
 
   .range
     margin-top 30px
+    @media $desktopMax1440
+      margin-top 19px
 
   .rub
     position absolute
@@ -191,3 +250,6 @@
     line-height 24px
     pointer-events none
     z-index 1
+    @media $desktopMax1440
+      font-size 13px
+      top 4px

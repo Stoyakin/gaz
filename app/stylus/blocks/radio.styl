@@ -3,6 +3,8 @@
   display inline-block
   vertical-align top
   margin-right 35px
+  @media $desktopMax1440
+    margin-right 27px
   &:last-child
     margin-right 0
   &.error
@@ -27,6 +29,11 @@
     font-weight 400
     line-height 24px
     cursor pointer
+    @media $desktopMax1440
+      font-size 12px
+      line-height 18px
+      min-height 26px
+      padding-left 45px
     &:before
       @extend .before
       left 0
@@ -34,6 +41,9 @@
       width 36px
       height 36px
       background-color #f0f7ff
+      @media $desktopMax1440
+        width 26px
+        height 26px
     &:after
       @extend .after
       left 11px

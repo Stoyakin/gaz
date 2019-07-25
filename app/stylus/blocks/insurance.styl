@@ -1,5 +1,11 @@
 .insurance
   margin-bottom 143px
+  @media $desktopMax1440
+    margin-bottom 93px
+  @media $minDesktopMax
+    margin-left -30px
+    margin-right -30px
+    padding 0 30px
   .swiper
     &-container
       overflow visible
@@ -50,6 +56,10 @@
       background-color #f1f7ff
       margin-bottom 20px
       transition background .4s
+      @media $desktopMax1440
+        height 64px
+        padding-left 14px
+        margin-bottom 15px
       &:before
         position absolute
         left -8px
@@ -62,6 +72,11 @@
         text-transform uppercase
         opacity 0.05
         transition opacity .4s, color .4s
+        @media $desktopMax1440
+          font-size 54px
+          left -5px
+          /.swiper-slide:first-child &
+            left -23px
       &:after
         content ''
         display block
@@ -82,15 +97,23 @@
       font-weight 500
       line-height 20px
       text-transform uppercase
+      @media $desktopMax1440
+        font-size 11px
     &-text
       margin-bottom 31px
       padding-top 15px
+      @media $desktopMax1440
+        padding-top 9px
+        margin-bottom 18px
       &:last-child
         margin-bottom 0
       .wis-content
         p, ul li, ol li, a
           font-size 14px
           line-height 24px
+          @media $desktopMax1440
+            font-size 12px
+            line-height 18px
     &-btn
       width 100%
       margin-top 7px
@@ -117,6 +140,8 @@
       border 3px solid #f1f7ff
       background-color #fff
       margin-bottom 7px
+      @media $desktopMax1440
+        padding-top 71.627%
     &-overimg
       position absolute
       left 0
@@ -138,3 +163,5 @@
         margin-top 15px
     &__radio-group
       margin-bottom 25px
+      @media $desktopMax1440
+        margin-bottom 15px

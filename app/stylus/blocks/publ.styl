@@ -6,6 +6,10 @@
     width calc(50% - 28px)
     margin-bottom 50px
 
+  @media $mPortraitMax
+    width calc(100% - 28px)
+    margin-bottom 30px
+
   &:hover
     .publ
       &__cover
@@ -128,6 +132,11 @@
       transition opacity .5s
       z-index -1
 
+      @media $mPortraitMax
+        background black
+        z-index -3
+        opacity 1
+
     .publ
       &__cover
         display block
@@ -138,6 +147,9 @@
         background-size cover
         margin 0
         z-index -2
+
+        @media $mPortraitMax
+          opacity .4
 
       &__info
         position absolute
@@ -150,6 +162,10 @@
           left 30px
           bottom 24px
           width calc(100% - 140px)
+        @media $mLandscapeMax
+          left 20px
+          bottom 20px
+          width calc(100% - 100px)
 
       &__title
         color #fff

@@ -149,6 +149,9 @@
       left auto
       right -336px
 
+    @media $mPortraitMax
+      width calc(100vw - 60px)
+
     &-top
       display flex
       align-items center
@@ -180,6 +183,9 @@
 
     @media $minDesktopMax
       height calc(100vh - 64px)
+
+    @media $mPortraitMax
+      padding 36px 20px
 
   &__subitem
     margin-bottom 29px

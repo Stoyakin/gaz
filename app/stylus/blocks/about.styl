@@ -1,6 +1,8 @@
 .about
-  margin-bottom 150px
+  margin-bottom 141px
   padding-top 7px
+  @media $bigDesktopMax
+    margin-bottom 92px
   &:last-child
     margin-bottom 0
   &__row
@@ -8,10 +10,20 @@
     flex-wrap wrap
     justify-content space-between
     align-items center
+    @media $tPortraitMax
+      align-items flex-start
   &__col
     width calc(50% - 15px)
+    @media $tPortraitMax
+      width 100%
     &:first-child
       padding-right 115px
+      padding-bottom 30px
+      @media $bigDesktopMax
+        padding-bottom 0
+      @media $tPortraitMax
+        padding-right 0
+        padding-bottom 40px
   &__blockqoute
     display flex
     align-items center
@@ -29,6 +41,9 @@
     z-index 1
     @media $bigDesktopMax
       font-size 14px
+      margin-top 0
+      margin-bottom 24px
+      padding-left 25px
     &:before
       @extend .before
       left 0
@@ -37,21 +52,30 @@
       height 83px
       background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABTCAMAAABJYcK6AAAAeFBMVEUAAADv9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//v9//xlGVOAAAAJ3RSTlMAoFAwQLBggJAf6oT3uQNSqcm1YxuWDisu23XYxZLfenI+iWtHEjsJfmzEAAABgklEQVRo3u2a3U6DQBBGhy20AsXKT0XFQi20vv8bekFMNjLLzERKsc53uenkJCend0DuyRaCtVB4nIP3KdvKxq2Ex57iFCfENYZa6sal5HHzA+cDtcCNC8hjv//hg+IUpzjFKU5xilOc4hSnuKvjynlxoeL+Oc7bILswcRV23Dpw7hka514gxhW/wW2kuAjsZUJcB9Y6Bi4DezWG46pp+rfTGC62D8792/YRwdFqnvrH9RjOIPbfYYATqCnhsh5ui+h4698OYO+MHCeEmsHCUR3UEkRNZ6kZbIfpeP3WQS1yl3JAD06IjmdMxzRqEmYpfDX1mJqIWQpfzbyl+LOVQquJF1NKijNoNXQpIaJjT+LiKUvJr1ZKgul4uZdSdjcs5fj3Skn5pVR0KfSfaN5ScnYpH4gO+Z/oXkrhqzGTl3JcUCnZ5KVUyymluEkplbFXC0tp7eM9WQo+upQCvSNLwUeXYtA7opThiFLEauQ6plFjuJ8D8NUsqJTWcy4GaiXjG54v47fEeaORTywAAAAASUVORK5CYII=') no-repeat center
       z-index -1
+      background-size cover
+      @media $bigDesktopMax
+        width 82px
+        height 62px
+        top 9px
     &:last-child
       margin-bottom 0
   //&__text
   &__right-over
     position relative
   &__cover
-    width calc(100% + 50px)
-    padding-top 67.724%
+    width calc(100% + 30px)
+    padding-top 71.724%
     background-size cover
     background-position 50% 50%
     background-repeat no-repeat
     @media $bigDesktopMax
       padding-top 67.857%
+    @media $tPortraitMax
+      width 100%
   &__gallery-href
     position absolute
-    right -50px
+    right -30px
     bottom 0
     z-index 1
+    @media $tPortraitMax
+      right 0

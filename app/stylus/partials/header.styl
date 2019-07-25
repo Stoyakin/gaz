@@ -105,6 +105,9 @@
     @media $desktopMax
       margin-right 30px
 
+    @media $mPortraitMax
+      margin-right 15px
+
     &-href
       flex-shrink 0
       margin-right 24px
@@ -120,6 +123,10 @@
 
       @media $mLandscapeMax
         margin-right 0
+
+    &-img
+      @media $mPortraitMax
+        max-width 140px
 
     &-title
       color #7c7d7d
@@ -274,6 +281,11 @@
     @media $minDesktopMax
       min-width 200px
 
+    @media $mPortraitMax
+      font-size 0
+      min-width inherit
+      width 64px
+
     &:before
       content ''
       display block
@@ -289,6 +301,9 @@
         height 19px
         background-size cover
         margin-right 15px
+
+      @media $mPortraitMax
+        margin-right 0
 
     &:after
       @extend .after

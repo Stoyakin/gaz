@@ -5,11 +5,28 @@
     justify-content space-between
     align-items flex-start
   &__aside
+    position sticky
+    top 20px
+    left 0
     width 402px
     background-color #f1f7ff
     padding 35px 30px 30px
+    @media $bigDesktopMax
+      width 293px
+      padding 25px 22px
+    @media $minDesktopMax
+      top 90px
+    @media $tPortraitMax
+      position relative
+      top 0
+      width 100%
   &__content
     width calc(100% - 430px)
+    @media $bigDesktopMax
+      width calc(100% - 321px)
+    @media $tPortraitMax
+      width 100%
+      margin-top 30px
   &__cards
     display flex
     flex-wrap wrap
@@ -23,6 +40,12 @@
     margin 0 14px 28px
     background-color white
     border 3px solid #f1f7ff
+    @media $bigDesktopMax
+      align-items flex-start
+    @media $desktopMax
+      width calc(50% - 28px)
+    @media $mLandscapeMax
+      width calc(100% - 28px)
     &-top
       position absolute
       top -2px
@@ -36,11 +59,20 @@
       background-color #f1f7ff
       padding 8px 10px
       user-select none
+      @media $bigDesktopMax
+        font-size 11px
+        line-height 11px
+        padding 10px 10px 6px
     &-avail
       color #fff
       background-color $color
       padding 8px 10px
       user-select none
+      @media $bigDesktopMax
+        font-size 11px
+        line-height 11px
+        white-space nowrap
+        padding 10px 10px 6px
     &-img
       display block
       position relative
@@ -64,22 +96,32 @@
       flex-direction column
       padding 20px 30px 35px
       flex-grow 1
+      @media $bigDesktopMax
+        padding 10px 20px 19px
     &-title
       color $color
       font-size 18px
       font-weight 500
       line-height 24px
       transition color .4s
+      @media $bigDesktopMax
+        font-size 14px
+        line-height 18px
       &:hover
         color $blueLight
     &-list
       display flex
       flex-wrap wrap
-      margin 15px 0 25px
+      margin 15px 0 15px -25px
+      @media $bigDesktopMax
+        margin-top 12px
+        margin-bottom 7px
       &-item
-        margin-right 45px
-        &:last-child
-          margin-right 0
+        width calc(50% - 25px)
+        margin-left 25px
+        margin-bottom 10px
+        @media $bigDesktopMax
+          font-size 12px
         &-title
           color rgba($color, .5)
           margin-bottom 5px
@@ -91,8 +133,11 @@
       font-size 18px
       font-weight 500
       line-height 24px
+      @media $bigDesktopMax
+        font-size 13px
     &-bottom
       display flex
+      width 100%
     &-btn
       min-width 50%
       width 50%

@@ -146,8 +146,14 @@
       line-height 22px
       margin-bottom 8px
 
+    @media $mPortraitMax
+      padding-left 25px
+
     ul:not([class]) li
       padding-left 30px
+
+      @media $mPortraitMax
+        padding-left 25px
 
       &:before
         left 0
@@ -175,6 +181,8 @@
     background $blueLight
     @media $desktopMax1440
       top 10px
+    @media $mPortraitMax
+      left 0
 
   ol:not([class])
     list-style none
@@ -202,12 +210,19 @@
       line-height 22px
       margin-bottom 8px
 
+    @media $mPortraitMax
+      padding-left 25px
+
     ol:not([class]) li
       &:before
         left 0
 
     ul:not([class]) li
       padding-left 30px
+
+      @media $mPortraitMax
+        padding-left 25px
+
       &:before
         content ''
         left 0
@@ -235,6 +250,12 @@
     @media $desktopMax1440
       height 22px
       line-height 22px
+    @media $mPortraitMax
+      left 0
+      min-width inherit
+      width 25px
+      content counters(myCounter,".")"."
+      top 0
 
   table:not([class])
     margin 42px 0 35px

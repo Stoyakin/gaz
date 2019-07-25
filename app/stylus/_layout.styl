@@ -25,7 +25,6 @@ body
   font-family $baseFontFamily
   font-weight $baseFontWeight
   box-sizing border-box
-  overflow-x hidden
 
   &.blocked, &.open-menu
     overflow hidden
@@ -36,7 +35,8 @@ body
     padding-top 64px
 
 .wrapper
-  overflow-x hidden
   z-index 1
   min-height 100vh
   min-height 100vh
+  @media $mLandscapeMax
+    overflow-x hidden

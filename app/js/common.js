@@ -320,11 +320,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
           prevEl: '.action .swiper-button-prev'
         },
         breakpoints: {
+          480: {
+            slidesPerView: 1,
+          },
           992: {
-            slidesPerView: point992
+            slidesPerView: point992,
           },
           1240: {
-            slidesPerView: point1240
+            slidesPerView: point1240,
           }
         }
       });
@@ -351,6 +354,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     },
 
     irevSlider: function irevSlider() {
+      let indEl = document.querySelector('.js-irev-swiper .swiper-ind-line span'),
+        width = 0,
+        timer;
+
+      function animInd(time) {
+        let timeout = time / 100;
+        if (width < 101) {
+          width++;
+          indEl.style.width = width + '%'
+          timer = setTimeout(() => {
+            animInd(time);
+          }, timeout);
+        } else {
+          indEl.style.width = '0%'
+        }
+      }
 
       let irevSlider = new Swiper('.js-irev-swiper', {
         loop: true,
@@ -361,6 +380,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         fadeEffect: {
           crossFade: true
         },
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false,
+        },
         navigation: {
           nextEl: '.irev .swiper-button-next',
           prevEl: '.irev .swiper-button-prev',
@@ -370,8 +393,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (this.$el[0].previousElementSibling && qs('.swiper-slide-active', this.$el[0]).dataset.date && qs('.swiper-slide-active', this.$el[0]).dataset.date != '') {
               this.$el[0].previousElementSibling.innerHTML = qs('.swiper-slide-active', this.$el[0]).dataset.date;
             }
+            width = 0;
+            indEl.style.width = '0%'
+            clearTimeout(timer);
+          },
+          transitionEnd: function () {
+            animInd(6000);
+          },
+          slideChange: function() {
+            const index = this.realIndex + 1;
+            const nextIndex = index + 1 > this.slides.length - this.loopedSlides * 2 ? 1 : index + 1;
+            qs('.js-irev-swiper .swiper-ind-number--prev').textContent = (`0${index}`).slice(-2);
+            qs('.js-irev-swiper .swiper-ind-number--next').textContent = (`0${nextIndex}`).slice(-2);
           }
         },
+        breakpoints: {
+          479: {
+            autoHeight: true,
+          }
+        }
       });
 
     },
@@ -421,7 +461,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         navigation: {
           nextEl: '.section-top .swiper-button-next',
           prevEl: '.section-top .swiper-button-prev',
-        }
+        },
+        on: {
+          slideChange: function() {
+            qs('.js-top-swiper .swiper-count-item').textContent = (`0${this.realIndex + 1}`).slice(-2);
+          },
+        },
       });
 
     },
@@ -456,7 +501,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
         autoplay: {
-          delay: 2,
+          delay: 6000,
           disableOnInteraction: false,
         },
         navigation: {
@@ -473,7 +518,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
             clearTimeout(timer);
           },
           transitionEnd: function () {
-            animInd(1625);
+            animInd(6000);
+          },
+          slideChange: function() {
+            const index = this.realIndex + 1;
+            const nextIndex = index + 1 > this.slides.length - this.loopedSlides * 2 ? 1 : index + 1;
+            qs('.js-iann-swiper .swiper-count-item').textContent = (`0${index}`).slice(-2);
+            qs('.js-iann-swiper .swiper-ind-number--prev').textContent = (`0${index}`).slice(-2);
+            qs('.js-iann-swiper .swiper-ind-number--next').textContent = (`0${nextIndex}`).slice(-2);
           }
         }
       });
@@ -490,6 +542,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         loopedSlides: 5, //looped slides should be the same
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
+        breakpoints: {
+          479: {
+            slidesPerView: 3,
+          }
+        }
       });
 
       var galleryTop = new Swiper('.js-gallery-top', {
@@ -531,7 +588,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         navigation: {
           nextEl: '.history .swiper-button-next',
           prevEl: '.history .swiper-button-prev',
-        }
+        },
+        on: {
+          slideChange: function() {
+            qs('.js-history-swiper .swiper-count-item').textContent = (`0${this.realIndex + 1}`).slice(-2);
+          },
+        },
       });
 
     },
@@ -830,7 +892,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
         simulateTouch: false,
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
-        //breakpoints: {}
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            autoHeight: true,
+          },
+          992: {
+            slidesPerView: 2,
+            autoHeight: true,
+          },
+          1240: {
+            slidesPerView: 3,
+            autoHeight: true,
+          }
+        }
       });
 
       const carModel = qs('.js-car-model'),

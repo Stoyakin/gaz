@@ -3,12 +3,15 @@
   max-width 1176px
   background-color #f1f7ff
   padding 51px 50px 57px
-  margin 80px auto 0
-  &:first-child
-    margin-top 0
+  margin 100px auto 0
   @media $bigDesktopMax
     max-width 884px
     padding 44px 40px 45px
+    margin-top 80px
+  @media $mPortraitMax
+    padding 34px 20px 20px
+  &:first-child
+    margin-top 0
   &__title
     margin-bottom 50px
     letter-spacing -0.035em
@@ -21,9 +24,19 @@
     max-width 670px
     margin 80px auto 150px
     padding 51px 70px 57px
+    @media $desktopMax1440
+      max-width 455px
+      padding 45px 39px 50px
+    @media $mLandscapeMax
+      max-width 100%
+      padding 35px 20px 40px
+    @media $mPortraitMax
+      margin-bottom 70px
     &:first-child
       margin-top 0
     &:last-child
       margin-bottom 0
   & + .main__center
     margin-top 150px
+    @media $desktopMax1440
+      margin-top 100px

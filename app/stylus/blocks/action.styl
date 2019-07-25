@@ -68,6 +68,8 @@
     margin-left auto
     & + .action__subscr-href
       margin-left 8px
+      @media $mPortraitMax
+        margin-left 0
 
   &__text
     color rgba($color, .86)
@@ -180,11 +182,20 @@
 
     @media $tPortraitMax
       margin-left 220px
+    
+    @media $mPortraitMax
+      margin-left 0
+      margin-top 80px
+
+    @media $mPortraitMax
+      margin-top 15px
 
   &--inner
     margin-bottom 142px
     @media $desktopMax1440
       margin-bottom 95px
+    @media $mLandscapeMax
+      margin-bottom 140px
 
     .action
       &__title
@@ -226,6 +237,8 @@
         padding 0 143px
         @media $bigDesktopMax
           padding 0 107px
+        @media $mLandscapeMax
+          padding 0
 
     .swiper-button
       &-prev, &-next
@@ -239,12 +252,18 @@
         @media $desktopMax1440
           width 64px
           height 64px
+        @media $mLandscapeMax
+          top calc(100% + 10px)
+          transform none
 
       &-prev
         left 0
 
       &-next
         right 0
+        @media $mLandscapeMax
+          right auto
+          left 65px
 
         &:after
           content none

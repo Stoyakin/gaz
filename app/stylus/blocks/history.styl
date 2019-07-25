@@ -1,21 +1,45 @@
 .history
   margin-bottom 142px
+  @media $bigDesktopMax
+    margin-bottom 80px
   &:last-child
     margin-bottom 0
   &__title
-    margin-bottom 50px
+    margin-bottom 39px
+    font-size 34px
+    letter-spacing 0
+    @media $bigDesktopMax
+      font-size 24px
+      margin-bottom 34px
   &__row
     display flex
     flex-wrap wrap
     align-items center
     justify-content space-between
+    @media $bigDesktopMax
+      align-items flex-start
   &__col
     width calc(50% - 15px)
+    @media $tPortraitMax
+      width 100%
     &:nth-child(2)
       padding-left 115px
+      padding-top 11px
+      @media $bigDesktopMax
+        padding-top 0
+        margin-top -6px
+        padding-left 6%
+        .wis-content p:not([class])
+          margin 14px 0
+      @media $tPortraitMax
+        padding-left 0
+        padding-top 40px
   &__gallery
     width calc(100% + 50px)
     margin-left -50px
+    @media $tPortraitMax
+      margin-left 0
+      width 100%
     &-img
       display block
       width 100%
@@ -32,6 +56,10 @@
     padding 17px 32px 20px
     overflow hidden
     z-index 1
+    @media $bigDesktopMax
+      margin-top 35px
+      padding 17px 25px 20px
+      max-width 237px
     &:after
       @extend .after
       width 96px
@@ -50,6 +78,10 @@
       font-weight 500
       line-height 24px
       margin-bottom 10px
+      @media $bigDesktopMax
+        font-size 13px
+        line-height 18px
+        margin-bottom 4px
     &-source
       color rgba(#fff, .7)
       font-size 14px
@@ -118,6 +150,8 @@
       width 393px
       @media $bigDesktopMax
         width 306px
+      @media $mPortraitMax
+        width 235px
     &-count
       display flex
       align-items flex-start
