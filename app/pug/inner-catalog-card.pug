@@ -13,79 +13,81 @@ block main
 
     +b('section').card
       +e.tabs.js-tabs
-        +e('ul').tabs-nav
-          +e('li').tabs-nav-item
-            +e('button')(data-tabs-nav="01").tabs-nav-button.--active Описание
-          +e('li').tabs-nav-item
-            +e('button')(data-tabs-nav="02").tabs-nav-button Технические характеристики
-        +e('ul').tabs-list
-          +e('li')(data-tabs-item="01").tabs-item.--active 
-            +e.row
-              +e.left
-                +b.gallery
-                  +e.top
-                    .swiper-container.js-gallery-top
-                      .swiper-wrapper
-                        .swiper-slide
-                          +e.top-content
-                            +e.top-overimg
-                              +e('img')(src=tmpsrc+"gallery-top.jpg" alt="").top-img
-                            +b('ul').tooltips
-                              +e('li').item.--bottom(style="left: 34%; top: 24%;")
-                                +e.item-pin
-                                +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
-                              +e('li').item.--right(style="top: 54%; left: 11%;")
-                                +e.item-pin
-                                +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
-                              +e('li').item.--left(style="right: 18%;top: 42%;")
-                                +e.item-pin
-                                +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
-                        .swiper-slide
-                          +e.top-content
-                            +e.top-overimg
-                              +e('img')(src=tmpsrc+"gallery-top2.jpg" alt="").top-img
-                        .swiper-slide
-                          +e.top-content
-                            +e.top-overimg
-                              +e('img')(src=tmpsrc+"gallery-top3.jpg" alt="").top-img
-                        .swiper-slide
-                          +e.top-content
-                            +e.top-overimg
-                              +e('img')(src=tmpsrc+"gallery-top4.jpg" alt="").top-img
-                        .swiper-slide
-                          +e.top-content
-                            +e.top-overimg
-                              +e('img')(src=tmpsrc+"gallery-top5.jpg" alt="").top-img
-                        .swiper-slide
-                          +e.top-content
-                            +e.top-overimg
-                              +e('img')(src=tmpsrc+"gallery-top6.jpg" alt="").top-img
-                  +e.thumbs
-                    .swiper-container.js-gallery-thumbs
-                      .swiper-wrapper
-                        .swiper-slide
-                          +e.thumbs-overimg
-                            +e('img')(src=tmpsrc+"gallery-thumbs.jpg" alt="").thumbs-img
-                        .swiper-slide
-                          +e.thumbs-overimg
-                            +e('img')(src=tmpsrc+"gallery-thumbs2.jpg" alt="").thumbs-img
-                        .swiper-slide
-                          +e.thumbs-overimg
-                            +e('img')(src=tmpsrc+"gallery-thumbs3.jpg" alt="").thumbs-img
-                        .swiper-slide
-                          +e.thumbs-overimg
-                            +e('img')(src=tmpsrc+"gallery-thumbs4.jpg" alt="").thumbs-img
-                        .swiper-slide
-                          +e.thumbs-overimg
-                            +e('img')(src=tmpsrc+"gallery-thumbs5.jpg" alt="").thumbs-img
-                        .swiper-slide
-                          +e.thumbs-overimg
-                            +e('img')(src=tmpsrc+"gallery-thumbs6.jpg" alt="").thumbs-img
+        +e.row
+          +e.left
+            +b.gallery
+              +e.top
+                .swiper-container.js-gallery-top
+                  .swiper-wrapper
+                    .swiper-slide
+                      +e.top-content
+                        +e.top-overimg
+                          +e('img')(src=tmpsrc+"gallery-top.jpg" alt="").top-img
+                        +b('ul').tooltips
+                          +e('li').item.--bottom(style="left: 34%; top: 24%;")
+                            +e.item-pin
+                            +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
+                          +e('li').item.--right(style="top: 54%; left: 11%;")
+                            +e.item-pin
+                            +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
+                          +e('li').item.--left(style="right: 18%;top: 42%;")
+                            +e.item-pin
+                            +e('p').item-text Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий позволяет оценить значение форм развития.
+                    .swiper-slide
+                      +e.top-content
+                        +e.top-overimg
+                          +e('img')(src=tmpsrc+"gallery-top2.jpg" alt="").top-img
+                    .swiper-slide
+                      +e.top-content
+                        +e.top-overimg
+                          +e('img')(src=tmpsrc+"gallery-top3.jpg" alt="").top-img
+                    .swiper-slide
+                      +e.top-content
+                        +e.top-overimg
+                          +e('img')(src=tmpsrc+"gallery-top4.jpg" alt="").top-img
+                    .swiper-slide
+                      +e.top-content
+                        +e.top-overimg
+                          +e('img')(src=tmpsrc+"gallery-top5.jpg" alt="").top-img
+                    .swiper-slide
+                      +e.top-content
+                        +e.top-overimg
+                          +e('img')(src=tmpsrc+"gallery-top6.jpg" alt="").top-img
+              +e.thumbs
+                .swiper-container.js-gallery-thumbs
+                  .swiper-wrapper
+                    .swiper-slide
+                      +e.thumbs-overimg
+                        +e('img')(src=tmpsrc+"gallery-thumbs.jpg" alt="").thumbs-img
+                    .swiper-slide
+                      +e.thumbs-overimg
+                        +e('img')(src=tmpsrc+"gallery-thumbs2.jpg" alt="").thumbs-img
+                    .swiper-slide
+                      +e.thumbs-overimg
+                        +e('img')(src=tmpsrc+"gallery-thumbs3.jpg" alt="").thumbs-img
+                    .swiper-slide
+                      +e.thumbs-overimg
+                        +e('img')(src=tmpsrc+"gallery-thumbs4.jpg" alt="").thumbs-img
+                    .swiper-slide
+                      +e.thumbs-overimg
+                        +e('img')(src=tmpsrc+"gallery-thumbs5.jpg" alt="").thumbs-img
+                    .swiper-slide
+                      +e.thumbs-overimg
+                        +e('img')(src=tmpsrc+"gallery-thumbs6.jpg" alt="").thumbs-img
 
-                    button(type="button").swiper-button-prev.swiper-button--min
-                    button(type="button").swiper-button-next.swiper-button--min
+                button(type="button").swiper-button-prev.swiper-button--min
+                button(type="button").swiper-button-next.swiper-button--min
 
-              +e.right
+          +e.right
+            +e('ul').tabs-nav
+              +e('li').tabs-nav-item
+                +e('button')(data-tabs-nav="01").tabs-nav-button.--active Описание
+              +e('li').tabs-nav-item
+                +e('button')(data-tabs-nav="02").tabs-nav-button Технические характеристики
+
+            +e('ul').tabs-list
+              +e('li')(data-tabs-item="01").tabs-item.--active 
+
                 +e('p').price от 1 195 000 
                   span руб.
 
@@ -195,32 +197,32 @@ block main
                   
                   +e('a')(href="#").more-btn.btn.--blue Смотреть все отзывы
 
-          +e('li')(data-tabs-item="02").tabs-item
-            .main__center
-              .wis-content
-                table
-                  tbody
-                    tr
-                      td Комплектация
-                      td Базовое исполнение(АКП)
-                    tr
-                      td Грузоподъемность
-                      td 2.428 тонн
-                    tr
-                      td Аудио- и информационные системы
-                      td Магнитола 2 DIN с кнопками на руле USB и навигацией
-                    tr
-                      td Приборы освещения
-                      td Ксеноновые + противотуманные
-                    tr
-                      td Комфорт
-                      td Круиз-контроль
-                    tr
-                      td Охранные системы
-                      td Есть
-                    tr
-                      td Интерьер
-                      td Сиденье “Люкс” отопитель, электророзетка
+              +e('li')(data-tabs-item="02").tabs-item
+                .main__center
+                  .wis-content
+                    table
+                      tbody
+                        tr
+                          td Комплектация
+                          td Базовое исполнение(АКП)
+                        tr
+                          td Грузоподъемность
+                          td 2.428 тонн
+                        tr
+                          td Аудио- и информационные системы
+                          td Магнитола 2 DIN с кнопками на руле USB и навигацией
+                        tr
+                          td Приборы освещения
+                          td Ксеноновые + противотуманные
+                        tr
+                          td Комфорт
+                          td Круиз-контроль
+                        tr
+                          td Охранные системы
+                          td Есть
+                        tr
+                          td Интерьер
+                          td Сиденье “Люкс” отопитель, электророзетка
 
     +b('section').graph
       +e('h2').title.title Расчет стоимости владения

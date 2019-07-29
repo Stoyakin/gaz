@@ -21,6 +21,7 @@
     opacity 0
     visibility hidden
     transition right .4s cubic-bezier(0.645, 0.045, 0.355, 1), opacity .4s, visibility .4s
+    min-height inherit
 
   &--show
     opacity 1
@@ -52,10 +53,22 @@
             right 64px
 
       &--logo
+        position relative
         flex-shrink 0
         flex-grow 0
         border-top none
-        background-color $blueLight
+
+        &:before
+          content ""
+          position absolute
+          left 0
+          bottom 0
+          width 100%
+          height 0
+          background-color $blueLight
+          transition .7s height
+          /body.scrolled &
+            height 100%
 
         @media $minDesktopMax
           display none
@@ -80,6 +93,11 @@
             width 53px
             height 53px
             flex-shrink 0
+            opacity 0
+            transition .7s .7s opacity
+
+            /body.scrolled &
+              opacity 1
 
             @media $bigDesktopMax
               left 19px
@@ -95,6 +113,9 @@
       height 100%
       padding 10px
 
+      @media $desktopMax1440
+        padding 5px 10px
+
       &-overico
         margin-bottom 14px
 
@@ -104,6 +125,11 @@
           align-items center
           max-width 24px
           max-height 24px
+
+        @media $desktopMax1440
+          max-width 20px
+          max-height 20px
+          margin-bottom 10px
 
         svg
           fill #a7a7a7
@@ -158,7 +184,7 @@
       justify-content center
       width 100%
       height 110px
-      background-color $blueLight
+      // background-color $blueLight
       padding 0
 
       @media $bigDesktopMax
@@ -177,9 +203,12 @@
     counter-reset sublist
     padding 56px 49px
     width 100%
-    height calc(100vh - 110px)
+    height calc(100vh - 80px)
     overflow-x hidden
     overflow-y auto
+
+    @media $desktopMax1440
+      padding 46px 49px
 
     @media $minDesktopMax
       height calc(100vh - 64px)
@@ -190,6 +219,10 @@
   &__subitem
     margin-bottom 29px
     padding-left 34px
+    @media $desktopMax1440
+      margin-bottom 23px
+    &:last-child
+      margin-bottom 0
 
   &__subhref
     position relative

@@ -16,7 +16,12 @@ function getParent(el, findParent) {
   return false;
 }
 
-window.onload = () => qs('body').classList.add('page-loaded');
+window.onload = () => {
+  if (window.scrollY > 0) document.body.classList.add('scrolled')
+  qs('body').classList.add('page-loaded');
+}
+
+window.addEventListener('scroll', () => document.body.classList.add('scrolled'));
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -30,6 +35,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
         inputs = qsAll('.form__field-input, .form__field-textarea'),
         forms = qsAll('form'),
         digitsInput = qsAll('.js-digits');
+
+      const picker = new Pikaday({ 
+        field: qs('.js-datepicker'),
+        firstDay: 1,
+        format: 'Do MMMM YYYY',
+        toString(date, format) {
+          const day = date.getDate();
+          const month = date.getMonth() + 1;
+          const year = date.getFullYear();
+          return `${day}.${month}.${year}`;
+        },
+        i18n: {
+          previousMonth : 'Предыдущий месяц',
+          nextMonth     : 'Следующий месяц',
+          months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+          weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+          weekdaysShort : ['Вск','Пон','Вт','Ср','Чт','Пт','Суб']
+        }
+      });
 
       function emptyCheck(event) {
         event.target.value.trim() === '' ?
@@ -429,6 +453,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         simulateTouch: false,
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
+        navigation: {
+          nextEl: '.js-idealer-swiper .swiper-button-next',
+          prevEl: '.js-idealer-swiper .swiper-button-prev',
+        },
         breakpoints: {
           767: {
             slidesPerView: 2
@@ -537,9 +565,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
       var galleryThumbs = new Swiper('.js-gallery-thumbs', {
         spaceBetween: 7,
         slidesPerView: 4,
-        loop: true,
+        // loop: true,
         freeMode: true,
-        loopedSlides: 5, //looped slides should be the same
+        // loopedSlides: 5, //looped slides should be the same
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         breakpoints: {
@@ -551,8 +579,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       var galleryTop = new Swiper('.js-gallery-top', {
         spaceBetween: 7,
-        loop: true,
-        loopedSlides: 5, //looped slides should be the same
+        // loop: true,
+        // loopedSlides: 5, 
         navigation: {
           nextEl: '.gallery .swiper-button-next',
           prevEl: '.gallery .swiper-button-prev',
@@ -892,10 +920,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
         simulateTouch: false,
         allowSwipeToNext: false,
         allowSwipeToPrev: false,
+        allowTouchMove: false,
         breakpoints: {
           640: {
             slidesPerView: 1,
             autoHeight: true,
+          },
+          768: {
+            slidesPerView: 2,
+            autoHeight: true,
+            spaceBetween: 10,
           },
           992: {
             slidesPerView: 2,

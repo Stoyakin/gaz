@@ -6,8 +6,11 @@
   z-index 1042
   overflow hidden
   position fixed
-  opacity 0.45
+  opacity 0
   background #1e1f21
+  transition .4s opacity
+  &.mfp-ready
+    opacity .45
 .mfp-wrap
   top 0
   left 0
@@ -17,6 +20,9 @@
   position fixed
   outline none !important
   -webkit-backface-visibility hidden
+  &.mfp-ready .popup
+    opacity 1
+    top 0
 .mfp-container
   text-align center
   position absolute

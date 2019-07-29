@@ -9,6 +9,8 @@
   .swiper
     &-container
       overflow visible
+    &-slide-active
+      z-index 1
     &-wrapper
       counter-reset myCounter2
       .insurance__step-top:before
@@ -91,6 +93,8 @@
         background-size 100% 100%
         transition background .4s
         z-index 2
+        @media $mLandscapeMax
+          display none
     &-title
       color #076af2
       font-size 13px

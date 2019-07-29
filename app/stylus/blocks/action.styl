@@ -188,7 +188,7 @@
       margin-top 80px
 
     @media $mPortraitMax
-      margin-top 15px
+      margin-top 85px
 
   &--inner
     margin-bottom 142px
@@ -204,13 +204,16 @@
         @media $bigDesktopMax
           margin-bottom -27px
           font-size 28px
-        @media $desktopMax
+        @media $minDesktopMax
           margin-bottom 0
         @media $tPortraitMax
           margin-bottom 40px
 
       &__filter-nav
         @media $desktopMax
+          max-width calc(100% - 355px)
+          width auto
+        @media $minDesktopMax
           order 4
           max-width 100%
           width 100%

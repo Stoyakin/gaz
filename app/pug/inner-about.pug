@@ -13,15 +13,15 @@ block main
       .swiper-wrapper
         .swiper-slide
           +content([
-            {cover: tmpsrc+'top-cover.jpg', date: 'до <span class="date-day">28</span><span>Сентябрь</span><span>2018</span>'}
+            {cover: tmpsrc+'top-cover.jpg', date: '<span class="date-day">28</span><span>Сентябрь</span><span>2018</span>'}
           ])
         .swiper-slide
           +content([
-            {cover: tmpsrc+'top-cover2.jpg', date: 'до <span class="date-day">29</span><span>Сентябрь</span><span>2018</span>'}
+            {cover: tmpsrc+'top-cover2.jpg', date: '<span class="date-day">29</span><span>Сентябрь</span><span>2018</span>'}
           ])
         .swiper-slide
           +content([
-            {cover: tmpsrc+'top-cover3.jpg', date: 'до <span class="date-day">30</span><span>Сентябрь</span><span>2018</span>'}
+            {cover: tmpsrc+'top-cover3.jpg', date: '<span class="date-day">30</span><span>Сентябрь</span><span>2018</span>'}
           ])
       .swiper-nav
         .swiper-count
@@ -133,6 +133,9 @@ block main
           .swiper-slide
             +e.item.js-tippy(title="Значимость этих проблем настолько очевидна")
               +e('img')(src="static/img/dealer5.png" alt="").item-img
+        .swiper-buttons
+          .swiper-button-prev
+          .swiper-button-next
 
     +b('section').irev
       +e.row

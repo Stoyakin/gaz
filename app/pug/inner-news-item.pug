@@ -10,7 +10,7 @@ block main
   
   +b('section').section-top
     +content([
-      {cover: tmpsrc+'top-cover.jpg', date: 'до <span class="date-day">28</span><span>Сентябрь</span><span>2018</span>'}
+      {cover: tmpsrc+'top-cover.jpg', date: '<span class="date-day">28</span><span>Сентябрь</span><span>2018</span>'}
     ])
 
   .container
@@ -25,6 +25,6 @@ block main
 
     .main__bottom
       a(href="#").main__page-nav.main__page-nav--prev Предыдущая новость
-      a(href="#").main__href.btn.btn--light Вернуться к списку новостей
+      //- a(href="#").main__href.btn.btn--light Вернуться к списку новостей
       a(href="#").main__href.btn.btn--light Подписаться на рассылку
       a(href="#").main__page-nav.main__page-nav--next Следующая новость

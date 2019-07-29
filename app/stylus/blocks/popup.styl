@@ -1,11 +1,14 @@
 .popup
   position relative
+  top -20px
   width 100%
   max-width 670px
   background-color white
   padding 62px 70px 70px
   margin 35px auto
   z-index 1
+  opacity 0
+  transition .7s opacity, .7s top
   @media $tPortraitMax
     margin-top 70px
     padding 42px 40px 40px
@@ -32,7 +35,7 @@
     &:after
       @extend .after
       left 50%
-      transform translateX(-50)
+      transform translateX(-50%)
       bottom 0
       width 52px
       height 3px
@@ -50,13 +53,13 @@
     flex-wrap wrap
     background-color white
     margin-bottom 7px
-    @media $desktopMax1440
+    @media $mLandscapeMax
       align-items flex-start
       margin-bottom 0
     &-top
       width 50%
       border 2px solid #f1f7ff
-      @media $desktopMax1440
+      @media $mLandscapeMax
         width 100%
         margin-bottom 15px
     &-char
@@ -64,7 +67,7 @@
       border 2px solid #f1f7ff
       margin-left -2px
       padding 20px 24px
-      @media $desktopMax1440
+      @media $mLandscapeMax
         width 100%
         border 0
         margin-left 0

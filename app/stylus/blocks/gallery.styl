@@ -28,6 +28,10 @@
   &__thumbs
     position relative
     .swiper
+      &-container
+        @media $mPortraitMax
+          height 0
+          opacity 0
       &-slide
         max-width 170px
         &-thumb-active
@@ -70,6 +74,9 @@
       top 50%
       transform translateY(-50%)
       z-index 2
+      @media $mPortraitMax
+        transform none
+        top -140px
     &-prev
       left 0
     &-next

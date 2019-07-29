@@ -31,7 +31,6 @@
     @media $bigDesktopMax
       padding 25px 55px 14px 23px
       min-height 136px
-      margin-bottom 20px
     @media $desktopMax1440
       padding-top 17px
     @media $desktopMax
@@ -193,4 +192,7 @@
         margin 0 20px 0 0
       &-ico
         max-height 100%
+      &-text
+        @media $tPortraitMax
+          width calc(100% + 30px)
 

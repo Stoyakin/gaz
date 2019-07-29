@@ -232,6 +232,7 @@ gulp.task('js-vendor', jsVendor(
     'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
     'node_modules/swiper/dist/js/swiper.js',
     src.app.js + 'ext/choices.min.js',
+    src.app.js + 'ext/pikaday.js',
     /*'node_modules/choices.js/public/assets/scripts/choices.min.js',*/
     'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
     'node_modules/lightgallery.js/dist/js/lightgallery.js',

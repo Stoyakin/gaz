@@ -154,6 +154,17 @@
 
     @media $mPortraitMax
       padding 0 15px
+      position relative
+      z-index 1
+      &:before
+        content ""
+        position absolute
+        z-index -1
+        width 100%
+        height 100%
+        left 0
+        top 0
+        background-color alpha(black, .3)
 
     &-title
       color #1d1f20
@@ -168,6 +179,9 @@
         letter-spacing .02em
         margin-bottom 4px
 
+      @media $mPortraitMax
+        color white
+
     &-text
       color #1d1f20
       font-size 32px
@@ -181,6 +195,7 @@
 
       @media $mPortraitMax
         max-width 260px
+        color white
 
     &-href
       margin-top 60px
