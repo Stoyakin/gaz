@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         forms = qsAll('form'),
         digitsInput = qsAll('.js-digits');
 
-      const picker = new Pikaday({ 
+      const picker = new Pikaday({
         field: qs('.js-datepicker'),
         firstDay: 1,
         format: 'Do MMMM YYYY',
@@ -580,7 +580,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       var galleryTop = new Swiper('.js-gallery-top', {
         spaceBetween: 7,
         // loop: true,
-        // loopedSlides: 5, 
+        // loopedSlides: 5,
         navigation: {
           nextEl: '.gallery .swiper-button-next',
           prevEl: '.gallery .swiper-button-prev',
@@ -1042,7 +1042,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
               qs('.calc__tabs-nav-btn.calc__tabs-nav-btn--active').classList.remove('calc__tabs-nav-btn--active');
               _th.classList.add('calc__tabs-nav-btn--active');
               if (_th.dataset.tabsNav && _th.dataset.tabsNav != '' && qs('.calc__tabs-item[data-tabs-item="' + _th.dataset.tabsNav + '"]', getParent(this, 'calc'))) {
-                let tabsItem = qs('.calc__tabs-item[data-tabs-item]', getParent(this, 'calc'));
+                let tabsItem = qs('.calc__tabs-item.calc__tabs-item--active[data-tabs-item]', getParent(this, 'calc'));
                 let tabsNext = qs('.calc__tabs-item[data-tabs-item="' + _th.dataset.tabsNav + '"]', getParent(this, 'calc'));
                 _self.fadeOut(tabsItem, 300, function () {
                   tabsItem.classList.remove('calc__tabs-item--active');
