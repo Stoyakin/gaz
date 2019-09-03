@@ -17,6 +17,10 @@
       @media $desktopMax1440
         font-size 12px
         line-height 18px
+      &--big
+        font-size 24px
+        font-weight 500
+        line-height 32px
   &__field
     position relative
     width 100%
@@ -49,6 +53,8 @@
         background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAP1BMVEUAavYAAAAAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavYAavZ98jJgAAAAFHRSTlNwAD5PwOAYEWA3IPff3NqdX0QyCIcTQZwAAABiSURBVBjTdc1bDoAgDETRaVELPkG6/7VK0FRJ8Ga+TtIURHlfhUqy7pkIJKzq5pJTZSEkbUpAC+jB4ayjAsjCDawa6viFOoPJR/Feop8eCON41oXfE9j6b7fB2grwop8WvgC6zwntJFz7kQAAAABJRU5ErkJggg==') no-repeat center
         z-index 1
         pointer-events none
+        @media $mPortraitMax
+          right 22px
     &-input, &-textarea
       display block
       width 100%

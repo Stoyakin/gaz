@@ -11,6 +11,53 @@ block main
   .container
     h1.main__title #{title}
 
+    .wis-content
+      +b.shedule
+        +e.filial
+          +e('ul').items
+            +e('li').item
+              +e('p').item-title Отдел продаж
+              +e.item-data
+                p 
+                  b Понедельник-пятница: 
+                  | с 08.00 до 19.00
+                p 
+                  b Суббота: 
+                  | с 09.00 до 16.00
+                p 
+                  b Воскресенье: 
+                  | с 09.00 до 14.00
+            +e('li').item
+              +e('p').item-title Сервис
+              +e.item-data
+                p 
+                  b Понедельник-пятница: 
+                  | с 08.00 до 19.00
+                p 
+                  b Суббота: 
+                  | с 09.00 до 15.00
+                p 
+                  b Воскресенье: 
+                  | выходной
+            +e('li').item
+              +e('p').item-title Экспресс-сервис
+              +e.item-data
+                p 
+                  b Понедельник-пятница: 
+                  | с 08.00 до 18.00
+                p 
+                  b Суббота: 
+                  | с 09.00 до 15.00
+                p 
+                  b Воскресенье: 
+                  |  выходной
+        +e.filial
+          +e('address').filial-address Саратовский район, поселок Зоринский, Промзона, Промузел Зоринский, Литер АА1
+          +e('p').filial-phone Телeфон: 
+            a(href="tel:88452448888") 8 (8452) 44-88-88
+          +e('p').filial-email Электронная почта по вопросам покупки автомобилей: 
+            a(href="email:sales@gazlider.ru") sales@gazlider.ru
+            
     +b('section').filials.js-filials
       script.
         window.dataMap = [ "51.542906, 45.995009", "51.590566, 45.991362", "51.514610, 45.988703" ];
@@ -52,4 +99,3 @@ block main
       +e.bottom.bottom-row
         +e('a')(href="#").btn.btn.btn--light Отправить заявку
         +e('a')(href="#").btn.btn.btn--blue Записаться в сервис
-

@@ -8,6 +8,8 @@
     &-nav
       display flex
       margin-bottom 28px
+      @media $mPortraitMax
+        flex-wrap wrap
       &-item
         width 100%
       &-button
@@ -146,3 +148,12 @@
     margin-bottom 30px
     &:last-child
       margin-bottom 0
+
+.bx-filter
+  .catalog__card-bottom
+    flex-wrap wrap
+  .catalog__card-btn
+    width 100%
+    min-width 100%
+    &+.catalog__card-btn
+      margin-top 10px

@@ -6,7 +6,7 @@
   height 100vh
   min-height 650px
   box-shadow -15px 0 56.4px 3.6px rgba(0, 0, 0, 0.08)
-  z-index 11
+  z-index 999
 
   @media $bigDesktopMax
     width 84px
@@ -139,6 +139,7 @@
           max-height 100%
 
       &-text
+        text-align center
         color #a7a7a7
         font-size 12px
         line-height 14px
@@ -177,6 +178,7 @@
 
     @media $mPortraitMax
       width calc(100vw - 60px)
+      right -100vw
 
     &-top
       display flex

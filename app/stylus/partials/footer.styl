@@ -87,13 +87,16 @@
         width calc(100% - 558px)
         margin-top -4px
 
-      @media $tPortraitMax
+      @media $minDesktopMax
         display none
 
       .footer__nav
         &-item
           margin-right 30px
           margin-bottom 0
+
+          @media $desktopMax
+            margin-right 0px
 
           &:last-child
             margin-right 0
