@@ -53,7 +53,7 @@
     "magnific-popup": "^1.1.0",
     "perfectionist": "^2.4.0",
     "postcss-base64": "^0.7.1",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "stylus": "^0.54.2",
     "swiper": "^4.4.2",
     "systemjs": "^3.0.0",
