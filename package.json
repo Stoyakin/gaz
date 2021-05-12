@@ -55,7 +55,7 @@
     "postcss-base64": "^0.7.1",
     "pug": "^2.0.3",
     "stylus": "^0.54.2",
-    "swiper": "^4.4.2",
+    "swiper": "^6.5.1",
     "systemjs": "^3.0.0",
     "uglify-js": "^3.4.9"
   }
